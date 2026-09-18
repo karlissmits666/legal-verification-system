@@ -12,7 +12,7 @@
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **DONE — FROZEN** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.4 FREEZE CANDIDATE — MECHANICAL AUDIT PASS** | **Jā** |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **DONE — FROZEN (Architecture v0.4)** | **Jā — Pilot 1: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto AI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika / mapping | TODO | Nē — nepieciešams bankas governance apstiprinājums |
 | 4 | `VERIFICATION_PROTOCOL_v1` | Precīza HUMAN VERIFIED, semantic verification, verification depth un release-gate kārtība | TODO | **Jā** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | TODO | Netieši, caur requirements matrix pilotiem |
@@ -114,7 +114,7 @@ LEGAL TASK
 
 ```text
 1. PROFESSIONAL_SCOPE_v1.3                     DONE / FROZEN
-2. TRACEABILITY_RECORD_v1                     IN PROGRESS
+2. TRACEABILITY_RECORD_v1                     DONE / FROZEN
 3. TERMINOLOGY_AND_ENUMS_v1
 4. VERIFICATION_PROTOCOL_v1
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
@@ -140,9 +140,9 @@ LEGAL TASK
 ## 5. Projekta progresa kopsavilkums
 
 **Obligātie pamatdokumenti:** 13  
-**Pabeigti / frozen:** 1  
-**Izstrādē:** 1  
-**Atlikuši pēc Traceability:** 11  
+**Pabeigti / frozen:** 2  
+**Izstrādē:** 0  
+**Atlikuši obligātie dokumenti:** 11  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
 **Plānotie pilota posmi:** 4  
 **Nosacīts papildu dokuments:** 1
@@ -187,11 +187,11 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 ## Traceability milestone
 
-`TRACEABILITY_RECORD_v1 — Architecture v0.4` ir konsolidēts kā freeze candidate.
+`TRACEABILITY_RECORD_v1 — Architecture v0.4` ir apstiprināts kā frozen baseline.
 
 - Mechanical audit pret `PROFESSIONAL_SCOPE_v1.3`: PASS
 - Blocking baseline conflicts: 0
 - New canonical statuses: 0
-- Freeze: gaida lietotāja explicit approval
+- Freeze: APPROVED — BASELINE (FROZEN), 2026-09-18
 - Pilot 1 scope: ANALYSE + EXTRACT
 - Pilot 1 obligāts simulated DATA CLASS MISMATCH SUSPECTED test case
