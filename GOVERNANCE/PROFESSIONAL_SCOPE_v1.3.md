@@ -1,9 +1,9 @@
 PROFESSIONAL_SCOPE_v1.3
 Bankas jurista profesionālais darba tvērums AI atbalstītai juridiskā darba videi
 
-Statuss: APPROVED — BASELINE (FROZEN)
+Statuss: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA) [`APPROVED — BASELINE (FROZEN)`]
 Versija: 1.3
-Freeze datums: 2026-09-18
+Iesaldēšanas datums: 2026-09-18
 
 
 1. DOKUMENTA MĒRĶIS
@@ -19,7 +19,7 @@ Tā funkcija ir noteikt: kādus juridiskos uzdevumus sistēmai jāatbalsta; kād
 
 2. PROFESIONĀLĀ LOMA
 
-Jurists strādā bankas juridiskajā funkcijā ar specializāciju: iepirkumos; pakalpojumu un citos saimnieciskos līgumos; ārpakalpojumu jeb outsourcing jautājumos; ICT pakalpojumu jautājumos DORA kontekstā; juridiskā atbalsta sniegšanā sadarbībai ar bankas preču un pakalpojumu sniedzējiem; citu juridisku jautājumu un risinājumu analīzē savas kompetences ietvaros.
+Jurists strādā bankas juridiskajā funkcijā ar specializāciju: iepirkumos; pakalpojumu un citos saimnieciskos līgumos; ārpakalpojumu jeb ārpakalpojumu (outsourcing) jautājumos; IKT pakalpojumu jautājumos DORA kontekstā; juridiskā atbalsta sniegšanā sadarbībai ar bankas preču un pakalpojumu sniedzējiem; citu juridisku jautājumu un risinājumu analīzē savas kompetences ietvaros.
 
 Darbs aptver Latvijas banku, Latvijas grupas sabiedrības, Baltijas līmeņa un atsevišķus grupas projektus sadarbībā ar Zviedrijas kolēģiem.
 
@@ -32,7 +32,7 @@ Juridiskais apstiprinājums neietver automātisku visu bankas riska kategoriju a
 
 Jurista kompetencē ietilpst galvenokārt: juridiskā atbilstība; iepirkumu jautājumi; outsourcing juridiskais regulējums; ārējo tiesību aktu prasības viņa kompetences jomā; attiecīgās bankas iekšējās procedūras.
 
-Citas funkcijas atbild par savām riska kategorijām: risk, compliance, information security, data protection, business owner, citas specializētās funkcijas.
+Citas funkcijas atbild par savām riska kategorijām: riska vadība, atbilstības kontrole, informācijas drošība, datu aizsardzība, biznesa īpašnieks, citas specializētās funkcijas.
 
 LEGAL APPROVED:
 Juridiskais apstiprinājums tiek dots un fiksēts bankas faktiskajā procesā — e-pastā, līgumu pārvaldības sistēmā vai citā bankas noteiktā veidā.
@@ -46,11 +46,11 @@ Juridiskais apstiprinājums tiek dots un fiksēts bankas faktiskajā procesā �
 
 Jurists: izvērtē juridisko pieņemamību; identificē juridiskos riskus; interpretē piemērojamos juridiskos un iekšējos noteikumus; pārbauda līguma juridisko saturu; veic vai piedalās outsourcing klasifikācijā; var sniegt LEGAL APPROVED 3. punkta izpratnē.
 
-4.2. Outsourcing klasifikācija
+4.2. Ārpakalpojuma (outsourcing) klasifikācija
 
 To, vai sadarbība kvalificējas kā outsourcing, nosaka jurists kopā ar outsourcing manager. Sistēmas autoritāte noteikta 13. punktā.
 
-4.3. Critical or important function (CIF)
+4.3. Kritiska vai svarīga funkcija (CIF — Critical or Important Function)
 
 CIF statuss nav jurista individuāls lēmums un nav sistēmas lēmums.
 
@@ -123,14 +123,14 @@ Pārbaude nedrīkst aprobežoties ar klauzulu esamības pārbaudi. Jāvērtē ar
 Definīcijas un cross-references ir pierādījuma sastāvdaļa (16.2.).
 
 
-8. PROCUREMENT JURIDISKAIS ATBALSTS
+8. IEPIRKUMU JURIDISKAIS ATBALSTS
 
 Jurists var: izvērtēt vendor noteikumus pirms izvēles; piedalīties sarunās; izvērtēt līguma juridisko risku; nodrošināt atbilstību procurement iekšējiem noteikumiem.
 
 Iesaiste var būt atkarīga no līguma vērtības, vendor risk classification un iepirkuma rakstura.
 
 
-9. OUTSOURCING / EBA DARBA TVĒRUMS
+9. ĀRPAKALPOJUMU / EBA DARBA TVĒRUMS
 
 Bankai ir: outsourcing policy; outsourcing checklist; ārējo prasību kopums; minimum contractual requirements.
 
@@ -142,18 +142,18 @@ INVARIANTS (kopīgs ar 10. punktu):
 Līguma klauzulas esamība apliecina tikai līgumiska nosacījuma esamību. Tā pati par sevi nepierāda attiecīgā operacionālā, drošības vai cita riska faktisku kontroli.
 
 
-10. ICT / DORA DARBA TVĒRUMS
+10. IKT / DORA DARBA TVĒRUMS
 
-Bankai ir DORA contractual clause checklist un DORA addendum veidnes critical un non-critical gadījumiem.
+Bankai ir DORA līguma klauzulu pārbaudes saraksts un DORA pielikuma veidnes kritiskiem/svarīgiem un nekritiskiem/nesvarīgiem gadījumiem.
 
-Jurista uzdevums: ICT subcontracting; audit/access/testing rights; incident notification; data location; processing locations; termination; exit support.
+Jurista uzdevums: IKT apakšuzņēmēju nosacījumi; audita, piekļuves un testēšanas tiesības; incidentu paziņošana; datu atrašanās vieta; apstrādes vietas; izbeigšana; iziešanas atbalsts.
 
 Sistēma drīkst secināt, vai līgumā ir ietverts nepieciešamais juridiskais nosacījums. Sistēma nedrīkst secināt, ka attiecīgais tehniskais vai operacionālais risks ir kontrolēts.
 
 
 11. IEKŠĒJAIS BANKAS REGULĒJUMS
 
-Obligāti ņemami vērā vismaz: Outsourcing Policy; Procurement Policy; Third Party Risk Policy; DORA / ICT Third Party Risk Policy; mandatory contract clauses; approval matrix; līgumu templates.
+Obligāti ņemami vērā vismaz: Outsourcing Policy; Procurement Policy; Third Party Risk Policy; DORA / IKT trešo pušu riska politika; obligātās līguma klauzulas; apstiprināšanas matrica; līgumu veidnes.
 
 Tie ir saistoši un izmantojami Legora vidē 19. punkta ietvaros. Katram dokumentam fiksējama versija un spēkā stāšanās datums (20. punkts).
 
