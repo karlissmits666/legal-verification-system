@@ -2,7 +2,7 @@
 
 OUTSOURCING-EBA kandidātmoduļa screening triggeru kopa
 
-**Statuss:** MELNRAKSTS — RECENZIJAI; NOT ACTIVE  
+**Statuss:** MELNRAKSTS — RECENZIJAI; lifecycle = null  
 **Versija:** v0.1  
 **Datums:** 2026-09-18  
 **Owner:** REQUIREMENTS_MATRIX_GOVERNANCE_v1  
@@ -125,35 +125,44 @@ Source basis:
 - EBA/GL/2019/02 para. 26;
 - EBA Q&A 2020_5220.
 
-### OEB-T04 — piegādātājs pārņem faktisku izpildi, ne tikai dod instrumentu / preci / konsultāciju
+### OEB-T04 — nav nepārprotami konstatējams, ka piegādātājs tikai piegādā preci / licenci / neatkarīgu konsultāciju
 
 ```text
 TRIGGER:
-Piegādātājs ne tikai pārdod preci, licenci vai sniedz padomu,
-bet faktiski izpilda konkrētu procesa / pakalpojuma / darbības daļu bankas vietā.
+No FACT PROFILE nav nepārprotami konstatējams, ka piegādātāja loma aprobežojas
+tikai ar preces piegādi, licences piešķiršanu vai neatkarīgu konsultāciju /
+eksperta rezultātu un ka piegādātājs neveic bankas procesa, pakalpojuma vai
+darbības daļas faktisku izpildi.
 ```
 
 Source basis:
-- atvasināts no EBA outsourcing definīcijas un para. 26.
+- konservatīvs screening noteikums, kas operacionalizē EBA outsourcing definīcijas robežu.
 
-Governance note:
-šis ir interpretatīvs screening trigger, ne atsevišķa EBA definīcija.
-Pirms ACTIVE statusa to jāapstiprina juristam + outsourcing manager.
+Screening rule:
+- ja no faktiem ir nepārprotami redzams tikai preces/licences/neatkarīgas konsultācijas modelis, T04 nav;
+- ja tas nav nepārprotami nosakāms no FACT PROFILE, T04 = identified → FULL LCA.
 
-### OEB-T05 — līguma izpilde ir integrēta bankas pastāvīgā operacionālā procesā
+T04 klātbūtne neprasa juridisku spriedumu screening posmā; neskaidrība pati aktivizē FULL LCA.
+
+### OEB-T05 — FACT PROFILE rāda atkārtotu iesaisti bankas operacionāla procesa izpildē
 
 ```text
 TRIGGER:
-Piegādātāja izpilde ir regulāri integrēta bankas procesā,
-nevis tikai piegādā vienreizēju gala produktu vai neatkarīgu ekspertu atzinumu.
+FACT PROFILE satur vismaz vienu konkrētu pazīmi, ka piegādātāja darbība atkārtoti
+piedalās bankas procesa izpildē, piemēram:
+- piegādātājs periodiski veic procesa soli;
+- piegādātāja rezultāts regulāri tiek izmantots nākamajā bankas procesa solī;
+- bankas darbinieki atkārtoti paļaujas uz piegādātāja izpildi, lai pabeigtu procesu;
+- piegādātājs uztur nepārtrauktu operacionālu funkciju, ne tikai nodod vienreizēju rezultātu.
 ```
 
 Source basis:
 - EBA para. 26 recurrent / ongoing criterion;
-- interpretatīva operacionalizācija screening vajadzībām.
+- faktos balstīta screening operacionalizācija.
 
-Governance note:
-pirms ACTIVE statusa nepieciešams cilvēka apstiprinājums.
+Ja no FACT PROFILE nav iespējams noteikt, vai šāda atkārtota operacionāla iesaiste pastāv:
+→ T05 = identified screening vajadzībām
+→ FULL LCA.
 
 ### OEB-T06 — neskaidrs, vai funkcija ietilpst para. 28 izņēmumā
 
@@ -192,6 +201,12 @@ PLACEHOLDER — NOT OPERATIONALLY USABLE
 ```
 
 Līdz faktiskā bankas avota pievienošanai šo trigger nevar izmantot kā source-based trigger.
+
+Pirms trigger set drīkst iegūt lifecycle = ACTIVE, OEB-T07:
+- vai nu tiek aizpildīts ar konkrētu bankas iekšējā avota identitāti, versiju un source basis;
+- vai tiek izņemts no trigger set.
+
+Placeholder nedrīkst pāriet ACTIVE versijā.
 
 ## 6. Kas NAV trigger pēc noklusējuma
 
@@ -285,17 +300,28 @@ FULL LCA REQUIRED
 
 ## 11. Cilvēka apstiprināšanas prasība
 
-Pirms ACTIVE:
+Pirms lifecycle = ACTIVE:
 1. jurists pārbauda ārējo source basis;
 2. outsourcing manager pārbauda praktisko screening atbilstību bankas klasifikācijas procesam;
 3. bankas iekšējie avoti tiek pievienoti;
-4. tiek pārbaudīta para. 28 exclusion loģika;
-5. tiek pārbaudīta saderība ar 2026 EBA third-party risk pāreju;
-6. tiek veikts pilots ar vismaz:
+4. OEB-T07 placeholder tiek aizpildīts vai izņemts;
+5. tiek pārbaudīta para. 28 exclusion loģika;
+6. tiek pārbaudīta saderība ar 2026 EBA third-party risk pāreju;
+7. tiek veikts retrospektīvs kalibrācijas pilots pret vismaz 15–20 reāli noslēgtiem līgumiem no pietiekami reprezentatīva perioda;
+8. pilotā obligāti ietver:
    - skaidru outsourcing gadījumu;
    - skaidru non-outsourcing gadījumu;
    - robežgadījumu;
-   - vienu para. 28 exclusion kandidātu.
+   - para. 28 exclusion kandidātu;
+   - dažādus CONTRACT TYPE.
+
+Pilotā izmēra vismaz:
+- cik % līgumu trigger set nosūta uz FULL LCA;
+- kuri triggeri nostrādā visbiežāk;
+- false-negative gadījumus;
+- false-positive / pārmērīgas eskalācijas gadījumus.
+
+Ja OEB-T03 vai cits triggers nosūta gandrīz visus līgumus uz FULL LCA, trigger set pirms ACTIVE jāpārskata un jebkura sašaurināšana jāpamato avotos.
 
 ## 12. Transition watch — 2026 EBA third-party risk Guidelines
 
@@ -328,7 +354,9 @@ NO  → current basis remains EBA/GL/2019/02.
 ```text
 TRIGGER SET ID: MTR-OUTSOURCING-001
 VERSION: 0.1-draft
-STATUS: NOT ACTIVE
+LIFECYCLE: null
+APPROVED BY: null
+APPROVAL REFERENCE: null
 BLOCKING ARCHITECTURE ISSUES: 0
 OPEN LEGAL / GOVERNANCE REVIEW: YES
 PRODUCTION USE: NO
