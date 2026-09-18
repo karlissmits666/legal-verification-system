@@ -75,11 +75,26 @@ Ja CIF STATUS datums ir agrāks par būtiskām izmaiņām pakalpojuma tvērumā,
 
 4.3.a. IKT / DORA juridiskā kvalifikācija
 
-Jurists savas kompetences ietvaros drīkst veikt un apstiprināt juridisku izvērtējumu par to, vai konkrētais pakalpojums vai sadarbība kvalificējas kā IKT pakalpojums vai citādi rada ICT-DORA moduļa piemērojamību.
+Jānošķir divi lēmumi.
 
-Ja gala statusam bankas faktiskajā procesā nepieciešams citas funkcijas apstiprinājums vai ārējs ievaddats, jurista juridiskais secinājums šo procesa prasību neaizstāj.
+A. IKT PAKALPOJUMA JURIDISKĀ KVALIFIKĀCIJA
 
-Sistēma drīkst sniegt argumentētu klasifikācijas priekšlikumu, bet nedrīkst pati piešķirt gala moduļa statusu.
+Jurists savas kompetences ietvaros drīkst veikt un apstiprināt juridisku izvērtējumu par to, vai konkrētais pakalpojums kvalificējas kā IKT pakalpojums piemērojamā DORA regulējuma izpratnē.
+
+Šis jurista juridiskais secinājums ir HUMAN DECISION un nav pats par sevi ICT-DORA MODULE STATUS.
+
+B. ICT-DORA MODUĻA PIEMĒROJAMĪBA
+
+ICT-DORA moduļa gala statusam saglabājas HUMAN CONFIRMATION REQUIRED.
+
+Pirms šā moduļa production aktivizācijas bankas governance ir konkrēti jānosauc funkcija vai funkciju kombinācija, kas apstiprina ICT-DORA MODULE STATUS. Placeholder formulējums "papildu funkcija, ja to prasa bankas process" nav pietiekams production lēmuma noteikums.
+
+Kamēr šī funkcija nav nosaukta:
+  ICT-DORA MODULE STATUS
+  → UNCLEAR
+  → HUMAN CONFIRMATION REQUIRED
+
+Sistēma drīkst sagatavot argumentētu klasifikācijas priekšlikumu, bet nedrīkst pati piešķirt gala moduļa statusu.
 
 4.4. Citi riski
 
@@ -333,7 +348,17 @@ LEGAL CLASSIFICATION ASSESSMENT nekad automātiski nepārvēršas par MODULE STA
 
 CIF STATUS nav LEGAL CLASSIFICATION ASSESSMENT rezultāts. ICT-DORA klasifikācijas LCA izvērtē, vai pakalpojums ir IKT pakalpojums / vai ICT-DORA modulis ir piemērojams. CIF STATUS paliek EXTERNAL INPUT ONLY.
 
-DORA prasību kopas izvēle drīkst būt atkarīga gan no ICT-DORA MODULE STATUS, gan no CIF STATUS un citiem iepriekš apstiprinātiem SELECTION CONDITIONS. Ja CIF nepieciešams izvēlei un CIF STATUS = NOT YET DETERMINED, piemērojams HUMAN INPUT REQUIRED; sistēma nedrīkst klusējot izvēlēties non-critical kopu.
+DORA prasību kopas izvēle drīkst būt atkarīga gan no ICT-DORA MODULE STATUS, gan no CIF STATUS un citiem iepriekš apstiprinātiem SELECTION CONDITIONS.
+
+Ja ICT-DORA = APPLICABLE:
+- CIF-INDEPENDENT DORA REQUIREMENTS SET tiek aktivizēts neatkarīgi no CIF statusa;
+- CIF-DEPENDENT REQUIREMENTS SET tiek izvēlēts tikai pēc CIF statusa.
+
+Ja CIF STATUS = NOT YET DETERMINED:
+  CIF-INDEPENDENT SET → turpinās;
+  CIF-DEPENDENT SET → HUMAN INPUT REQUIRED.
+
+Sistēma nedrīkst klusējot izvēlēties non-critical kopu.
 
 13.1. Moduļa statuss
 
@@ -382,7 +407,7 @@ Nevienā gadījumā AI secinājums pats par sevi nav gala moduļa statuss.
 
   CIF                 → EXTERNAL INPUT ONLY
   OUTSOURCING-EBA     → HUMAN CONFIRMATION REQUIRED (jurists + outsourcing manager)
-  ICT-DORA            → HUMAN CONFIRMATION REQUIRED (jurists; papildu funkcija, ja to prasa bankas process)
+  ICT-DORA            → HUMAN CONFIRMATION REQUIRED (konkrētā bankas governance funkcija jānosauc pirms production aktivizācijas)
   DATA-PROTECTION     → HUMAN CONFIRMATION REQUIRED
   INFOSEC             → HUMAN CONFIRMATION REQUIRED
   PROCUREMENT         → SYSTEM PROPOSAL ONLY
@@ -420,9 +445,17 @@ scenario_only = true rezultāti:
 
 Klasifikācija nav vienreizējs lēmums, ja uzdevuma gaitā mainās materiālie fakti.
 
-Ja mainās FACT PROFILE elements, kas var ietekmēt CONTRACT TYPE, MODULE STATUS vai REQUIREMENTS SET izvēli:
+Ja tiek mainīts vai pievienots jebkurš FINDING, uz kuru atsaucas spēkā esošais LCA:
+  → automātiski rodas RECLASSIFICATION REVIEW REQUIRED.
+
+Materialitāti nenosaka AI kā gala lēmumu. To izvērtē cilvēks.
+
+Katrs review rezultāts tiek fiksēts HUMAN DECISION ierakstā arī tad, ja secinājums ir:
+  CHANGE NOT MATERIAL TO CLASSIFICATION.
+
+Ja izmaiņa ir materiāla:
 - iepriekšējais LCA un cilvēka lēmums paliek vēsturē;
-- tiek izveidots jauns LCA / lēmums, ja nepieciešams;
+- tiek izveidots jauns LCA / lēmums;
 - tiek atkārtoti izvērtēts MODULE STATUS;
 - tiek atkārtoti izvēlētas piemērojamās REQUIREMENTS SET;
 - rezultāti, kas balstīti uz aizstāto klasifikāciju, saglabā atsauci uz veco LCA un vairs nedrīkst izskatīties kā aktuāli;
