@@ -12,13 +12,13 @@
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **PABEIGTS — IESALDĒTS** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **PABEIGTS — IESALDĒTS (Arhitektūra v0.4)** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.4 IESALDĒTA; v0.5 — IESALDĒŠANAS KANDIDĀTS, AUDITS IZTURĒTS** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
-| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **v0.1 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā — 2. pilots** |
+| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **v0.5 — IESALDĒŠANAS KANDIDĀTS; AUDITS IZTURĒTS** | **Jā — 2. pilots** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **JĀIZSTRĀDĀ** | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **JĀIZSTRĀDĀ** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **JĀIZSTRĀDĀ** | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **PABEIGTS — IESALDĒTS (v0.2)** | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.2 IESALDĒTA; v0.3 — IESALDĒŠANAS KANDIDĀTS, AUDITS IZTURĒTS** | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
@@ -114,9 +114,9 @@ LEGAL TASK
 
 ```text
 1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
-2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS
-3. TERMINOLOGY_AND_ENUMS_v1                 PABEIGTS / IESALDĒTS (v0.2)
-4. VERIFICATION_PROTOCOL_v1                 v0.1 ARHITEKTŪRAS APSPRIEŠANĀ
+2. TRACEABILITY_RECORD_v1                     v0.5 IESALDĒŠANAS KANDIDĀTS
+3. TERMINOLOGY_AND_ENUMS_v1                 v0.3 IESALDĒŠANAS KANDIDĀTS
+4. VERIFICATION_PROTOCOL_v1                 v0.5 IESALDĒŠANAS KANDIDĀTS
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
 6. OPERATION_WORKFLOWS_v1
 7. LEGAL_RESEARCH_METHOD_v1
@@ -141,7 +141,7 @@ LEGAL TASK
 
 **Obligātie pamatdokumenti:** 13  
 **Pabeigti / iesaldēti:** 3  
-**Izstrādē:** 1  
+**Izstrādē:** 3  
 **Atlikuši obligātie dokumenti:** 10  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
 **Plānotie pilotu posmi:** 4  
@@ -207,3 +207,15 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 - LV lietotāja saskarnes apzīmējumu slānis: definēts
 - Ārējo kontrolēto reģistru īpašnieki: definēti
 - Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
+
+
+## Verifikācijas protokola posms
+
+Pēc arhitektūras review #8–#10 ir sasniegts konsenss par `VERIFICATION_PROTOCOL_v1 v0.5`.
+
+- `VERIFICATION_PROTOCOL_v1 v0.5`: iesaldēšanas kandidāts; mehāniskais audits IZTURĒTS.
+- `TRACEABILITY_RECORD_v1 — Arhitektūra v0.5`: iesaldēšanas kandidāts; mehāniskais audits IZTURĒTS.
+- `TERMINOLOGY_AND_ENUMS_v1 — v0.3`: iesaldēšanas kandidāts; mehāniskais audits IZTURĒTS.
+- Iepriekšējās iesaldētās pamatversijas `TRACEABILITY_RECORD_v1 v0.4` un `TERMINOLOGY_AND_ENUMS_v1 v0.2` paliek nemainīgas Git vēsturē līdz jauno versiju atsevišķam freeze apstiprinājumam.
+- Atvērtas arhitektūras domstarpības: 0.
+- Nākamais lēmums: atsevišķs freeze apstiprinājums visām trim saderīgajām versijām.
