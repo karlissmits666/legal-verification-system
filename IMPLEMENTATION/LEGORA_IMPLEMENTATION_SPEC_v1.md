@@ -2,9 +2,9 @@
 
 ## Mērķa loģiskā arhitektūra Legal Verification System ieviešanai Legora vidē
 
-**Statuss:** TARGET ARCHITECTURE — IMPLEMENTATION PENDING  
-**Loma projektā:** ieviešamais beigu stāvoklis  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.3 — APPROVED — BASELINE (FROZEN)`  
+**Statuss:** MĒRĶA ARHITEKTŪRA — IEVIEŠANA NAV PABEIGTA  
+**Loma projektā:** ieviešamais gala stāvoklis  
+**Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
 **Saistītais projekta plāns:** `PROJECT_ROADMAP_v1.md`
 
 ---
@@ -20,7 +20,7 @@ Mērķis nav vienkārši ievietot projekta dokumentus Legora mapē. Mērķis ir 
 - AI izmanto tikai uzdevumam nepieciešamos noteikumus un avotus;
 - findings, prasības, evidence references un verifikācija tiek glabāti strukturēti;
 - obligātas kontroles nevar tikt apietas ar brīvu promptu;
-- materiāls output tiek izdots tikai pēc release gate;
+- materiāls output tiek izdots tikai pēc izdošanas vārtus;
 - katram materiālam output ir Traceability Record;
 - AI secinājums nekļūst par juridisku apstiprinājumu tikai tādēļ, ka sistēma to ir ģenerējusi.
 
@@ -88,49 +88,49 @@ Lietotāja prompts nedrīkst atcelt augstāka līmeņa governance vai verificati
 
 ### 4.1. Workflows
 
-Workflows ir galvenais control-flow un orchestration slānis.
+Workflows ir galvenais vadības plūsmas un orkestrācijas slānis.
 
 Tie nosaka:
 
 - obligāto izpildes secību;
-- task routing;
+- uzdevumu maršrutēšanu;
 - moduļu aktivizēšanu;
 - obligātos starprezultātus;
-- human review punktus;
+- cilvēka pārbaudes punktus;
 - traceability izveidi;
-- release gate.
+- izdošanas vārtus.
 
 ### 4.2. Prompts
 
-Prompts ir mazas, versētas izpildes instrukcijas workflow iekšienē.
+Uzvednes (`Prompts`) ir mazas, versētas izpildes instrukcijas workflow iekšienē.
 
-Prompts nedrīkst būt visas sistēmas vienīgais kontroles mehānisms.
+Uzvednes nedrīkst būt visas sistēmas vienīgais kontroles mehānisms.
 
 Prompts izmanto, piemēram:
 
-- task classification;
-- finding generation;
-- evidence binding;
-- source assessment;
-- legal research;
-- drafting;
-- comparison;
-- traceability compilation;
-- release-gate checks.
+- uzdevuma klasifikāciju;
+- atradumu ģenerēšanai;
+- pierādījumu piesaistei;
+- avotu izvērtēšanai;
+- juridiskajai izpētei;
+- teksta izstrādei;
+- salīdzināšanai;
+- izsekojamības apkopošanai;
+- izdošanas vārtu pārbaudēm.
 
 ### 4.3. Playbooks
 
-Playbooks glabā atkārtojamas juridiskās pozīcijas un review loģiku, piemēram:
+Noteikumu kopas (`Playbooks`) glabā atkārtojamas juridiskās pozīcijas un review loģiku, piemēram:
 
-- common contract positions;
-- preferred wording;
-- fallback wording;
-- non-negotiable positions;
+- vispārīgās līgumu pozīcijas;
+- vēlamo formulējumu;
+- rezerves formulējumu;
+- neapspriežamās pozīcijas;
 - bankas līgumu pārbaudes standarti.
 
 ### 4.4. Tabular Review
 
-Tabular Review ir strukturētās prasību pārbaudes darba virsma.
+`Tabular Review` ir strukturētās prasību pārbaudes darba virsma.
 
 Primārie lietojumi:
 
@@ -145,7 +145,7 @@ Primārie lietojumi:
 
 ### 4.5. Lists
 
-Lists ir strukturētais darba stāvokļa reģistrs.
+`Lists` ir strukturētais darba stāvokļa reģistrs.
 
 Primārie objekti:
 
@@ -156,13 +156,13 @@ Primārie objekti:
 - DATA CLASS EVENTS;
 - task-level metadata, ja tas praktiski nepieciešams.
 
-### 4.6. Search tools
+### 4.6. Meklēšanas rīki
 
 Database search, Legal research un Web search izmanto tikai caur attiecīgo workflow un `LEGAL_RESEARCH_METHOD_v1`.
 
 Search rezultāts pats par sevi nav verified legal conclusion.
 
-### 4.7. Editor / Word
+### 4.7. Redaktors / Word
 
 Editor vai Word ir gala darba produkta sagatavošanas slānis.
 
@@ -170,16 +170,16 @@ Tas atrodas pēc:
 
 - findings;
 - requirements review;
-- evidence binding;
+- pierādījumu piesaistei;
 - verification;
 - Traceability Record;
-- release gate.
+- izdošanas vārtus.
 
 Editor nedrīkst būt materiāla output primārais sākumpunkts, apejot sistēmas kontroli.
 
-### 4.8. Project Files
+### 4.8. Projekta faili
 
-Project Files glabā konkrētās lietas ievaddatus, Traceability Record un gala rezultātus.
+Projekta faili glabā konkrētās lietas ievaddatus, Traceability Record un gala rezultātus.
 
 Shared/frozen sistēmas dokumenti tiek turēti organizācijas/library līmenī, ja Legora tenant to praktiski atbalsta. Ja tas nav iespējams, tie tiek ievietoti projektā kā kontrolētas, versētas runtime kopijas.
 
@@ -187,7 +187,7 @@ Shared/frozen sistēmas dokumenti tiek turēti organizācijas/library līmenī, 
 
 ## 5. GitHub un Legora lomu nodalījums
 
-### GitHub = source of truth sistēmas specifikācijai
+### GitHub = primārais sistēmas specifikācijas avots
 
 GitHub glabā:
 
@@ -203,14 +203,14 @@ GitHub glabā:
 
 GitHub neglabā bankas konkrēto juridisko lietu konfidenciālo saturu, ja vien tam nav atsevišķas bankas atļaujas.
 
-### Legora = runtime execution environment
+### Legora = izpildvides izpildes vide
 
 Legora glabā:
 
 - apstiprinātas runtime dokumentu kopijas;
 - prompts;
 - workflows;
-- playbooks;
+- noteikumu kopas (`playbooks`);
 - project-specific source documents;
 - Tabular Reviews;
 - Lists;
@@ -219,11 +219,11 @@ Legora glabā:
 
 ---
 
-## 6. Runtime manifest
+## 6. Izpildvides manifests (`Izpildvides manifests`)
 
-Lai Legora nekad neizpildītu uzdevumu pret neskaidru dokumentu kopumu, katrai production konfigurācijai jābūt Runtime Manifest.
+Lai Legora nekad neizpildītu uzdevumu pret neskaidru dokumentu kopumu, katrai produkcijas konfigurācijai jābūt Izpildvides manifests.
 
-Runtime Manifest ir tehnisks artefakts, nevis jauns governance dokuments.
+Izpildvides manifests ir tehnisks artefakts, nevis jauns governance dokuments.
 
 Tas satur vismaz:
 
@@ -250,7 +250,7 @@ TABULAR TEMPLATE VERSION
 LIST TEMPLATE VERSION
 ```
 
-Materiāls output ir sasaistāms ar konkrēto Runtime Manifest versiju.
+Materiāls output ir sasaistāms ar konkrēto Izpildvides manifests versiju.
 
 ---
 
@@ -277,7 +277,7 @@ BANK LEGAL CORE pārvērš lietotāja dabisko uzdevumu strukturētā TASK.
 
 ---
 
-## 8. Brīvais čats un materiāls output
+## 8. Brīvais čats un materiālais rezultāts
 
 Brīvu Legora sarunu drīkst izmantot:
 
@@ -287,7 +287,7 @@ Brīvu Legora sarunu drīkst izmantot:
 - sākotnējai orientācijai;
 - ne-materiāliem starprezultātiem.
 
-Brīvā čata rezultāts pēc noklusējuma nav materiāls juridiskais output.
+Brīvā čata rezultāts pēc noklusējuma nav materiāls juridiskais rezultāts.
 
 Ja rezultātu paredzēts:
 
@@ -300,7 +300,7 @@ tas jāievada BANK LEGAL CORE plūsmā un jāiziet Traceability + Release Gate.
 
 ---
 
-## 9. Task runtime modelis
+## 9. Uzdevuma izpildvides modelis
 
 Centrālā vienība:
 
@@ -334,7 +334,7 @@ TASK
 
 ## 10. Izpildes fāzes
 
-### PHASE 0 — TASK START
+### 0. fāze — uzdevuma sākšana (`TASK START`)
 
 Izveido:
 
@@ -345,19 +345,19 @@ DATE
 USER REQUEST
 ```
 
-### PHASE 1 — HUMAN DECLARATIONS
+### 1. fāze — cilvēka deklarācijas (`HUMAN DECLARATIONS`)
 
 Pirms AI apstrādes, kur tas tehniski iespējams, cilvēks deklarē:
 
 - datu klases katram ievaddatu avotam;
-- known jurisdiction / applicable law, ja zināms;
+- zināmo jurisdikciju / piemērojamos tiesību aktus, ja zināms;
 - ārējos statusus, ja pieejami;
 - CIF statusu, ja tas jau noteikts;
 - citas bankas procesa ievades, kuras AI nedrīkst pats noteikt.
 
-AI drīkst flagot neatbilstību, bet nevar pats sev piešķirt augstāku atļauju.
+AI drīkst norādīt uz iespējamu neatbilstību, bet nevar pats sev piešķirt augstāku atļauju.
 
-### PHASE 2 — AI TOOL PERMISSION GATE
+### 2. fāze — MI rīka atļaujas vārti (`AI TOOL PERMISSION GATE`)
 
 Katram SOURCE:
 
@@ -381,7 +381,7 @@ piemēro frozen governance sekas.
 
 AI apstrāde ar konkrēto avotu neturpinās, kamēr nav atbilstoša cilvēka lēmuma.
 
-### PHASE 3 — TASK CLARIFICATION
+### 3. fāze — uzdevuma precizēšana (`TASK CLARIFICATION`)
 
 Ja uzdevumu nevar klasificēt, tiek aktivizēts:
 
@@ -393,7 +393,7 @@ Sistēma neprasa nevajadzīgu informāciju.
 
 Tā prasa tikai to, kas nepieciešams, lai droši turpinātu.
 
-### PHASE 4 — COMPETENCE / JURISDICTION CHECK
+### 4. fāze — kompetences / jurisdikcijas pārbaude
 
 Nosaka:
 
@@ -409,7 +409,7 @@ Ja nepieciešams:
 ESCALATION REQUIRED
 ```
 
-### PHASE 5 — TASK CLASSIFICATION
+### 5. fāze — uzdevuma klasifikācija
 
 Obligāti:
 
@@ -440,7 +440,7 @@ EXTERNAL SOURCE
 DOCUMENT SET
 ```
 
-### PHASE 6 — MODULE APPLICABILITY
+### 6. fāze — moduļu piemērojamība
 
 Katram modulim:
 
@@ -464,7 +464,7 @@ OTHER
 
 AI secinājums pats par sevi nekļūst par gala moduļa statusu.
 
-### PHASE 7 — SOURCE REGISTER
+### 7. fāze — avotu reģistrs
 
 Katrs izmantotais avots tiek reģistrēts.
 
@@ -472,7 +472,7 @@ Avotam jābūt pietiekami identificētam, lai vēlāk var noteikt tieši izmanto
 
 Tiek saglabāta atsauce, nevis Traceability Record dublēts viss dokuments.
 
-### PHASE 8 — OPERATION ROUTING
+### 8. fāze — operācijas maršrutēšana
 
 BANK LEGAL CORE izsauc vienu no:
 
@@ -484,19 +484,19 @@ WF_COMPARE
 WF_EXTRACT
 ```
 
-### PHASE 9 — MODULE ENRICHMENT
+### 9. fāze — moduļu piesaiste
 
 Operation workflow pieslēdz tikai piemērojamos:
 
-- playbooks;
-- requirements matrices;
-- research method;
-- checklist;
-- internal rules.
+- noteikumu kopas (`playbooks`);
+- prasību matricas;
+- izpētes metode;
+- pārbaudes saraksts;
+- iekšējie noteikumi.
 
 Nevajadzīgi moduļi netiek ielādēti.
 
-### PHASE 10 — STRUCTURED FINDINGS
+### 10. fāze — strukturēti atradumi
 
 Katrs būtisks AI secinājums kļūst par FINDING.
 
@@ -514,9 +514,9 @@ RELATED REQUIREMENT       [ja piemērojams]
 
 FINDING ir universālā trace vienība.
 
-### PHASE 11 — REQUIREMENT CHECK
+### 11. fāze — prasību pārbaude
 
-VERIFY vai citā requirements-based plūsmā izmanto Tabular Review.
+VERIFY vai citā uz prasībām balstītā plūsmā izmanto Tabular Review.
 
 Katrai prasībai:
 
@@ -541,7 +541,7 @@ REQUIREMENT
 
 Parent status tiek agregēts pēc frozen noteikumiem.
 
-### PHASE 12 — EVIDENCE BINDING
+### 12. fāze — pierādījuma piesaiste
 
 Katram materiālam FINDING / requirement conclusion jābūt atsaucei uz avota atrašanās vietu.
 
@@ -556,24 +556,24 @@ Ja secinājums ir atkarīgs no:
 
 arī tam ir jābūt sasaistītam.
 
-### PHASE 13 — VERIFICATION
+### 13. fāze — verifikācija
 
 Tiek piemērots `VERIFICATION_PROTOCOL_v1`.
 
-AI consensus nav verification.
+MI vienprātība nav verifikācija.
 
-Kur frozen slieksnis prasa HUMAN VERIFIED, jābūt dokumentētam verification event.
+Kur frozen slieksnis prasa HUMAN VERIFIED, jābūt dokumentētam verifikācijas notikumam.
 
-### PHASE 14 — UNRESOLVED / ESCALATION CHECK
+### 14. fāze — neatrisināto jautājumu / eskalācijas pārbaude
 
 Pirms materiāla output:
 
-- identificē unresolved issues;
-- identificē required escalations;
-- pārbauda missing external inputs;
-- pārbauda missing confirmations.
+- identificē neatrisinātos jautājumus;
+- identificē nepieciešamās eskalācijas;
+- pārbauda trūkstošos ārējos ievaddatus;
+- pārbauda trūkstošos apstiprinājumus.
 
-### PHASE 15 — LAWYER REVIEW
+### 15. fāze — jurista pārbaude
 
 Atbildīgais jurists:
 
@@ -582,7 +582,7 @@ Atbildīgais jurists:
 - pieņem / noraida AI piedāvātos secinājumus;
 - reģistrē HUMAN DECISIONS.
 
-### PHASE 16 — BUILD TRACEABILITY RECORD
+### 16. fāze — izsekojamības ieraksta izveide
 
 Tieši pirms materiāla output tiek izveidots:
 
@@ -594,7 +594,7 @@ Tas tiek glabāts konkrētā Legora projekta mapē.
 
 Traceability Record satur tikai nepieciešamos metadatus, references un lēmumu ķēdi.
 
-### PHASE 17 — RELEASE GATE
+### 17. fāze — izdošanas vārti
 
 Sistēma pārbauda:
 
@@ -617,27 +617,27 @@ MATERIAL OUTPUT NOT RELEASED
 
 Darba draftu jurists drīkst redzēt.
 
-### PHASE 18 — MATERIAL OUTPUT
+### 18. fāze — materiālais rezultāts
 
-Tikai pēc release gate tiek radīts:
+Tikai pēc izdošanas vārtus tiek radīts:
 
 - Editor file;
 - Word file;
-- verification report;
-- clause;
-- legal analysis;
-- comparison output;
-- cits materiāls work product.
+- verifikācijas ziņojums;
+- klauzula;
+- juridiskā analīze;
+- salīdzinājuma rezultāts;
+- cits materiāls darba produkts.
 
 ---
 
-## 11. Hard gate un soft gate modelis
+## 11. Stingro un mīksto vārtu modelis
 
 Ne visas Legora tenant versijas var nodrošināt tehniski deterministisku conditional stop.
 
 Tāpēc sistēmai jābūt drošai abos režīmos.
 
-### Mode A — Hard Gate
+### A režīms — stingrie vārti (`Hard Gate`)
 
 Ja Workflows atbalsta obligātu branching / stop / approval loģiku:
 
@@ -651,7 +651,7 @@ GATE CONDITION
 RELEASE
 ```
 
-### Mode B — Split Workflow Fallback
+### B režīms — sadalītas darba plūsmas rezerves variants
 
 Ja tehnisks hard stop nav pieejams:
 
@@ -675,7 +675,7 @@ Production sistēma nedrīkst balstīties tikai uz AI instrukciju “please do n
 
 ---
 
-## 12. Operation workflows
+## 12. Operāciju darba plūsmas
 
 ### 12.1. WF_ANALYSE
 
@@ -782,34 +782,34 @@ OUTPUT / PRIOR TASK INPUT
 
 ---
 
-## 13. Module activation
+## 13. Moduļu aktivizēšana
 
 ### PROCUREMENT
 
 Aktivizē:
 
-- procurement internal rules;
-- approval matrix;
-- common contract positions;
-- applicable internal checklist.
+- iepirkumu iekšējos noteikumus;
+- apstiprināšanas matricu;
+- vispārīgās līgumu pozīcijas;
+- piemērojamo iekšējo pārbaudes sarakstu.
 
 ### OUTSOURCING-EBA
 
 Aktivizē:
 
-- outsourcing classification confirmation;
+- ārpakalpojuma klasifikācijas apstiprinājumu;
 - `EBA_REQUIREMENTS_MATRIX_v1`;
-- related internal outsourcing rules;
-- mandatory contractual requirements.
+- saistītos iekšējos ārpakalpojumu noteikumus;
+- obligātās līgumiskās prasības.
 
 ### ICT-DORA
 
 Aktivizē:
 
-- ICT/DORA applicability confirmation;
-- CIF external input, ja nepieciešams;
+- ICT/DORA piemērojamības apstiprinājumu;
+- CIF ārējo ievaddatu, ja nepieciešams;
 - `DORA_REQUIREMENTS_MATRIX_v1`;
-- DORA contractual addendum / checklist.
+- DORA līguma pielikumu / pārbaudes sarakstu.
 
 ### DATA-PROTECTION
 
@@ -823,13 +823,13 @@ Tas pats princips.
 
 ### OTHER
 
-Izmanto universal legal core un, ja nepieciešams, `LEGAL_RESEARCH_METHOD_v1`.
+Izmanto universālo juridisko kodolu un, ja nepieciešams, `LEGAL_RESEARCH_METHOD_v1`.
 
 ---
 
-## 14. Requirements architecture Legora
+## 14. Prasību arhitektūra Legora vidē
 
-Requirements pārbaude tiek realizēta kā strukturēta Tabular Review šablona instance.
+Prasību pārbaude tiek realizēta kā strukturēta Tabular Review šablona instance.
 
 Ieteicamā loģiskā kolonu struktūra:
 
@@ -850,11 +850,11 @@ VERIFIED BY
 VERIFIED AT
 ```
 
-Canonical statusi netiek aizstāti ar brīvu teksta formulējumu.
+Kanoniskie statusi netiek aizstāti ar brīvu teksta formulējumu.
 
 ---
 
-## 15. Findings architecture Legora
+## 15. Atradumu arhitektūra Legora vidē
 
 FINDINGS tiek glabāti strukturēti List vai citā stabilā strukturētā artefaktā.
 
@@ -875,7 +875,7 @@ Garš AI memo nav FINDINGS reģistra aizvietotājs.
 
 ---
 
-## 16. Human decisions architecture
+## 16. Cilvēka lēmumu arhitektūra
 
 HUMAN DECISION ir atsevišķs objekts.
 
@@ -893,7 +893,7 @@ AI nekad nav `DECIDED BY`.
 
 ---
 
-## 17. Traceability implementation
+## 17. Izsekojamības ieviešana
 
 Darba gaitā Legora strukturētajos artefaktos tiek uzkrāti:
 
@@ -902,12 +902,12 @@ Darba gaitā Legora strukturētajos artefaktos tiek uzkrāti:
 - findings;
 - requirements results;
 - evidence references;
-- verification events;
+- verifikācijas notikumams;
 - human decisions;
 - escalations;
-- unresolved issues.
+- neatrisinātos jautājumus.
 
-Pirms output tiek ģenerēts final snapshot:
+Pirms output tiek ģenerēts gala momentuzņēmums:
 
 ```text
 TRACEABILITY_RECORD_<TASK ID>
@@ -915,13 +915,13 @@ TRACEABILITY_RECORD_<TASK ID>
 
 Ieteicamā implementācija:
 
-- working state → Lists / Tabular Reviews;
-- final Traceability snapshot → Editor file vai cits nemaināms project file formāts;
-- evidence → references only.
+- darba stāvoklis → Lists / Tabular Reviews;
+- final Traceability snapshot → Editor file vai cits nemaināms projekta faila formāts;
+- evidence → tikai atsauces.
 
 ---
 
-## 18. Project runtime struktūra
+## 18. Projekta izpildvides struktūra
 
 Loģiskais projekta izkārtojums:
 
@@ -931,24 +931,24 @@ Loģiskais projekta izkārtojums:
     frozen runtime references
 
 /01_INPUT
-    matter source documents
+    lietas avota dokumenti
 
 /02_WORKING
     Tabular Reviews
     Lists
-    research working outputs
+    izpētes darba rezultāti
 
 /03_TRACE
     TRACEABILITY_RECORD_<TASK ID>
 
 /04_OUTPUT
-    released material outputs
+    izdoti materiālie rezultāti
 ```
 
 Ja Legora UI neatbalsta fiziskas apakšmapes, šo struktūru realizē ar:
 
-- naming convention;
-- file prefixes;
+- nosaukumu veidošanas noteikumiem;
+- failu prefiksiem;
 - Lists / Tabular Review nosaukumiem.
 
 Piemēram:
@@ -963,9 +963,9 @@ OUT_
 
 ---
 
-## 19. Shared Library struktūra
+## 19. Koplietojamās bibliotēkas struktūra
 
-Organizācijas/shared līmenī:
+Organizācijas / koplietojamā līmenī:
 
 ```text
 SYSTEM DOCUMENTS
@@ -976,15 +976,15 @@ TABULAR REVIEW TEMPLATES
 LIST TEMPLATES
 ```
 
-Production lietotājam jāizmanto tikai apstiprinātās versijas.
+Produkcijas lietotājam jāizmanto tikai apstiprinātās versijas.
 
-Draft un production versijas nedrīkst būt nosauktas tā, ka tās iespējams sajaukt.
+Melnraksta un produkcijas versijas nedrīkst būt nosauktas tā, ka tās iespējams sajaukt.
 
 ---
 
-## 20. Prompt set
+## 20. Uzvedņu komplekts
 
-Ieteicamais promptu komplekts:
+Ieteicamais uzvedņu komplekts:
 
 ```text
 P01_TASK_INTAKE
@@ -1008,15 +1008,15 @@ P16_OUTPUT_RENDER
 Katram promptam:
 
 - ir versija;
-- ir skaidrs input/output schema;
+- ir skaidrs ievades/izvades shēma;
 - tas nedrīkst paplašināt frozen statusu kopu;
 - tas izmanto tikai savam solim nepieciešamo kontekstu.
 
 ---
 
-## 21. Workflow set
+## 21. Darba plūsmu komplekts
 
-Production mērķa komplekts:
+Produkcijas mērķa komplekts:
 
 ```text
 WF00_BANK_LEGAL_CORE
@@ -1031,7 +1031,7 @@ WF60_TRACEABILITY
 WF70_RELEASE
 ```
 
-Ja hard gating nav pieejams:
+Ja stingrie vārti nav pieejams:
 
 ```text
 WF00_BANK_LEGAL_PREPARE
@@ -1040,7 +1040,7 @@ WF70_BANK_LEGAL_RELEASE
 
 ---
 
-## 22. Playbook set
+## 22. Noteikumu kopu (`Playbook`) komplekts
 
 Minimāli:
 
@@ -1051,15 +1051,15 @@ PB_OUTSOURCING
 PB_ICT_DORA
 ```
 
-Playbook satur juridisko pozīciju.
+Noteikumu kopa (`Playbook`) satur juridisko pozīciju.
 
-Tas nedrīkst kļūt par requirements governance aizvietotāju.
+Tas nedrīkst kļūt par prasību pārvaldības aizvietotāju.
 
 ---
 
-## 23. Search architecture
+## 23. Meklēšanas arhitektūra
 
-Search tiek izmantots šādā prioritātē, kuru detalizē `LEGAL_RESEARCH_METHOD_v1`:
+Meklēšana tiek izmantota šādā prioritātē, kuru detalizē `LEGAL_RESEARCH_METHOD_v1`:
 
 ```text
 known authoritative internal source
@@ -1073,15 +1073,15 @@ web research, ja nepieciešams
 
 Katram materiālam ārējam secinājumam jābūt source reference.
 
-Search engine kopsavilkums nav patstāvīgs authoritative source.
+Meklētāja kopsavilkums nav patstāvīgs autoritatīvs avots.
 
 ---
 
-## 24. Context minimization
+## 24. Konteksta samazināšana
 
 Konsekvence netiek panākta, katru reizi ielādējot visus 13 dokumentus.
 
-Kernel ielādē:
+Kodols ielādē:
 
 ### ALWAYS-ON
 
@@ -1113,7 +1113,7 @@ Tas samazina nevajadzīgu kontekstu un pretrunīgu instrukciju risku.
 
 ---
 
-## 25. Fail-closed princips
+## 25. Drošas atteices (`fail-closed`) princips
 
 Ja sistēma nevar droši noteikt, vai kritisks nosacījums ir izpildīts, tā nedrīkst klusējot turpināt kā pabeigts materiāls output.
 
@@ -1121,7 +1121,7 @@ Tipiski fail-closed iemesli:
 
 - permission unknown;
 - data class mismatch suspected;
-- task classification unclear;
+- uzdevuma klasifikāciju unclear;
 - required module input missing;
 - CIF input missing, ja tas nepieciešams;
 - UNCLASSIFIED requirement;
@@ -1132,7 +1132,7 @@ Tipiski fail-closed iemesli:
 
 ---
 
-## 26. Output classes
+## 26. Rezultātu klases
 
 ### WORKING DRAFT
 
@@ -1147,7 +1147,7 @@ Tas:
 
 ### MATERIAL OUTPUT
 
-Drīkst iziet ārpus task tikai pēc release gate.
+Drīkst iziet ārpus task tikai pēc izdošanas vārtus.
 
 ### LEGAL APPROVED
 
@@ -1157,7 +1157,7 @@ Tas ir tikai external bank process reference.
 
 ---
 
-## 27. Version promotion process
+## 27. Versiju virzīšanas process
 
 Katras sistēmas dokumenta dzīves cikls:
 
@@ -1181,20 +1181,20 @@ Draft versija nedrīkst automātiski aizstāt production runtime versiju.
 
 ---
 
-## 28. Change control
+## 28. Izmaiņu kontrole
 
 Ja mainās frozen dokuments vai production execution artefakts:
 
 - GitHub change history tiek saglabāts;
 - tiek noteikts, kuri prompts/workflows/playbooks ir ietekmēti;
 - nepieciešamības gadījumā tiek atkārtots regression pilot;
-- tikai pēc acceptance tiek atjaunināts Runtime Manifest.
+- tikai pēc acceptance tiek atjaunināts Izpildvides manifests.
 
 ---
 
-## 29. Pilot architecture
+## 29. Pilotu arhitektūra
 
-### PILOT 1 — TRACEABILITY
+### PILOTS 1 — IZSEKOJAMĪBA
 
 Validē:
 
@@ -1204,11 +1204,11 @@ Validē:
 - Traceability generation;
 - workload.
 
-### PILOT 2 — CONTRACT VERIFY
+### PILOTS 2 — LĪGUMA VERIFIKĀCIJA
 
 Validē:
 
-- common checklist;
+- common pārbaudes saraksts;
 - verification protocol;
 - false positive / false negative profilu;
 - human verification gate.
@@ -1222,7 +1222,7 @@ Validē:
 - mandatory requirement miss rate;
 - module activation.
 
-### PILOT 4 — END TO END
+### PILOTS 4 — PILNAIS PROCESS
 
 Validē visu:
 
@@ -1239,26 +1239,26 @@ TASK
 
 ---
 
-## 30. Production acceptance kritēriji
+## 30. Produkcijas vides pieņemšanas kritēriji
 
-Production ieviešana nav pabeigta, kamēr:
+Produkcijas ieviešana nav pabeigta, kamēr:
 
-1. BANK LEGAL CORE ir vienots production entry point.
-2. Governance gate nevar klusējot tikt apiets.
-3. Visas 5 operation plūsmas ir realizētas.
+1. BANK LEGAL CORE ir vienots produkcijas ieejas punkts.
+2. Pārvaldības vārti nevar klusējot tikt apiets.
+3. Visas 5 operāciju plūsmas ir realizētas.
 4. FINDINGS ir strukturēti un sasaistīti ar evidence references.
-5. VERIFY izmanto versionētu requirements set.
-6. Mandatory verification sliekšņi ir realizēti.
+5. VERIFY izmanto versētu prasību kopu.
+6. Obligātās verifikācijas sliekšņi ir realizēti.
 7. Traceability Record tiek ģenerēts pirms materiāla output.
 8. Release gate ir tehniski vai procesuāli enforceable.
-9. Runtime Manifest ir pieejams.
+9. Izpildvides manifests ir pieejams.
 10. Production artefakti atsaucas tikai uz apstiprinātām sistēmas versijām.
-11. Pilot/acceptance kritēriji ir izpildīti.
-12. Ir veikts vismaz viens pilns regression test pēc production konfigurācijas izveides.
+11. Pilotu/pieņemšanas kritēriji ir izpildīti.
+12. Ir veikts vismaz viens pilns regresijas tests pēc production konfigurācijas izveides.
 
 ---
 
-## 31. Mērķa production topoloģija
+## 31. Mērķa produkcijas topoloģija
 
 ```text
                         LEGORA LIBRARY
@@ -1313,7 +1313,7 @@ Production ieviešana nav pabeigta, kamēr:
 
 ## 32. Gala arhitektūras invariants
 
-Production sistēmai jāizpilda:
+Produkcijas sistēmai jāizpilda:
 
 ```text
 NO MATERIAL OUTPUT
