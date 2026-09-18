@@ -34,6 +34,7 @@ TASK
 ├── CONTRACT TYPE                     [ja piemērojams]
 ├── LEGAL CLASSIFICATION ASSESSMENTS  [ja piemērojams]
 ├── MODULE SCREENING RECORDS          [ja piemērojams]
+├── MODULE TRIGGER SET REFERENCES     [ja piemērojams]
 ├── MODULES
 ├── AI GOVERNANCE
 ├── SOURCES
@@ -129,7 +130,8 @@ CREATED AT
 HUMAN DECISION REFERENCE           [ja pieejama]
 RELATED MODULE
 CLASSIFICATION BASIS VERSION
-SUPERSEDES LCA ID                   [ja piemērojams]                      [ja piemērojams]
+SUPERSEDES LCA ID                   [ja piemērojams]
+RECLASSIFICATION REVIEW DECISION ID [ja piemērojams]
 ```
 
 `CREATED BY` drīkst būt AI rīks vai cilvēks. Tas nepadara objektu par cilvēka lēmumu.
@@ -154,7 +156,10 @@ TRIGGERS IDENTIFIED               [array; [] = apzināts negatīvs rezultāts]
 SCREENED BY
 SCREENED AT
 RELATED FACT FINDING IDS
+SCREENING DECISION ID                [HUMAN DECISION]
 ```
+
+Screening apstiprinājums netiek ieviests kā jauns lēmuma tips. Tas ir `HUMAN DECISION`, kura RELATED OBJECT ir attiecīgais MODULE SCREENING RECORD.
 
 `TRIGGERS IDENTIFIED = []` ir derīgs tikai tad, ja visi attiecīgās versijas triggeri ir pārbaudīti. Missing / null lauks nav negatīvs screening rezultāts.
 
@@ -699,6 +704,10 @@ RELATED FINDINGS
 RELATED REQUIREMENTS
 LEGAL CLASSIFICATION ASSESSMENT REFERENCES [ja piemērojams]
 MODULE SCREENING RECORD REFERENCES [ja piemērojams]
+MODULE SCREENING SUMMARY              [obligāts, ja veikts screening]
+  SCREENED MODULES
+  TRIGGER SET ID / VERSION
+  SCREENING RESULT
 COMPLETENESS CONTROL REFERENCE  [ja piemērojams]
 VERIFICATION SUMMARY
 OUTPUT REFERENCE
