@@ -3,11 +3,11 @@
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
 **Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
-**Versija:** v0.2  
+**Versija:** v0.3  
 **Iesaldēšanas datums:** 2026-09-18  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
-- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.4 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
+- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
 
@@ -414,6 +414,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | REQUIREMENT | `requirement` |
 | REQUIREMENT COMPONENT | `requirement_component` |
 | VERIFICATION EVENT | `verification_event` |
+| VERIFICATION SCOPE RECORD | `verification_scope_record` |
 | HUMAN DECISION | `human_decision` |
 | ESCALATION | `escalation` |
 | UNRESOLVED ISSUE | `unresolved_issue` |
@@ -436,6 +437,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | REQUIREMENT | `REQ-` |
 | REQUIREMENT COMPONENT | `CMP-` |
 | VERIFICATION EVENT | `VER-` |
+| VERIFICATION SCOPE RECORD | `VSR-` |
 | HUMAN DECISION | `DEC-` |
 | ESCALATION | `ESC-` |
 | UNRESOLVED ISSUE | `ISS-` |
@@ -541,6 +543,7 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 | ID PREFIX | `TERMINOLOGY_AND_ENUMS_v1` | ID PREFIX |
 | DATA CLASS | `AI_TOOL_USAGE_POLICY_v1` | DATA CLASS REGISTRY |
 | VERIFICATION METHOD | `VERIFICATION_PROTOCOL_v1` | VERIFICATION METHOD REGISTRY |
+| VERIFICATION RESULT | `VERIFICATION_PROTOCOL_v1` | VERIFICATION RESULT REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
 
 ## 31. Boolean princips
@@ -639,6 +642,8 @@ EXACT QUOTED FRAGMENT
 ```
 
 Brīvs MI kopsavilkums nav pierādījums.
+
+`VERIFICATION SCOPE RECORD` nav `EVIDENCE`. Tas dokumentē cilvēka semantiskās verifikācijas laikā faktiski pārbaudīto avotu tvērumu un uz to neattiecas `EXACT QUOTED FRAGMENT` prasība.
 
 ## 38. FINDING definīcija
 
@@ -741,10 +746,9 @@ Tas nosaka vienotu valodu, tehnisko reprezentāciju un reģistru kontraktu.
 Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
 Iesaldēšanas pamats:
-1. mehāniskais audits pret abiem frozen dokumentiem — IZTURĒTS;
-2. bloķējošas pretrunas ar pamatversijām — 0;
+1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TRACEABILITY_RECORD_v1 v0.5` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
+2. bloķējošas pretrunas — 0;
 3. jauni frozen canonical statusi — 0;
-4. tehniskie enum/taxonomy atzīti par saderīgiem ar frozen semantiku;
-5. lietotāja skaidrs iesaldēšanas apstiprinājums — saņemts 2026-09-18.
+4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
 
-Turpmāki grozījumi notiek tikai jaunā versijā; iesaldētā v0.2 versija netiek klusējot pārrakstīta.
+Iepriekšējā v0.2 versija paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
