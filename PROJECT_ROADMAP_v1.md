@@ -14,7 +14,7 @@
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **PABEIGTS — IESALDĒTS** | Nē |
 | 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **PABEIGTS — IESALDĒTS (Arhitektūra v0.4)** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
-| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **JĀIZSTRĀDĀ** | **Jā** |
+| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **v0.1 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā — 2. pilots** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **JĀIZSTRĀDĀ** | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **JĀIZSTRĀDĀ** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **JĀIZSTRĀDĀ** | **Jā** |
@@ -116,7 +116,7 @@ LEGAL TASK
 1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
 2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS
 3. TERMINOLOGY_AND_ENUMS_v1                 PABEIGTS / IESALDĒTS (v0.2)
-4. VERIFICATION_PROTOCOL_v1
+4. VERIFICATION_PROTOCOL_v1                 v0.1 ARHITEKTŪRAS APSPRIEŠANĀ
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
 6. OPERATION_WORKFLOWS_v1
 7. LEGAL_RESEARCH_METHOD_v1
@@ -141,7 +141,7 @@ LEGAL TASK
 
 **Obligātie pamatdokumenti:** 13  
 **Pabeigti / iesaldēti:** 3  
-**Izstrādē:** 0  
+**Izstrādē:** 1  
 **Atlikuši obligātie dokumenti:** 10  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
 **Plānotie pilotu posmi:** 4  
