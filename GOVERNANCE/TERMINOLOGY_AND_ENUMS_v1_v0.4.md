@@ -2,7 +2,7 @@
 
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
-**Statuss:** MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
+**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
 **Versija:** v0.4  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
@@ -415,6 +415,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | VERIFICATION EVENT | `verification_event` |
 | VERIFICATION SCOPE RECORD | `verification_scope_record` |
 | LEGAL CLASSIFICATION ASSESSMENT | `legal_classification_assessment` |
+| MODULE SCREENING RECORD | `module_screening_record` |
 | HUMAN DECISION | `human_decision` |
 | ESCALATION | `escalation` |
 | UNRESOLVED ISSUE | `unresolved_issue` |
@@ -439,6 +440,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | VERIFICATION EVENT | `VER-` |
 | VERIFICATION SCOPE RECORD | `VSR-` |
 | LEGAL CLASSIFICATION ASSESSMENT | `LCA-` |
+| MODULE SCREENING RECORD | `MSR-` |
 | HUMAN DECISION | `DEC-` |
 | ESCALATION | `ESC-` |
 | UNRESOLVED ISSUE | `ISS-` |
@@ -490,22 +492,32 @@ VERIFICATION METHOD REGISTRY
 
 Verifikācijas metožu vārdnīcu nosaka iesaldētais `VERIFICATION_PROTOCOL_v1 v0.5` un tā turpmākās apstiprinātās versijas.
 
-## 28.1. CONTRACT TYPE reģistra īpašnieks
+## 28.1. CONTRACT TYPE reģistrs
 
-```text
-CONTROLLED FIELD:
-CONTRACT TYPE
+`CONTRACT TYPE` tehniskā taxonomy pieder `TERMINOLOGY_AND_ENUMS_v1`.
 
-OWNER:
-OPERATION_WORKFLOWS_v1
+| Canonical | Machine key | LV apzīmējums |
+|---|---|---|
+| SERVICE AGREEMENT | `service_agreement` | Pakalpojumu līgums |
+| GOODS SUPPLY | `goods_supply` | Preču piegādes / pirkuma līgums |
+| CONSTRUCTION | `construction` | Būvniecības līgums |
+| SOFTWARE LICENCE | `software_licence` | Programmatūras licences līgums |
+| SAAS / CLOUD SERVICE | `saas_cloud_service` | SaaS / mākoņpakalpojuma līgums |
+| IT DEVELOPMENT | `it_development` | IT izstrādes līgums |
+| IT SUPPORT / MAINTENANCE | `it_support_maintenance` | IT atbalsta / uzturēšanas līgums |
+| CONSULTING / PROFESSIONAL SERVICES | `consulting_professional_services` | Konsultāciju / profesionālo pakalpojumu līgums |
+| AUDIT SERVICES | `audit_services` | Audita pakalpojumu līgums |
+| TRAINING SERVICES | `training_services` | Mācību pakalpojumu līgums |
+| FACILITY SERVICES | `facility_services` | Saimnieciskās / facility apkalpošanas līgums |
+| SECURITY SERVICES | `security_services` | Apsardzes / drošības pakalpojumu līgums |
+| MARKETING SERVICES | `marketing_services` | Mārketinga pakalpojumu līgums |
+| FRAMEWORK AGREEMENT | `framework_agreement` | Ietvarlīgums |
+| CONFIDENTIALITY AGREEMENT | `confidentiality_agreement` | Konfidencialitātes līgums |
+| DATA PROCESSING AGREEMENT | `data_processing_agreement` | Datu apstrādes līgums |
+| LEASE | `lease` | Nomas līgums |
+| OTHER | `other` | Cits |
 
-REGISTRY:
-CONTRACT TYPE REGISTRY
-```
-
-`CONTRACT TYPE` ir līguma juridiskā / ekonomiskā satura tehniska taxonomy. Tā nav `MODULE`, `MODULE STATUS` vai regulatīvā klasifikācija.
-
-Vienam līgumam drīkst būt viena vai vairākas CONTRACT TYPE vērtības, ja līgums ir jaukts. Detalizēto vērtību kopu un lietošanas noteikumus uztur `OPERATION_WORKFLOWS_v1`.
+Vienam līgumam drīkst būt vairākas CONTRACT TYPE vērtības. Jaukta līguma baseline contract-type-specific pārbaudes tvērums ir visu piešķirto tipu attiecīgo pārbaudes elementu apvienojums. Tas pats par sevi neaktivizē specializētu regulatīvu MODULE.
 
 ## 28.2. QUALITATIVE LIKELIHOOD reģistra īpašnieks
 
@@ -583,8 +595,9 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 | DATA CLASS | `AI_TOOL_USAGE_POLICY_v1` | DATA CLASS REGISTRY |
 | VERIFICATION METHOD | `VERIFICATION_PROTOCOL_v1` | VERIFICATION METHOD REGISTRY |
 | VERIFICATION RESULT | `VERIFICATION_PROTOCOL_v1` | VERIFICATION RESULT REGISTRY |
-| CONTRACT TYPE | `OPERATION_WORKFLOWS_v1` | CONTRACT TYPE REGISTRY |
+| CONTRACT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | CONTRACT TYPE REGISTRY |
 | QUALITATIVE LIKELIHOOD | `LEGAL_RESEARCH_METHOD_v1` | CLASSIFICATION LIKELIHOOD REGISTRY |
+| MODULE TRIGGER REGISTRY | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
 
 ## 31. Boolean princips
