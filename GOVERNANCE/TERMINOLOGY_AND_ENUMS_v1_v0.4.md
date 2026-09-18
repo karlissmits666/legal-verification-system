@@ -416,6 +416,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | VERIFICATION SCOPE RECORD | `verification_scope_record` |
 | LEGAL CLASSIFICATION ASSESSMENT | `legal_classification_assessment` |
 | MODULE SCREENING RECORD | `module_screening_record` |
+| MODULE TRIGGER SET | `module_trigger_set` |
 | HUMAN DECISION | `human_decision` |
 | ESCALATION | `escalation` |
 | UNRESOLVED ISSUE | `unresolved_issue` |
@@ -441,6 +442,7 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | VERIFICATION SCOPE RECORD | `VSR-` |
 | LEGAL CLASSIFICATION ASSESSMENT | `LCA-` |
 | MODULE SCREENING RECORD | `MSR-` |
+| MODULE TRIGGER SET | `MTR-` |
 | HUMAN DECISION | `DEC-` |
 | ESCALATION | `ESC-` |
 | UNRESOLVED ISSUE | `ISS-` |
@@ -572,6 +574,23 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 - kļūst `ACTIVE`; vai
 - kļūst `DEPRECATED`.
 
+## 29.1. MODULE TRIGGER SET dzīves cikls
+
+MODULE TRIGGER SET izmanto jau esošo registry lifecycle:
+
+```text
+ACTIVE
+DEPRECATED
+```
+
+Melnraksta / vēl neapstiprināta trigger set gadījumā lifecycle vērtība netiek piešķirta:
+```text
+lifecycle = null
+approved_by = null
+```
+
+`NOT ACTIVE` nav canonical lifecycle vērtība.
+
 ## 30. Kontrolēto reģistru indekss
 
 | Controlled field | Owning document | Registry |
@@ -598,6 +617,7 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 | CONTRACT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | CONTRACT TYPE REGISTRY |
 | QUALITATIVE LIKELIHOOD | `LEGAL_RESEARCH_METHOD_v1` | CLASSIFICATION LIKELIHOOD REGISTRY |
 | MODULE TRIGGER REGISTRY | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER REGISTRY |
+| MODULE TRIGGER SET | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER SET REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
 
 ## 31. Boolean princips
