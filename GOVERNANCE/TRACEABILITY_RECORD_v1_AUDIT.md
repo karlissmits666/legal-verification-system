@@ -1,28 +1,28 @@
-# TRACEABILITY_RECORD_v1 — MECHANICAL AUDIT
+# TRACEABILITY_RECORD_v1 — MEHĀNISKAIS AUDITS
 
-**Target:** `GOVERNANCE/TRACEABILITY_RECORD_v1.md — Architecture v0.4`  
-**Baseline:** `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md — APPROVED — BASELINE (FROZEN)`  
-**Statuss:** PASS — NO BLOCKING BASELINE CONFLICT FOUND  
-**Freeze:** APPROVED — BASELINE (FROZEN)
+**Pārbaudāmais dokuments:** `GOVERNANCE/TRACEABILITY_RECORD_v1.md — Arhitektūra v0.4`  
+**Pamatversija:** `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md — APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`  
+**Statuss:** IZTURĒTS — BLOĶĒJOŠAS PRETRUNAS AR PAMATVERSIJU NAV ATRASTAS  
+**Iesaldēšana:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)
 
 ## 1. Slēgto statusu reģistra audits
 
-| Baseline kategorija | Frozen vērtības | v0.4 rezultāts |
+| Pamatversijas kategorija | Iesaldētās vērtības | v0.4 rezultāts |
 |---|---|---|
-| PRASĪBAS STATUSS | IZPILDĪTS / NAV IZPILDĪTS / NAV PIERĀDĪTS | PASS |
-| VERIFIKĀCIJAS LĪMENIS | EVIDENCE BOUND — AI PROPOSED / HUMAN VERIFIED | PASS |
-| PRASĪBAS LĪMENIS | MANDATORY EXTERNAL / MANDATORY INTERNAL / NEGOTIABLE | PASS |
-| PĀRVALDĪBAS STATUSS | UNCLASSIFIED | PASS |
-| PRASĪBAS TIPS | POSITIVE / NEGATIVE | PASS |
-| MODUĻA STATUSS | APPLICABLE / NOT APPLICABLE / UNCLEAR | PASS |
-| MODUĻA AUTORITĀTE | SYSTEM PROPOSAL ONLY / HUMAN CONFIRMATION REQUIRED / EXTERNAL INPUT ONLY / RULE-BASED DETERMINATION | PASS |
-| ATĻAUJAS STATUSS | ALLOWED / NOT ALLOWED / PERMISSION UNKNOWN / DATA CLASS MISMATCH SUSPECTED | PASS |
-| APTURES STĀVOKĻI | TASK CLARIFICATION REQUIRED / HUMAN INPUT REQUIRED / HUMAN CONFIRMATION REQUIRED / HUMAN VERIFICATION REQUIRED / ESCALATION REQUIRED / BLOCK | PASS |
-| JURIDISKĀ STATUSA ATSAUCES | LEGAL APPROVED / LEGAL POSITION: NOT APPROVED + BUSINESS PROCEEDED | PASS |
+| PRASĪBAS STATUSS | IZPILDĪTS / NAV IZPILDĪTS / NAV PIERĀDĪTS | IZTURĒTS |
+| VERIFIKĀCIJAS LĪMENIS | EVIDENCE BOUND — AI PROPOSED / HUMAN VERIFIED | IZTURĒTS |
+| PRASĪBAS LĪMENIS | MANDATORY EXTERNAL / MANDATORY INTERNAL / NEGOTIABLE | IZTURĒTS |
+| PĀRVALDĪBAS STATUSS | UNCLASSIFIED | IZTURĒTS |
+| PRASĪBAS TIPS | POSITIVE / NEGATIVE | IZTURĒTS |
+| MODUĻA STATUSS | APPLICABLE / NOT APPLICABLE / UNCLEAR | IZTURĒTS |
+| MODUĻA AUTORITĀTE | SYSTEM PROPOSAL ONLY / HUMAN CONFIRMATION REQUIRED / EXTERNAL INPUT ONLY / RULE-BASED DETERMINATION | IZTURĒTS |
+| ATĻAUJAS STATUSS | ALLOWED / NOT ALLOWED / PERMISSION UNKNOWN / DATA CLASS MISMATCH SUSPECTED | IZTURĒTS |
+| APTURES STĀVOKĻI | TASK CLARIFICATION REQUIRED / HUMAN INPUT REQUIRED / HUMAN CONFIRMATION REQUIRED / HUMAN VERIFICATION REQUIRED / ESCALATION REQUIRED / BLOCK | IZTURĒTS |
+| JURIDISKĀ STATUSA ATSAUCES | LEGAL APPROVED / LEGAL POSITION: NOT APPROVED + BUSINESS PROCEEDED | IZTURĒTS |
 
 v0.4 neievieš jaunu canonical statusu vai aptures stāvokli.
 
-## 2. REQUIREMENT LEVEL / UNCLASSIFIED cross-field audits
+## 2. `REQUIREMENT LEVEL` / `UNCLASSIFIED` starplauku audits
 
 Validācijas noteikums:
 
@@ -33,15 +33,15 @@ UNCLASSIFIED + populated level             → INVALID
 no UNCLASSIFIED + empty level              → INVALID
 ```
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
 Tukšums nav canonical statusa vērtība; tas ir conditional schema stāvoklis, kuru viennozīmīgi nosaka `GOVERNANCE STATUS`.
 
-## 3. Evidence binding audits
+## 3. Pierādījuma sasaistes audits
 
 Baseline prasa precīzu fragmentu un atrašanās vietu.
 
-v0.4 Evidence Object satur:
+v0.4 Pierādījuma objekts (`Evidence Object`) satur:
 
 ```text
 SOURCE ID
@@ -49,11 +49,11 @@ LOCATION
 EXACT QUOTED FRAGMENT
 ```
 
-Traceability Record glabā stable evidence reference, nevis dublē fragmentu.
+Traceability Record glabā noturīgu atsauci uz pierādījumu, nevis dublē fragmentu.
 
-Rezultāts: **PASS**, ar implementation prerequisite: evidence store jānodrošina v0.4 18. punkta persistence invarianti.
+Rezultāts: **IZTURĒTS**, ar ieviešanas priekšnosacījumu: pierādījumu glabātuvei jānodrošina v0.4 18. punkta noturības invarianti.
 
-## 4. Composite requirement audits
+## 4. Salikto prasību audits
 
 Baseline deterministiskā agregācija:
 - visi IZPILDĪTS → IZPILDĪTS;
@@ -62,22 +62,22 @@ Baseline deterministiskā agregācija:
 
 v0.4 27.–29. punkts to saglabā un nepieļauj AI radītu komponentu struktūru.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 5. Minimum human verification threshold audits
+## 5. Minimālā cilvēka verifikācijas sliekšņa audits
 
-v0.4 requirement release gate sedz:
+v0.4 prasību izdošanas vārti sedz:
 - MANDATORY EXTERNAL;
 - MANDATORY INTERNAL;
 - jebkuru NEGATIVE REQUIREMENT.
 
-UNCLASSIFIED tiek segts ar atsevišķu blocking gate.
+UNCLASSIFIED tiek segts ar atsevišķu bloķējošie vārti.
 
 ANALYSE / EXTRACT / COMPARE FINDINGS netiek kļūdaini pakļauti universālam HUMAN VERIFIED gate.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 6. Verification semantics audits
+## 6. Verifikācijas semantikas audits
 
 v0.4 saglabā:
 - AI consensus nav verification;
@@ -85,9 +85,9 @@ v0.4 saglabā:
 - prior-task pārnese nepaaugstina verification level;
 - parent composite requirement nekļūst HUMAN VERIFIED tikai no daļēji verificētiem komponentiem.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 7. Data-class governance audits
+## 7. Datu klašu pārvaldības audits
 
 v0.4:
 - data class pieder SOURCE;
@@ -96,9 +96,9 @@ v0.4:
 - DATA CLASS MISMATCH SUSPECTED → BLOCK + HUMAN CONFIRMATION REQUIRED;
 - mismatch propagējas uz jau atkarīgajiem FINDINGS / REQUIREMENTS / OUTPUTS.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 8. Material-output boundary audits
+## 8. Materiālā rezultāta robežas audits
 
 v0.4 saglabā atšķirību starp darba draftu un materiālu output.
 
@@ -106,9 +106,9 @@ Traceability tiek finalizēts pirms materiāla output.
 
 LEGAL APPROVED netiek radīts sistēmā; tā ir tikai ārēja atsauce ar obligātu source reference.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 9. Lower-level-document boundary audits
+## 9. Zemāka līmeņa dokumentu robežas audits
 
 v0.4 neizlemj:
 - cilvēka verification depth;
@@ -119,9 +119,9 @@ v0.4 neizlemj:
 
 Tie paliek attiecīgajiem zemāka līmeņa vai bankas governance dokumentiem.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 10. Open pre-go-live item
+## 10. Atvērts jautājums pirms produkcijas ieviešanas
 
 Evidence Store / Traceability Record noturība, edit/delete permissions, retention un iespējamais ārējais immutable/archive snapshot nav noteikti baseline un nav arhitektūras konflikts.
 
@@ -133,9 +133,9 @@ OPEN GOVERNANCE QUESTION — PRE-GO-LIVE BLOCKER
 
 Tas nav jauns frozen statusa enum; tas ir dokumenta atvērtā jautājuma marķējums.
 
-Rezultāts: **PASS — NON-BLOCKING FOR FREEZE CANDIDATE**.
+Rezultāts: **IZTURĒTS — NON-BLOCKING FOR FREEZE CANDIDATE**.
 
-## 11. Pilot boundary audits
+## 11. Pilota robežu audits
 
 Pilot 1 = ANALYSE + EXTRACT.
 
@@ -143,31 +143,31 @@ Tas apzināti nevalidē requirement human-verification release gate.
 
 Pilot 1 obligāti ietver simulētu DATA CLASS MISMATCH SUSPECTED gadījumu.
 
-Rezultāts: **PASS**.
+Rezultāts: **IZTURĒTS**.
 
-## 12. Gala audit status
+## 12. Gala audita statuss
 
 ```text
 DOCUMENT:
-TRACEABILITY_RECORD_v1 — Architecture v0.4
+TRACEABILITY_RECORD_v1 — Arhitektūra v0.4
 
 BASELINE:
 PROFESSIONAL_SCOPE_v1.3 — FROZEN
 
-MECHANICAL AUDIT:
-PASS
+MEHĀNISKAIS AUDITS:
+IZTURĒTS
 
-BLOCKING BASELINE CONFLICTS:
+BLOĶĒJOŠAS PRETRUNAS AR PAMATVERSIJU:
 0
 
-NEW CANONICAL STATUSES:
+JAUNI KANONISKIE STATUSI:
 0
 
-OPEN PRE-GO-LIVE GOVERNANCE ITEMS:
+ATVĒRTI PĀRVALDĪBAS JAUTĀJUMI PIRMS PRODUKCIJAS IEVIEŠANAS:
 1
 
-FREEZE STATUS:
-APPROVED — BASELINE (FROZEN)
+IESALDĒŠANAS STATUSS:
+APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)
 ```
 
 Freeze approval saņemts 2026-09-18. Nākamās izmaiņas veicamas tikai jaunā versijā.
