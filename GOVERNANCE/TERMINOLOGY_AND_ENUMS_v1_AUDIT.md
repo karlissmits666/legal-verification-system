@@ -6,7 +6,7 @@
 - `TRACEABILITY_RECORD_v1` — Arhitektūra v0.4 — IESALDĒTA  
 
 **Statuss:** IZTURĒTS — BLOĶĒJOŠAS PRETRUNAS NAV ATRASTAS  
-**Iesaldēšana:** VĒL NAV APSTIPRINĀTA
+**Iesaldēšana:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)
 
 ## 1. Frozen enum audits
 
@@ -248,7 +248,7 @@ REGISTRY INDEX
 REGISTRY VALUE LIFECYCLE
 
 FREEZE STATUS:
-NOT YET APPROVED
+APPROVED — BASELINE (FROZEN)
 ```
 
-Nākamais solis: lietotāja freeze lēmums par `TERMINOLOGY_AND_ENUMS_v1 v0.2`.
+Iesaldēšanas apstiprinājums saņemts 2026-09-18. Turpmākas izmaiņas veicamas tikai jaunā versijā.
