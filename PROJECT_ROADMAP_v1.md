@@ -18,12 +18,12 @@
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **JĀIZSTRĀDĀ** | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **JĀIZSTRĀDĀ** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **JĀIZSTRĀDĀ** | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **JĀIZSTRĀDĀ** | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.2 — IESALDĒŠANAS KANDIDĀTS; MEHĀNISKAIS AUDITS IZTURĒTS** | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora izpildes kodola, projekta struktūras, uzvedņu, darba plūsmu, noteikumu kopu (`playbooks`), strukturētās pārbaudes, izsekojamības un izdošanas vārtu mērķa arhitektūra | **MĒRĶA ARHITEKTŪRA DEFINĒTA — IEVIEŠANA NAV PABEIGTA** | **Jā — obligāts end-to-end pilots** |
-| 13 | `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | **JĀIZSTRĀDĀ** | Šis dokuments definē pilotus |
+| 13 | `PILOT_AND_ACCEPTANCE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | **JĀIZSTRĀDĀ** | Šis dokuments definē pilotus |
 
 ## 2. Nosacīts papildu dokuments
 
@@ -52,7 +52,7 @@ Mērķis:
 - pārbaudīt, vai izsekojamības ieraksts (`Traceability Record`) ir praktiski aizpildāms;
 - pārbaudīt `FINDING` / `EVIDENCE` / `VERIFICATION` sasaisti;
 - pārbaudīt, vai izsekojamība nerada nesamērīgu manuālo slodzi;
-- pārbaudīt, vai materiāla output release gate darbojas.
+- pārbaudīt, vai materiāla rezultāta izdošanas vārti darbojas.
 
 Ieteicamais apjoms:
 - 5–10 jau pabeigti vai droši atkārtoti analizējami uzdevumi.
@@ -81,7 +81,7 @@ Mērķis:
 - pārbaudīt prasību kopas pilnīgumu pret apstiprināto kopu;
 - pārbaudīt saliktās prasības un komponentu agregāciju;
 - pārbaudīt versēšanu;
-- pārbaudīt nepamanītu obligāto prasību rate.
+- pārbaudīt nepamanīto obligāto prasību īpatsvaru.
 
 Galvenais drošības KPI:
 - nepamanītu obligātu prasību skaits.
@@ -115,7 +115,7 @@ LEGAL TASK
 ```text
 1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
 2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS
-3. TERMINOLOGY_AND_ENUMS_v1
+3. TERMINOLOGY_AND_ENUMS_v1                 v0.2 IESALDĒŠANAS KANDIDĀTS
 4. VERIFICATION_PROTOCOL_v1
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
 6. OPERATION_WORKFLOWS_v1
@@ -125,9 +125,9 @@ LEGAL TASK
 10. DORA_REQUIREMENTS_MATRIX_v1
 11. AI_TOOL_USAGE_POLICY_v1
 12. LEGORA_IMPLEMENTATION_SPEC_v1                 MĒRĶA ARHITEKTŪRA DEFINĒTA
-13. PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1
+13. PILOT_AND_ACCEPTANCE_PLAN_v1
 → PABEIGT UN IESALDĒT VISUS ATBALSTA DOKUMENTUS
-→ IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1
+→ IEVIEST LEGORA_IMPLEMENTATION_SPEC_v1
 → IZPILDĪT PILOTUS
 → IZLABOT KONSTATĒTĀS KĻŪDAS
 → REGRESIJAS PĀRBAUDE
@@ -141,8 +141,8 @@ LEGAL TASK
 
 **Obligātie pamatdokumenti:** 13  
 **Pabeigti / frozen:** 2  
-**Izstrādē:** 0  
-**Atlikuši obligātie dokumenti:** 11  
+**Izstrādē:** 1  
+**Atlikuši obligātie dokumenti:** 10  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
 **Plānotie pilotu posmi:** 4  
 **Nosacīts papildu dokuments:** 1
@@ -154,12 +154,12 @@ Projekts nav uzskatāms par pabeigtu tikai tāpēc, ka visi dokumenti ir uzrakst
 Pabeigtība nozīmē:
 
 1. visi obligātie dokumenti ir apstiprināti;
-2. visi savstarpējie references ir konsekventi;
-3. canonical statusi un enum vērtības nesadalās paralēlās sistēmās;
-4. pilotu rezultāti atbilst `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` kritērijiem;
+2. visi savstarpējie atsauces ir konsekventas;
+3. kanoniskie statusi un uzskaitījumu (enum) vērtības nesadalās paralēlās sistēmās;
+4. pilotu rezultāti atbilst `PILOT_AND_ACCEPTANCE_PLAN_v1` kritērijiem;
 5. Legora pilnā darba plūsma strādā praksē;
-6. nav neatrisinātu blocking arhitektūras pretrunu;
-7. apstiprinātās baseline versijas ir iesaldētas un izsekojamas Git vēsturē.
+6. nav neatrisinātu bloķējošu arhitektūras pretrunu;
+7. apstiprinātās pamatversijas ir iesaldētas un izsekojamas Git vēsturē.
 
 
 ## 7. Gala ieviešanas uzdevums
@@ -173,12 +173,12 @@ Tas ir mērķa stāvoklis, kas jāsasniedz pēc visu atbalsta dokumentu pabeigš
 Gala secība:
 
 ```text
-COMPLETE AND FREEZE SUPPORTING DOCUMENTS
+PABEIGT UN IESALDĒT VISUS ATBALSTA DOKUMENTUS
 → IEVIEST LEGORA_IMPLEMENTATION_SPEC_v1 LEGORA VIDĒ
-→ RUN PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1
+→ IZPILDĪT PILOT_AND_ACCEPTANCE_PLAN_v1
 → IZLABOT KONSTATĒTĀS KĻŪDAS
-→ RUN REGRESIJAS PĀRBAUDE
-→ APPROVE PRODUCTION CONFIGURATION
+→ IZPILDĪT REGRESIJAS PĀRBAUDI
+→ APSTIPRINĀT PRODUKCIJAS KONFIGURĀCIJU
 → IESALDĒT IZPILDVIDES MANIFESTU
 ```
 
@@ -195,3 +195,15 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 - Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
 - Pilota 1 tvērums: ANALYSE + EXTRACT
 - 1. pilotā obligāts simulēts `DATA CLASS MISMATCH SUSPECTED` testa gadījums
+
+
+## Terminoloģijas posms
+
+`TERMINOLOGY_AND_ENUMS_v1 — v0.2` ir konsolidēts kā iesaldēšanas kandidāts.
+
+- Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` un `TRACEABILITY_RECORD_v1 v0.4`: IZTURĒTS
+- Bloķējošas pretrunas ar pamatversijām: 0
+- Jauni frozen canonical statusi: 0
+- LV lietotāja saskarnes apzīmējumu slānis: definēts
+- Ārējo kontrolēto reģistru īpašnieki: definēti
+- Iesaldēšana: gaida lietotāja skaidru apstiprinājumu
