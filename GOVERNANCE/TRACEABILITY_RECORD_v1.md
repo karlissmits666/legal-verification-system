@@ -2,28 +2,28 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** APPROVED — BASELINE (FROZEN)  
-**Versija:** Architecture v0.4  
-**Freeze datums:** 2026-09-18  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.3 — APPROVED — BASELINE (FROZEN)`
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA) [`APPROVED — BASELINE (FROZEN)`]  
+**Versija:** Arhitektūra v0.4  
+**Iesaldēšanas datums:** 2026-09-18  
+**Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
 
 `TRACEABILITY_RECORD_v1` definē standartizētu izsekojamības modeli AI atbalstītam juridiskajam darbam. Tam jāļauj rekonstruēt uzdevumu, izmantotos avotus, būtiskos AI secinājumus, pierādījumus, verifikācijas aktus, cilvēka lēmumus, neatrisinātos jautājumus, eskalācijas un izdoto materiālo rezultātu.
 
-Traceability Record nav juridiskais atzinums, pilns matter file vai `LEGAL APPROVED` mehānisms.
+Izsekojamības ieraksts (`Traceability Record`) nav juridiskais atzinums, pilns lietas fails vai `LEGAL APPROVED` mehānisms.
 
 ## 2. Glabāšanas vieta
 
-Traceability Record tiek glabāts attiecīgā juridiskā uzdevuma Legora projekta vidē.
+Izsekojamības ieraksts tiek glabāts attiecīgā juridiskā uzdevuma Legora projekta vidē.
 
-Pilnais evidence fragments netiek dublēts Traceability Record. Tas dzīvo atsevišķā strukturētā evidence glabātuvē; Traceability Record satur noturīgu atsauci uz evidence objektu.
+Pilnais pierādījuma (`evidence`) fragments netiek dublēts izsekojamības ierakstā. Tas dzīvo atsevišķā strukturētā pierādījumu glabātuvē; Izsekojamības ieraksts satur noturīgu atsauci uz evidence objektu.
 
 ## 3. Ģenerēšanas brīdis
 
-Traceability Record tiek sagatavots un finalizēts pirms materiāla output izdošanas.
+Izsekojamības ieraksts tiek sagatavots un finalizēts pirms materiāla rezultāta izdošanas.
 
-Darba gaitā metadati drīkst tikt uzkrāti darba artefaktos. Materiāls output netiek izlaists, kamēr nav izpildīti piemērojamie release gates.
+Darba gaitā metadati drīkst tikt uzkrāti darba artefaktos. Materiāls output netiek izlaists, kamēr nav izpildīti piemērojamie izdošanas vārti.
 
 ## 4. Centrālā vienība
 
@@ -56,7 +56,7 @@ Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160
 
 Saistības glabā laukos, nevis ID.
 
-## 6. TASK RECORD
+## 6. Uzdevuma ieraksts (`TASK RECORD`)
 
 Obligāti:
 
@@ -80,7 +80,7 @@ Ja platforma neatklāj modeļa versiju:
 MODEL VERSION: NOT EXPOSED BY PLATFORM
 ```
 
-## 7. Task classification
+## 7. Uzdevuma klasifikācija
 
 ```text
 OPERATION:
@@ -93,7 +93,7 @@ EXTERNAL SOURCE / DOCUMENT SET
 
 Ja klasifikācija nav viennozīmīga: `TASK CLARIFICATION REQUIRED`.
 
-## 8. MODULE RECORD
+## 8. Moduļa ieraksts (`MODULE RECORD`)
 
 Katram modulim:
 
@@ -107,12 +107,12 @@ CONFIRMATION DATE    [ja piemērojams]
 SOURCE / REFERENCE
 ```
 
-Canonical `MODULE STATUS`:
+Kanoniskās `MODULE STATUS` vērtības:
 ```text
 APPLICABLE / NOT APPLICABLE / UNCLEAR
 ```
 
-Canonical `APPLICABILITY AUTHORITY`:
+Kanoniskās `APPLICABILITY AUTHORITY` vērtības:
 ```text
 SYSTEM PROPOSAL ONLY
 HUMAN CONFIRMATION REQUIRED
@@ -120,7 +120,7 @@ EXTERNAL INPUT ONLY
 RULE-BASED DETERMINATION
 ```
 
-## 9. SOURCE REGISTER
+## 9. Avotu reģistrs (`SOURCE REGISTER`)
 
 Katram izmantotajam avotam:
 
@@ -144,7 +144,7 @@ PERMISSION STATUS
 PERMISSION CHECKED AT
 ```
 
-## 10. SOURCE TYPE
+## 10. Avota tips (`SOURCE TYPE`)
 
 SOURCE TYPE nav juridisks statuss. Piemēri:
 
@@ -177,7 +177,7 @@ CONTENT HASH
 
 Ja redakciju nevar pietiekami identificēt, tiek radīts `UNRESOLVED ISSUE`.
 
-## 12. DATA CLASS pieder SOURCE
+## 12. Datu klase (`DATA CLASS`) pieder avotam (`SOURCE`)
 
 DATA CLASS tiek deklarēta katram SOURCE pirms AI apstrādes, kur tas tehniski iespējams.
 
@@ -190,7 +190,7 @@ SOURCE ADDED
 
 Ja jebkuram SOURCE ir `NOT ALLOWED` vai `PERMISSION UNKNOWN`, piemēro `BLOCK`.
 
-## 13. DATA CLASS EVENT
+## 13. Datu klases notikums (`DATA CLASS EVENT`)
 
 Ja konstatēta iespējama neatbilstība:
 
@@ -211,11 +211,11 @@ RESOLUTION REFERENCE
 
 Sistēma identificē visus jau radītos `FINDINGS`, `REQUIREMENT RESULTS` un `OUTPUTS`, kas ir atkarīgi no attiecīgā SOURCE, un sasaista tos ar DATA CLASS EVENT.
 
-`BLOCK` attiecas uz visa TASK materiālo output. Pēc cilvēka lēmuma vēsturē paliek redzams, kuri secinājumi radīti pirms neatbilstības atrisināšanas.
+`BLOCK` attiecas uz visa TASK materiālo rezultātu. Pēc cilvēka lēmuma vēsturē paliek redzams, kuri secinājumi radīti pirms neatbilstības atrisināšanas.
 
-DATA CLASS EVENT izraisa jaunu Traceability Record versiju.
+DATA CLASS EVENT izraisa jaunu izsekojamības ieraksta versiju.
 
-## 14. PRIOR TASK OUTPUT kā avots
+## 14. Iepriekšēja uzdevuma rezultāts (`PRIOR TASK OUTPUT`) kā avots
 
 Ja viena TASK materiāls rezultāts kļūst par citas TASK ievaddatu:
 
@@ -231,7 +231,7 @@ Mantotais verification level tiek kopēts no izcelsmes objekta un netiek paaugst
 
 To var paaugstināt tikai jauns `VERIFICATION EVENT` attiecībā uz konkrēto apgalvojumu.
 
-## 15. FINDING
+## 15. Atradums (`FINDING`)
 
 Katram būtiskam AI secinājumam:
 
@@ -249,19 +249,19 @@ DATA CLASS EVENT REFERENCES  [ja piemērojams]
 
 FINDING nav cilvēka juridiskais lēmums.
 
-## 16. FINDING izmantošana operācijās
+## 16. Atraduma (`FINDING`) izmantošana operācijās
 
 ```text
 ANALYSE  → FINDINGS
 VERIFY   → REQUIREMENT RESULTS + FINDINGS papildu secinājumiem
 COMPARE  → FINDINGS par atšķirībām
 EXTRACT  → FINDINGS par iegūtiem faktiem / prasībām
-DRAFT    → FINDINGS par juridisko pamatu un būtiskiem drafting apsvērumiem
+DRAFT    → FINDINGS par juridisko pamatu un būtiskiem redakcijas izstrādes apsvērumiem
 ```
 
-## 17. EVIDENCE OBJECT
+## 17. Pierādījuma objekts (`EVIDENCE OBJECT`)
 
-Evidence objektam minimāli:
+Pierādījuma objektam minimāli:
 
 ```text
 EVIDENCE ID
@@ -278,17 +278,17 @@ GENERATED AT
 
 Ja secinājums atkarīgs no definīcijas, cross-reference, annex vai cita fragmenta, arī tie tiek saglabāti kā atsevišķi evidence objekti.
 
-## 18. Evidence persistence invarianti
+## 18. Pierādījuma noturības invarianti
 
-Derīgs EVIDENCE ID ir:
+Derīgs `EVIDENCE ID` ir:
 
 1. noturīgs — ID nemainās darba artefakta pārģenerēšanas dēļ;
 2. nepārrakstāms klusējot — materiāls labojums rada jaunu evidence objektu;
 3. saglabājams vismaz tikpat ilgi, cik Traceability Record, kas uz to atsaucas.
 
-Ja evidence glabātuve šos nosacījumus nenodrošina, evidence objekts nav pietiekams ilgtermiņa pierādījuma nesējs. Tādā gadījumā attiecīgajam secinājumam nepieciešama cilvēka pārbaude pret sākotnējo avotu, kas fiksēta ar `VERIFICATION EVENT`, atbilstoši `VERIFICATION_PROTOCOL_v1`.
+Ja pierādījumu glabātuve šos nosacījumus nenodrošina, pierādījuma objekts nav pietiekams ilgtermiņa pierādījuma nesējs. Tādā gadījumā attiecīgajam secinājumam nepieciešama cilvēka pārbaude pret sākotnējo avotu, kas fiksēta ar `VERIFICATION EVENT`, atbilstoši `VERIFICATION_PROTOCOL_v1`.
 
-## 19. Evidence un interpretation nodalījums
+## 19. Pierādījuma un interpretācijas nodalījums
 
 `EVIDENCE` atbild: “Ko tieši avotā sistēma izmantoja?”
 
@@ -296,9 +296,9 @@ Ja evidence glabātuve šos nosacījumus nenodrošina, evidence objekts nav piet
 
 Abi tiek glabāti atsevišķi.
 
-## 20. Traceability atsauce uz evidence
+## 20. Izsekojamības atsauce uz pierādījumu
 
-Traceability Record neglabā pilnu quoted fragment. Tas glabā:
+Izsekojamības ieraksts neglabā pilnu quoted fragment. Tas glabā:
 
 ```text
 EVIDENCE STORE REFERENCE
@@ -307,7 +307,7 @@ GENERATED AT
 EVIDENCE IDS
 ```
 
-## 21. REQUIREMENTS SET RECORD
+## 21. Prasību kopas ieraksts (`REQUIREMENTS SET RECORD`)
 
 Ja tiek izmantota prasību matrica:
 
@@ -321,7 +321,7 @@ LAST REVIEW DATE
 
 Ieraksts identificē izmantoto kopu; tas pats par sevi nepierāda, ka kopa ir pilnīga pret visu spēkā esošo regulējumu.
 
-## 22. REQUIREMENT RESULT RECORD
+## 22. Prasības rezultāta ieraksts (`REQUIREMENT RESULT RECORD`)
 
 ```text
 REQUIREMENT ID
@@ -336,9 +336,9 @@ ANALYSIS / INTERPRETATION
 DATA CLASS EVENT REFERENCES  [ja piemērojams]
 ```
 
-## 23. REQUIREMENT LEVEL / GOVERNANCE STATUS conditional schema
+## 23. `REQUIREMENT LEVEL` / `GOVERNANCE STATUS` nosacījumu shēma
 
-Canonical juridiskie `REQUIREMENT LEVEL`:
+Kanoniskie juridiskie `REQUIREMENT LEVEL`:
 
 ```text
 MANDATORY EXTERNAL
@@ -351,7 +351,7 @@ Canonical `GOVERNANCE STATUS`:
 UNCLASSIFIED
 ```
 
-Machine-validatable cross-field invariants:
+Mašīnvalidējami starplauku invarianti:
 
 ```text
 IF GOVERNANCE STATUS = UNCLASSIFIED
@@ -364,7 +364,7 @@ THEN REQUIREMENT LEVEL MUST CONTAIN EXACTLY ONE OF:
   NEGOTIABLE
 ```
 
-Valid combinations:
+Derīgas kombinācijas:
 
 ```text
 UNCLASSIFIED + empty level     → valid
@@ -375,13 +375,13 @@ no UNCLASSIFIED + empty level  → invalid
 
 Tukšs REQUIREMENT LEVEL nav jauns statuss.
 
-## 24. REQUIREMENT TYPE
+## 24. Prasības tips (`REQUIREMENT TYPE`)
 
 ```text
 POSITIVE / NEGATIVE
 ```
 
-## 25. REQUIREMENT STATUS
+## 25. Prasības statuss (`REQUIREMENT STATUS`)
 
 ```text
 IZPILDĪTS / NAV IZPILDĪTS / NAV PIERĀDĪTS
@@ -389,7 +389,7 @@ IZPILDĪTS / NAV IZPILDĪTS / NAV PIERĀDĪTS
 
 Citas vērtības netiek ieviestas.
 
-## 26. VERIFICATION LEVEL
+## 26. Verifikācijas līmenis (`VERIFICATION LEVEL`)
 
 ```text
 EVIDENCE BOUND — AI PROPOSED
@@ -419,7 +419,7 @@ VERIFICATION LEVEL
 
 ## 28. Saliktas prasības agregācija
 
-Parent `REQUIREMENT STATUS` tiek agregēts deterministiski:
+Augstākā līmeņa `REQUIREMENT STATUS` tiek agregēts deterministiski:
 
 ```text
 visi komponenti IZPILDĪTS
@@ -434,11 +434,11 @@ pārējos gadījumos
 
 ## 29. Saliktas prasības verifikācija
 
-Parent REQUIREMENT nekļūst `HUMAN VERIFIED` tikai tādēļ, ka verificēti atsevišķi komponenti.
+Augstākā līmeņa prasība nekļūst `HUMAN VERIFIED` tikai tādēļ, ka verificēti atsevišķi komponenti.
 
 Parent `HUMAN VERIFIED` prasa `VERIFICATION EVENT`, kas aptver gala secinājumu un visus statusu noteicošos komponentus.
 
-## 30. VERIFICATION EVENT
+## 30. Verifikācijas notikums (`VERIFICATION EVENT`)
 
 ```text
 VERIFICATION EVENT ID
@@ -454,7 +454,7 @@ Verifikācijas vēsture netiek klusējot pārrakstīta.
 
 ## 31. Verifikācijas vēsture
 
-Verifikācijas līmenis pieaug tikai ar faktisku verification act.
+Verifikācijas līmenis pieaug tikai ar faktisku verifikācijas aktu.
 
 Piemērs:
 
@@ -464,30 +464,30 @@ T2: VERIFICATION EVENT VER-0017
 T3: FND-0042 → HUMAN VERIFIED
 ```
 
-## 32. Requirement verification release gate
+## 32. Prasību verifikācijas izdošanas vārti
 
-Šis gate attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.3` 16.3. slieksnis prasa `HUMAN VERIFIED`.
+Šis vārti attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.3` 16.3. slieksnis prasa `HUMAN VERIFIED`.
 
-Tas nav universāls gate visiem FINDINGS.
+Tas nav universāls vārti visiem `FINDING`.
 
 Ja kāda piemērojamā prasība ir:
 - `MANDATORY EXTERNAL`;
 - `MANDATORY INTERNAL`; vai
 - jebkura `NEGATIVE REQUIREMENT`;
 
-un tā vēl ir `EVIDENCE BOUND — AI PROPOSED`, tad piemēro `HUMAN VERIFICATION REQUIRED` un materiāls output netiek izlaists.
+un tā vēl ir `EVIDENCE BOUND — AI PROPOSED`, tad piemēro `HUMAN VERIFICATION REQUIRED` un materiāls rezultāts netiek izlaists.
 
 `UNCLASSIFIED` sedz atsevišķais 33. punkta gate.
 
 ANALYSE / EXTRACT / COMPARE FINDING drīkst būt `EVIDENCE BOUND — AI PROPOSED`, ja uz to neattiecas cits obligāts human-verification noteikums.
 
-## 33. UNCLASSIFIED gate
+## 33. `UNCLASSIFIED` izdošanas vārti
 
-Ja `GOVERNANCE STATUS = UNCLASSIFIED`, prasība nav uzskatāma par klasificētu un materiāls output netiek izlaists, kamēr klasifikācija nav veikta REQUIREMENTS_MATRIX pārvaldībā.
+Ja `GOVERNANCE STATUS = UNCLASSIFIED`, prasība nav uzskatāma par klasificētu un materiāls rezultāts netiek izlaists, kamēr klasifikācija nav veikta REQUIREMENTS_MATRIX pārvaldībā.
 
 AI konkrētā TASK ietvaros nedrīkst izvest prasību no `UNCLASSIFIED`.
 
-## 34. CORE RECORD
+## 34. Pamatieraksts (`CORE RECORD`)
 
 Obligāts katram materiālam uzdevumam:
 
@@ -508,9 +508,9 @@ OUTPUTS
 LEGAL STATUS REFERENCE
 ```
 
-## 35. EXTENDED RECORD
+## 35. Paplašinātais ieraksts (`EXTENDED RECORD`)
 
-Papildus requirements-based uzdevumos:
+Papildus uz prasībām balstītos uzdevumos:
 
 ```text
 REQUIREMENTS SET
@@ -520,7 +520,7 @@ COMPLETENESS CONTROL
 REQUIREMENT-LEVEL VERIFICATION EVENTS
 ```
 
-## 36. HUMAN DECISION RECORD
+## 36. Cilvēka lēmuma ieraksts (`HUMAN DECISION RECORD`)
 
 ```text
 DECISION ID
@@ -536,7 +536,7 @@ RELATED ISSUE
 
 AI nekad nav `DECIDED BY`.
 
-## 37. ESCALATION RECORD
+## 37. Eskalācijas ieraksts (`ESCALATION RECORD`)
 
 ```text
 ESCALATION ID
@@ -550,7 +550,7 @@ RESPONSE REFERENCE
 
 SUSPENSION STATE drīkst izmantot tikai frozen vērtības.
 
-## 38. UNRESOLVED ISSUE RECORD
+## 38. Neatrisināta jautājuma ieraksts (`UNRESOLVED ISSUE RECORD`)
 
 ```text
 ISSUE ID
@@ -571,7 +571,7 @@ Jautājums ir atrisināts jaunā Traceability Record versijā, kur tas vairs nav
 
 Iepriekšējā versija saglabā sākotnējo jautājumu.
 
-## 40. OUTPUT RECORD
+## 40. Rezultāta ieraksts (`OUTPUT RECORD`)
 
 ```text
 OUTPUT ID
@@ -587,9 +587,9 @@ INTENDED USE
 DATA CLASS EVENT REFERENCES     [ja piemērojams]
 ```
 
-## 41. OUTPUT VERIFICATION SUMMARY
+## 41. Rezultāta verifikācijas kopsavilkums
 
-Output nesaņem vienu universālu verification level.
+Rezultāts nesaņem vienu universālu verification level.
 
 Kopsavilkumā atsevišķi atspoguļo:
 ```text
@@ -599,9 +599,9 @@ HUMAN VERIFIED REQUIREMENTS
 AI PROPOSED REQUIREMENTS
 ```
 
-Tas nepieļauj verification laundering.
+Tas nepieļauj verifikācijas statusa nepamatotu pārnesi.
 
-## 42. LEGAL STATUS REFERENCE
+## 42. Juridiskā statusa atsauce (`LEGAL STATUS REFERENCE`)
 
 Traceability Record juridisko statusu nepiešķir.
 
@@ -616,7 +616,7 @@ BY
 
 Bez SOURCE SYSTEM / CHANNEL un REFERENCE `LEGAL APPROVED` atsauci pievienot nedrīkst.
 
-## 43. BUSINESS PROCEEDED REFERENCE
+## 43. Darba turpināšanas atsauce (`BUSINESS PROCEEDED REFERENCE`)
 
 Ja piemērojams:
 
@@ -628,9 +628,9 @@ REFERENCE
 DATE
 ```
 
-Tas ir uzskaites ieraksts, nevis risk acceptance process.
+Tas ir uzskaites ieraksts, nevis riska pieņemšanas process.
 
-## 44. RECORD VERSION
+## 44. Ieraksta versija (`RECORD VERSION`)
 
 ```text
 TRACE RECORD ID
@@ -640,7 +640,7 @@ PREVIOUS VERSION
 
 Iepriekšējā versija netiek klusējot pārrakstīta.
 
-## 45. Jaunu Traceability Record versiju izraisa
+## 45. Jaunu izsekojamības ieraksta versiju izraisa
 
 Ja pēc materiāla rezultāta mainās kāds no šiem elementiem, tiek radīta jauna versija:
 
@@ -663,7 +663,7 @@ MATERIAL OUTPUT
 LEGAL STATUS REFERENCE
 ```
 
-## 46. Operation-specific minimum
+## 46. Minimālais saturs pa operācijām
 
 ### ANALYSE
 ```text
@@ -714,19 +714,19 @@ EVIDENCE REFERENCES
 VERIFICATION LEVEL
 ```
 
-## 47. Canonical statusu princips
+## 47. Kanonisko statusu princips
 
-Canonical semantic statusi un enum vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.3`.
+Kanoniskie semantiskie statusi un uzskaitījumu (`enum`) vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.3`.
 
 Šis dokuments neievieš paralēlas statusu kopas.
 
-Tehniskie machine keys drīkst tikt definēti vēlāk `TERMINOLOGY_AND_ENUMS_v1`, ja tie nemaina canonical nozīmi.
+Tehniskās mašīnatslēgas (`machine keys`) drīkst tikt definēti vēlāk `TERMINOLOGY_AND_ENUMS_v1`, ja tie nemaina canonical nozīmi.
 
-## 48. META-RECORD robeža
+## 48. Metadatu ieraksta (`META-RECORD`) robeža
 
 Traceability Record nav vieta:
-- pilnam legal memo;
-- pilnam līguma redline;
+- pilnam juridiskajam atzinumam;
+- pilnam līguma redakciju salīdzinājumam (`redline`);
 - pilnam dokumenta tekstam;
 - pilnai sarakstei;
 - pilnam evidence fragmentam.
@@ -735,45 +735,45 @@ Tas satur metadatus, references, secinājumu sasaistes, verifikācijas aktus un 
 
 Evidence fragments dzīvo atsevišķā Evidence Object.
 
-## 49. OPEN GOVERNANCE QUESTION — PRE-GO-LIVE BLOCKER
+## 49. Atvērts pārvaldības jautājums — bloķētājs pirms produkcijas ieviešanas
 
-Pirms production go-live bankai jānosaka:
+Pirms produkcijas ieviešanas bankai jānosaka:
 
 ```text
 Kas drīkst rediģēt Traceability Record?
 Kas drīkst dzēst Traceability Record?
 Kas drīkst rediģēt vai dzēst Evidence Objects?
-Kāds ir Traceability Record retention periods?
-Kāds ir Evidence Object retention periods?
-Vai Legora nodrošina pietiekamu version / audit history?
-Vai nepieciešams immutable vai archive snapshot ārpus Legora?
+Kāds ir Traceability Record glabāšanas termiņš?
+Kāds ir Evidence Object glabāšanas termiņš?
+Vai Legora nodrošina pietiekamu versiju un audita vēsturi?
+Vai nepieciešams nemainīgu vai arhīva momentuzņēmumu ārpus Legora?
 ```
 
-Šis jautājums nav architecture freeze blocker, bet ir production go-live blocker.
+Šis jautājums nav arhitektūras iesaldēšanas bloķētājs, bet ir produkcijas ieviešanas blocker.
 
-## 50. Pilot 1 robeža
+## 50. Pilota 1 robeža
 
-Pilot 1 attiecas tikai uz:
+Pilots 1 attiecas tikai uz:
 
 ```text
 ANALYSE
 EXTRACT
 ```
 
-Pilot 1 validē:
+Pilots 1 validē:
 - SOURCE identitāti;
 - neversētu dokumentu identitāti;
-- DATA CLASS deklarāciju un permission check;
+- DATA CLASS deklarāciju un atļaujas pārbaudi;
 - FINDINGS;
-- Evidence Object un persistence;
-- Traceability evidence references;
-- PRIOR TASK OUTPUT provenance starp diviem uzdevumiem;
+- pierādījuma objektu un tā noturību;
+- izsekojamības atsauces uz pierādījumiem;
+- PRIOR TASK OUTPUT izcelsmes izsekojamību starp diviem uzdevumiem;
 - materiālā output robežu;
 - Traceability Record ģenerēšanu.
 
-Pilot 1 obligāti ietver simulētu `DATA CLASS MISMATCH SUSPECTED` gadījumu, lai pārbaudītu propagāciju uz atkarīgajiem FINDINGS un OUTPUTS, `BLOCK`, cilvēka resolution un vēstures saglabāšanu.
+Pilots 1 obligāti ietver simulētu `DATA CLASS MISMATCH SUSPECTED` gadījumu, lai pārbaudītu propagāciju uz atkarīgajiem FINDINGS un OUTPUTS, `BLOCK`, cilvēka resolution un vēstures saglabāšanu.
 
-Pilot 1 **nevalidē** requirement human-verification release gate. Tas paliek neizmēģināts līdz Pilot 2 pēc `VERIFICATION_PROTOCOL_v1`.
+Pilots 1 **nevalidē** prasību cilvēka verifikācijas izdošanas vārtus. Tas paliek neizmēģināts līdz Pilot 2 pēc `VERIFICATION_PROTOCOL_v1`.
 
 ## 51. Mērķa datu modelis
 
@@ -803,14 +803,14 @@ TASK
 └── LEGAL STATUS REFERENCE
 ```
 
-## 52. Freeze statuss
+## 52. Iesaldēšanas statuss
 
 Šis dokuments ir `APPROVED — BASELINE (FROZEN)`.
 
 Freeze pamats:
 1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` — PASS;
-2. blocking baseline pretrunas — 0;
-3. jauni canonical statusi — 0;
-4. lietotāja explicit freeze approval — saņemts 2026-09-18.
+2. bloķējošas pretrunas ar pamatversiju — 0;
+3. jauni kanoniskie statusi — 0;
+4. lietotāja skaidrs iesaldēšanas apstiprinājums — saņemts 2026-09-18.
 
-Turpmāki grozījumi notiek tikai ar jaunu versiju; frozen v0.4 netiek klusējot pārrakstīts.
+Turpmāki grozījumi notiek tikai ar jaunu versiju; iesaldētā v0.4 versija netiek klusējot pārrakstīts.
