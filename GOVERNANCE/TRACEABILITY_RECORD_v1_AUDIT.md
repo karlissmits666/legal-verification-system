@@ -3,7 +3,7 @@
 **Target:** `GOVERNANCE/TRACEABILITY_RECORD_v1.md — Architecture v0.4`  
 **Baseline:** `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md — APPROVED — BASELINE (FROZEN)`  
 **Statuss:** PASS — NO BLOCKING BASELINE CONFLICT FOUND  
-**Freeze:** NOT YET APPROVED
+**Freeze:** APPROVED — BASELINE (FROZEN)
 
 ## 1. Slēgto statusu reģistra audits
 
@@ -167,7 +167,7 @@ OPEN PRE-GO-LIVE GOVERNANCE ITEMS:
 1
 
 FREEZE STATUS:
-NOT YET APPROVED
+APPROVED — BASELINE (FROZEN)
 ```
 
-Nākamais solis: lietotāja freeze lēmums par `TRACEABILITY_RECORD_v1 — Architecture v0.4`.
+Freeze approval saņemts 2026-09-18. Nākamās izmaiņas veicamas tikai jaunā versijā.
