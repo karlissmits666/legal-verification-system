@@ -678,15 +678,26 @@ Tā ir uzskaite, nevis apstiprinājuma ceļš. Statuss RISK ACCEPTED netiek ievi
   ↓
   COMPETENCE CHECK
   ↓
-  TASK CLASSIFICATION (12. punkts)
-  ↓
   AI TOOL PERMISSION CHECK (19. punkts)
   ↓
-  SOURCE / DOCUMENT SET ESTABLISHED
+  OBJECT IDENTIFICATION
   ↓
-  [OPERATION-SPECIFIC WORKFLOW]
+  JA OBJECT = CONTRACT:
+      CONTRACT TYPE
+  ↓
+  FACT PROFILE / MISSING INFORMATION
+  ↓
+  LEGAL / REGULATORY CLASSIFICATION ASSESSMENT
+  ↓
+  REQUIRED HUMAN / EXTERNAL DECISION
+  ↓
+  MODULE STATUS
+  ↓
+  REQUIREMENTS SET SELECTION
+  ↓
+  OPERATION-SPECIFIC WORKFLOW
      — ietver 17.1. COMPLETENESS CONTROL, ja piemērojama
-     — ietver 17.2. EVIDENCE BINDING visiem secinājumiem
+     — ietver 17.2. EVIDENCE BINDING visiem satura secinājumiem
   ↓
   SEMANTIC VERIFICATION GATE (17.3., pēc 16.3. sliekšņa)
   ↓
@@ -698,11 +709,15 @@ Tā ir uzskaite, nevis apstiprinājuma ceļš. Statuss RISK ACCEPTED netiek ievi
   ↓
   OUTPUT + TRACEABILITY RECORD
 
+AI TOOL PERMISSION CHECK notiek pirms AI veiktas dokumenta satura analīzes. LEGAL INTAKE nedrīkst apiet 19. punkta atļauju pārbaudi.
+
+Ja uzdevums pats ir klasifikācijas ANALYSE uzdevums, LEGAL / REGULATORY CLASSIFICATION ASSESSMENT var būt operācijas galvenais darba produkts. Specializētas prasību kopas izvēle tomēr notiek tikai pēc nepieciešamā cilvēka vai ārējā lēmuma.
+
 17.1. un 17.2. nav atsevišķs solis pēc darba — tās notiek darba gaitā. Kā atsevišķi vārti pastāv tikai 17.3.
 
 Operation-specific workflows tiek definēti zemāka līmeņa dokumentos. Orientējošais tvērums:
 
-  ANALYSE  — juridiskā analīze, alternatīvas, risku identifikācija.
+  ANALYSE  — juridiskā analīze, klasifikācijas izvērtējumi, alternatīvas, risku identifikācija.
   VERIFY   — prasību statusu piešķiršana (16.), pilnīguma kontrole (17.1.).
   DRAFT    — teksta projekts 21. punkta formā.
   COMPARE  — atšķirību identifikācija; prasību statusu piešķiršana
@@ -710,7 +725,7 @@ Operation-specific workflows tiek definēti zemāka līmeņa dokumentos. Orient�
   EXTRACT  — faktu vai prasību iegūšana ar evidence binding;
              juridiskā analīze nav obligāta.
 
-Neviena plūsma nedrīkst apiet 19. punkta atļauju pārbaudi vai 16.3. slieksni.
+Neviena plūsma nedrīkst apiet 19. punkta atļauju pārbaudi, 13.4. klasifikācijas secību vai 16.3. verifikācijas slieksni.
 
 
 27. SISTĒMAS PROFESIONĀLAIS MĒRĶIS
