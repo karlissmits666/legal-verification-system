@@ -12,18 +12,18 @@
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **PABEIGTS — IESALDĒTS** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **PABEIGTS — IESALDĒTS (Arhitektūra v0.4)** | **Jā — Pilot 1: ANALYSE + EXTRACT** |
-| 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | TODO | Nē — nepieciešams bankas governance apstiprinājums |
-| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | TODO | **Jā** |
-| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | TODO | Netieši, caur prasību matricu pilotiem |
-| 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | TODO | **Jā** |
-| 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | TODO | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | TODO | Nē |
-| 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | TODO | **Jā** |
-| 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | TODO | **Jā** |
-| 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | TODO | **Jā** |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **PABEIGTS — IESALDĒTS (Arhitektūra v0.4)** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
+| 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
+| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **JĀIZSTRĀDĀ** | **Jā** |
+| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **JĀIZSTRĀDĀ** | Netieši, caur prasību matricu pilotiem |
+| 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **JĀIZSTRĀDĀ** | **Jā** |
+| 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **JĀIZSTRĀDĀ** | **Jā** |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **JĀIZSTRĀDĀ** | Nē |
+| 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
+| 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
+| 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora izpildes kodola, projekta struktūras, uzvedņu, darba plūsmu, noteikumu kopu (`playbooks`), strukturētās pārbaudes, izsekojamības un izdošanas vārtu mērķa arhitektūra | **MĒRĶA ARHITEKTŪRA DEFINĒTA — IEVIEŠANA NAV PABEIGTA** | **Jā — obligāts end-to-end pilots** |
-| 13 | `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | TODO | Šis dokuments definē pilotus |
+| 13 | `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | **JĀIZSTRĀDĀ** | Šis dokuments definē pilotus |
 
 ## 2. Nosacīts papildu dokuments
 
@@ -46,7 +46,7 @@ Atsevišķi pilotējamie dokumenti / slāņi:
 
 Šie nav astoņi pilnīgi neatkarīgi piloti. Tos apvieno četros pilota posmos.
 
-### PILOTS 1 — izsekojamība un pamatdarba plūsma
+### 1. pilots — izsekojamība un pamatdarba plūsma
 
 Mērķis:
 - pārbaudīt, vai izsekojamības ieraksts (`Traceability Record`) ir praktiski aizpildāms;
@@ -57,7 +57,7 @@ Mērķis:
 Ieteicamais apjoms:
 - 5–10 jau pabeigti vai droši atkārtoti analizējami uzdevumi.
 
-### PILOTS 2 — līgumu verifikācija
+### 2. pilots — līgumu verifikācija
 
 Komponenti:
 - `VERIFICATION_PROTOCOL_v1`
@@ -70,7 +70,7 @@ Mērķis:
 - pārbaudīt, vai nepamanītu obligāto prasību netiek palaists garām;
 - pārbaudīt HUMAN VERIFIED sliekšņus un izdošanas vārtus.
 
-### PILOTS 3 — regulatīvās prasības
+### 3. pilots — regulatīvās prasības
 
 Komponenti:
 - `EBA_REQUIREMENTS_MATRIX_v1`
@@ -86,7 +86,7 @@ Mērķis:
 Galvenais drošības KPI:
 - nepamanītu obligātu prasību skaits.
 
-### PILOTS 4 — Legora pilnais process
+### 4. pilots — Legora pilnais process
 
 Komponenti:
 - visi iepriekšējie slāņi;
@@ -113,8 +113,8 @@ LEGAL TASK
 ## 4. Ieteicamā izstrādes secība
 
 ```text
-1. PROFESSIONAL_SCOPE_v1.3                     DONE / FROZEN
-2. TRACEABILITY_RECORD_v1                     DONE / FROZEN
+1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
+2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS
 3. TERMINOLOGY_AND_ENUMS_v1
 4. VERIFICATION_PROTOCOL_v1
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
@@ -124,7 +124,7 @@ LEGAL TASK
 9. EBA_REQUIREMENTS_MATRIX_v1
 10. DORA_REQUIREMENTS_MATRIX_v1
 11. AI_TOOL_USAGE_POLICY_v1
-12. LEGORA_IMPLEMENTATION_SPEC_v1                 TARGET ARCHITECTURE DEFINED
+12. LEGORA_IMPLEMENTATION_SPEC_v1                 MĒRĶA ARHITEKTŪRA DEFINĒTA
 13. PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1
 → PABEIGT UN IESALDĒT VISUS ATBALSTA DOKUMENTUS
 → IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1
@@ -144,7 +144,7 @@ LEGAL TASK
 **Izstrādē:** 0  
 **Atlikuši obligātie dokumenti:** 11  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
-**Plānotie pilota posmi:** 4  
+**Plānotie pilotu posmi:** 4  
 **Nosacīts papildu dokuments:** 1
 
 ## 6. Projekta pabeigtības princips
@@ -194,4 +194,4 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 - Jauni kanoniskie statusi: 0
 - Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
 - Pilota 1 tvērums: ANALYSE + EXTRACT
-- Pilot 1 obligāts simulēts `DATA CLASS MISMATCH SUSPECTED` testa gadījums
+- 1. pilotā obligāts simulēts `DATA CLASS MISMATCH SUSPECTED` testa gadījums
