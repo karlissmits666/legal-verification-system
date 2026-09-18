@@ -253,3 +253,16 @@ Jaunās versijas nav frozen. Iepriekšējās apstiprinātās pamatversijas palie
 `MODULE_TRIGGER_REGISTRY_v1 v0.1` governance struktūra ir izveidota, bet OUTSOURCING-EBA trigger set vēl nav ACTIVE. Līdz source-based triggeru apstiprināšanai SHORT INTAKE šim modulim nav pieejams un sistēma izmanto FULL LCA.
 
 Arhitektūras domstarpības pēc review #12: 0.
+
+
+### Atvērtais governance ievaddats — ICT-DORA autoritāte
+
+Izveidots `GOVERNANCE/ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md`.
+
+Statuss:
+- arhitektūras mehāniskais audits pēc Review #14: PASS;
+- ICT-DORA module authority: OPEN GOVERNANCE INPUT;
+- ICT-DORA production activation: BLOCKED until authority source is documented;
+- COMMON CONTRACT REVIEW: unaffected.
+
+Nākamais pēc šī ievaddata: bankas iekšējo outsourcing avotu pievienošana un OUTSOURCING-EBA trigger set kalibrācijas pilots.
