@@ -12,7 +12,7 @@
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **DONE — FROZEN** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **IN PROGRESS** | **Jā** |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.4 FREEZE CANDIDATE — MECHANICAL AUDIT PASS** | **Jā** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto AI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika / mapping | TODO | Nē — nepieciešams bankas governance apstiprinājums |
 | 4 | `VERIFICATION_PROTOCOL_v1` | Precīza HUMAN VERIFIED, semantic verification, verification depth un release-gate kārtība | TODO | **Jā** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | TODO | Netieši, caur requirements matrix pilotiem |
@@ -183,3 +183,15 @@ COMPLETE AND FREEZE SUPPORTING DOCUMENTS
 ```
 
 Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti. Tā ir ieviesta tikai tad, kad Legora production konfigurācija atbilst mērķa arhitektūrai un ir izgājusi acceptance/regression pārbaudi.
+
+
+## Traceability milestone
+
+`TRACEABILITY_RECORD_v1 — Architecture v0.4` ir konsolidēts kā freeze candidate.
+
+- Mechanical audit pret `PROFESSIONAL_SCOPE_v1.3`: PASS
+- Blocking baseline conflicts: 0
+- New canonical statuses: 0
+- Freeze: gaida lietotāja explicit approval
+- Pilot 1 scope: ANALYSE + EXTRACT
+- Pilot 1 obligāts simulated DATA CLASS MISMATCH SUSPECTED test case
