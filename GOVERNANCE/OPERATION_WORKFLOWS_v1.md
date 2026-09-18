@@ -163,7 +163,7 @@ SHORT INTAKE rezultāts:
 - CONTRACT TYPE;
 - FACT PROFILE refs;
 - MODULE SCREENING RECORD;
-- jurista screening apstiprinājums;
+- HUMAN DECISION ieraksts, kura RELATED OBJECT ir MODULE SCREENING RECORD;
 - COMMON CONTRACT REVIEW.
 
 ## 6.3. FULL INTAKE
@@ -249,17 +249,20 @@ OUTSOURCING-EBA = APPLICABLE
 → + EBA_REQUIREMENTS_MATRIX
 
 ICT-DORA = APPLICABLE
+→ + DORA CIF-INDEPENDENT REQUIREMENTS SET uzreiz
+
+ICT-DORA = APPLICABLE
 + CIF STATUS = CRITICAL / IMPORTANT
-→ + attiecīgā critical/important DORA requirements set
+→ + attiecīgā CIF-DEPENDENT critical/important DORA requirements set
 
 ICT-DORA = APPLICABLE
 + CIF STATUS = NOT CRITICAL / IMPORTANT
-→ + attiecīgā non-critical DORA requirements set
+→ + attiecīgā CIF-DEPENDENT non-critical DORA requirements set
 
 ICT-DORA = APPLICABLE
 + CIF STATUS = NOT YET DETERMINED
-→ HUMAN INPUT REQUIRED
-→ CIF-atkarīgā gala requirements set vēl netiek izvēlēta
+→ CIF-INDEPENDENT SET turpinās
+→ HUMAN INPUT REQUIRED tikai CIF-DEPENDENT daļai
 
 ICT-DORA = NOT APPLICABLE
 → DORA_REQUIREMENTS_MATRIX netiek aktivizēta
@@ -340,9 +343,14 @@ EXTRACT pats par sevi neveic juridisku klasifikāciju, ja vien tas nav skaidri d
 
 ## 15.1. RECLASSIFICATION TRIGGER
 
-Ja uzdevuma gaitā mainās klasifikācijai materiāls FACT PROFILE elements:
+Ja tiek mainīts vai pievienots jebkurš FINDING, uz kuru atsaucas spēkā esošais LCA:
+→ automātiski rodas RECLASSIFICATION REVIEW REQUIRED.
+
+Materialitāti izvērtē cilvēks un rezultātu fiksē HUMAN DECISION arī tad, ja izmaiņa nav materiāla.
+
+Ja izmaiņa ir materiāla:
 - saglabā iepriekšējo LCA un lēmumu;
-- izveido jaunu LCA / lēmumu, ja nepieciešams;
+- izveido jaunu LCA / lēmumu;
 - pārvērtē MODULE STATUS;
 - pārvērtē REQUIREMENTS SET selection;
 - uz vecās klasifikācijas balstītie requirement results tiek saglabāti kā vēsturiski, bet atzīmēti kā vairs neaktuāli klasifikācijas bāzei;
