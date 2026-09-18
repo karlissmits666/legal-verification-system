@@ -255,14 +255,14 @@ Jaunās versijas nav frozen. Iepriekšējās apstiprinātās pamatversijas palie
 Arhitektūras domstarpības pēc review #12: 0.
 
 
-### Atvērtais governance ievaddats — ICT-DORA autoritāte
+### Neatrisinātais governance jautājums — ICT-DORA autoritāte
 
-Izveidots `GOVERNANCE/ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md`.
+`GOVERNANCE/ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md` pastāv kā `PREMATURE DRAFT COMMIT`. Tas nav apstiprināts, nav frozen, nav autoritatīvs un pagaidām tiek saglabāts tikai līdz derīgā satura migrācijai.
 
-Statuss:
 - arhitektūras mehāniskais audits pēc Review #14: PASS;
-- ICT-DORA module authority: OPEN GOVERNANCE INPUT;
-- ICT-DORA production activation: BLOCKED until authority source is documented;
-- COMMON CONTRACT REVIEW: unaffected.
+- ICT-DORA moduļa autoritāte nav dokumentēta;
+- mērķa reprezentācija ir esošais `UNRESOLVED ISSUE` modelis, bet faktiska reģistrācija vēl nav veikta;
+- ICT-DORA production aktivizācija nav pieļaujama, kamēr autoritātes avots nav dokumentēts;
+- COMMON CONTRACT REVIEW turpinās.
 
-Nākamais pēc šī ievaddata: bankas iekšējo outsourcing avotu pievienošana un OUTSOURCING-EBA trigger set kalibrācijas pilots.
+Nākamais arhitektūras solis: kritiski izvērtēt `TRACEABILITY_RECORD_v1_v0.6` papildinājumus, kas vajadzīgi derīgai governance TASK un `UNRESOLVED ISSUE` reģistrācijai (`MODULE ID`, `RELATED OBJECT`, `RESPONSIBLE FUNCTION`, `AI TOOL USAGE POLICY VERSION`). Bankas iekšējo outsourcing avotu pievienošana un OUTSOURCING-EBA trigger set kalibrācijas pilots paliek atsevišķi atvērti darbi.

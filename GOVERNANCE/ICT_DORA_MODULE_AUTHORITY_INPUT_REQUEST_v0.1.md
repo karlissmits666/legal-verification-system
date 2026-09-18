@@ -2,11 +2,15 @@
 
 ICT-DORA MODULE STATUS apstiprinošās funkcijas governance ievaddata pieprasījums
 
-**Statuss:** ATVĒRTS GOVERNANCE INPUT
+**Repo statuss:** PREMATURE DRAFT COMMIT — NOT APPROVED — NOT FROZEN — NOT AUTHORITATIVE
 **Versija:** v0.1
 **Datums:** 2026-09-18
 **Saistītā pakete:** LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2
-**Go-live ietekme:** BLOCKING tikai ICT-DORA moduļa production aktivizācijai
+**Saglabāšanas pamats:** pagaidu saglabāšana līdz derīgā satura migrācijai uz apstiprinātu izsekojamības reprezentāciju
+**Arhitektūras lēmums:** standalone reprezentācija noraidīta; mērķa reprezentācija ir esošais `UNRESOLVED ISSUE` modelis, bet faktiska reģistrācija vēl nav veikta
+**Go-live sekas:** ICT-DORA moduļa production aktivizācija nav pieļaujama, kamēr autoritāte nav dokumentēta
+
+> Šā faila saturs nav autoritatīvs governance avots. Failā ietvertie statusveidīgie apzīmējumi un ierakstu projekti nav izmantojami kā canonical vērtības vai production ieraksti.
 
 ## 1. Mērķis
 
