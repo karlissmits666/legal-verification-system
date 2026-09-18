@@ -2,7 +2,7 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
+**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
 **Versija:** Arhitektūra v0.6  
 **Bāze:** `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS; `TRACEABILITY_RECORD_v1 v0.5` — IESALDĒTA PAMATVERSIJA
 
@@ -33,6 +33,7 @@ TASK
 ├── CLASSIFICATION
 ├── CONTRACT TYPE                     [ja piemērojams]
 ├── LEGAL CLASSIFICATION ASSESSMENTS  [ja piemērojams]
+├── MODULE SCREENING RECORDS          [ja piemērojams]
 ├── MODULES
 ├── AI GOVERNANCE
 ├── SOURCES
@@ -54,7 +55,7 @@ TASK
 
 Identifikatori ir necaurspīdīgi un neiekodē savstarpējās attiecības.
 
-Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `VSR-0011`, `LCA-0012`, `DEC-0014`, `ESC-0009`, `OUT-0031`.
+Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `VSR-0011`, `LCA-0012`, `MSR-0007`, `DEC-0014`, `ESC-0009`, `OUT-0031`.
 
 Saistības glabā laukos, nevis ID.
 
@@ -69,6 +70,8 @@ RESPONSIBLE LAWYER
 OPERATION
 OBJECT
 CONTRACT TYPE                    [ja OBJECT = CONTRACT]
+FACT PROFILE FINDING IDS          [ja piemērojams]
+MODULE SCREENING RECORD IDS       [ja piemērojams]
 ACTIVE MODULES
 AI TOOL
 AI/MODEL VERSION
@@ -110,7 +113,8 @@ TASK ID
 CLASSIFICATION QUESTION
 CLASSIFICATION TARGET
 CONTRACT TYPE REFERENCES           [ja piemērojams]
-RELEVANT FACTS
+RELEVANT FACT FINDING REFERENCES
+MATERIAL ASSUMPTION FINDING REFERENCES [ja piemērojams]
 SUPPORTING SOURCE REFERENCES
 SUPPORTING ARGUMENTS
 COUNTERVAILING SOURCE REFERENCES
@@ -123,7 +127,9 @@ PROPOSED CLASSIFICATION
 CREATED BY
 CREATED AT
 HUMAN DECISION REFERENCE           [ja pieejama]
-RELATED MODULE                      [ja piemērojams]
+RELATED MODULE
+CLASSIFICATION BASIS VERSION
+SUPERSEDES LCA ID                   [ja piemērojams]                      [ja piemērojams]
 ```
 
 `CREATED BY` drīkst būt AI rīks vai cilvēks. Tas nepadara objektu par cilvēka lēmumu.
@@ -131,6 +137,28 @@ RELATED MODULE                      [ja piemērojams]
 Ja klasifikācijai nepieciešams cilvēka gala lēmums, tas tiek glabāts atsevišķā `HUMAN DECISION RECORD` vai attiecīgā moduļa `CONFIRMED BY` laukā.
 
 Kvalitatīvais varbūtības novērtējums ir analīzes metadats, ne gala juridiskais statuss. Tā vērtības nosaka `LEGAL_RESEARCH_METHOD_v1` un reģistrē `TERMINOLOGY_AND_ENUMS_v1`.
+
+## 7.2. Moduļa screening ieraksts (`MODULE SCREENING RECORD`)
+
+`MODULE SCREENING RECORD` dokumentē candidate-module screening pret konkrētu apstiprināta trigger reģistra versiju.
+
+Minimāli:
+
+```text
+MODULE SCREENING RECORD ID
+TASK ID
+SCREENED MODULES
+TRIGGER REGISTRY ID
+TRIGGER REGISTRY VERSION
+TRIGGERS IDENTIFIED               [array; [] = apzināts negatīvs rezultāts]
+SCREENED BY
+SCREENED AT
+RELATED FACT FINDING IDS
+```
+
+`TRIGGERS IDENTIFIED = []` ir derīgs tikai tad, ja visi attiecīgās versijas triggeri ir pārbaudīti. Missing / null lauks nav negatīvs screening rezultāts.
+
+MODULE SCREENING RECORD nav MODULE STATUS un neaizvieto LEGAL CLASSIFICATION ASSESSMENT, ja trigger ir identificēts.
 
 ## 8. Moduļa ieraksts (`MODULE RECORD`)
 
@@ -398,7 +426,24 @@ REQUIREMENT SOURCE
 EVIDENCE IDS
 ANALYSIS / INTERPRETATION
 DATA CLASS EVENT REFERENCES  [ja piemērojams]
+SCENARIO ONLY                [true / false]
+CLASSIFICATION BASIS REFERENCES [LCA / MODULE DECISION, ja piemērojams]
+CLASSIFICATION BASIS CURRENT [true / false, ja piemērojams]
+SUPERSEDED BY RESULT ID      [ja piemērojams]
 ```
+
+## 22.1. Scenārija un aizstātas klasifikācijas rezultāti
+
+Ja `SCENARIO ONLY = true`:
+- rezultāts ir hipotētisks un nav actual requirement result;
+- to nedrīkst mantot citā TASK kā faktisku rezultātu;
+- vēlākai faktiskai piemērojamībai rada jaunu REQUIREMENT RESULT.
+
+Ja klasifikācija tiek aizstāta materiāla FACT PROFILE maiņas dēļ:
+- vecais rezultāts paliek vēsturē;
+- `CLASSIFICATION BASIS CURRENT = false`;
+- ja radīts jauns rezultāts, norāda `SUPERSEDED BY RESULT ID`;
+- vecais rezultāts nedrīkst tikt attēlots kā aktuālais gala rezultāts.
 
 ## 23. `REQUIREMENT LEVEL` / `GOVERNANCE STATUS` nosacījumu shēma
 
@@ -653,6 +698,7 @@ SOURCE SET REFERENCE
 RELATED FINDINGS
 RELATED REQUIREMENTS
 LEGAL CLASSIFICATION ASSESSMENT REFERENCES [ja piemērojams]
+MODULE SCREENING RECORD REFERENCES [ja piemērojams]
 COMPLETENESS CONTROL REFERENCE  [ja piemērojams]
 VERIFICATION SUMMARY
 OUTPUT REFERENCE
