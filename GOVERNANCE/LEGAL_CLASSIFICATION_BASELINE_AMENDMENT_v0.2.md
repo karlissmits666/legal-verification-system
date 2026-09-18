@@ -52,7 +52,7 @@ OPERATION WORKFLOW
 5. `LEGAL_RESEARCH_METHOD_v1.md` — v0.2
 6. `REQUIREMENTS_MATRIX_GOVERNANCE_v1.md` — v0.3
 7. `MODULE_TRIGGER_REGISTRY_v1.md` — v0.1
-8. `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md` — source-based draft, NOT ACTIVE
+8. `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md` — source-based draft; lifecycle = null; nav apstiprināts
 
 ## 4. Review #11 / #12 konsensa lēmumi
 
@@ -245,10 +245,10 @@ Līdz atsevišķam freeze lēmumam autoritatīvas paliek:
 Review #13 bloķējošie punkti ir iestrādāti draftā:
 - ICT-DORA autoritātes etiķete vairs netiek aizpildīta ar nenosauktu funkciju;
 - interpretatīvie triggeri pārveidoti par FACT PROFILE noteikumiem / uncertainty triggers;
-- jebkura LCA izmantota FINDING maiņa automātiski rada RECLASSIFICATION REVIEW REQUIRED;
+- spēkā esoša LCA izmantota FINDING maiņa vai jauns FINDING, kas skar attiecīgā trigger set tēmu, automātiski ierosina obligātu reclassification review;
 - screening summary tiek virzīts uz materiālo OUTPUT;
 - MODULE TRIGGER SET un MTR- tiek reģistrēti Terminology;
-- trigger lifecycle izmanto ACTIVE / DEPRECATED; neapstiprinātam draftam lifecycle = null;
+- trigger lifecycle izmanto ACTIVE / DEPRECATED; draftam lifecycle = null tikai saskaņā ar approved_by cross-field invariantu;
 - screening apstiprinājums izmanto HUMAN DECISION;
 - DORA CIF-independent daļa netiek bloķēta CIF gaidīšanas dēļ;
 - pirms OUTSOURCING-EBA trigger set ACTIVE nepieciešams 15–20 reālu līgumu kalibrācijas pilots;
