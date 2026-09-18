@@ -1,7 +1,7 @@
 PROFESSIONAL_SCOPE_v1.4
 Bankas jurista profesionālais darba tvērums AI atbalstītai juridiskā darba videi
 
-Statuss: MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI
+Statuss: MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI
 Versija: 1.4
 Bāze: `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
@@ -184,35 +184,41 @@ Obligāti ņemami vērā vismaz: Outsourcing Policy; Procurement Policy; Third P
 Tie ir saistoši un izmantojami Legora vidē 19. punkta ietvaros. Katram dokumentam fiksējama versija un spēkā stāšanās datums (20. punkts).
 
 
-12. UZDEVUMA KLASIFIKĀCIJA UN OBLIGĀTAIS LEGAL INTAKE
+12. UZDEVUMA KLASIFIKĀCIJA UN NOSACĪTAIS LEGAL INTAKE
 
 Sistēmas sākumpunkts ir saņemts juridisks uzdevums, nevis saņemts līgums.
 
-Pirms specializētas prasību kopas izvēles un pirms būtiskas downstream līguma pārbaudes, salīdzināšanas vai teksta izstrādes sistēma veic LEGAL INTAKE.
-
-LEGAL INTAKE secība:
-
+Visiem uzdevumiem obligāti:
   LEGAL TASK RECEIVED
   ↓
+  TASK CLARIFICATION
+  ↓
+  COMPETENCE CHECK
+  ↓
+  AI TOOL PERMISSION CHECK
+  ↓
   OBJECT IDENTIFICATION
-  ↓
-  JA OBJECT = CONTRACT:
-      CONTRACT TYPE CLASSIFICATION
-  ↓
-  FACTS / MISSING INFORMATION
-  ↓
-  LEGAL / REGULATORY CLASSIFICATION ASSESSMENT
-  ↓
-  HUMAN / EXTERNAL AUTHORITY DECISION, ja nepieciešams
-  ↓
-  MODULE APPLICABILITY
-  ↓
-  REQUIREMENTS SET SELECTION
-  ↓
-  OPERATION WORKFLOW
 
-Uzdevuma pamatass joprojām ir:
+Tālāk LEGAL INTAKE ir nosacīts pēc OBJECT un uzdevuma būtības.
 
+A. OBJECT = CONTRACT
+  → CONTRACT TYPE
+  → FACT PROFILE
+  → CANDIDATE-MODULE SCREENING
+  → SHORT vai FULL INTAKE
+  → COMMON CONTRACT REVIEW vienmēr piemērojams
+  → specializēti moduļi tikai pēc attiecīgā lēmuma
+
+B. OBJECT = CLAUSE / DOCUMENT SET
+  → CONTRACT TYPE un contract-specific LEGAL INTAKE tikai tad,
+    ja līguma konteksts ir materiāls uzdevuma atrisināšanai.
+
+C. OBJECT = QUESTION / INTERNAL POLICY / EXTERNAL SOURCE
+  → CONTRACT TYPE nav obligāts;
+  → LEGAL CLASSIFICATION ASSESSMENT tiek veikts tikai tad,
+    ja pats juridiskais jautājums prasa klasifikāciju.
+
+Uzdevuma pamatass:
   OPERĀCIJA   ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT
   OBJEKTS     QUESTION / CONTRACT / CLAUSE / INTERNAL POLICY /
               EXTERNAL SOURCE / DOCUMENT SET
@@ -221,16 +227,74 @@ Uzdevuma pamatass joprojām ir:
 
 CONTRACT TYPE nav MODULE un nav OBJECT.
 
-LEGAL / REGULATORY CLASSIFICATION nav prasības statuss. Tā ir juridiska analīze, kas nosaka vai pamato moduļu piemērojamību un prasību kopu izvēli.
+LEGAL / REGULATORY CLASSIFICATION nav prasības statuss. Tā ir juridiska analīze, kas pamato iespējamu moduļa piemērojamību.
 
-Ja pats uzdevums ir klasifikācijas jautājums, piemēram, "vai šis pakalpojums ir outsourcing?", attiecīgā ANALYSE operācija drīkst būt pati LEGAL INTAKE klasifikācijas darba daļa. Šādā gadījumā specializēta prasību pārbaude sākas tikai pēc nepieciešamā cilvēka lēmuma.
+Ja pats uzdevums ir klasifikācijas jautājums, attiecīgā ANALYSE operācija drīkst būt klasifikācijas darba galvenais rezultāts.
 
-Ja uzdevumu nevar viennozīmīgi novietot uz visām nepieciešamajām asīm: TASK CLARIFICATION REQUIRED.
+Ja uzdevumu nevar viennozīmīgi novietot uz nepieciešamajām asīm: TASK CLARIFICATION REQUIRED.
+
+12.1. FACT PROFILE
+
+FACT PROFILE nav brīvs MI kopsavilkums. Tas sastāv no izsekojamu FINDING atsaucēm.
+
+Katram klasifikācijai materiālam faktam jābūt nosakāmai izcelsmei:
+- biznesa / lietotāja deklarēts ievaddats;
+- no avota izgūts FINDING ar EVIDENCE BINDING;
+- jurista konstatējums ar avota atsauci;
+- pieņēmums (ASSUMPTION = true);
+- trūkstoša informācija / UNRESOLVED ISSUE.
+
+Ja klasifikācijai materiāls fakts ir ASSUMPTION = true, QUALITATIVE LIKELIHOOD nevar būt LIKELY vai UNLIKELY, ja vien pilnvarotais cilvēks lēmumā šo pieņēmumu nav tieši pieņēmis un fiksējis. Citādi QUALITATIVE LIKELIHOOD = INDETERMINATE.
+
+12.2. CANDIDATE-MODULE SCREENING
+
+SHORT INTAKE drīkst izmantot tikai pret versētu un apstiprinātu MODULE TRIGGER REGISTRY.
+
+Screening rezultāts "trigger nav identificēts" nav MODULE STATUS = NOT APPLICABLE.
+
+Screening ierakstam jānorāda vismaz:
+- SCREENED MODULES;
+- TRIGGER REGISTRY VERSION;
+- TRIGGERS IDENTIFIED;
+- SCREENED BY;
+- SCREENED AT.
+
+Tukšs TRIGGERS IDENTIFIED lauks ir derīgs tikai tad, ja tas ir apzināti fiksēts kā rezultāts pret pilnībā izpildītu attiecīgās versijas trigger sarakstu. Neaizpildīts lauks nav negatīvs rezultāts.
+
+Ja modulim nav apstiprināta ACTIVE trigger saraksta, SHORT ceļš šim modulim nav pieejams; piemēro FULL LCA.
+
+Trigger saraksta governance un apstiprināšanas autoritāti nosaka REQUIREMENTS_MATRIX_GOVERNANCE_v1. Trigger sarakstu apstiprina tā pati vai līdzvērtīga governance autoritāte, kurai pieder attiecīgā moduļa piemērojamības lēmums.
+
+12.3. SHORT INTAKE / FULL INTAKE
+
+SHORT INTAKE:
+- CONTRACT TYPE;
+- īss, izsekojams FACT PROFILE;
+- CANDIDATE-MODULE SCREENING pret ACTIVE trigger registry;
+- jurista screening apstiprinājums;
+- COMMON CONTRACT REVIEW turpinās.
+
+FULL INTAKE ir obligāts, ja:
+- identificēts vismaz viens moduļa trigger;
+- klasifikācija ir neskaidra;
+- jaukta / neparasta līguma struktūra var materiāli ietekmēt regulatīvo režīmu;
+- trūkstošs fakts var mainīt moduļa piemērojamību;
+- lietotājs uzdod klasifikācijas jautājumu;
+- iekšējais noteikums prasa pilnu klasifikācijas izvērtējumu;
+- attiecīgajam modulim nav ACTIVE trigger saraksta.
+
+FULL INTAKE ietver LEGAL CLASSIFICATION ASSESSMENT un attiecīgās autoritātes lēmumu.
+
+12.4. COMMON CONTRACT REVIEW
+
+Ja OBJECT = CONTRACT, COMMON CONTRACT REVIEW ir vienmēr piemērojams un nav atkarīgs no specializēta MODULE STATUS.
+
+Specializētās prasību kopas ir papildinājums, nevis aizstājējs.
+
+COMMON CONTRACT REVIEW drīkst turpināties arī tad, ja kāda specializēta moduļa statuss ir UNCLEAR.
 
 INVARIANTS — verifikācijas līmenis un nodošana:
-Rezultāts, kas izmantots kā ievaddati citam uzdevumam, saglabā savu verifikācijas līmeni (16.3.). Verifikācijas līmenis pieaug tikai ar faktisku verifikācijas aktu attiecībā uz konkrēto apgalvojumu, nevis ar apgalvojuma nodošanu citam uzdevumam, citam kontekstam vai citam dokumentam.
-
-Neverificēts EXTRACT rezultāts paliek neverificēts arī tad, ja to izmanto VERIFY uzdevumā. Ja cilvēks vēlāk verificē pašu apgalvojumu, līmenis mainās uz HUMAN VERIFIED ar attiecīgu ierakstu.
+Rezultāts, kas izmantots kā ievaddati citam uzdevumam, saglabā savu verifikācijas līmeni. Verifikācijas līmenis pieaug tikai ar faktisku verifikācijas aktu attiecībā uz konkrēto apgalvojumu.
 
 
 13. MODUĻU PRINCIPS UN AUTORITĀTE
@@ -266,6 +330,10 @@ Atļautās vērtības un to tehnisko reprezentāciju nosaka LEGAL_RESEARCH_METHO
 Procentuālu varbūtību sistēma nedrīkst ģenerēt, ja nav iepriekš validēta un kalibrēta statistiska mehānisma.
 
 LEGAL CLASSIFICATION ASSESSMENT nekad automātiski nepārvēršas par MODULE STATUS.
+
+CIF STATUS nav LEGAL CLASSIFICATION ASSESSMENT rezultāts. ICT-DORA klasifikācijas LCA izvērtē, vai pakalpojums ir IKT pakalpojums / vai ICT-DORA modulis ir piemērojams. CIF STATUS paliek EXTERNAL INPUT ONLY.
+
+DORA prasību kopas izvēle drīkst būt atkarīga gan no ICT-DORA MODULE STATUS, gan no CIF STATUS un citiem iepriekš apstiprinātiem SELECTION CONDITIONS. Ja CIF nepieciešams izvēlei un CIF STATUS = NOT YET DETERMINED, piemērojams HUMAN INPUT REQUIRED; sistēma nedrīkst klusējot izvēlēties non-critical kopu.
 
 13.1. Moduļa statuss
 
@@ -334,6 +402,33 @@ Secība ir obligāta:
   → REQUIREMENTS SET SELECTION
 
 MODULE STATUS = UNCLEAR gadījumā specializētā prasību kopa netiek pasniegta kā gala piemērojamā prasību bāze. Sistēma drīkst to izmantot tikai scenārija analīzei, skaidri norādot, ka piemērojamība nav apstiprināta.
+
+UNCLEAR bloķē tikai tos downstream rezultātus, kuri pieņem konkrētā moduļa piemērojamību vai nepiemērojamību kā faktu. COMMON CONTRACT REVIEW un cita no šīs klasifikācijas neatkarīga juridiskā analīze turpinās.
+
+Scenārija prasību rezultātiem obligāti:
+  scenario_only = true
+
+scenario_only = true rezultāti:
+- nav faktiskas prasības izpildes konstatējums;
+- vienmēr tiek formulēti nosacīti;
+- netiek mantoti citā TASK kā actual REQUIREMENT RESULT;
+- uz tiem neattiecas 16.3. HUMAN VERIFIED minimums, jo tie nav actual prasības gala rezultāti;
+- ja modulis vēlāk kļūst APPLICABLE, scenārija rezultāti netiek pārklasificēti par actual — tiek radīti jauni REQUIREMENT RESULT parastajā režīmā.
+
+
+13.5. RECLASSIFICATION TRIGGER
+
+Klasifikācija nav vienreizējs lēmums, ja uzdevuma gaitā mainās materiālie fakti.
+
+Ja mainās FACT PROFILE elements, kas var ietekmēt CONTRACT TYPE, MODULE STATUS vai REQUIREMENTS SET izvēli:
+- iepriekšējais LCA un cilvēka lēmums paliek vēsturē;
+- tiek izveidots jauns LCA / lēmums, ja nepieciešams;
+- tiek atkārtoti izvērtēts MODULE STATUS;
+- tiek atkārtoti izvēlētas piemērojamās REQUIREMENTS SET;
+- rezultāti, kas balstīti uz aizstāto klasifikāciju, saglabā atsauci uz veco LCA un vairs nedrīkst izskatīties kā aktuāli;
+- skartās prasības tiek pārrēķinātas / pārbaudītas no jauna.
+
+Nekas netiek klusējot pārrakstīts.
 
 
 14. LEGORA PROFESIONĀLĀ LOMA
@@ -405,7 +500,9 @@ HUMAN VERIFIED ir obligāts:
   - UNCLASSIFIED
   - jebkura NEGATIVE REQUIREMENT tipa prasība neatkarīgi no līmeņa
 
-Vienīgais līmenis, kur gala statuss var palikt EVIDENCE BOUND — AI PROPOSED, ir NEGOTIABLE, jo tā neizpilde nerada regulatīvu neatbilstību un pozīciju jebkurā gadījumā izvērtē jurists LAWYER REVIEW solī.
+Vienīgais actual prasības līmenis, kur gala statuss var palikt EVIDENCE BOUND — AI PROPOSED, ir NEGOTIABLE, jo tā neizpilde nerada regulatīvu neatbilstību un pozīciju jebkurā gadījumā izvērtē jurists LAWYER REVIEW solī.
+
+Izņēmums: scenario_only = true ieraksts nav actual prasības gala rezultāts un uz to HUMAN VERIFIED minimums neattiecas. Tas nedrīkst tikt pārvērsts par actual rezultātu bez jauna parastā režīma REQUIREMENT RESULT.
 
 Slieksnis nosaka, vai cilvēka verifikācija notiek. Cik dziļa tā ir — pilna teksta pārlasīšana vai secinājuma pārbaude pret piesaistīto fragmentu — nosaka zemāka līmeņa verifikācijas protokols. Protokols slieksni drīkst paplašināt, bet ne samazināt.
 
@@ -678,55 +775,35 @@ Tā ir uzskaite, nevis apstiprinājuma ceļš. Statuss RISK ACCEPTED netiek ievi
   ↓
   COMPETENCE CHECK
   ↓
-  AI TOOL PERMISSION CHECK (19. punkts)
+  AI TOOL PERMISSION CHECK
   ↓
   OBJECT IDENTIFICATION
   ↓
-  JA OBJECT = CONTRACT:
-      CONTRACT TYPE
+  OBJECT-DEPENDENT INTAKE
+    - CONTRACT: CONTRACT TYPE + FACT PROFILE + MODULE SCREENING
+    - citi OBJECT: tikai piemērojamie intake elementi
   ↓
-  FACT PROFILE / MISSING INFORMATION
+  COMMON CONTRACT REVIEW, ja OBJECT = CONTRACT
   ↓
-  LEGAL / REGULATORY CLASSIFICATION ASSESSMENT
-  ↓
-  REQUIRED HUMAN / EXTERNAL DECISION
+  FULL LCA / REQUIRED HUMAN OR EXTERNAL DECISION, ja aktualizēts
   ↓
   MODULE STATUS
   ↓
   REQUIREMENTS SET SELECTION
   ↓
   OPERATION-SPECIFIC WORKFLOW
-     — ietver 17.1. COMPLETENESS CONTROL, ja piemērojama
-     — ietver 17.2. EVIDENCE BINDING visiem satura secinājumiem
   ↓
-  SEMANTIC VERIFICATION GATE (17.3., pēc 16.3. sliekšņa)
+  SEMANTIC VERIFICATION GATE, ja piemērojams
   ↓
-  UNRESOLVED ISSUES
-  ↓
-  ESCALATION IF REQUIRED
+  UNRESOLVED ISSUES / ESCALATION
   ↓
   LAWYER REVIEW
   ↓
   OUTPUT + TRACEABILITY RECORD
 
-AI TOOL PERMISSION CHECK notiek pirms AI veiktas dokumenta satura analīzes. LEGAL INTAKE nedrīkst apiet 19. punkta atļauju pārbaudi.
+COMMON CONTRACT REVIEW un specializēto moduļu klasifikācija drīkst notikt paralēli, ja tas neietekmē juridiskā darba drošumu.
 
-Ja uzdevums pats ir klasifikācijas ANALYSE uzdevums, LEGAL / REGULATORY CLASSIFICATION ASSESSMENT var būt operācijas galvenais darba produkts. Specializētas prasību kopas izvēle tomēr notiek tikai pēc nepieciešamā cilvēka vai ārējā lēmuma.
-
-17.1. un 17.2. nav atsevišķs solis pēc darba — tās notiek darba gaitā. Kā atsevišķi vārti pastāv tikai 17.3.
-
-Operation-specific workflows tiek definēti zemāka līmeņa dokumentos. Orientējošais tvērums:
-
-  ANALYSE  — juridiskā analīze, klasifikācijas izvērtējumi, alternatīvas, risku identifikācija.
-  VERIFY   — prasību statusu piešķiršana (16.), pilnīguma kontrole (17.1.).
-  DRAFT    — teksta projekts 21. punkta formā.
-  COMPARE  — atšķirību identifikācija; prasību statusu piešķiršana
-             nav obligāta.
-  EXTRACT  — faktu vai prasību iegūšana ar evidence binding;
-             juridiskā analīze nav obligāta.
-
-Neviena plūsma nedrīkst apiet 19. punkta atļauju pārbaudi, 13.4. klasifikācijas secību vai 16.3. verifikācijas slieksni.
-
+Neviena plūsma nedrīkst apiet 19. punkta atļauju pārbaudi, 12. punkta klasifikācijas secību vai 16.3. verifikācijas slieksni.
 
 27. SISTĒMAS PROFESIONĀLAIS MĒRĶIS
 
