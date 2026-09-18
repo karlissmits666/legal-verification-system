@@ -1,6 +1,6 @@
 # Juridiskās pārbaudes sistēma
 
-Privāts repozitorijs AI atbalstītas juridiskā darba pārbaudes un pārvaldības sistēmai.
+Privāts repozitorijs MI atbalstītai juridiskā darba pārbaudes un pārvaldības sistēmai.
 
 ## Iesaldētā pamatversija
 
@@ -17,3 +17,8 @@ Privāts repozitorijs AI atbalstītas juridiskā darba pārbaudes un pārvaldīb
 ## Legora mērķa arhitektūra
 
 - `IMPLEMENTATION/LEGORA_IMPLEMENTATION_SPEC_v1.md` — gala ieviešanas mērķa arhitektūra: `BANK LEGAL CORE`, pārvaldības vārti, operāciju darba plūsmas, moduļi, strukturēti atradumi un prasības, verifikācija, izsekojamības ieraksts (`Traceability Record`) un izdošanas vārti.
+
+
+## Dokumentācijas valoda
+
+Projekta dokumenti pēc noklusējuma tiek rakstīti precīzā latviešu valodā. Angļu valoda tiek saglabāta tikai tad, ja tā nepieciešama tehniskai savietojamībai, Legora funkciju nosaukumiem, failu/objektu identifikatoriem vai frozen kanoniskajām sistēmas vērtībām. Ja angļu termins ir jāsaglabā, cilvēkam redzamajā tekstā tam pēc iespējas pievieno latvisku skaidrojumu.
