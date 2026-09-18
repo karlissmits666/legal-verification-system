@@ -2,8 +2,9 @@
 
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
-**Statuss:** MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** v0.2  
+**Iesaldēšanas datums:** 2026-09-18  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
 - `TRACEABILITY_RECORD_v1` — Arhitektūra v0.4 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
@@ -735,12 +736,15 @@ Interpretācijas teksts drīkst paskaidrot, kāpēc prasība ir `IZPILDĪTS`.
 
 Tas nosaka vienotu valodu, tehnisko reprezentāciju un reģistru kontraktu.
 
-## 44. Freeze nosacījums
+## 44. Iesaldēšanas statuss
 
-Šis dokuments ir `MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Freeze drīkst notikt tikai pēc:
-1. mehāniskā audita pret abiem frozen dokumentiem;
-2. blocking pretrunu skaits = 0;
-3. jaunie tehniskie enum/taxonomy ir atzīti par saderīgiem ar frozen semantiku;
-4. lietotāja explicit freeze approval.
+Iesaldēšanas pamats:
+1. mehāniskais audits pret abiem frozen dokumentiem — IZTURĒTS;
+2. bloķējošas pretrunas ar pamatversijām — 0;
+3. jauni frozen canonical statusi — 0;
+4. tehniskie enum/taxonomy atzīti par saderīgiem ar frozen semantiku;
+5. lietotāja skaidrs iesaldēšanas apstiprinājums — saņemts 2026-09-18.
+
+Turpmāki grozījumi notiek tikai jaunā versijā; iesaldētā v0.2 versija netiek klusējot pārrakstīta.
