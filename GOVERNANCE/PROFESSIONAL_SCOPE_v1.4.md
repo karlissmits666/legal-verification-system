@@ -16,6 +16,8 @@ Tā funkcija ir noteikt: kādus juridiskos uzdevumus sistēmai jāatbalsta; kād
 
 16.–19. punkta invarianti un 30. punkta statusu reģistrs ir saistoši. Zemāka līmeņa dokumenti tos konkretizē un drīkst padarīt stingrākus, bet nedrīkst vājināt vai paplašināt bez šī dokumenta grozījuma.
 
+Šķērsgriezuma governance invariants: neviens governance artefakts nedrīkst kļūt ACTIVE, ja tajā palicis placeholder, TBD vai neatrisināta obligāta atsauce. Pirms aktivizācijas šāds elements tiek aizpildīts ar identificējamu avotu / lēmumu vai izņemts ar dokumentētu pamatu.
+
 
 2. PROFESIONĀLĀ LOMA
 
@@ -82,6 +84,13 @@ A. IKT PAKALPOJUMA JURIDISKĀ KVALIFIKĀCIJA
 Jurists savas kompetences ietvaros drīkst veikt un apstiprināt juridisku izvērtējumu par to, vai konkrētais pakalpojums kvalificējas kā IKT pakalpojums piemērojamā DORA regulējuma izpratnē.
 
 Šis jurista juridiskais secinājums ir HUMAN DECISION un nav pats par sevi ICT-DORA MODULE STATUS.
+
+Jurista IKT pakalpojuma juridiskā kvalifikācija ir obligāts ievaddats ICT-DORA MODULE STATUS lēmumam. Moduļa apstiprinošā funkcija apstiprina moduļa statusu savas kompetences ietvaros un nepārskata jurista juridisko kvalifikāciju.
+
+Ja moduļa apstiprinošā funkcija nepiekrīt juridiskajai kvalifikācijai:
+→ juridiskais secinājums netiek klusējot pārrakstīts;
+→ ESCALATION REQUIRED;
+→ abas pozīcijas un lēmuma pamats tiek saglabāti izsekojamībā.
 
 B. ICT-DORA MODUĻA PIEMĒROJAMĪBA
 
@@ -445,8 +454,13 @@ scenario_only = true rezultāti:
 
 Klasifikācija nav vienreizējs lēmums, ja uzdevuma gaitā mainās materiālie fakti.
 
-Ja tiek mainīts vai pievienots jebkurš FINDING, uz kuru atsaucas spēkā esošais LCA:
-  → automātiski rodas RECLASSIFICATION REVIEW REQUIRED.
+Obligāts reclassification review tiek ierosināts, ja:
+a) mainās FINDING, uz kuru atsaucas spēkā esošais LCA; vai
+b) uzdevumā ar spēkā esošu LCA rodas jauns FINDING, kas skar kādu no attiecīgā MODULE TRIGGER SET tēmām.
+
+(b) gadījumā MODULE TRIGGER SET tiek izmantots tikai kā atbilstības filtrs, nevis kā moduļa statusa noteicējs.
+
+Šis "reclassification review" ir workflow pienākums, ne jauns canonical statuss vai SUSPENSION STATE.
 
 Materialitāti nenosaka AI kā gala lēmumu. To izvērtē cilvēks.
 
