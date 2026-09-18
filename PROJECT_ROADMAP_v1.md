@@ -1,9 +1,9 @@
 # PROJECT_ROADMAP_v1
 
-## Legal Verification System — kopējais projekta uzdevums
+## Juridiskās pārbaudes sistēma — kopējais projekta uzdevums
 
-**Statuss:** ACTIVE  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.3 — APPROVED — BASELINE (FROZEN)`
+**Statuss:** AKTĪVS  
+**Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 Šis dokuments nosaka projekta kopējo dokumentu kopu un izstrādes secību. Tā mērķis ir vienā vietā fiksēt, kas vēl jāizveido, kuri dokumenti ir priekšnoteikumi citiem slāņiem un kuriem nepieciešama praktiska pilotēšana pirms freeze.
 
@@ -11,25 +11,25 @@
 
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
-| 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **DONE — FROZEN** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **DONE — FROZEN (Architecture v0.4)** | **Jā — Pilot 1: ANALYSE + EXTRACT** |
-| 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto AI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika / mapping | TODO | Nē — nepieciešams bankas governance apstiprinājums |
-| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza HUMAN VERIFIED, semantic verification, verification depth un release-gate kārtība | TODO | **Jā** |
-| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | TODO | Netieši, caur requirements matrix pilotiem |
+| 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **PABEIGTS — IESALDĒTS** | Nē |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **PABEIGTS — IESALDĒTS (Arhitektūra v0.4)** | **Jā — Pilot 1: ANALYSE + EXTRACT** |
+| 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | TODO | Nē — nepieciešams bankas governance apstiprinājums |
+| 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | TODO | **Jā** |
+| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | TODO | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | TODO | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | TODO | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Canonical termini, enum vērtības un machine-readable mapping noteikumi | TODO | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | TODO | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | TODO | **Jā** |
-| 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta outsourcing/EBA contractual prasību kopa | TODO | **Jā** |
-| 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ICT/DORA contractual prasību kopa | TODO | **Jā** |
-| 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora execution kernel, projekta struktūra, prompts, workflows, playbooks, structured review, traceability un release-gate mērķa arhitektūra | **TARGET ARCHITECTURE DEFINED — IMPLEMENTATION PENDING** | **Jā — obligāts end-to-end pilots** |
-| 13 | `PILOT_AND_ACCEPTANCE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | TODO | Šis dokuments definē pilotus |
+| 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | TODO | **Jā** |
+| 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | TODO | **Jā** |
+| 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora izpildes kodola, projekta struktūras, uzvedņu, darba plūsmu, noteikumu kopu (`playbooks`), strukturētās pārbaudes, izsekojamības un izdošanas vārtu mērķa arhitektūra | **MĒRĶA ARHITEKTŪRA DEFINĒTA — IEVIEŠANA NAV PABEIGTA** | **Jā — obligāts end-to-end pilots** |
+| 13 | `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | TODO | Šis dokuments definē pilotus |
 
 ## 2. Nosacīts papildu dokuments
 
 `RULE_BASED_DETERMINATION_VALIDATION_v1` tiek izveidots tikai tad, ja sistēmā faktiski tiek ieviesta `RULE-BASED DETERMINATION` autoritāte kādam modulim vai lēmumam.
 
-Pašreizējā frozen baseline nevienam modulim šāda autoritāte nav piešķirta, tādēļ šis dokuments nav daļa no obligātajiem 13.
+Pašreizējā iesaldētā pamatversija nevienam modulim šāda autoritāte nav piešķirta, tādēļ šis dokuments nav daļa no obligātajiem 13.
 
 ## 3. Pilotu kopa
 
@@ -46,31 +46,31 @@ Atsevišķi pilotējamie dokumenti / slāņi:
 
 Šie nav astoņi pilnīgi neatkarīgi piloti. Tos apvieno četros pilota posmos.
 
-### PILOT 1 — Traceability un pamatworkflow
+### PILOTS 1 — izsekojamība un pamatdarba plūsma
 
 Mērķis:
-- pārbaudīt, vai Traceability Record ir praktiski aizpildāms;
-- pārbaudīt FINDING / EVIDENCE / VERIFICATION sasaisti;
+- pārbaudīt, vai izsekojamības ieraksts (`Traceability Record`) ir praktiski aizpildāms;
+- pārbaudīt `FINDING` / `EVIDENCE` / `VERIFICATION` sasaisti;
 - pārbaudīt, vai izsekojamība nerada nesamērīgu manuālo slodzi;
 - pārbaudīt, vai materiāla output release gate darbojas.
 
 Ieteicamais apjoms:
 - 5–10 jau pabeigti vai droši atkārtoti analizējami uzdevumi.
 
-### PILOT 2 — Contract verification
+### PILOTS 2 — līgumu verifikācija
 
 Komponenti:
 - `VERIFICATION_PROTOCOL_v1`
-- VERIFY workflow no `OPERATION_WORKFLOWS_v1`
+- `VERIFY` darba plūsmu no `OPERATION_WORKFLOWS_v1`
 - `COMMON_CONTRACT_REVIEW_CHECKLIST_v1`
 
 Mērķis:
 - salīdzināt sistēmas atradumus ar jurista zināmu rezultātu;
-- izmērīt false positives;
-- pārbaudīt, vai mandatory requirement miss netiek palaists garām;
-- pārbaudīt HUMAN VERIFIED sliekšņus un release gates.
+- izmērīt kļūdaini pozitīvos rezultātus;
+- pārbaudīt, vai nepamanītu obligāto prasību netiek palaists garām;
+- pārbaudīt HUMAN VERIFIED sliekšņus un izdošanas vārtus.
 
-### PILOT 3 — Regulatory requirements
+### PILOTS 3 — regulatīvās prasības
 
 Komponenti:
 - `EBA_REQUIREMENTS_MATRIX_v1`
@@ -78,15 +78,15 @@ Komponenti:
 - `REQUIREMENTS_MATRIX_GOVERNANCE_v1`
 
 Mērķis:
-- pārbaudīt requirements completeness pret apstiprināto kopu;
+- pārbaudīt prasību kopas pilnīgumu pret apstiprināto kopu;
 - pārbaudīt saliktās prasības un komponentu agregāciju;
 - pārbaudīt versēšanu;
-- pārbaudīt mandatory requirement miss rate.
+- pārbaudīt nepamanītu obligāto prasību rate.
 
 Galvenais drošības KPI:
 - nepamanītu obligātu prasību skaits.
 
-### PILOT 4 — Legora end-to-end
+### PILOTS 4 — Legora pilnais process
 
 Komponenti:
 - visi iepriekšējie slāņi;
@@ -125,14 +125,14 @@ LEGAL TASK
 10. DORA_REQUIREMENTS_MATRIX_v1
 11. AI_TOOL_USAGE_POLICY_v1
 12. LEGORA_IMPLEMENTATION_SPEC_v1                 TARGET ARCHITECTURE DEFINED
-13. PILOT_AND_ACCEPTANCE_PLAN_v1
-→ COMPLETE ALL SUPPORTING DOCUMENTS
+13. PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1
+→ PABEIGT UN IESALDĒT VISUS ATBALSTA DOKUMENTUS
 → IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1
-→ PILOT EXECUTION
-→ FIX FAILURES
-→ REGRESSION
-→ ACCEPTANCE
-→ FREEZE RUNTIME MANIFEST
+→ IZPILDĪT PILOTUS
+→ IZLABOT KONSTATĒTĀS KĻŪDAS
+→ REGRESIJAS PĀRBAUDE
+→ PIEŅEMŠANAS PĀRBAUDE
+→ IESALDĒT IZPILDVIDES MANIFESTU
 ```
 
 `AI_TOOL_USAGE_POLICY_v1` saturs nevar tikt izdomāts sistēmas iekšienē. Tas jābalsta bankas faktiskajos governance lēmumos un apstiprinātajos AI lietošanas noteikumos.
@@ -156,8 +156,8 @@ Pabeigtība nozīmē:
 1. visi obligātie dokumenti ir apstiprināti;
 2. visi savstarpējie references ir konsekventi;
 3. canonical statusi un enum vērtības nesadalās paralēlās sistēmās;
-4. pilotu rezultāti atbilst `PILOT_AND_ACCEPTANCE_PLAN_v1` kritērijiem;
-5. Legora end-to-end workflow strādā praksē;
+4. pilotu rezultāti atbilst `PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1` kritērijiem;
+5. Legora pilnā darba plūsma strādā praksē;
 6. nav neatrisinātu blocking arhitektūras pretrunu;
 7. apstiprinātās baseline versijas ir iesaldētas un izsekojamas Git vēsturē.
 
@@ -174,24 +174,24 @@ Gala secība:
 
 ```text
 COMPLETE AND FREEZE SUPPORTING DOCUMENTS
-→ IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1 IN LEGORA
-→ RUN PILOT_AND_ACCEPTANCE_PLAN_v1
-→ FIX FAILURES
-→ RUN REGRESSION
+→ IEVIEST LEGORA_IMPLEMENTATION_SPEC_v1 LEGORA VIDĒ
+→ RUN PILOT_AND_PIEŅEMŠANAS PĀRBAUDE_PLAN_v1
+→ IZLABOT KONSTATĒTĀS KĻŪDAS
+→ RUN REGRESIJAS PĀRBAUDE
 → APPROVE PRODUCTION CONFIGURATION
-→ FREEZE RUNTIME MANIFEST
+→ IESALDĒT IZPILDVIDES MANIFESTU
 ```
 
-Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti. Tā ir ieviesta tikai tad, kad Legora production konfigurācija atbilst mērķa arhitektūrai un ir izgājusi acceptance/regression pārbaudi.
+Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti. Tā ir ieviesta tikai tad, kad Legora produkcijas konfigurācija atbilst mērķa arhitektūrai un ir izgājusi pieņemšanas un regresijas pārbaudi.
 
 
-## Traceability milestone
+## Izsekojamības posms
 
-`TRACEABILITY_RECORD_v1 — Architecture v0.4` ir apstiprināts kā frozen baseline.
+`TRACEABILITY_RECORD_v1 — Architecture v0.4` ir apstiprināts kā iesaldētā pamatversija.
 
-- Mechanical audit pret `PROFESSIONAL_SCOPE_v1.3`: PASS
-- Blocking baseline conflicts: 0
-- New canonical statuses: 0
-- Freeze: APPROVED — BASELINE (FROZEN), 2026-09-18
-- Pilot 1 scope: ANALYSE + EXTRACT
-- Pilot 1 obligāts simulated DATA CLASS MISMATCH SUSPECTED test case
+- Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`: PASS
+- Bloķējošas pretrunas ar pamatversiju: 0
+- Jauni kanoniskie statusi: 0
+- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
+- Pilota 1 tvērums: ANALYSE + EXTRACT
+- Pilot 1 obligāts simulēts `DATA CLASS MISMATCH SUSPECTED` testa gadījums
