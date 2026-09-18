@@ -2,12 +2,12 @@
 
 Juridiskās pārbaudes sistēmas universālā darba plūsmu arhitektūra
 
-**Statuss:** MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
-**Versija:** v0.1  
+**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
+**Versija:** v0.2  
 **Bāze:**  
-- `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS  
-- `TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` — MELNRAKSTS  
-- `TERMINOLOGY_AND_ENUMS_v1 — v0.4` — MELNRAKSTS  
+- `PROFESSIONAL_SCOPE_v1.4` — KONSOLIDĒTS MELNRAKSTS  
+- `TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` — KONSOLIDĒTS MELNRAKSTS  
+- `TERMINOLOGY_AND_ENUMS_v1 — v0.4` — KONSOLIDĒTS MELNRAKSTS  
 - `VERIFICATION_PROTOCOL_v1 — v0.5` — IESALDĒTS
 
 ## 1. Mērķis
@@ -29,29 +29,37 @@ Neviena no šīm operācijām nedrīkst līguma gadījumā sākt specializētu r
 ```text
 LEGAL TASK RECEIVED
 ↓
+TASK CLARIFICATION
+↓
+COMPETENCE CHECK
+↓
 AI TOOL / DATA PERMISSION GATE
 ↓
 OBJECT IDENTIFICATION
 ↓
-IF OBJECT = CONTRACT:
-    CONTRACT TYPE CLASSIFICATION
+OBJECT-DEPENDENT INTAKE
 ↓
-FACT PROFILE + MISSING INFORMATION
-↓
-LEGAL / REGULATORY CLASSIFICATION ASSESSMENT
-↓
-HUMAN / EXTERNAL AUTHORITY DECISION
-↓
-MODULE STATUS
-↓
-REQUIREMENTS SET SELECTION
-↓
-SELECTED OPERATION WORKFLOW
+OPERATION WORKFLOW
 ↓
 TRACEABILITY + RELEASE GATES
 ```
 
-Datu atļauju pārbaude notiek pirms AI apstrādes. `LEGAL INTAKE` nedrīkst izmantot kā pamatojumu, lai apietu AI rīka atļauju prasības.
+OBJECT = CONTRACT gadījumā:
+```text
+CONTRACT TYPE
+↓
+FACT PROFILE
+↓
+CANDIDATE-MODULE SCREENING
+↓
+SHORT INTAKE OR FULL INTAKE
+↓
+COMMON CONTRACT REVIEW
+↓
+SPECIALIZED MODULES / REQUIREMENTS SETS, ja piemērojami
+```
+
+OBJECT = QUESTION / INTERNAL POLICY / EXTERNAL SOURCE gadījumā CONTRACT TYPE nav obligāts. LCA tiek veikts tikai tad, ja pats jautājums prasa juridisku / regulatīvu klasifikāciju.
 
 ## 3. LEGAL INTAKE mērķis
 
@@ -64,39 +72,18 @@ Datu atļauju pārbaude notiek pirms AI apstrādes. `LEGAL INTAKE` nedrīkst izm
 
 Tas nav pilna līguma pārbaude un neaizstāj izvēlēto operāciju.
 
-## 4. CONTRACT TYPE REGISTRY
+## 4. CONTRACT TYPE lietošana
 
-Šis dokuments ir `CONTRACT TYPE REGISTRY` īpašnieks.
+CONTRACT TYPE tehnisko taxonomy uztur `TERMINOLOGY_AND_ENUMS_v1`.
 
-Sākotnējā v0.1 taxonomy:
+Šis dokuments nosaka tā izmantošanu darba plūsmā.
 
-| Canonical | Machine key | LV apzīmējums |
-|---|---|---|
-| SERVICE AGREEMENT | `service_agreement` | Pakalpojumu līgums |
-| GOODS SUPPLY | `goods_supply` | Preču piegādes / pirkuma līgums |
-| CONSTRUCTION | `construction` | Būvniecības līgums |
-| SOFTWARE LICENCE | `software_licence` | Programmatūras licences līgums |
-| SAAS / CLOUD SERVICE | `saas_cloud_service` | SaaS / mākoņpakalpojuma līgums |
-| IT DEVELOPMENT | `it_development` | IT izstrādes līgums |
-| IT SUPPORT / MAINTENANCE | `it_support_maintenance` | IT atbalsta / uzturēšanas līgums |
-| CONSULTING / PROFESSIONAL SERVICES | `consulting_professional_services` | Konsultāciju / profesionālo pakalpojumu līgums |
-| AUDIT SERVICES | `audit_services` | Audita pakalpojumu līgums |
-| TRAINING SERVICES | `training_services` | Mācību pakalpojumu līgums |
-| FACILITY SERVICES | `facility_services` | Saimnieciskās / facility apkalpošanas līgums |
-| SECURITY SERVICES | `security_services` | Apsardzes / drošības pakalpojumu līgums |
-| MARKETING SERVICES | `marketing_services` | Mārketinga pakalpojumu līgums |
-| FRAMEWORK AGREEMENT | `framework_agreement` | Ietvarlīgums |
-| CONFIDENTIALITY AGREEMENT | `confidentiality_agreement` | Konfidencialitātes līgums |
-| DATA PROCESSING AGREEMENT | `data_processing_agreement` | Datu apstrādes līgums |
-| LEASE | `lease` | Nomas līgums |
-| OTHER | `other` | Cits |
+Vienam līgumam drīkst būt vairākas CONTRACT TYPE vērtības. Jaukta līguma gadījumā contract-type-specific baseline review tvērums ir visu piešķirto tipu attiecīgo elementu apvienojums.
 
-Vienam līgumam drīkst piešķirt vairākas vērtības, ja tas ir jaukts līgums.
-
-`CONTRACT TYPE`:
-- nav `MODULE`;
+CONTRACT TYPE:
+- nav MODULE;
 - nenosaka automātisku regulatīvo režīmu;
-- neaktivizē REQUIREMENTS SET bez atsevišķas moduļa piemērojamības noteikšanas.
+- neaktivizē specializētu REQUIREMENTS SET bez atsevišķas moduļa piemērojamības noteikšanas.
 
 ## 5. CONTRACT TYPE noteikšana
 
@@ -129,21 +116,68 @@ IT SUPPORT / MAINTENANCE
 
 ## 6. FACT PROFILE
 
-Pirms regulatīvās klasifikācijas sistēma apkopo klasifikācijai materiālos faktus.
+FACT PROFILE ir izsekojamu `FINDING` atsauču kopa, ne brīvs MI kopsavilkums.
 
-Piemēram:
-- ko piegādātājs faktiski dara;
-- vai pakalpojums ir vienreizējs vai atkārtots;
-- vai tas aizstāj bankas funkciju vai aktivitāti;
-- piekļuve sistēmām, datiem vai telpām;
-- datu hostings / apstrāde;
-- kritiskums un atkarība;
-- apakšuzņēmēji;
-- pakalpojuma vieta;
-- procesa integrācijas pakāpe;
-- trūkstošie fakti.
+Katram klasifikācijai materiālam faktam jābūt identificējamai izcelsmei:
+- biznesa / lietotāja deklarēts ievaddats;
+- AI no dokumenta izgūts FINDING ar EVIDENCE BINDING;
+- jurista konstatējums ar avota atsauci;
+- pieņēmums (`ASSUMPTION = true`);
+- trūkstošs fakts / UNRESOLVED ISSUE.
 
-Fakts, pieņēmums un neatbildēts jautājums jānošķir.
+Ja materiāls FINDING ir `ASSUMPTION = true`, QUALITATIVE LIKELIHOOD nevar būt LIKELY vai UNLIKELY, kamēr pilnvarots cilvēks pieņēmumu nav tieši pieņēmis un fiksējis lēmumā. Citādi — INDETERMINATE.
+
+## 6.1. CANDIDATE-MODULE SCREENING
+
+Candidate-module screening notiek tikai pret `MODULE_TRIGGER_REGISTRY_v1` ACTIVE trigger set.
+
+Katram screening saglabā `MODULE SCREENING RECORD`:
+```text
+SCREENED MODULES
+TRIGGER REGISTRY VERSION
+TRIGGERS IDENTIFIED
+SCREENED BY
+SCREENED AT
+```
+
+`TRIGGERS IDENTIFIED = []` nozīmē apzinātu negatīvu screening rezultātu tikai tad, ja pārbaudīts viss attiecīgās versijas trigger saraksts.
+
+Negatīvs screening rezultāts nav `MODULE STATUS = NOT APPLICABLE`.
+
+Ja modulim nav ACTIVE trigger set:
+```text
+SHORT PATH UNAVAILABLE
+→ FULL LCA, ja moduļa relevance jāizvērtē
+```
+
+## 6.2. SHORT INTAKE
+
+SHORT INTAKE drīkst izmantot, ja:
+- līgums ir identificēts;
+- FACT PROFILE ir pietiekams screening veikšanai;
+- attiecīgajiem screening moduļiem ir ACTIVE trigger set;
+- nav identificēts trigger;
+- nav citas zināmas neskaidrības, kas prasītu FULL LCA.
+
+SHORT INTAKE rezultāts:
+- CONTRACT TYPE;
+- FACT PROFILE refs;
+- MODULE SCREENING RECORD;
+- jurista screening apstiprinājums;
+- COMMON CONTRACT REVIEW.
+
+## 6.3. FULL INTAKE
+
+FULL INTAKE obligāts, ja:
+- identificēts vismaz viens trigger;
+- klasifikācija ir neskaidra;
+- jaukts / neparasts līgums materiāli ietekmē regulatīvo režīmu;
+- trūkstošs fakts var mainīt moduļa piemērojamību;
+- lietotājs uzdod klasifikācijas jautājumu;
+- iekšējs noteikums prasa pilnu klasifikāciju;
+- modulim nav ACTIVE trigger set.
+
+FULL INTAKE ietver LCA un attiecīgās autoritātes lēmumu.
 
 ## 7. LEGAL / REGULATORY CLASSIFICATION
 
@@ -183,6 +217,24 @@ Ja specializētā moduļa gala statuss ir `UNCLEAR`:
 - jānorāda nepieciešamais HUMAN INPUT REQUIRED vai HUMAN CONFIRMATION REQUIRED;
 - materiāls downstream rezultāts, kas pieņem moduļa piemērojamību kā faktu, tiek bloķēts.
 
+## 9.1. UNCLEAR un scenārija analīze
+
+MODULE = UNCLEAR bloķē tikai tos rezultātus, kuri pieņem moduļa piemērojamību kā faktu.
+
+COMMON CONTRACT REVIEW turpinās.
+
+Scenārija analīzes REQUIREMENT RESULT:
+```text
+scenario_only = true
+```
+
+Šādi rezultāti:
+- ir tikai hipotētiski;
+- vienmēr formulējami nosacīti;
+- nemantojas kā actual rezultāti;
+- nepakļaujas HUMAN VERIFIED minimumam;
+- ja modulis kļūst APPLICABLE, tiek radīti jauni actual rezultāti.
+
 ## 10. REQUIREMENTS SET izvēle
 
 REQUIREMENTS SET tiek izvēlēts tikai pēc moduļa statusa.
@@ -191,13 +243,23 @@ Piemērs:
 
 ```text
 COMMON CONTRACT REVIEW
-→ universāls contract review slānis
+→ OBLIGĀTS visiem CONTRACT objektiem; nav vārtēts ar specializētu klasifikāciju
 
 OUTSOURCING-EBA = APPLICABLE
 → + EBA_REQUIREMENTS_MATRIX
 
 ICT-DORA = APPLICABLE
-→ + DORA_REQUIREMENTS_MATRIX
++ CIF STATUS = CRITICAL / IMPORTANT
+→ + attiecīgā critical/important DORA requirements set
+
+ICT-DORA = APPLICABLE
++ CIF STATUS = NOT CRITICAL / IMPORTANT
+→ + attiecīgā non-critical DORA requirements set
+
+ICT-DORA = APPLICABLE
++ CIF STATUS = NOT YET DETERMINED
+→ HUMAN INPUT REQUIRED
+→ CIF-atkarīgā gala requirements set vēl netiek izvēlēta
 
 ICT-DORA = NOT APPLICABLE
 → DORA_REQUIREMENTS_MATRIX netiek aktivizēta
@@ -276,17 +338,28 @@ LEGAL INTAKE, ja nepieciešams turpmākai izmantošanai
 
 EXTRACT pats par sevi neveic juridisku klasifikāciju, ja vien tas nav skaidri definēts kā klasifikācijas ievaddatu iegūšanas solis.
 
+## 15.1. RECLASSIFICATION TRIGGER
+
+Ja uzdevuma gaitā mainās klasifikācijai materiāls FACT PROFILE elements:
+- saglabā iepriekšējo LCA un lēmumu;
+- izveido jaunu LCA / lēmumu, ja nepieciešams;
+- pārvērtē MODULE STATUS;
+- pārvērtē REQUIREMENTS SET selection;
+- uz vecās klasifikācijas balstītie requirement results tiek saglabāti kā vēsturiski, bet atzīmēti kā vairs neaktuāli klasifikācijas bāzei;
+- skartās prasības tiek pārbaudītas no jauna.
+
 ## 16. Traceability minimums
 
 Ja `LEGAL INTAKE` piemērojams, Traceability jāspēj rekonstruēt:
 - CONTRACT TYPE;
-- faktu profilu;
+- FACT PROFILE FINDING refs;
+- MODULE SCREENING RECORDS;
 - katru LEGAL CLASSIFICATION ASSESSMENT;
 - izmantotos avotus;
 - QUALITATIVE LIKELIHOOD;
 - cilvēka / ārējo lēmumu;
 - MODULE STATUS;
-- izvēlēto REQUIREMENTS SET un versiju.
+- izvēlēto REQUIREMENTS SET, versiju un SELECTION CONDITIONS versiju.
 
 ## 17. Aizliegtie saīsinājumi
 
