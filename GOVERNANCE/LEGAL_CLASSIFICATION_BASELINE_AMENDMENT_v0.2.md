@@ -52,6 +52,7 @@ OPERATION WORKFLOW
 5. `LEGAL_RESEARCH_METHOD_v1.md` — v0.2
 6. `REQUIREMENTS_MATRIX_GOVERNANCE_v1.md` — v0.3
 7. `MODULE_TRIGGER_REGISTRY_v1.md` — v0.1
+8. `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md` — source-based draft, NOT ACTIVE
 
 ## 4. Review #11 / #12 konsensa lēmumi
 
@@ -144,7 +145,26 @@ Materiāla FACT PROFILE maiņa rada klasifikācijas pārvērtēšanu. Iepriekš�
 ### A2 — UNCLEAR
 UNCLEAR bloķē tikai no konkrētā moduļa klasifikācijas atkarīgo zaru. COMMON CONTRACT REVIEW un neatkarīga juridiskā analīze turpinās.
 
-## 5. MODULE TRIGGER REGISTRY stāvoklis
+## 5. OUTSOURCING-EBA trigger set draft
+
+Izveidots pirmais source-based drafts:
+`OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+
+Pašreizējais juridiskais pamats:
+- EBA/GL/2019/02;
+- EBA Single Rulebook Q&A 2020_5220;
+- EBA Single Rulebook Q&A 2020_5100.
+
+2026-09-18 publicētās EBA third-party risk Guidelines ir transition-watch avots, jo tās vēl nav piemērojamas un vēlāk aizstās 2019 outsourcing Guidelines.
+
+Trigger set:
+- nav ACTIVE;
+- neaktivizē MODULE STATUS;
+- neļauj SHORT INTAKE production režīmā;
+- prasa jurista + outsourcing manager review;
+- prasa bankas iekšējo outsourcing avotu pievienošanu.
+
+## 6. MODULE TRIGGER REGISTRY stāvoklis
 
 Governance struktūra ir definēta.
 
@@ -164,7 +184,7 @@ OUTSOURCING-EBA SHORT INTAKE
 
 Tas nav arhitektūras konflikts. Tas ir atvērts ieviešanas priekšnoteikums pirms contract-classification pilota.
 
-## 6. v1.3 → v1.4 cross-reference compatibility map
+## 7. v1.3 → v1.4 cross-reference compatibility map
 
 | Atsauce | v1.4 stāvoklis |
 |---|---|
@@ -185,7 +205,7 @@ Tas nav arhitektūras konflikts. Tas ir atvērts ieviešanas priekšnoteikums pi
 | §26 backbone | paplašināts |
 | §30 closed status registry | nav pievienots jauns frozen status |
 
-## 7. Nemainītās kritiskās robežas
+## 8. Nemainītās kritiskās robežas
 
 ```text
 CONTRACT TYPE ≠ MODULE
@@ -197,7 +217,7 @@ CIF STATUS ≠ LCA RESULT
 COMMON CONTRACT REVIEW ≠ specialized module
 ```
 
-## 8. Autoritatīvais statuss
+## 9. Autoritatīvais statuss
 
 Pakete nav frozen.
 
@@ -207,7 +227,7 @@ Līdz atsevišķam freeze lēmumam autoritatīvas paliek:
 - `TERMINOLOGY_AND_ENUMS_v1 v0.3`;
 - `VERIFICATION_PROTOCOL_v1 v0.5`.
 
-## 9. Nākamais solis
+## 10. Nākamais solis
 
 1. kritisks review v0.2 konsolidētajai paketei;
 2. source-based OUTSOURCING-EBA trigger set izstrāde pirms SHORT INTAKE pilota;
