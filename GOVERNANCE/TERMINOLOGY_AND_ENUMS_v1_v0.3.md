@@ -2,11 +2,12 @@
 
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
-**Statuss:** MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** v0.3  
+**Iesaldēšanas datums:** 2026-09-18  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
-- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — IESALDĒŠANAS KANDIDĀTS
+- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
 
@@ -742,11 +743,12 @@ Tas nosaka vienotu valodu, tehnisko reprezentāciju un reģistru kontraktu.
 
 ## 44. Iesaldēšanas statuss
 
-Šis dokuments ir `MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Iesaldēšana drīkst notikt tikai pēc:
-1. mehāniskā audita pret `PROFESSIONAL_SCOPE_v1.3`, `TRACEABILITY_RECORD_v1 v0.5` un `VERIFICATION_PROTOCOL_v1 v0.5`;
-2. bloķējošu pretrunu skaita = 0;
-3. lietotāja skaidra freeze apstiprinājuma.
+Iesaldēšanas pamats:
+1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TRACEABILITY_RECORD_v1 v0.5` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
+2. bloķējošas pretrunas — 0;
+3. jauni frozen canonical statusi — 0;
+4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
 
-Iepriekšējā iesaldētā v0.2 versija paliek nemainīga Git vēsturē.
+Iepriekšējā v0.2 versija paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
