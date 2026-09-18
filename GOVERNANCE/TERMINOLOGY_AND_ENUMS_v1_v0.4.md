@@ -27,7 +27,7 @@ Tas definē:
 Šis dokuments nemaina frozen dokumentu juridisko vai arhitektonisko nozīmi.
 
 Konflikta gadījumā augstāka autoritāte ir:
-1. `PROFESSIONAL_SCOPE_v1.3`;
+1. `PROFESSIONAL_SCOPE_v1.4`;
 2. `TRACEABILITY_RECORD_v1`;
 3. šis dokuments.
 
@@ -124,7 +124,7 @@ To drīkst izmantot tikai tad, ja shēma konkrētā stāvoklī skaidri nosaka, k
 
 ## 6. Enum un taxonomy pārvaldības princips
 
-1. Enum, kas izriet no `PROFESSIONAL_SCOPE_v1.3` slēgtā statusu reģistra, ir slēgti. Tos var mainīt tikai ar augstāka līmeņa frozen baseline grozījumu.
+1. Enum, kas izriet no `PROFESSIONAL_SCOPE_v1.4` slēgtā statusu reģistra, ir slēgti. Tos var mainīt tikai ar augstāka līmeņa frozen baseline grozījumu.
 2. Tehniskās taxonomy, piemēram `SOURCE TYPE`, `TRACE OBJECT TYPE` un ID prefiksi, maināmas tikai ar attiecīgās shēmas governance procedūru.
 3. Citam governance dokumentam piederošas vārdnīcas šeit netiek dublētas.
 4. Nevienu enum vai taxonomy nedrīkst paplašināt viena `TASK` ietvaros.
@@ -488,7 +488,7 @@ VERIFICATION METHOD REGISTRY
 
 Šis dokuments nedefinē verifikācijas metodes vai dziļumu.
 
-Līdz `VERIFICATION_PROTOCOL_v1` apstiprināšanai šī vārdnīca nav production-final.
+Verifikācijas metožu vārdnīcu nosaka iesaldētais `VERIFICATION_PROTOCOL_v1 v0.5` un tā turpmākās apstiprinātās versijas.
 
 ## 28.1. CONTRACT TYPE reģistra īpašnieks
 
@@ -564,19 +564,19 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 
 | Controlled field | Owning document | Registry |
 |---|---|---|
-| OPERATION | `PROFESSIONAL_SCOPE_v1.3` | OPERATION |
-| OBJECT | `PROFESSIONAL_SCOPE_v1.3` | OBJECT |
-| MODULE | `PROFESSIONAL_SCOPE_v1.3` | MODULE |
-| REQUIREMENT STATUS | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT STATUS |
-| VERIFICATION LEVEL | `PROFESSIONAL_SCOPE_v1.3` | VERIFICATION LEVEL |
-| REQUIREMENT LEVEL | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT LEVEL |
-| GOVERNANCE STATUS | `PROFESSIONAL_SCOPE_v1.3` | GOVERNANCE STATUS |
-| REQUIREMENT TYPE | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT TYPE |
-| MODULE STATUS | `PROFESSIONAL_SCOPE_v1.3` | MODULE STATUS |
-| APPLICABILITY AUTHORITY | `PROFESSIONAL_SCOPE_v1.3` | MODULE AUTHORITY |
-| CIF STATUS | `PROFESSIONAL_SCOPE_v1.3` | CIF STATUS |
-| PERMISSION STATUS | `PROFESSIONAL_SCOPE_v1.3` | PERMISSION STATUS |
-| SUSPENSION STATE | `PROFESSIONAL_SCOPE_v1.3` | SUSPENSION STATES |
+| OPERATION | `PROFESSIONAL_SCOPE_v1.4` | OPERATION |
+| OBJECT | `PROFESSIONAL_SCOPE_v1.4` | OBJECT |
+| MODULE | `PROFESSIONAL_SCOPE_v1.4` | MODULE |
+| REQUIREMENT STATUS | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT STATUS |
+| VERIFICATION LEVEL | `PROFESSIONAL_SCOPE_v1.4` | VERIFICATION LEVEL |
+| REQUIREMENT LEVEL | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT LEVEL |
+| GOVERNANCE STATUS | `PROFESSIONAL_SCOPE_v1.4` | GOVERNANCE STATUS |
+| REQUIREMENT TYPE | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT TYPE |
+| MODULE STATUS | `PROFESSIONAL_SCOPE_v1.4` | MODULE STATUS |
+| APPLICABILITY AUTHORITY | `PROFESSIONAL_SCOPE_v1.4` | MODULE AUTHORITY |
+| CIF STATUS | `PROFESSIONAL_SCOPE_v1.4` | CIF STATUS |
+| PERMISSION STATUS | `PROFESSIONAL_SCOPE_v1.4` | PERMISSION STATUS |
+| SUSPENSION STATE | `PROFESSIONAL_SCOPE_v1.4` | SUSPENSION STATES |
 | SOURCE TYPE | `TRACEABILITY_RECORD_v1` + šī dokumenta shēmas governance | SOURCE TYPE |
 | TRACE OBJECT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE |
 | ID PREFIX | `TERMINOLOGY_AND_ENUMS_v1` | ID PREFIX |
@@ -653,7 +653,7 @@ DECISION    → cilvēka lēmums
 
 `VERIFIED` ir rezervēts semantiskās verifikācijas nozīmei.
 
-`HUMAN VERIFIED` nozīmē, ka noticis `PROFESSIONAL_SCOPE_v1.3` 17.3. paredzēts verifikācijas akts.
+`HUMAN VERIFIED` nozīmē, ka noticis `PROFESSIONAL_SCOPE_v1.4` 17.3. paredzēts verifikācijas akts.
 
 Nedrīkst izmantot tādus laukus vai statusus kā:
 `source_verified`, `ai_verified`, `workflow_verified`,
