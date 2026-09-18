@@ -2,15 +2,15 @@
 
 Juridiskās pārbaudes sistēmas prasību kopu un prasību pārvaldības kārtība
 
-**Statuss:** MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
-**Versija:** v0.2  
+**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
+**Versija:** v0.3  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS  
 - `TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` — MELNRAKSTS  
 - `TERMINOLOGY_AND_ENUMS_v1 — v0.4` — MELNRAKSTS  
 - `VERIFICATION_PROTOCOL_v1 — v0.5` — IESALDĒTS  
-- `OPERATION_WORKFLOWS_v1 — v0.1` — MELNRAKSTS  
-- `LEGAL_RESEARCH_METHOD_v1 — v0.1` — MELNRAKSTS
+- `OPERATION_WORKFLOWS_v1 — v0.2` — KONSOLIDĒTS MELNRAKSTS  
+- `LEGAL_RESEARCH_METHOD_v1 — v0.2` — KONSOLIDĒTS MELNRAKSTS
 
 ## 1. Mērķis
 
@@ -76,6 +76,17 @@ REQUIREMENT REVIEW
 
 Specializēta prasību kopa nav moduļa klasifikācijas mehānisms.
 
+DORA gadījumā prasību kopas izvēle drīkst būt atkarīga no vairākiem ievaddatiem:
+```text
+ICT-DORA MODULE STATUS
++
+CIF STATUS (EXTERNAL INPUT ONLY)
++
+citi apstiprināti SELECTION CONDITIONS, ja tādi pastāv
+```
+
+CIF STATUS nedrīkst tikt noteikts ar LCA. Ja CIF ir nepieciešams gala kopas izvēlei un ir NOT YET DETERMINED, piemērojams HUMAN INPUT REQUIRED.
+
 ## 4. REQUIREMENTS SET izvēles noteikums
 
 Specializētu REQUIREMENTS SET drīkst aktivizēt kā gala piemērojamo prasību kopu tikai tad, ja attiecīgais `MODULE STATUS = APPLICABLE`.
@@ -92,7 +103,14 @@ MODULE STATUS = UNCLEAR
 ```
 attiecīgo prasību kopu drīkst izmantot tikai skaidri marķētai scenārija analīzei. Tā nedrīkst tikt pasniegta kā gala piemērojamā prasību bāze.
 
-Universāla `COMMON CONTRACT REVIEW` kopa drīkst būt piemērojama CONTRACT objektam neatkarīgi no specializēta moduļa, ja to nosaka tās governance.
+Katram šādam REQUIREMENT RESULT:
+```text
+scenario_only = true
+```
+
+Šādu rezultātu nevar mantot kā actual rezultātu. Ja modulis vēlāk kļūst APPLICABLE, jāizveido jauns actual REQUIREMENT RESULT ar parasto verifikācijas režīmu.
+
+Ja OBJECT = CONTRACT, `COMMON CONTRACT REVIEW` kopa ir obligāti piemērojama un nav atkarīga no specializēta MODULE STATUS. Specializētās kopas ir papildinājums.
 
 ## 5. REQUIREMENTS SET SELECTION minimums
 
@@ -110,6 +128,33 @@ SELECTED AT
 
 `SELECTION BASIS` nav brīva iespēja AI izdomāt regulatīvu piemērojamību. Tai jāatsaucas uz apstiprinātu moduļa statusu, universāla review noteikumu vai citu iepriekš apstiprinātu governance pamatu.
 
+## 5.1. MODULE TRIGGER REGISTRY governance
+
+`REQUIREMENTS_MATRIX_GOVERNANCE_v1` ir MODULE TRIGGER REGISTRY governance īpašnieks.
+
+Trigger reģistrs ir atsevišķs versēts artefakts: `MODULE_TRIGGER_REGISTRY_v1`.
+
+Katram moduļa trigger set nepieciešams:
+```text
+MODULE
+TRIGGER SET ID
+TRIGGER SET VERSION
+TRIGGERS
+SOURCE BASIS
+APPROVAL AUTHORITY
+APPROVED BY
+APPROVAL REFERENCE
+EFFECTIVE DATE
+LAST REVIEW DATE
+LIFECYCLE
+```
+
+Trigger sarakstu apstiprina tā pati vai līdzvērtīga governance autoritāte, kurai pieder attiecīgā MODULE APPLICABILITY.
+
+Trigger saraksts nosaka tikai to, kad SHORT INTAKE pāriet uz FULL LCA. Tas nepiešķir MODULE STATUS.
+
+Ja modulim nav ACTIVE trigger set, SHORT ceļš šim modulim nav pieejams.
+
 ## 6. REQUIREMENTS SET
 
 Katram apstiprinātam prasību kopumam ir:
@@ -120,7 +165,11 @@ REQUIREMENTS SET NAME
 REQUIREMENTS SET VERSION
 SCOPE
 APPLICABLE MODULE               [ja piemērojams]
-SELECTION RULE
+SELECTION CONDITIONS
+SELECTION CONDITIONS VERSION
+SELECTION CONDITIONS OWNER
+SELECTION CONDITIONS APPROVED BY
+SELECTION CONDITIONS APPROVAL REFERENCE
 SOURCE UNIVERSE
 EFFECTIVE DATE
 APPROVAL AUTHORITY REFERENCE
@@ -132,6 +181,10 @@ PREVIOUS VERSION                [ja piemērojams]
 ```
 
 `APPROVAL AUTHORITY REFERENCE` norāda bankas governance pamatu, kas nosaka, kam ir tiesības apstiprināt konkrēto prasību kopu.
+
+`SELECTION CONDITIONS` ir pārvaldāma REQUIREMENTS SET metadatu daļa. Tā nosaka, kādi iepriekš apstiprināti ievaddati nepieciešami konkrētās prasību kopas izvēlei, piemēram MODULE STATUS, CIF STATUS vai cits ārējs governance input.
+
+Materiāla SELECTION CONDITIONS maiņa rada jaunu REQUIREMENTS SET versiju pēc tiem pašiem noteikumiem kā citas materiālas kopas izmaiņas. Workflow konfigurācija nedrīkst klusējot mainīt šo loģiku.
 
 Šis dokuments neizdomā bankas amata / funkciju matricu.
 
@@ -439,6 +492,7 @@ Materiāla izmaiņa ietver vismaz:
 - komponentu semantisku maiņu;
 - source basis maiņu, kas maina juridisko pamatu;
 - requirement-level applicability maiņu;
+- SELECTION CONDITIONS materiālu maiņu;
 - materialu NEGOTIABLE standarta pozīcijas maiņu.
 
 ## 28. Redakcionālas izmaiņas
@@ -574,6 +628,17 @@ Ja TASK laikā atklāj potenciālu prasību, kas nav kopā:
 - konkrētā juridiskā analīze drīkst jautājumu ņemt vērā;
 - master matrica mainās tikai governance procesā.
 
+## 39.1. Klasifikācijas maiņa aktīva TASK laikā
+
+Ja mainās materiāls FACT PROFILE un tiek aizstāts LCA / MODULE STATUS:
+- vecais LCA un lēmums paliek vēsturē;
+- REQUIREMENTS SET selection tiek pārvērtēta;
+- REQUIREMENT RESULT, kas balstīti uz aizstāto klasifikāciju, paliek vēsturē ar atsauci uz veco klasifikācijas bāzi;
+- tie tiek atzīmēti kā vairs neaktuāli klasifikācijas bāzei;
+- skartajām prasībām rada jaunus rezultātus pēc jaunās klasifikācijas.
+
+Nekas netiek klusējot pārrakstīts.
+
 ## 40. Jaunas prasības ietekme uz aktīvu TASK
 
 Ja jauna prasību kopas versija apstiprināta aktīva TASK laikā, nepieciešams dokumentēts cilvēka lēmums:
@@ -676,8 +741,9 @@ Matrix governance nedrīkst samazināt verifikācijas slieksni.
 ## 48. Saistība ar TRACEABILITY
 
 Traceability glabā:
+- MODULE SCREENING RECORD / trigger registry version;
 - MODULE STATUS un classification references;
-- REQUIREMENTS SET ID / VERSION;
+- REQUIREMENTS SET ID / VERSION / SELECTION CONDITIONS VERSION;
 - REQUIREMENT RESULT;
 - evidence;
 - verification.
