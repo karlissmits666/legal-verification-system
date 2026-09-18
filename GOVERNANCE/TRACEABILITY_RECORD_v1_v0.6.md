@@ -131,7 +131,7 @@ HUMAN DECISION REFERENCE           [ja pieejama]
 RELATED MODULE
 CLASSIFICATION BASIS VERSION
 SUPERSEDES LCA ID                   [ja piemērojams]
-RECLASSIFICATION REVIEW DECISION ID [ja piemērojams]
+RECLASSIFICATION REVIEW DECISION ID [DECISION TYPE = reclassification_materiality; ja piemērojams]
 ```
 
 `CREATED BY` drīkst būt AI rīks vai cilvēks. Tas nepadara objektu par cilvēka lēmumu.
@@ -153,10 +153,12 @@ SCREENED MODULES
 TRIGGER REGISTRY ID
 TRIGGER REGISTRY VERSION
 TRIGGERS IDENTIFIED               [array; [] = apzināts negatīvs rezultāts]
+TRIGGERS NOT IDENTIFIED WITH SUPPORTING FINDING
+                                  [map: trigger id → FINDING ID; obligāts negatīvi formulētiem triggeriem]
 SCREENED BY
 SCREENED AT
 RELATED FACT FINDING IDS
-SCREENING DECISION ID                [HUMAN DECISION]
+SCREENING DECISION ID              [HUMAN DECISION]
 ```
 
 Screening apstiprinājums netiek ieviests kā jauns lēmuma tips. Tas ir `HUMAN DECISION`, kura RELATED OBJECT ir attiecīgais MODULE SCREENING RECORD.
@@ -708,6 +710,7 @@ MODULE SCREENING SUMMARY              [obligāts, ja veikts screening]
   SCREENED MODULES
   TRIGGER SET ID / VERSION
   SCREENING RESULT
+  MODULE SCREENING RECORD ID
 COMPLETENESS CONTROL REFERENCE  [ja piemērojams]
 VERIFICATION SUMMARY
 OUTPUT REFERENCE
