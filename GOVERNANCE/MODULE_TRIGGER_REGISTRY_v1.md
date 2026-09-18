@@ -91,14 +91,14 @@ MODULE: OUTSOURCING-EBA
 TRIGGER SET ID: MTR-OUTSOURCING-001
 VERSION: 0.1-draft
 STATUS: NOT ACTIVE
-SOURCE BASIS: TO BE POPULATED FROM APPROVED EXTERNAL / INTERNAL SOURCES
+SOURCE BASIS: EBA/GL/2019/02 + EBA Q&A 2020_5220 + EBA Q&A 2020_5100 + bankas iekšējie avoti vēl jāpievieno
 APPROVAL AUTHORITY: LAWYER + OUTSOURCING MANAGER
 APPROVED BY: null
 APPROVAL REFERENCE: null
 EFFECTIVE DATE: null
 ```
 
-Šajā dokumenta versijā netiek izdomāts juridiski autoritatīvs outsourcing trigger saraksts. Lietotāja / review piemēri var kalpot kā kandidāti izstrādei, bet SHORT INTAKE OUTSOURCING-EBA modulim nav production atļauts, kamēr saraksts nav aizpildīts no apstiprinātiem avotiem un apstiprināts.
+Konkrētais source-based draft atrodas `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`. Tas vēl nav ACTIVE. SHORT INTAKE OUTSOURCING-EBA modulim nav production atļauts, kamēr sarakstu nav pārskatījis un apstiprinājis jurists + outsourcing manager un nav pievienoti nepieciešamie bankas iekšējie avoti.
 
 ## 7. Citi moduļi
 
