@@ -1,5 +1,9 @@
 # Legal Verification System
 
-Privāts repozitorijs juridiskā darba pārbaudes sistēmai.
+Privāts repozitorijs AI atbalstītas juridiskā darba pārbaudes un pārvaldības sistēmai.
 
-Pašlaik repozitorijs ir sākotnējā izveides stadijā. Šajā `main` zarā vēl nav apstiprinātu juridiskās pārbaudes protokola dokumentu.
+## Frozen baseline
+
+- `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md` — **APPROVED — BASELINE (FROZEN)**, freeze datums 2026-09-18.
+
+`main` zars ir paredzēts apstiprinātiem sistēmas dokumentiem un tehniskai repozitorija dokumentācijai. Zemāka līmeņa dokumenti nedrīkst vājināt frozen baseline invariantus bez `PROFESSIONAL_SCOPE_v1.3` grozījuma.
