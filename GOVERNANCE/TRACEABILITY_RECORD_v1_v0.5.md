@@ -2,8 +2,9 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** Arhitektūra v0.5  
+**Iesaldēšanas datums:** 2026-09-18  
 **Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
@@ -842,11 +843,12 @@ TASK
 
 ## 52. Iesaldēšanas statuss
 
-Šis dokuments ir `MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Iesaldēšana drīkst notikt tikai pēc:
-1. mehāniskā audita pret `PROFESSIONAL_SCOPE_v1.3` un `TERMINOLOGY_AND_ENUMS_v1 v0.3`;
-2. bloķējošu pretrunu skaita = 0;
-3. lietotāja skaidra freeze apstiprinājuma.
+Iesaldēšanas pamats:
+1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TERMINOLOGY_AND_ENUMS_v1 v0.3` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
+2. bloķējošas pretrunas — 0;
+3. jauni frozen canonical statusi — 0;
+4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
 
-Iepriekšējā iesaldētā `Arhitektūra v0.4` paliek nemainīga Git vēsturē.
+Iepriekšējā `Arhitektūra v0.4` paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
