@@ -1,6 +1,6 @@
 # LEGORA_IMPLEMENTATION_SPEC_v1
 
-## Mērķa loģiskā arhitektūra Legal Verification System ieviešanai Legora vidē
+## Mērķa loģiskā arhitektūra Juridiskās pārbaudes sistēmas ieviešanai Legora vidē
 
 **Statuss:** MĒRĶA ARHITEKTŪRA — IEVIEŠANA NAV PABEIGTA  
 **Loma projektā:** ieviešamais gala stāvoklis  
@@ -86,7 +86,7 @@ Lietotāja prompts nedrīkst atcelt augstāka līmeņa governance vai verificati
 
 ## 4. Legora lomu sadalījums
 
-### 4.1. Workflows
+### 4.1. Darba plūsmas (`Workflows`)
 
 Workflows ir galvenais vadības plūsmas un orkestrācijas slānis.
 
@@ -100,7 +100,7 @@ Tie nosaka:
 - traceability izveidi;
 - izdošanas vārtus.
 
-### 4.2. Prompts
+### 4.2. Uzvednes (`Prompts`)
 
 Uzvednes (`Prompts`) ir mazas, versētas izpildes instrukcijas workflow iekšienē.
 
@@ -118,7 +118,7 @@ Prompts izmanto, piemēram:
 - izsekojamības apkopošanai;
 - izdošanas vārtu pārbaudēm.
 
-### 4.3. Playbooks
+### 4.3. Noteikumu kopas (`Playbooks`)
 
 Noteikumu kopas (`Playbooks`) glabā atkārtojamas juridiskās pozīcijas un review loģiku, piemēram:
 
@@ -128,7 +128,7 @@ Noteikumu kopas (`Playbooks`) glabā atkārtojamas juridiskās pozīcijas un rev
 - neapspriežamās pozīcijas;
 - bankas līgumu pārbaudes standarti.
 
-### 4.4. Tabular Review
+### 4.4. Tabulārā pārbaude (`Tabular Review`)
 
 `Tabular Review` ir strukturētās prasību pārbaudes darba virsma.
 
@@ -143,7 +143,7 @@ Primārie lietojumi:
 - verification level;
 - reviewer / verifier informācija.
 
-### 4.5. Lists
+### 4.5. Saraksti (`Lists`)
 
 `Lists` ir strukturētais darba stāvokļa reģistrs.
 
@@ -203,7 +203,7 @@ GitHub glabā:
 
 GitHub neglabā bankas konkrēto juridisko lietu konfidenciālo saturu, ja vien tam nav atsevišķas bankas atļaujas.
 
-### Legora = izpildvides izpildes vide
+### Legora = sistēmas izpildvide
 
 Legora glabā:
 
@@ -219,7 +219,7 @@ Legora glabā:
 
 ---
 
-## 6. Izpildvides manifests (`Izpildvides manifests`)
+## 6. Izpildvides manifests (`Runtime Manifest`)
 
 Lai Legora nekad neizpildītu uzdevumu pret neskaidru dokumentu kopumu, katrai produkcijas konfigurācijai jābūt Izpildvides manifests.
 
@@ -1083,7 +1083,7 @@ Konsekvence netiek panākta, katru reizi ielādējot visus 13 dokumentus.
 
 Kodols ielādē:
 
-### ALWAYS-ON
+### Vienmēr aktīvie (`ALWAYS-ON`)
 
 ```text
 PROFESSIONAL_SCOPE
@@ -1093,14 +1093,14 @@ VERIFICATION_PROTOCOL
 TRACEABILITY rules
 ```
 
-### OPERATION-DEPENDENT
+### No operācijas atkarīgie (`OPERATION-DEPENDENT`)
 
 ```text
 OPERATION_WORKFLOWS
 LEGAL_RESEARCH_METHOD
 ```
 
-### MODULE-DEPENDENT
+### No moduļa atkarīgie (`MODULE-DEPENDENT`)
 
 ```text
 COMMON_CONTRACT_REVIEW_CHECKLIST
@@ -1134,7 +1134,7 @@ Tipiski fail-closed iemesli:
 
 ## 26. Rezultātu klases
 
-### WORKING DRAFT
+### Darba melnraksts (`WORKING DRAFT`)
 
 Drīkst saturēt neverificētu AI darbu.
 
@@ -1145,11 +1145,11 @@ Tas:
 - nav LEGAL APPROVED;
 - var saturēt HUMAN VERIFICATION REQUIRED.
 
-### MATERIAL OUTPUT
+### Materiālais rezultāts (`MATERIAL OUTPUT`)
 
 Drīkst iziet ārpus task tikai pēc izdošanas vārtus.
 
-### LEGAL APPROVED
+### Juridiskais apstiprinājums (`LEGAL APPROVED`)
 
 Nav Legora radīts statuss.
 
@@ -1194,7 +1194,7 @@ Ja mainās frozen dokuments vai production execution artefakts:
 
 ## 29. Pilotu arhitektūra
 
-### PILOTS 1 — IZSEKOJAMĪBA
+### 1. pilots — IZSEKOJAMĪBA
 
 Validē:
 
@@ -1204,7 +1204,7 @@ Validē:
 - Traceability generation;
 - workload.
 
-### PILOTS 2 — LĪGUMA VERIFIKĀCIJA
+### 2. pilots — LĪGUMA VERIFIKĀCIJA
 
 Validē:
 
@@ -1213,7 +1213,7 @@ Validē:
 - false positive / false negative profilu;
 - human verification gate.
 
-### PILOT 3 — EBA / DORA
+### 3. pilots — EBA / DORA
 
 Validē:
 
@@ -1222,7 +1222,7 @@ Validē:
 - mandatory requirement miss rate;
 - module activation.
 
-### PILOTS 4 — PILNAIS PROCESS
+### 4. pilots — PILNAIS PROCESS
 
 Validē visu:
 
@@ -1336,7 +1336,7 @@ TRACEABILITY RECORD
 SUCCESSFUL RELEASE GATE
 ```
 
-Tas ir Legal Verification System galvenais izpildes invariants Legora vidē.
+Tas ir Juridiskās pārbaudes sistēmas galvenais izpildes invariants Legora vidē.
 
 ---
 
@@ -1362,4 +1362,4 @@ APPROVE PRODUCTION CONFIGURATION
 FREEZE RUNTIME MANIFEST
 ```
 
-Tikai pēc šī soļa Legal Verification System ir uzskatāma par ieviestu Legora vidē.
+Tikai pēc šī soļa Juridiskās pārbaudes sistēma ir uzskatāma par ieviestu Legora vidē.
