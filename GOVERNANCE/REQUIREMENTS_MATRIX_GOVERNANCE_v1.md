@@ -87,13 +87,23 @@ citi apstiprināti SELECTION CONDITIONS, ja tādi pastāv
 
 CIF STATUS nedrīkst tikt noteikts ar LCA.
 
-Ja ICT-DORA = APPLICABLE:
-- CIF-INDEPENDENT DORA REQUIREMENTS SET tiek aktivizēts uzreiz;
-- tikai CIF-DEPENDENT REQUIREMENTS SET gaida CIF.
+Ja ICT-DORA = APPLICABLE, DORA prasības modelē kā vismaz divas atsevišķas REQUIREMENTS SET:
+
+1. DORA CIF-INDEPENDENT REQUIREMENTS SET
+   - sava REQUIREMENTS SET ID / VERSION;
+   - savs approval;
+   - SELECTION CONDITION: ICT-DORA = APPLICABLE.
+
+2. DORA CIF-DEPENDENT REQUIREMENTS SET
+   - sava REQUIREMENTS SET ID / VERSION;
+   - savs approval;
+   - SELECTION CONDITIONS ietver ICT-DORA = APPLICABLE un attiecīgo CIF STATUS.
 
 Ja CIF = NOT YET DETERMINED:
-- CIF-INDEPENDENT daļa turpinās;
-- HUMAN INPUT REQUIRED attiecas tikai uz CIF-DEPENDENT izvēli.
+- CIF-INDEPENDENT SET turpinās;
+- HUMAN INPUT REQUIRED attiecas tikai uz CIF-DEPENDENT SET.
+
+Tas saglabā deterministisku COMPLETENESS CONTROL katrai atsevišķai kopai.
 
 ## 4. REQUIREMENTS SET izvēles noteikums
 
@@ -168,6 +178,8 @@ Trigger set drīkst izmantot SHORT INTAKE tikai tad, ja:
 Ja triggera klātbūtni nevar noteikt no pieejamajiem FACT PROFILE faktiem:
 → trigger uzskatāms par identificētu screening vajadzībām;
 → FULL LCA.
+
+Spēkā esoša LCA uzraudzībā MODULE TRIGGER SET tēmas drīkst izmantot arī kā atbilstības filtru jauniem FINDING: ja jauns FINDING skar trigger set tēmu, jāveic reclassification review. Trigger set šeit nenosaka materialitāti; materialitāti lemj cilvēks.
 
 Trigger saraksts nosaka tikai to, kad SHORT INTAKE pāriet uz FULL LCA. Tas nepiešķir MODULE STATUS.
 
