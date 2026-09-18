@@ -583,13 +583,50 @@ ACTIVE
 DEPRECATED
 ```
 
-Melnraksta / vēl neapstiprināta trigger set gadījumā lifecycle vērtība netiek piešķirta:
+Melnraksta / vēl neapstiprināta trigger set gadījumā lifecycle vērtība nav piemērojama.
+
+Cross-field invariants:
 ```text
-lifecycle = null
-approved_by = null
+IF approved_by = null
+THEN lifecycle MUST BE null
+
+IF approved_by != null
+THEN lifecycle MUST equal exactly one of:
+  active
+  deprecated
+
+SHORT INTAKE requires:
+  lifecycle = active
+  approved_by != null
+  approval_reference != null
 ```
 
+Tādējādi `null` nav trešais lifecycle stāvoklis; tā ir lauka nepiemērojamība, ko nosaka `approved_by`.
+
 `NOT ACTIVE` nav canonical lifecycle vērtība.
+
+## 29.2. HUMAN DECISION TYPE reģistrs
+
+`HUMAN DECISION` ir universāls lēmuma objekts, bet katram ierakstam obligāts kontrolēts `DECISION TYPE`.
+
+| Canonical | Machine key | LV apzīmējums |
+|---|---|---|
+| SCREENING CONFIRMATION | `screening_confirmation` | Screening apstiprinājums |
+| MODULE APPLICABILITY | `module_applicability` | Moduļa piemērojamības lēmums |
+| CLASSIFICATION ACCEPTANCE | `classification_acceptance` | Juridiskās klasifikācijas pieņemšana |
+| ASSUMPTION ACCEPTANCE | `assumption_acceptance` | Pieņēmuma pieņemšana |
+| RECLASSIFICATION MATERIALITY | `reclassification_materiality` | Reklasifikācijas materialitātes lēmums |
+| LEGAL POSITION | `legal_position` | Juridiskās pozīcijas lēmums |
+| OTHER | `other` | Cits cilvēka lēmums |
+
+Autoritātes invariants:
+- `screening_confirmation` → jurists;
+- `module_applicability` → tikai attiecīgā MODULE APPLICABILITY AUTHORITY nosauktā funkcija / funkciju kombinācija;
+- `classification_acceptance` → jurists savas kompetences ietvaros;
+- `assumption_acceptance` → lēmumam atbildīgais cilvēks, kas izmanto pieņēmumu;
+- `reclassification_materiality` → atbildīgais jurists vai attiecīgā moduļa governance persona, ja to prasa bankas process;
+- `legal_position` → atbilstoši PROFESSIONAL_SCOPE un ārējam bankas procesam;
+- `other` → jānorāda authority basis.
 
 ## 30. Kontrolēto reģistru indekss
 
@@ -618,6 +655,7 @@ approved_by = null
 | QUALITATIVE LIKELIHOOD | `LEGAL_RESEARCH_METHOD_v1` | CLASSIFICATION LIKELIHOOD REGISTRY |
 | MODULE TRIGGER REGISTRY | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER REGISTRY |
 | MODULE TRIGGER SET | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER SET REGISTRY |
+| HUMAN DECISION TYPE | `TERMINOLOGY_AND_ENUMS_v1` | HUMAN DECISION TYPE REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
 
 ## 31. Boolean princips
