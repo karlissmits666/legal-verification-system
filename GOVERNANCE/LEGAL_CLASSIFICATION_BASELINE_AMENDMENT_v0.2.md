@@ -5,7 +5,7 @@ Juridiskās klasifikācijas slāņa baseline amendment pakete
 **Statuss:** KONSOLIDĒTA — KRITISKAI PĀRBAUDEI; NAV IESALDĒTA  
 **Versija:** v0.2  
 **Datums:** 2026-09-18  
-**Review bāze:** Critical architecture review #11, #12 un #13
+**Review bāze:** Critical architecture review #11, #12, #13 un #14
 
 ## 1. Mērķis
 
@@ -254,9 +254,40 @@ Review #13 bloķējošie punkti ir iestrādāti draftā:
 - pirms OUTSOURCING-EBA trigger set ACTIVE nepieciešams 15–20 reālu līgumu kalibrācijas pilots;
 - placeholder triggeri pirms ACTIVE jāaizpilda vai jāizņem.
 
-## 11. Nākamais solis
+## 11. Go-live priekšnosacījumi
 
-1. Critical architecture review #14 tikai Review #13 labojumu deltai;
-2. source / bank-internal review OUTSOURCING-EBA trigger set;
-3. mehāniskais audits;
-4. tikai pēc tam freeze approval.
+Pirms ICT-DORA moduļa production lietošanas:
+```text
+GO-LIVE PRECONDITION:
+ICT-DORA MODULE STATUS confirming function named and approved.
+```
+
+Kamēr tas nav izpildīts:
+- ICT-DORA module nav operacionāli aktivizējams;
+- COMMON CONTRACT REVIEW turpinās;
+- juriste nedrīkst tikt izmantota kā pagaidu MODULE STATUS apstiprinātāja tikai tādēļ, lai apietu šo priekšnosacījumu.
+
+Pirms OUTSOURCING-EBA SHORT INTAKE:
+- trigger set lifecycle = ACTIVE;
+- source / bank-internal review pabeigts;
+- kalibrācijas false-negative gate izturēts.
+
+## 12. Review #14 integrācijas kopsavilkums
+
+Review #14 labojumi draftā:
+- reclassification aptver arī jaunus FINDING, kas skar trigger set tēmas;
+- negatīvi formulēta triggera NOT IDENTIFIED prasa supporting FINDING;
+- lifecycle null ir cross-field nepiemērojamība, ne jauns stāvoklis;
+- HUMAN DECISION ir obligāts DECISION TYPE;
+- kalibrācijai ir 100% zināmo outsourcing gadījumu false-negative gate;
+- IKT juridiskā kvalifikācija ir obligāts moduļa lēmuma ievaddats; domstarpība → escalation;
+- DORA CIF-independent un CIF-dependent prasības ir atsevišķas REQUIREMENTS SET;
+- output screening summary satur MSR ID, bet ne obligāti personas vārdu/laiku;
+- placeholder aizliegums ir universāls governance invariants.
+
+## 13. Nākamais solis
+
+1. mehāniskais audits pēc Review #14;
+2. bankas governance input par ICT-DORA apstiprinošo funkciju;
+3. bankas iekšējo outsourcing avotu pievienošana un kalibrācijas pilots;
+4. gala review / freeze approval tikai pēc iepriekšējā izpildes.
