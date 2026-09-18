@@ -295,7 +295,7 @@ SHORT INTAKE:
 - CONTRACT TYPE;
 - īss, izsekojams FACT PROFILE;
 - CANDIDATE-MODULE SCREENING pret ACTIVE trigger registry;
-- HUMAN DECISION ar DECISION TYPE = screening_confirmation un RELATED OBJECT = MODULE SCREENING RECORD;
+- HUMAN DECISION ar DECISION TYPE = screening_confirmation, kura RELATED TRACE OBJECT REFERENCES ietver piespraustu atsauci uz konkrēto MODULE SCREENING RECORD ID;
 - COMMON CONTRACT REVIEW turpinās.
 
 FULL INTAKE ir obligāts, ja:
@@ -739,8 +739,9 @@ Pilno struktūru nosaka TRACEABILITY_RECORD_v1, kurā jāietver vismaz:
   ACTIVE MODULES + APPLICABILITY AUTHORITY + CONFIRMED BY
   DATE
   RESPONSIBLE LAWYER
-  AI TOOL
-  AI/MODEL VERSION
+  AI USED + AI USE DECLARED BY + AI USE DECLARED AT
+  AI TOOL + AI/MODEL VERSION + AI TOOL USAGE POLICY VERSION
+                                           [tikai ja AI USED = true]
   DECLARED DATA CLASSES (19.2.)
   SOURCE SET
     INTERNAL SOURCE — document / version / effective date

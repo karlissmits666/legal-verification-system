@@ -454,6 +454,39 @@ ID ir necaurspīdīgs. No ID nedrīkst secināt parent/child attiecības.
 
 `EVIDENCE ID` papildus jāatbilst `TRACEABILITY_RECORD_v1` noturības invariantam: tas nedrīkst mainīties tikai tādēļ, ka Review vai cits darba artefakts tiek pārģenerēts.
 
+### 26.1. Objekta ID lauka invariants
+
+Katram `TRACE OBJECT TYPE` patstāvīgam ierakstam ir obligāts tā tipam atbilstošs ID lauks. `MODULE RECORD` tādēļ ir obligāts `MODULE ID` ar `MOD-` prefiksu; lauks `MODULE` saglabā atsevišķu taxonomy vērtību.
+
+### 26.2. Izsekojamības objekta atsauces shēma
+
+Persistēta trace-object reference ir viena strukturēta vērtība:
+
+```text
+TRACE RECORD ID
+RECORD VERSION
+OBJECT TYPE
+OBJECT ID
+```
+
+Reference ir piesprausta konkrētai Traceability Record versijai. `current`, `latest` un citas kustīgas norādes nav pieļaujamas. `OBJECT TYPE` jābūt reģistrētam 25. punktā, `OBJECT ID` prefiksam jāatbilst 26. punktam, un target objektam jāeksistē norādītajā record versijā.
+
+Governance dokuments, ko TASK faktiski izmanto, ir `SOURCE`; tam neievieš atsevišķu governance-artifact references klasi.
+
+### 26.3. Satura hash algoritms (`CONTENT HASH ALGORITHM`)
+
+| Canonical | Machine key |
+|---|---|
+| SHA-256 | `sha256` |
+
+```text
+IF CONTENT HASH is present
+THEN CONTENT HASH ALGORITHM is required
+
+IF CONTENT HASH is absent
+THEN CONTENT HASH ALGORITHM must be absent
+```
+
 ## 27. Datu klases (DATA CLASS) reģistra īpašnieks
 
 Datu klašu saturiskais reģistrs nepieder šim dokumentam.
@@ -648,6 +681,7 @@ Autoritātes invariants:
 | SOURCE TYPE | `TRACEABILITY_RECORD_v1` + šī dokumenta shēmas governance | SOURCE TYPE |
 | TRACE OBJECT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE |
 | ID PREFIX | `TERMINOLOGY_AND_ENUMS_v1` | ID PREFIX |
+| CONTENT HASH ALGORITHM | `TERMINOLOGY_AND_ENUMS_v1` | CONTENT HASH ALGORITHM |
 | DATA CLASS | `AI_TOOL_USAGE_POLICY_v1` | DATA CLASS REGISTRY |
 | VERIFICATION METHOD | `VERIFICATION_PROTOCOL_v1` | VERIFICATION METHOD REGISTRY |
 | VERIFICATION RESULT | `VERIFICATION_PROTOCOL_v1` | VERIFICATION RESULT REGISTRY |
@@ -670,6 +704,8 @@ false
 Nelieto `YES/NO`, `Y/N`, `1/0` kā canonical machine value.
 
 UI drīkst rādīt `Jā / Nē`.
+
+Šis princips attiecas arī uz `AI USED` un `RESOLUTION AUTHORITY KNOWN`.
 
 ## 32. Datuma un laika princips
 

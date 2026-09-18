@@ -262,7 +262,9 @@ Arhitektūras domstarpības pēc review #12: 0.
 - arhitektūras mehāniskais audits pēc Review #14: PASS;
 - ICT-DORA moduļa autoritāte nav dokumentēta;
 - mērķa reprezentācija ir esošais `UNRESOLVED ISSUE` modelis, bet faktiska reģistrācija vēl nav veikta;
+- Review #16 shēmas delta ir lietotāja apstiprināts un integrēts draftos: `MODULE ID`, pinned trace-object references, conditional AI governance lauki un nodalīts action owner / resolution authority modelis;
+- Review #16 integrācija nav freeze un nemaina frozen baseline;
 - ICT-DORA production aktivizācija nav pieļaujama, kamēr autoritātes avots nav dokumentēts;
 - COMMON CONTRACT REVIEW turpinās.
 
-Nākamais arhitektūras solis: kritiski izvērtēt `TRACEABILITY_RECORD_v1_v0.6` papildinājumus, kas vajadzīgi derīgai governance TASK un `UNRESOLVED ISSUE` reģistrācijai (`MODULE ID`, `RELATED OBJECT`, `RESPONSIBLE FUNCTION`, `AI TOOL USAGE POLICY VERSION`). Bankas iekšējo outsourcing avotu pievienošana un OUTSOURCING-EBA trigger set kalibrācijas pilots paliek atsevišķi atvērti darbi.
+Nākamais arhitektūras solis: atsevišķi izlemt globālā module activation gate arhitektūru. Faktiska `UNRESOLVED ISSUE` reģistrācija gaida derīgu TASK / MODULE kontekstu un dokumentētu bankas assignment par action owner un resolution authority. Bankas iekšējo outsourcing avotu pievienošana un OUTSOURCING-EBA trigger set kalibrācijas pilots paliek atsevišķi atvērti darbi.

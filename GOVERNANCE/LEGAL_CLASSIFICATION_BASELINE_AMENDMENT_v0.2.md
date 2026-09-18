@@ -290,6 +290,22 @@ Review #14 labojumi draftā:
 ## 13. Nākamais solis
 
 1. mehāniskais audits pēc Review #14 — PABEIGTS;
-2. bankas governance jautājums par ICT-DORA apstiprinošo funkciju nav atrisināts; tas ir reprezentējams ar esošo `UNRESOLVED ISSUE` modeli, bet reģistrācija gaida derīgu TASK / Traceability Record un obligāto references lauku priekšnoteikumu izpildi;
-3. bankas iekšējo outsourcing avotu pievienošana un kalibrācijas pilots;
-4. gala review / freeze approval tikai pēc iepriekšējā izpildes.
+2. Review #16 shēmas delta — LIETOTĀJA APSTIPRINĀTS UN INTEGRĒTS DRAFTOS; freeze nav veikts;
+3. globālā module activation gate arhitektūra — atsevišķs lēmums;
+4. bankas governance jautājums par ICT-DORA resolution authority un action owner nav atrisināts; faktiska `UNRESOLVED ISSUE` instance nav izveidota;
+5. bankas iekšējo outsourcing avotu pievienošana un kalibrācijas pilots;
+6. gala review / freeze approval tikai pēc iepriekšējā izpildes.
+
+## 14. Review #16 integrācijas kopsavilkums
+
+Review #16 apstiprinātais delta:
+
+- `MODULE RECORD` pievienots obligāts `MODULE ID`;
+- trace-object references ir tipētas un piespraustas konkrētai Traceability Record versijai;
+- `HUMAN DECISION RECORD` un `UNRESOLVED ISSUE RECORD` izmanto `RELATED TRACE OBJECT REFERENCES`;
+- TASK reģistrē `AI USED`, deklarācijas autoru un laiku, bet AI rīka/politikas laukus prasa tikai faktiskas AI izmantošanas gadījumā;
+- `RESPONSIBLE FUNCTION` aizstāts ar dokumentētu `ACTION OWNER` un atsevišķu resolution authority modeli;
+- `RELATED MODULE` precizēts par `RELATED MODULE ID`;
+- `CONTENT HASH` ir sasaistīts ar obligātu kontrolētu algoritmu.
+
+Apstiprinājuma robežas un apzināti neieviestie jautājumi ir fiksēti `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16.md`.
