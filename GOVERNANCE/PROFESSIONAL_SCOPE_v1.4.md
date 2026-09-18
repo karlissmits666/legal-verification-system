@@ -295,7 +295,7 @@ SHORT INTAKE:
 - CONTRACT TYPE;
 - īss, izsekojams FACT PROFILE;
 - CANDIDATE-MODULE SCREENING pret ACTIVE trigger registry;
-- jurista screening apstiprinājums;
+- HUMAN DECISION ar DECISION TYPE = screening_confirmation un RELATED OBJECT = MODULE SCREENING RECORD;
 - COMMON CONTRACT REVIEW turpinās.
 
 FULL INTAKE ir obligāts, ja:
