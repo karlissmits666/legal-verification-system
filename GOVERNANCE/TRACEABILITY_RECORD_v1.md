@@ -2,8 +2,8 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA) [`APPROVED — BASELINE (FROZEN)`]  
-**Versija:** Arhitektūra v0.4  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
+**Versija:** Arhitektūra v0.5  
 **Iesaldēšanas datums:** 2026-09-18  
 **Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
@@ -17,7 +17,7 @@ Izsekojamības ieraksts (`Traceability Record`) nav juridiskais atzinums, pilns 
 
 Izsekojamības ieraksts tiek glabāts attiecīgā juridiskā uzdevuma Legora projekta vidē.
 
-Pilnais pierādījuma (`evidence`) fragments netiek dublēts izsekojamības ierakstā. Tas dzīvo atsevišķā strukturētā pierādījumu glabātuvē; Izsekojamības ieraksts satur noturīgu atsauci uz evidence objektu.
+Pilnais pierādījuma (`evidence`) fragments netiek dublēts izsekojamības ierakstā. Tas dzīvo atsevišķā strukturētā pierādījumu glabātuvē; Izsekojamības ieraksts satur noturīgu atsauci uz evidence objektu. Cilvēka veiktais pārbaudes tvērums neesamības un negatīvu prasību gadījumā tiek glabāts atsevišķā `VERIFICATION SCOPE RECORD`, kas nav `EVIDENCE OBJECT`.
 
 ## 3. Ģenerēšanas brīdis
 
@@ -41,6 +41,7 @@ TASK
 ├── REQUIREMENT RESULTS       [ja piemērojams]
 │   └── REQUIREMENT COMPONENTS
 ├── VERIFICATION EVENTS
+├── VERIFICATION SCOPE RECORDS
 ├── HUMAN DECISIONS
 ├── ESCALATIONS
 ├── UNRESOLVED ISSUES
@@ -52,7 +53,7 @@ TASK
 
 Identifikatori ir necaurspīdīgi un neiekodē savstarpējās attiecības.
 
-Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `DEC-0014`, `ESC-0009`, `OUT-0031`.
+Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `VSR-0011`, `DEC-0014`, `ESC-0009`, `OUT-0031`.
 
 Saistības glabā laukos, nevis ID.
 
@@ -245,6 +246,7 @@ VERIFICATION LEVEL
 RELATED REQUIREMENT          [ja piemērojams]
 RELATED OUTPUT
 DATA CLASS EVENT REFERENCES  [ja piemērojams]
+VERIFICATION SCOPE RECORD IDS [ja piemērojams]
 ```
 
 FINDING nav cilvēka juridiskais lēmums.
@@ -286,7 +288,7 @@ Derīgs `EVIDENCE ID` ir:
 2. nepārrakstāms klusējot — materiāls labojums rada jaunu evidence objektu;
 3. saglabājams vismaz tikpat ilgi, cik Traceability Record, kas uz to atsaucas.
 
-Ja pierādījumu glabātuve šos nosacījumus nenodrošina, pierādījuma objekts nav pietiekams ilgtermiņa pierādījuma nesējs. Tādā gadījumā attiecīgajam secinājumam nepieciešama cilvēka pārbaude pret sākotnējo avotu, kas fiksēta ar `VERIFICATION EVENT`, atbilstoši `VERIFICATION_PROTOCOL_v1`.
+Ja pierādījumu glabātuve šos nosacījumus nenodrošina, `EVIDENCE BINDING` ir nepilnīgs. Materiāls rezultāts tiek bloķēts un `HUMAN VERIFIED` netiek piešķirts vai izmantots izdošanai. Prasības statuss netiek automātiski mainīts. Cilvēka semantiskā verifikācija šo noturīguma defektu neaizstāj.
 
 ## 19. Pierādījuma un interpretācijas nodalījums
 
@@ -306,6 +308,27 @@ EVIDENCE SET / REVIEW ID
 GENERATED AT
 EVIDENCE IDS
 ```
+
+## 20.1. Verifikācijas tvēruma ieraksts (`VERIFICATION SCOPE RECORD`)
+
+`VERIFICATION SCOPE RECORD` nav `EVIDENCE OBJECT`. Tas dokumentē cilvēka semantiskās verifikācijas laikā faktiski pārbaudīto avotu kopu gadījumos, kad secinājums ir par neesamību, avotu kopas sastāvu vai negatīvu prasību.
+
+Minimāli:
+
+```text
+VERIFICATION SCOPE RECORD ID
+SOURCE SET REFERENCE
+INCLUDED SOURCES
+EXCLUDED / UNAVAILABLE SOURCES
+SCOPE BASIS
+REVIEWED AT
+REVIEWED BY
+RELATED FINDING / REQUIREMENT / COMPONENT
+```
+
+Objektam jābūt noturīgam, nepārrakstāmam klusējot un saglabājamam vismaz tikpat ilgi, cik Traceability Record, kas uz to atsaucas.
+
+`VERIFICATION SCOPE RECORD` nevar izmantot, lai aizvietotu trūkstošu `EVIDENCE OBJECT` satura secinājumam.
 
 ## 21. Prasību kopas ieraksts (`REQUIREMENTS SET RECORD`)
 
@@ -444,10 +467,15 @@ Parent `HUMAN VERIFIED` prasa `VERIFICATION EVENT`, kas aptver gala secinājumu 
 VERIFICATION EVENT ID
 TARGET OBJECT ID
 TARGET OBJECT TYPE
-VERIFICATION METHOD
+VERIFICATION METHODS                 [1..n]
+VERIFICATION SCOPE
 VERIFIED BY
 VERIFIED AT
+RESULT
 RESULTING VERIFICATION LEVEL
+SOURCE / EVIDENCE REFERENCES
+VERIFICATION SCOPE RECORD REFERENCES [ja piemērojams]
+NOTES                                [ja nepieciešams]
 ```
 
 Verifikācijas vēsture netiek klusējot pārrakstīta.
@@ -472,12 +500,13 @@ Tas nav universāls vārti visiem `FINDING`.
 
 Ja kāda piemērojamā prasība ir:
 - `MANDATORY EXTERNAL`;
-- `MANDATORY INTERNAL`; vai
+- `MANDATORY INTERNAL`;
+- `GOVERNANCE STATUS = UNCLASSIFIED`; vai
 - jebkura `NEGATIVE REQUIREMENT`;
 
 un tā vēl ir `EVIDENCE BOUND — AI PROPOSED`, tad piemēro `HUMAN VERIFICATION REQUIRED` un materiāls rezultāts netiek izlaists.
 
-`UNCLASSIFIED` sedz atsevišķais 33. punkta gate.
+`UNCLASSIFIED` vienlaikus prasa cilvēka verifikāciju pēc šī punkta un saglabā atsevišķo 33. punkta blocking gate. Verifikācija ir nepieciešama, bet nav pietiekama klasifikācijas bloķējuma noņemšanai.
 
 ANALYSE / EXTRACT / COMPARE FINDING drīkst būt `EVIDENCE BOUND — AI PROPOSED`, ja uz to neattiecas cits obligāts human-verification noteikums.
 
@@ -501,6 +530,7 @@ MODULES
 SOURCES
 FINDINGS
 EVIDENCE REFERENCES
+VERIFICATION SCOPE RECORD REFERENCES  [ja piemērojams]
 UNRESOLVED ISSUES
 ESCALATIONS
 HUMAN DECISIONS
@@ -518,6 +548,7 @@ REQUIREMENT RESULTS
 REQUIREMENT COMPONENTS
 COMPLETENESS CONTROL
 REQUIREMENT-LEVEL VERIFICATION EVENTS
+VERIFICATION SCOPE RECORDS             [ja piemērojams]
 ```
 
 ## 36. Cilvēka lēmuma ieraksts (`HUMAN DECISION RECORD`)
@@ -585,6 +616,7 @@ VERIFICATION SUMMARY
 OUTPUT REFERENCE
 INTENDED USE
 DATA CLASS EVENT REFERENCES     [ja piemērojams]
+VERIFICATION SCOPE RECORD REFERENCES [ja piemērojams]
 ```
 
 ## 41. Rezultāta verifikācijas kopsavilkums
@@ -656,6 +688,7 @@ MATERIAL FINDING
 REQUIREMENT STATUS
 REQUIREMENT COMPONENT STATUS
 EVIDENCE REFERENCE, ja izmaiņa maina secinājuma nozīmi
+VERIFICATION SCOPE RECORD REFERENCE, ja izmaiņa maina pārbaudīto tvērumu
 VERIFICATION LEVEL
 HUMAN DECISION
 UNRESOLVED ISSUE resolution
@@ -684,6 +717,7 @@ FINDINGS
 EVIDENCE
 COMPLETENESS CONTROL
 VERIFICATION EVENTS
+VERIFICATION SCOPE RECORDS [ja piemērojams]
 ```
 
 ### DRAFT
@@ -731,9 +765,9 @@ Traceability Record nav vieta:
 - pilnai sarakstei;
 - pilnam evidence fragmentam.
 
-Tas satur metadatus, references, secinājumu sasaistes, verifikācijas aktus un cilvēka lēmumu saites.
+Tas satur metadatus, references, secinājumu sasaistes, verifikācijas aktus, verifikācijas tvēruma ierakstus un cilvēka lēmumu saites.
 
-Evidence fragments dzīvo atsevišķā Evidence Object.
+Evidence fragments dzīvo atsevišķā Evidence Object. Verifikācijas pārbaudītais tvērums, ja piemērojams, dzīvo atsevišķā VERIFICATION SCOPE RECORD.
 
 ## 49. Atvērts pārvaldības jautājums — bloķētājs pirms produkcijas ieviešanas
 
@@ -743,8 +777,10 @@ Pirms produkcijas ieviešanas bankai jānosaka:
 Kas drīkst rediģēt Traceability Record?
 Kas drīkst dzēst Traceability Record?
 Kas drīkst rediģēt vai dzēst Evidence Objects?
+Kas drīkst rediģēt vai dzēst Verification Scope Records?
 Kāds ir Traceability Record glabāšanas termiņš?
 Kāds ir Evidence Object glabāšanas termiņš?
+Kāds ir Verification Scope Record glabāšanas termiņš?
 Vai Legora nodrošina pietiekamu versiju un audita vēsturi?
 Vai nepieciešams nemainīgu vai arhīva momentuzņēmumu ārpus Legora?
 ```
@@ -789,13 +825,15 @@ TASK
 │   └── PRIOR TASK PROVENANCE
 ├── FINDINGS
 │   └── EVIDENCE REFERENCES
+├── VERIFICATION SCOPE RECORDS
 ├── EVIDENCE STORE
 │   └── EVIDENCE OBJECTS
 ├── REQUIREMENTS SET
 ├── REQUIREMENT RESULTS
 │   ├── COMPONENTS
 │   ├── EVIDENCE REFERENCES
-│   └── VERIFICATION EVENTS
+│   ├── VERIFICATION EVENTS
+│   └── VERIFICATION SCOPE RECORD REFERENCES
 ├── HUMAN DECISIONS
 ├── ESCALATIONS
 ├── UNRESOLVED ISSUES
@@ -805,12 +843,12 @@ TASK
 
 ## 52. Iesaldēšanas statuss
 
-Šis dokuments ir `APPROVED — BASELINE (FROZEN)`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Freeze pamats:
-1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` — PASS;
-2. bloķējošas pretrunas ar pamatversiju — 0;
-3. jauni kanoniskie statusi — 0;
-4. lietotāja skaidrs iesaldēšanas apstiprinājums — saņemts 2026-09-18.
+Iesaldēšanas pamats:
+1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TERMINOLOGY_AND_ENUMS_v1 v0.3` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
+2. bloķējošas pretrunas — 0;
+3. jauni frozen canonical statusi — 0;
+4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
 
-Turpmāki grozījumi notiek tikai ar jaunu versiju; iesaldētā v0.4 versija netiek klusējot pārrakstīts.
+Iepriekšējā `Arhitektūra v0.4` paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
