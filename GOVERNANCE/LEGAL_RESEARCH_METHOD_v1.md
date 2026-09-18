@@ -2,8 +2,8 @@
 
 Juridiskās izpētes un argumentētas juridiskās klasifikācijas metodoloģija
 
-**Statuss:** MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
-**Versija:** v0.1  
+**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
+**Versija:** v0.2  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS  
 - `TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` — MELNRAKSTS  
@@ -170,7 +170,9 @@ Katram klasifikācijas argumentam jāspēj noteikt, vai tas balstās uz:
 
 Pieņēmumu nedrīkst klusējot pārvērst par faktu.
 
-Ja trūkstošs fakts var būtiski mainīt klasifikāciju, `QUALITATIVE LIKELIHOOD` nedrīkst būt `LIKELY` vai `UNLIKELY` bez skaidra nosacījuma.
+Ja trūkstošs fakts var būtiski mainīt klasifikāciju, `QUALITATIVE LIKELIHOOD` nedrīkst būt `LIKELY` vai `UNLIKELY`.
+
+Ja klasifikācijai materiāls FINDING ir `ASSUMPTION = true`, QUALITATIVE LIKELIHOOD = INDETERMINATE, izņemot gadījumu, kad pilnvarotais cilvēks savā lēmumā šo konkrēto pieņēmumu ir tieši pieņēmis un fiksējis.
 
 ## 7. Supporting un countervailing analīze
 
@@ -181,6 +183,15 @@ Katram materiālam klasifikācijas jautājumam sistēma meklē ne tikai pamatoju
 - materiālus, kas norāda uz citu klasifikāciju.
 
 AI nedrīkst veikt tikai apstiprinošu meklēšanu.
+
+FULL LCA gadījumā COUNTERARGUMENTS / COUNTERVAILING REVIEW ir obligāti aizpildāms lauks.
+
+Derīgs saturs drīkst būt:
+```text
+No material counterarguments identified after review of [scope/sources].
+```
+
+Tukšs lauks nav derīgs. Ja counterargument review nav pabeigts, QUALITATIVE LIKELIHOOD nevar būt LIKELY vai UNLIKELY; tas paliek INDETERMINATE.
 
 ## 8. CLASSIFICATION LIKELIHOOD REGISTRY
 
@@ -338,6 +349,15 @@ Rezultāts ir nepietiekams, ja:
 - trūkstošie fakti var mainīt klasifikāciju, bet nav norādīti;
 - AI secinājums balstās uz dokumenta nosaukumu, ne faktisko saturu;
 - nozares prakse tiek pasniegta kā tiesību norma.
+
+## 17.1. Candidate-module screening robeža
+
+Candidate-module screening nav pilna juridiskā izpēte un neizmanto šo dokumentu kā aizvietotāju MODULE TRIGGER REGISTRY.
+
+Screening atbild tikai:
+> vai ir identificēts iepriekš apstiprināts trigger, kas prasa FULL LCA?
+
+Ja trigger identificēts, šī dokumenta metodoloģija piemērojama FULL LCA.
 
 ## 18. Dokumenta robeža
 
