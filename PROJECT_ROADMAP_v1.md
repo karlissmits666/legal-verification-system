@@ -11,14 +11,14 @@
 
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
-| 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **v1.3 IESALDĒTA; v1.4 — ARHITEKTŪRAS APSPRIEŠANĀ** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.5 IESALDĒTA; v0.6 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
+| 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **v1.3 IESALDĒTA; v1.4 — KONSOLIDĒTS v0.2 PAKETEI** | Nē |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.5 IESALDĒTA; v0.6 — KONSOLIDĒTS v0.2 PAKETEI** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
 | 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **PABEIGTS — IESALDĒTS (v0.5)** | **Jā — 2. pilots** |
-| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **v0.2 — ARHITEKTŪRAS APSPRIEŠANĀ** | Netieši, caur prasību matricu pilotiem |
-| 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **v0.1 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā** |
+| 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **v0.3 — KONSOLIDĒTS v0.2 PAKETEI** | Netieši, caur prasību matricu pilotiem |
+| 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **v0.2 — KONSOLIDĒTS v0.2 PAKETEI** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **v0.1 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.3 IESALDĒTA; v0.4 — ARHITEKTŪRAS APSPRIEŠANĀ** | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.3 IESALDĒTA; v0.4 — KONSOLIDĒTS v0.2 PAKETEI** | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
@@ -224,15 +224,16 @@ Pēc arhitektūras review #8–#10 ir sasniegts konsenss par `VERIFICATION_PROTO
 
 ## Juridiskās klasifikācijas amendment pakete
 
-2026-09-18 izveidota `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.1.md`.
+2026-09-18 konsolidēta `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md` pēc Critical architecture review #11 un #12.
 
 Pakete izstrādā:
 - `PROFESSIONAL_SCOPE_v1.4`;
 - `TRACEABILITY_RECORD_v1 v0.6`;
 - `TERMINOLOGY_AND_ENUMS_v1 v0.4`;
-- `OPERATION_WORKFLOWS_v1 v0.1`;
-- `LEGAL_RESEARCH_METHOD_v1 v0.1`;
-- `REQUIREMENTS_MATRIX_GOVERNANCE_v1 v0.2`.
+- `OPERATION_WORKFLOWS_v1 v0.2`;
+- `LEGAL_RESEARCH_METHOD_v1 v0.2`;
+- `REQUIREMENTS_MATRIX_GOVERNANCE_v1 v0.3`;
+- `MODULE_TRIGGER_REGISTRY_v1 v0.1`.
 
 Pamatsecība:
 ```text
@@ -245,3 +246,10 @@ CONTRACT TYPE
 ```
 
 Jaunās versijas nav frozen. Iepriekšējās apstiprinātās pamatversijas paliek autoritatīvas līdz atsevišķam freeze lēmumam.
+
+
+### SHORT INTAKE operacionālais priekšnoteikums
+
+`MODULE_TRIGGER_REGISTRY_v1 v0.1` governance struktūra ir izveidota, bet OUTSOURCING-EBA trigger set vēl nav ACTIVE. Līdz source-based triggeru apstiprināšanai SHORT INTAKE šim modulim nav pieejams un sistēma izmanto FULL LCA.
+
+Arhitektūras domstarpības pēc review #12: 0.
