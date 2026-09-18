@@ -12,3 +12,8 @@ Privāts repozitorijs AI atbalstītas juridiskā darba pārbaudes un pārvaldīb
 ## Project roadmap
 
 - `PROJECT_ROADMAP_v1.md` — kopējais 13 obligāto projekta dokumentu plāns, izstrādes secība un pilotu struktūra.
+
+
+## Legora target architecture
+
+- `IMPLEMENTATION/LEGORA_IMPLEMENTATION_SPEC_v1.md` — gala ieviešanas mērķa arhitektūra: BANK LEGAL CORE, governance gates, operation workflows, modules, structured findings/requirements, verification, Traceability Record un release gate.
