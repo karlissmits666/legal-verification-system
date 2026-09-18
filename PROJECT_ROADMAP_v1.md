@@ -22,7 +22,7 @@
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | TODO | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta outsourcing/EBA contractual prasību kopa | TODO | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ICT/DORA contractual prasību kopa | TODO | **Jā** |
-| 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora projekta mapju struktūra, Agent konfigurācija, prompti, failu izmantošana un workflow sasaistes | TODO | **Jā — obligāts end-to-end pilots** |
+| 12 | `LEGORA_IMPLEMENTATION_SPEC_v1` | Legora execution kernel, projekta struktūra, prompts, workflows, playbooks, structured review, traceability un release-gate mērķa arhitektūra | **TARGET ARCHITECTURE DEFINED — IMPLEMENTATION PENDING** | **Jā — obligāts end-to-end pilots** |
 | 13 | `PILOT_AND_ACCEPTANCE_PLAN_v1` | Pilotu scenāriji, metrikas, pieņemšanas kritēriji un freeze nosacījumi | TODO | Šis dokuments definē pilotus |
 
 ## 2. Nosacīts papildu dokuments
@@ -124,11 +124,15 @@ LEGAL TASK
 9. EBA_REQUIREMENTS_MATRIX_v1
 10. DORA_REQUIREMENTS_MATRIX_v1
 11. AI_TOOL_USAGE_POLICY_v1
-12. LEGORA_IMPLEMENTATION_SPEC_v1
+12. LEGORA_IMPLEMENTATION_SPEC_v1                 TARGET ARCHITECTURE DEFINED
 13. PILOT_AND_ACCEPTANCE_PLAN_v1
+→ COMPLETE ALL SUPPORTING DOCUMENTS
+→ IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1
 → PILOT EXECUTION
+→ FIX FAILURES
+→ REGRESSION
 → ACCEPTANCE
-→ FREEZE
+→ FREEZE RUNTIME MANIFEST
 ```
 
 `AI_TOOL_USAGE_POLICY_v1` saturs nevar tikt izdomāts sistēmas iekšienē. Tas jābalsta bankas faktiskajos governance lēmumos un apstiprinātajos AI lietošanas noteikumos.
@@ -156,3 +160,26 @@ Pabeigtība nozīmē:
 5. Legora end-to-end workflow strādā praksē;
 6. nav neatrisinātu blocking arhitektūras pretrunu;
 7. apstiprinātās baseline versijas ir iesaldētas un izsekojamas Git vēsturē.
+
+
+## 7. Gala ieviešanas uzdevums
+
+Projekta gala implementācijas mērķi nosaka:
+
+`IMPLEMENTATION/LEGORA_IMPLEMENTATION_SPEC_v1.md`
+
+Tas ir mērķa stāvoklis, kas jāsasniedz pēc visu atbalsta dokumentu pabeigšanas.
+
+Gala secība:
+
+```text
+COMPLETE AND FREEZE SUPPORTING DOCUMENTS
+→ IMPLEMENT LEGORA_IMPLEMENTATION_SPEC_v1 IN LEGORA
+→ RUN PILOT_AND_ACCEPTANCE_PLAN_v1
+→ FIX FAILURES
+→ RUN REGRESSION
+→ APPROVE PRODUCTION CONFIGURATION
+→ FREEZE RUNTIME MANIFEST
+```
+
+Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti. Tā ir ieviesta tikai tad, kad Legora production konfigurācija atbilst mērķa arhitektūrai un ir izgājusi acceptance/regression pārbaudi.
