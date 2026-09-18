@@ -33,7 +33,6 @@ TASK
 ├── CLASSIFICATION
 ├── CONTRACT TYPE                     [ja piemērojams]
 ├── LEGAL CLASSIFICATION ASSESSMENTS  [ja piemērojams]
-├── LEGAL CLASSIFICATION ASSESSMENTS
 ├── MODULES
 ├── AI GOVERNANCE
 ├── SOURCES
@@ -536,7 +535,7 @@ T3: FND-0042 → HUMAN VERIFIED
 
 ## 32. Prasību verifikācijas izdošanas vārti
 
-Šis vārti attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.3` 16.3. slieksnis prasa `HUMAN VERIFIED`.
+Šis vārti attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.4` 16.3. slieksnis prasa `HUMAN VERIFIED`.
 
 Tas nav universāls vārti visiem `FINDING`.
 
@@ -801,7 +800,7 @@ VERIFICATION LEVEL
 
 ## 47. Kanonisko statusu princips
 
-Kanoniskie semantiskie statusi un uzskaitījumu (`enum`) vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.3`.
+Kanoniskie semantiskie statusi un uzskaitījumu (`enum`) vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.4`.
 
 Šis dokuments neievieš paralēlas statusu kopas.
 
