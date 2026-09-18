@@ -85,7 +85,15 @@ CIF STATUS (EXTERNAL INPUT ONLY)
 citi apstiprināti SELECTION CONDITIONS, ja tādi pastāv
 ```
 
-CIF STATUS nedrīkst tikt noteikts ar LCA. Ja CIF ir nepieciešams gala kopas izvēlei un ir NOT YET DETERMINED, piemērojams HUMAN INPUT REQUIRED.
+CIF STATUS nedrīkst tikt noteikts ar LCA.
+
+Ja ICT-DORA = APPLICABLE:
+- CIF-INDEPENDENT DORA REQUIREMENTS SET tiek aktivizēts uzreiz;
+- tikai CIF-DEPENDENT REQUIREMENTS SET gaida CIF.
+
+Ja CIF = NOT YET DETERMINED:
+- CIF-INDEPENDENT daļa turpinās;
+- HUMAN INPUT REQUIRED attiecas tikai uz CIF-DEPENDENT izvēli.
 
 ## 4. REQUIREMENTS SET izvēles noteikums
 
@@ -150,6 +158,16 @@ LIFECYCLE
 ```
 
 Trigger sarakstu apstiprina tā pati vai līdzvērtīga governance autoritāte, kurai pieder attiecīgā MODULE APPLICABILITY.
+
+Trigger set drīkst izmantot SHORT INTAKE tikai tad, ja:
+- lifecycle = ACTIVE;
+- APPROVED BY un APPROVAL REFERENCE ir aizpildīti;
+- nav neviena placeholder triggera;
+- visi triggeri ir formulēti tā, lai to klātbūtni var noteikt no FACT PROFILE bez profesionāla juridiska sprieduma.
+
+Ja triggera klātbūtni nevar noteikt no pieejamajiem FACT PROFILE faktiem:
+→ trigger uzskatāms par identificētu screening vajadzībām;
+→ FULL LCA.
 
 Trigger saraksts nosaka tikai to, kad SHORT INTAKE pāriet uz FULL LCA. Tas nepiešķir MODULE STATUS.
 
@@ -743,6 +761,7 @@ Matrix governance nedrīkst samazināt verifikācijas slieksni.
 Traceability glabā:
 - MODULE SCREENING RECORD / trigger registry version;
 - MODULE STATUS un classification references;
+- MODULE SCREENING SUMMARY, ja veikts screening;
 - REQUIREMENTS SET ID / VERSION / SELECTION CONDITIONS VERSION;
 - REQUIREMENT RESULT;
 - evidence;
