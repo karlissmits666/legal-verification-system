@@ -2,9 +2,14 @@
 
 Privāts repozitorijs MI atbalstītai juridiskā darba pārbaudes un pārvaldības sistēmai.
 
-## Iesaldētā pamatversija
+## Iesaldētās pamatversijas
 
-- `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md` — **APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)**, iesaldēšanas datums 2026-09-18.
+- `GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md` — **APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)**.
+- `GOVERNANCE/TRACEABILITY_RECORD_v1.md` — **Arhitektūra v0.5 — APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)**.
+- `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1.md` — **v0.3 — APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)**.
+- `GOVERNANCE/VERIFICATION_PROTOCOL_v1.md` — **v0.5 — APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)**.
+
+Iesaldēšanas datums: 2026-09-18.
 
 `main` zars ir paredzēts apstiprinātiem sistēmas dokumentiem un tehniskai repozitorija dokumentācijai. Zemāka līmeņa dokumenti nedrīkst vājināt iesaldētās pamatversijas invariantus bez `PROFESSIONAL_SCOPE_v1.3` grozījuma.
 
