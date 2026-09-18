@@ -4,34 +4,6 @@ Bankas jurista profesionālais darba tvērums AI atbalstītai juridiskā darba v
 Statuss: APPROVED — BASELINE (FROZEN)
 Versija: 1.3
 Freeze datums: 2026-09-18
-Bāze: v1.2 + Critical architecture review #3 (K1–K4, 17.3. precizējums)
-Iepriekšējās versijas: v1.0, v1.1, v1.2
-
-
-0. IZMAIŅAS PRET v1.2
-
-Review #3 blocking un high:
-- K1 → 16.3.: MANDATORY INTERNAL iekļauts minimālajā HUMAN VERIFIED slieksnī.
-- K2 → 21.: svītrots "daļēji izpildīto prasību saraksts"; 16.5. ievieš komponentu detalizāciju trīsstatusu modeļa ietvaros.
-- K3 → 13.: autoritātes modelis ar četrām vērtībām; SYSTEM PROPOSAL ONLY nekad nedod gala statusu.
-- K4 → 19.2.: vienvirziena datu klases mehānisms ar DATA CLASS MISMATCH SUSPECTED.
-- 17.3.: "patiesi neatkarīgs ne-AI mehānisms" → "iepriekš validēts un attiecīgajam prasības tipam apstiprināts ne-AI mehānisms".
-
-Iekšējais freeze audits (skatīt pielikumu):
-- 16.0.: definēts, uz kurām prasībām attiecas trīsstatusu modelis; NEGOTIABLE nošķirts.
-- 16.5.: deterministiska salikto prasību statusa agregācija.
-- 12.: precizēts verifikācijas līmeņa invariants — līmenis pieaug tikai ar verifikācijas aktu, ne ar nodošanu.
-- 13./4.3.: novērsta terminoloģijas sadursme starp UNCLEAR un HUMAN INPUT REQUIRED.
-- 18.: noteikts, kur un kā prasība tiek izvesta no UNCLASSIFIED.
-- 19.1.: definēts, ko nozīmē BLOCK.
-- 20.: definēts "materiāls darba rezultāts".
-- 26.: 17.1. un 17.2. novietoti plūsmā pareizi — tie notiek darba laikā, 17.3. ir vārti.
-- 30.: jauns slēgts statusu un aptures stāvokļu reģistrs.
-
-Freeze korekcijas pirms apstiprināšanas:
-- 19.1.: atļauju matricas piemērs skaidri marķēts kā ilustratīvs; neviena ALLOWED vērtība netiek pieņemta bez bankas apstiprinātas politikas.
-- 19.2.: atbalstītas vairākas DECLARED DATA CLASSES; AI apstrāde atļauta tikai tad, ja visas piemērojamās klases ir atļautas.
-- 30.: UNCLASSIFIED nodalīts no juridiskajiem prasību līmeņiem kā PĀRVALDĪBAS STATUSS.
 
 
 1. DOKUMENTA MĒRĶIS
@@ -731,36 +703,3 @@ APTURES STĀVOKĻI
 JURIDISKĀ STATUSA ATSAUCES (3., 25.)
   LEGAL APPROVED — atsauce uz bankas procesā fiksēto apstiprinājumu
   LEGAL POSITION: NOT APPROVED + BUSINESS PROCEEDED — uzskaites ieraksts
-
-
-PIELIKUMS. IEKŠĒJAIS FREEZE AUDITS — KAS ATRASTS UN LABOTS
-
-Papildus review #3 K1–K4, kas iestrādāti pilnībā, audits atrada astoņas iekšējas neprecizitātes. Visas salabotas šajā versijā; neviena nav jauna funkcionalitāte.
-
-1. Trīsstatusu modeļa tvērums nebija definēts (16.0.).
-Nebija skaidrs, vai statusi attiecas arī uz NEGOTIABLE prasībām. Tagad: attiecas uz visām, līmenis maina sekas un verifikācijas prasību, ne statusu kopu. Tas arī padara K1 slieksni pilnīgu — NEGOTIABLE paliek vienīgais līmenis, kur AI PROPOSED var būt gala līmenis.
-
-2. Saliktu prasību agregācija nebija noteikta (16.5.).
-K2 risinājums "components satisfied / missing component" atstāja neatbildētu, kāds ir statuss, ja komponents nav atrasts, nevis konstatēts kā trūkstošs. Bez noteikuma tas kļūtu par patvaļu. Tagad agregācija ir deterministiska.
-
-3. Verifikācijas līmeņa invariants bija pārāk plašs (12.).
-v1.2 formulējums "līmenis nepieaug" liegtu arī pamatotu pieaugumu pēc faktiskas cilvēka verifikācijas. Precizēts: līmenis pieaug tikai ar verifikācijas aktu, ne ar nodošanu.
-
-4. Terminoloģijas sadursme starp 4.3. un 13. (13.1.).
-Viens un tas pats stāvoklis tika saukts gan par UNCLEAR — HUMAN REVIEW REQUIRED, gan par HUMAN INPUT REQUIRED. Tagad UNCLEAR ir moduļa statuss, aptures stāvoklis tam pievienojams atsevišķi.
-
-5. SYSTEM PROPOSAL ONLY un HUMAN CONFIRMATION REQUIRED bija nenošķirami (13.2.).
-Ja abos gala statusu dod cilvēks, atšķirība pazūd. Tagad nošķirts, kas apstiprina: atbildīgais jurists LAWYER REVIEW ietvaros pret konkrētu norādītu funkciju ar CONFIRMED BY ierakstu.
-
-6. UNCLASSIFIED izvešana nebija lokalizēta (18.).
-Nebija pateikts, kur un kas prasību klasificē. Ja to varētu darīt uzdevuma ietvaros, BLOCKING statuss būtu apejams. Tagad tikai prasību bāzes pārvaldībā, versēti.
-
-7. BLOCK un "materiāls darba rezultāts" bija nedefinēti (19.1., 20.).
-BLOCK varēja tikt saprasts kā visa juridiskā darba apturēšana. Nav — apturēta ir AI apstrāde.
-
-8. 17.1. un 17.2. bija novietoti pēc darba plūsmas (26.).
-Evidence binding notiek secinājuma tapšanas brīdī, ne pēc tam. Kā atsevišķi vārti pastāv tikai 17.3.
-
-Jauns šajā versijā ārpus K1–K4 un audita labojumiem: 30. punkta statusu reģistrs. Tas neievieš nevienu jaunu statusu — tas noslēdz esošo kopu, lai zemāka līmeņa dokumenti nesāktu ģenerēt paralēlus statusus. Ja tas tiek pieņemts, freeze audits var būt mehānisks: katrs zemāka līmeņa dokuments tiek pārbaudīts pret 30. punktu.
-
-Pēc šī es neredzu atlikušas iekšējas pretrunas. Visi statusi ir definēti, visiem ir autoritāte, visiem aptures stāvokļiem ir sekas.
