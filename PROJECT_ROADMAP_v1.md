@@ -18,7 +18,7 @@
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **JĀIZSTRĀDĀ** | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **JĀIZSTRĀDĀ** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **JĀIZSTRĀDĀ** | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.2 — IESALDĒŠANAS KANDIDĀTS; MEHĀNISKAIS AUDITS IZTURĒTS** | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **PABEIGTS — IESALDĒTS (v0.2)** | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
@@ -115,7 +115,7 @@ LEGAL TASK
 ```text
 1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
 2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS
-3. TERMINOLOGY_AND_ENUMS_v1                 v0.2 IESALDĒŠANAS KANDIDĀTS
+3. TERMINOLOGY_AND_ENUMS_v1                 PABEIGTS / IESALDĒTS (v0.2)
 4. VERIFICATION_PROTOCOL_v1
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
 6. OPERATION_WORKFLOWS_v1
@@ -140,8 +140,8 @@ LEGAL TASK
 ## 5. Projekta progresa kopsavilkums
 
 **Obligātie pamatdokumenti:** 13  
-**Pabeigti / frozen:** 2  
-**Izstrādē:** 1  
+**Pabeigti / iesaldēti:** 3  
+**Izstrādē:** 0  
 **Atlikuši obligātie dokumenti:** 10  
 **Dokumenti/slāņi, kuriem nepieciešama praktiska pilotēšana:** 8  
 **Plānotie pilotu posmi:** 4  
@@ -199,11 +199,11 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 ## Terminoloģijas posms
 
-`TERMINOLOGY_AND_ENUMS_v1 — v0.2` ir konsolidēts kā iesaldēšanas kandidāts.
+`TERMINOLOGY_AND_ENUMS_v1 — v0.2` ir apstiprināts kā iesaldētā pamatversija.
 
 - Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` un `TRACEABILITY_RECORD_v1 v0.4`: IZTURĒTS
 - Bloķējošas pretrunas ar pamatversijām: 0
 - Jauni frozen canonical statusi: 0
 - LV lietotāja saskarnes apzīmējumu slānis: definēts
 - Ārējo kontrolēto reģistru īpašnieki: definēti
-- Iesaldēšana: gaida lietotāja skaidru apstiprinājumu
+- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
