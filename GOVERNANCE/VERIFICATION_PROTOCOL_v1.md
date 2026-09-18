@@ -2,12 +2,13 @@
 
 Juridiskās pārbaudes sistēmas semantiskās verifikācijas protokols
 
-**Statuss:** MELNRAKSTS — IESALDĒŠANAS KANDIDĀTS  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** v0.5  
+**Iesaldēšanas datums:** 2026-09-18  
 **Bāze:**  
 - `PROFESSIONAL_SCOPE_v1.3` — IESALDĒTS  
-- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — IESALDĒŠANAS KANDIDĀTS  
-- `TERMINOLOGY_AND_ENUMS_v1` — v0.3 — IESALDĒŠANAS KANDIDĀTS
+- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — IESALDĒTS  
+- `TERMINOLOGY_AND_ENUMS_v1` — v0.3 — IESALDĒTS
 
 1. MĒRĶIS
 
@@ -24,7 +25,7 @@ atļaujas.
   → vai pārbaudīta visa apstiprinātā prasību kopa?
 
   EVIDENCE BINDING
-  → uz kādu pārbaudāmu avota pamatu balstās secinājums?
+  → uz kādu precīzu avota fragmentu un atrašanās vietu sākotnējā avotā balstās satura secinājums?
 
   SEMANTIC VERIFICATION
   → vai secinājums par avota nozīmi ir pareizs?
@@ -288,8 +289,7 @@ juridisks secinājums.
   → prasības statuss NETIEK automātiski pārrakstīts uz
     NAV PIERĀDĪTS.
 
-Šis noteikums vienādi attiecas uz content evidence un scope
-evidence.
+Šis noturīguma noteikums attiecas gan uz EVIDENCE OBJECT, gan uz VERIFICATION SCOPE RECORD, katram saglabājot savu semantisko lomu.
 
 Pretrunas ar frozen 16.1. nav: statuss bez saglabāta pierādījuma
 nekad nenonāk materiālā rezultātā.
@@ -489,8 +489,7 @@ Pašreiz:
     fiksēt INCLUDED un EXCLUDED avotus tā, lai ieraksts vēlāk
     būtu saprotams citam juristam.
 
-14. gadījums ir atsevišķs, jo verification scope record ir vienīgais
-pierādījuma veids, kuru rada pats verificētājs; ja tā ierakstīšana
+14. gadījums ir atsevišķs, jo VERIFICATION SCOPE RECORD ir verifikācijas tvēruma ieraksts, ko rada pats verificētājs; ja tā ierakstīšana
 praksē ir pārāk smaga, negatīvo prasību plūsma neizturēs slodzi.
 
 
@@ -531,9 +530,14 @@ Neviens nav savstarpēji kompensējams.
 - ID prefikss: VERIFICATION SCOPE RECORD → VSR-;
 - VERIFICATION SCOPE RECORD ir skaidri nošķirts no EVIDENCE.
 
-22. IESALDĒŠANAS NOSACĪJUMS
+22. IESALDĒŠANAS STATUSS
 
-Šis dokuments ir iesaldēšanas kandidāts. To drīkst iesaldēt tikai pēc:
-1. mehāniskā audita pret PROFESSIONAL_SCOPE_v1.3, TRACEABILITY_RECORD_v1 v0.5 un TERMINOLOGY_AND_ENUMS_v1 v0.3;
-2. bloķējošu pretrunu skaita = 0;
-3. lietotāja skaidra freeze apstiprinājuma.
+Šis dokuments ir APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA).
+
+Iesaldēšanas pamats:
+1. mehāniskais audits pret PROFESSIONAL_SCOPE_v1.3, TRACEABILITY_RECORD_v1 v0.5 un TERMINOLOGY_AND_ENUMS_v1 v0.3 — IZTURĒTS;
+2. bloķējošas pretrunas — 0;
+3. atvērtas arhitektūras domstarpības — 0;
+4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
+
+Turpmāki grozījumi notiek tikai jaunā versijā; iesaldētā v0.5 netiek klusējot pārrakstīta.
