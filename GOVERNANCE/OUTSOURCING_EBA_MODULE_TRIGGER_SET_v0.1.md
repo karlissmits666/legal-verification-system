@@ -144,6 +144,8 @@ Screening rule:
 
 T04 klātbūtne neprasa juridisku spriedumu screening posmā; neskaidrība pati aktivizē FULL LCA.
 
+Ja T04 tiek fiksēts kā NOT IDENTIFIED, MODULE SCREENING RECORD obligāti norāda konkrētu FACT FINDING ID, kas pierāda tikai-prece / tikai-licence / neatkarīgas konsultācijas faktisko modeli. Bez šīs atsauces T04 uzskatāms par IDENTIFIED → FULL LCA.
+
 ### OEB-T05 — FACT PROFILE rāda atkārtotu iesaisti bankas operacionāla procesa izpildē
 
 ```text
@@ -235,6 +237,7 @@ IF one or more triggers identified:
 
 IF no triggers identified:
   → TRIGGERS IDENTIFIED = []
+  → for every negatively formulated trigger, record supporting FINDING ID
   → screening complete
   → this is NOT MODULE STATUS = NOT APPLICABLE
 ```
@@ -308,12 +311,11 @@ Pirms lifecycle = ACTIVE:
 5. tiek pārbaudīta para. 28 exclusion loģika;
 6. tiek pārbaudīta saderība ar 2026 EBA third-party risk pāreju;
 7. tiek veikts retrospektīvs kalibrācijas pilots pret vismaz 15–20 reāli noslēgtiem līgumiem no pietiekami reprezentatīva perioda;
-8. pilotā obligāti ietver:
-   - skaidru outsourcing gadījumu;
-   - skaidru non-outsourcing gadījumu;
-   - robežgadījumu;
-   - para. 28 exclusion kandidātu;
-   - dažādus CONTRACT TYPE.
+8. kalibrācijas kopa ir stratificēta un ietver vismaz IT, SaaS/cloud, facility un consulting tipa robežgadījumus;
+9. kalibrācijas kopā obligāti ir vismaz 5 līgumi, kas bankas faktiskajā procesā jau klasificēti kā outsourcing;
+10. trigger set drīkst kļūt ACTIVE tikai tad, ja 100% no šiem zināmajiem outsourcing līgumiem tiek nosūtīti uz FULL LCA; viens false negative bloķē aktivizāciju;
+11. pirms mērījuma apstiprinātājs dokumentē sagaidāmo / darbspējīgo FULL-LCA referral rate robežu; to nedrīkst noteikt tikai pēc rezultātu redzēšanas;
+12. pilotā papildus ietver skaidru non-outsourcing gadījumu, robežgadījumu un para. 28 exclusion kandidātu.
 
 Pilotā izmēra vismaz:
 - cik % līgumu trigger set nosūta uz FULL LCA;
