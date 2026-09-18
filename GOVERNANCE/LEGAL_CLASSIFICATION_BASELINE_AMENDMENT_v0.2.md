@@ -5,7 +5,7 @@ Juridiskās klasifikācijas slāņa baseline amendment pakete
 **Statuss:** KONSOLIDĒTA — KRITISKAI PĀRBAUDEI; NAV IESALDĒTA  
 **Versija:** v0.2  
 **Datums:** 2026-09-18  
-**Review bāze:** Critical architecture review #11 un #12
+**Review bāze:** Critical architecture review #11, #12 un #13
 
 ## 1. Mērķis
 
@@ -68,13 +68,23 @@ QUALITATIVE LIKELIHOOD = INDETERMINATE
 ```
 
 ### B3 — ICT / DORA un CIF nošķīrums
-Pieņemts.
+Pieņemts un precizēts Review #13.
+
 ```text
-ICT-DORA classification → LCA / human confirmation
-CIF STATUS → EXTERNAL INPUT ONLY
+ICT SERVICE LEGAL CLASSIFICATION
+→ lawyer HUMAN DECISION
+
+ICT-DORA MODULE STATUS
+→ HUMAN CONFIRMATION REQUIRED
+→ konkrētā bankas governance funkcija jānosauc pirms production
+
+CIF STATUS
+→ EXTERNAL INPUT ONLY
 ```
 
-DORA Requirements Set selection drīkst izmantot abus un citus apstiprinātus SELECTION CONDITIONS.
+DORA Requirements Set selection:
+- CIF-INDEPENDENT set aktivizējas uzreiz, ja ICT-DORA = APPLICABLE;
+- CIF-DEPENDENT set gaida CIF.
 
 ### B4 — COMMON CONTRACT REVIEW
 Pieņemts stingrā formā:
@@ -170,8 +180,9 @@ Governance struktūra ir definēta.
 
 OUTSOURCING-EBA sākotnējais trigger set ir:
 ```text
-STATUS: NOT ACTIVE
+LIFECYCLE: null
 APPROVED BY: null
+APPROVAL REFERENCE: null
 ```
 
 Iemesls: pakete neizdomā bankas vai ārējā regulējuma triggerus bez source-based izstrādes un attiecīgās autoritātes apstiprinājuma.
@@ -213,8 +224,10 @@ LEGAL CLASSIFICATION ASSESSMENT ≠ HUMAN DECISION
 QUALITATIVE LIKELIHOOD ≠ MODULE STATUS
 LIKELY ≠ APPLICABLE
 SCREENING NEGATIVE ≠ NOT APPLICABLE
+SCREENING CONFIRMATION ≠ MODULE AUTHORITY DECISION
 CIF STATUS ≠ LCA RESULT
 COMMON CONTRACT REVIEW ≠ specialized module
+MODULE AUTHORITY LABEL = faktiski nosauktā apstiprinošā funkcija
 ```
 
 ## 9. Autoritatīvais statuss
@@ -227,9 +240,23 @@ Līdz atsevišķam freeze lēmumam autoritatīvas paliek:
 - `TERMINOLOGY_AND_ENUMS_v1 v0.3`;
 - `VERIFICATION_PROTOCOL_v1 v0.5`.
 
-## 10. Nākamais solis
+## 10. Review #13 integrācijas statuss
 
-1. kritisks review v0.2 konsolidētajai paketei;
-2. source-based OUTSOURCING-EBA trigger set izstrāde pirms SHORT INTAKE pilota;
+Review #13 bloķējošie punkti ir iestrādāti draftā:
+- ICT-DORA autoritātes etiķete vairs netiek aizpildīta ar nenosauktu funkciju;
+- interpretatīvie triggeri pārveidoti par FACT PROFILE noteikumiem / uncertainty triggers;
+- jebkura LCA izmantota FINDING maiņa automātiski rada RECLASSIFICATION REVIEW REQUIRED;
+- screening summary tiek virzīts uz materiālo OUTPUT;
+- MODULE TRIGGER SET un MTR- tiek reģistrēti Terminology;
+- trigger lifecycle izmanto ACTIVE / DEPRECATED; neapstiprinātam draftam lifecycle = null;
+- screening apstiprinājums izmanto HUMAN DECISION;
+- DORA CIF-independent daļa netiek bloķēta CIF gaidīšanas dēļ;
+- pirms OUTSOURCING-EBA trigger set ACTIVE nepieciešams 15–20 reālu līgumu kalibrācijas pilots;
+- placeholder triggeri pirms ACTIVE jāaizpilda vai jāizņem.
+
+## 11. Nākamais solis
+
+1. Critical architecture review #14 tikai Review #13 labojumu deltai;
+2. source / bank-internal review OUTSOURCING-EBA trigger set;
 3. mehāniskais audits;
 4. tikai pēc tam freeze approval.
