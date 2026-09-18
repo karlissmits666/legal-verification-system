@@ -53,6 +53,7 @@ OPERATION WORKFLOW
 6. `REQUIREMENTS_MATRIX_GOVERNANCE_v1.md` — v0.3
 7. `MODULE_TRIGGER_REGISTRY_v1.md` — v0.1
 8. `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md` — source-based draft; lifecycle = null; nav apstiprināts
+9. `ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md` — atvērts bankas governance ievaddata pieprasījums
 
 ## 4. Review #11 / #12 konsensa lēmumi
 
@@ -287,7 +288,7 @@ Review #14 labojumi draftā:
 
 ## 13. Nākamais solis
 
-1. mehāniskais audits pēc Review #14;
-2. bankas governance input par ICT-DORA apstiprinošo funkciju;
+1. mehāniskais audits pēc Review #14 — PABEIGTS;
+2. bankas governance input par ICT-DORA apstiprinošo funkciju — PIEPRASĪTS ar `ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md`;
 3. bankas iekšējo outsourcing avotu pievienošana un kalibrācijas pilots;
 4. gala review / freeze approval tikai pēc iepriekšējā izpildes.
