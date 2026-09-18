@@ -2,8 +2,9 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** DRAFT — FREEZE CANDIDATE  
+**Statuss:** APPROVED — BASELINE (FROZEN)  
 **Versija:** Architecture v0.4  
+**Freeze datums:** 2026-09-18  
 **Bāze:** `PROFESSIONAL_SCOPE_v1.3 — APPROVED — BASELINE (FROZEN)`
 
 ## 1. Mērķis
@@ -802,11 +803,14 @@ TASK
 └── LEGAL STATUS REFERENCE
 ```
 
-## 52. Freeze nosacījums
+## 52. Freeze statuss
 
-Šis dokuments ir `DRAFT — FREEZE CANDIDATE`.
+Šis dokuments ir `APPROVED — BASELINE (FROZEN)`.
 
-Tas kļūst par frozen baseline tikai pēc:
-1. mehāniskā audita pret `PROFESSIONAL_SCOPE_v1.3`;
-2. auditā neatrodas blocking pretrunas;
-3. lietotājs to skaidri apstiprina freeze.
+Freeze pamats:
+1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` — PASS;
+2. blocking baseline pretrunas — 0;
+3. jauni canonical statusi — 0;
+4. lietotāja explicit freeze approval — saņemts 2026-09-18.
+
+Turpmāki grozījumi notiek tikai ar jaunu versiju; frozen v0.4 netiek klusējot pārrakstīts.
