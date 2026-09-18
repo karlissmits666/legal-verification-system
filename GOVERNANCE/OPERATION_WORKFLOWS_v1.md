@@ -179,6 +179,8 @@ FULL INTAKE obligāts, ja:
 
 FULL INTAKE ietver LCA un attiecīgās autoritātes lēmumu.
 
+ICT-DORA gadījumā jurista IKT pakalpojuma juridiskā klasifikācija ir obligāts ievaddats MODULE STATUS lēmumam. Moduļa apstiprinošā funkcija nepārraksta juridisko kvalifikāciju; domstarpība izraisa ESCALATION REQUIRED.
+
 ## 7. LEGAL / REGULATORY CLASSIFICATION
 
 Katram iespējamam režīmam, kur vajadzīgs profesionāls spriedums, izveido `LEGAL CLASSIFICATION ASSESSMENT`.
@@ -343,10 +345,13 @@ EXTRACT pats par sevi neveic juridisku klasifikāciju, ja vien tas nav skaidri d
 
 ## 15.1. RECLASSIFICATION TRIGGER
 
-Ja tiek mainīts vai pievienots jebkurš FINDING, uz kuru atsaucas spēkā esošais LCA:
-→ automātiski rodas RECLASSIFICATION REVIEW REQUIRED.
+Obligāts reclassification review tiek ierosināts, ja:
+a) mainās FINDING, uz kuru atsaucas spēkā esošais LCA; vai
+b) rodas jauns FINDING, kas skar kādu no attiecīgā MODULE TRIGGER SET tēmām.
 
-Materialitāti izvērtē cilvēks un rezultātu fiksē HUMAN DECISION arī tad, ja izmaiņa nav materiāla.
+MODULE TRIGGER SET šeit kalpo tikai kā atbilstības filtrs.
+
+Materialitāti izvērtē cilvēks un rezultātu fiksē HUMAN DECISION ar DECISION TYPE = reclassification_materiality arī tad, ja izmaiņa nav materiāla.
 
 Ja izmaiņa ir materiāla:
 - saglabā iepriekšējo LCA un lēmumu;
@@ -367,7 +372,8 @@ Ja `LEGAL INTAKE` piemērojams, Traceability jāspēj rekonstruēt:
 - QUALITATIVE LIKELIHOOD;
 - cilvēka / ārējo lēmumu;
 - MODULE STATUS;
-- izvēlēto REQUIREMENTS SET, versiju un SELECTION CONDITIONS versiju.
+- izvēlēto REQUIREMENTS SET, versiju un SELECTION CONDITIONS versiju;
+- materiālajā output: SCREENED MODULES, TRIGGER SET ID/VERSION, SCREENING RESULT un MSR ID; SCREENED BY / AT paliek izsekojamībā.
 
 ## 17. Aizliegtie saīsinājumi
 
