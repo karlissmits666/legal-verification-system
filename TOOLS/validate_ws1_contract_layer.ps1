@@ -19,20 +19,29 @@ function Get-MarkdownSection {
     if (-not (Test-Path $Path)) { return $null }
     $number = Get-SectionNumber $Reference
     if (-not $number) { return $null }
+
     $lines = Get-Content $Path
     $start = -1
-    $level = 0
+    $targetDepth = ($number -split '\.').Count
+
     for ($i=0; $i -lt $lines.Count; $i++) {
-        if ($lines[$i] -match '^(#{1,6})\s+(\d+(?:\.\d+)*)(?:\.|\s)' -and $Matches[2] -eq $number) {
-            $start=$i; $level=$Matches[1].Length; break
+        if ($lines[$i] -match '^(?:#{1,6}\s+)?(\d+(?:\.\d+)*)\.(?:\s|$)' -and $Matches[1] -eq $number) {
+            $start = $i
+            break
         }
     }
+
     if ($start -lt 0) { return $null }
+
     $output = [System.Collections.Generic.List[string]]::new()
     for ($i=$start; $i -lt $lines.Count; $i++) {
-        if ($i -gt $start -and $lines[$i] -match '^(#{1,6})\s+' -and $Matches[1].Length -le $level) { break }
+        if ($i -gt $start -and $lines[$i] -match '^(?:#{1,6}\s+)?(\d+(?:\.\d+)*)\.(?:\s|$)') {
+            $candidateDepth = ($Matches[1] -split '\.').Count
+            if ($candidateDepth -le $targetDepth) { break }
+        }
         $output.Add($lines[$i])
     }
+
     $output -join [Environment]::NewLine
 }
 function Test-SectionReference {
