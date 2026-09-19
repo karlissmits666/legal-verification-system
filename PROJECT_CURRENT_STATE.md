@@ -37,13 +37,14 @@ CURRENT ROADMAP DOCUMENT:
 TRACEABILITY_RECORD_v1 v0.6 juridiskās klasifikācijas amendment paketē
 
 CURRENT VERSION / STATUS:
-Review #16 korekciju konsenss nav noslēgts; sākotnējais delta ir commitēts,
-atbilde uz delta review ir pieņemta, bet recenzents ir pievienojis R1–R5.
+Formālā Review #16 R1–R5 atbilde ir commitēta atsevišķā review-response
+artefaktā; arhitektūras drafti nav mainīti. Atbilde gaida neatkarīgu
+recenzenta pārbaudi; konsenss nav noslēgts.
 
 CURRENT OBJECTIVE:
-Repo fiksēt pilnu atbildi uz R1–R5, panākt recenzenta apstiprinājumu un
-tikai pēc lietotāja implementation approval sagatavot vienu atomāru
-Review #16 korekciju commit.
+Panākt neatkarīga recenzenta apstiprinājumu formālajai R1–R5 atbildei un
+tikai pēc konsensa un atsevišķa lietotāja implementation approval
+sagatavot vienu atomāru Review #16 korekciju commit.
 
 NEXT BLOCKED DOCUMENT:
 Juridiskās klasifikācijas amendment paketes gala audits un saistītais
@@ -72,7 +73,8 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 6. `NEW_CHAT_START_TASK.md`, šis continuity fails un otrās kārtas review ieraksts ir ieviesti commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 7. Obligātais `NEW CHAT REQUIRED` trigeris, readiness gate un automātiskā copy-paste ziņojuma veidne ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 8. Fail-closed continuity validators un tā obligātā handoff pārbaude ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
-9. GitHub-native continuity pārbaude ir noteikta par primāro režīmu; lokāls klons vai lokāla worktree nav priekšnoteikums jaunā čata sākšanai. Šo pāreju nosaka kā šī faila jaunāko mainošo commit.
+9. GitHub-native continuity pārbaude ir noteikta par primāro režīmu; lokāls klons vai lokāla worktree nav priekšnoteikums jaunā čata sākšanai.
+10. Formālā Review #16 R1–R5 atbilde ir fiksēta repo atsevišķā review-response artefaktā; šajā commitā arhitektūras drafti un frozen faili nav mainīti.
 
 ## 5. User-approved decisions in force
 
@@ -105,22 +107,23 @@ R1–R5 un pašreizējā projekta pozīcija:
 4. **R4 — PIEŅEMT:** T&E noteikt owner-document principu un mehānisku mapping starp `TRACE OBJECT TYPE` un ID lauka nosaukumu, tostarp `MODULE TRIGGER SET → TRIGGER SET ID`.
 5. **R5 — PIEŅEMT:** shēmas labojumus un validācijas specifikāciju ieviest vienā atomārā commitā.
 
-Šī R1–R5 pozīcija ir formulēta sarunā, bet vēl nav fiksēta atsevišķā repo review-response artefaktā un nav saņēmusi recenzenta apstiprinājumu. To nedrīkst attēlot kā noslēgtu konsensu.
+Šī R1–R5 pozīcija tagad ir fiksēta atsevišķā repo review-response artefaktā `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`, bet vēl nav saņēmusi neatkarīga recenzenta apstiprinājumu. To nedrīkst attēlot kā noslēgtu konsensu.
 
 ## 7. Exact next task
 
 ```text
-Sagatavot un commitēt repo formālu atbildi uz Review #16 R1–R5,
-kas precīzi fiksē 6. sadaļā norādīto pozīciju un pilno atomārās
-korekciju paketes tvērumu. Arhitektūras draftus šajā atbildes commitā
-nemainīt. Pēc tam nodot atbildi neatkarīgai recenzenta pārbaudei.
+Nodot `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`
+neatkarīgai recenzenta pārbaudei pret Review #16 otrās kārtas review,
+integrēto bāzi un current amendment draftiem. Neveikt arhitektūras
+implementation pirms recenzenta apstiprinājuma, konsensa un atsevišķa
+lietotāja implementation approval.
 ```
 
 Autorizācija:
 
 ```text
-COMMIT AUTHORIZED: YES — tikai review response commitam
-IMPLEMENTATION AUTHORIZED: NO — gaida konsensu un lietotāja approval
+COMMIT AUTHORIZED: NO — nākamais solis ir neatkarīga recenzenta pārbaude
+IMPLEMENTATION AUTHORIZED: NO — gaida recenzenta apstiprinājumu, konsensu un lietotāja approval
 FREEZE AUTHORIZED: NO
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
@@ -140,12 +143,13 @@ Obligāti izlasīt pilnā apjomā:
 8. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16.md`;
 9. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_DELTA_REVIEW_RESPONSE.md`;
 10. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_DELTA_RESPONSE_REVIEW.md`;
-11. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
-12. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
-13. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
-14. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
-15. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
-16. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+11. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`;
+12. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
+13. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
+14. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
+15. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
+16. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
+17. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -176,5 +180,5 @@ Ja faktiski izmanto lokālu klonu, alternatīvi der
 `CONTINUITY VALIDATION: PASS` pie `HEAD = origin/main` un tīra darba koka.
 
 NEXT CHAT EXACT TASK:
-izpildīt 7. sadaļā norādīto formālo R1–R5 atbildes uzdevumu.
+izpildīt 7. sadaļā norādīto neatkarīgās R1–R5 atbildes recenzijas uzdevumu.
 ```
