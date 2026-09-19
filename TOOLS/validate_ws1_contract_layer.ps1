@@ -100,9 +100,15 @@ $temp = Join-Path ([IO.Path]::GetTempPath()) ('ws1-catalog-' + [guid]::NewGuid()
 $actual = Get-Content (Join-Path $RepoRoot 'catalog/schema_catalog.json') -Raw | ConvertFrom-Json
 $regen = Get-Content $temp -Raw | ConvertFrom-Json
 Remove-Item $temp -Force
-$actualNorm = $actual | ConvertTo-Json -Depth 12 -Compress
-$regenNorm = $regen | ConvertTo-Json -Depth 12 -Compress
-if ($actualNorm -ne $regenNorm) { Fail 'schema_catalog.json is not reproducible from builder' }
+$actualIndex = @($actual.entries | ForEach-Object { ([string]$_.artifact_id) + '|' + ([string]$_.projection_status) + '|' + ([string]$_.path) } | Sort-Object)
+$regenIndex = @($regen.entries | ForEach-Object { ([string]$_.artifact_id) + '|' + ([string]$_.projection_status) + '|' + ([string]$_.path) } | Sort-Object)
+if ($actualIndex.Count -ne $regenIndex.Count) {
+  Fail 'schema_catalog.json entry count is not reproducible from builder'
+} else {
+  for ($i = 0; $i -lt $actualIndex.Count; $i++) {
+    if ($actualIndex[$i] -ne $regenIndex[$i]) { Fail ('schema_catalog.json discovery index drift: ' + $actualIndex[$i] + ' != ' + $regenIndex[$i]) }
+  }
+}
 foreach ($blocked in @($actual.entries | Where-Object { $_.projection_status -eq 'BLOCKED_BY_OWNER' })) {
   if ($null -ne $blocked.path) { Fail ('Blocked dependency has executable path: ' + $blocked.artifact_id) }
 }

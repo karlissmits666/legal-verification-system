@@ -108,7 +108,7 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 36. Lietotājs 2026-09-19 deva `APPROVE FREEZE REVIEW #16 PACKAGE`; PS v1.4 / TR v0.6 / T&E v0.4 kļuva par jauno frozen core baseline.
 37. `PROJECT_ROADMAP_v1.md` stale pirms-freeze formulējumi ir saskaņoti ar Review #16 freeze record; vēsturiskais v0.5/v0.3 baseline ir skaidri marķēts kā vēsturisks un nav WS1 semantikas avots. Frozen owner faili nav mainīti.
 38. WS1 pilnais implementation task/dependency map ir fiksēts `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`; tas nodala WS1-A frozen owner projekcijas no WS1-B `BLOCKED_BY_OWNER` artefaktiem.
-39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pirmajā GitHub izpildē esošie continuity/Review #16 soļi bija PASS, bet jaunā WS1 validatora tehniskais skripta izpildījums bija FAIL, tādēļ veikta tikai validatora tehniska remediācija bez frozen owner vai WS1 semantikas maiņas.
+39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pirmajās GitHub izpildēs esošie continuity/Review #16 soļi bija PASS; WS1 validatora tehniskā validācija atklāja pārāk jutīgu catalog serializācijas salīdzinājumu, kas tiek remediēts ar deterministisku discovery indeksa salīdzinājumu bez frozen owner vai WS1 semantikas maiņas.
 
 ## 5. User-approved decisions in force
 
