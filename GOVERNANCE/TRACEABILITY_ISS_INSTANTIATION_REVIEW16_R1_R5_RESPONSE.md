@@ -20,7 +20,7 @@
 
 ## 2. R1 â€” saistÄ«tÄ freeze secÄ«ba
 
-**PozÄ«cija: PIEÅ…EMTÑ.** PrecizÄ“ts pÄ“c F2 un J8.
+**PozÄ«cija: PIEÅ…EMTS.** PrecizÄ“ts pÄ“c F2 un J8.
 
 [PRIEKÅ LIKUMS] `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md` papildina ar jaunu numurÄ“tu apakÅ¡sadaÄ¼u `Â§9.1 Freeze priekÅ¡nosacÄ«jumi`, kuras pilnais saturs ir:
 
@@ -39,11 +39,11 @@ Pamatojums:
 - TR v0.6 Â§5.1 un Â§9 izmanto T&E v0.4 reÄ£istrÄ“tos trace-object tipus, ID prefiksus un `CONTENT HASH ALGORITHM` governance;
 - frozen PS v1.3 un T&E v0.3 Å¡o modeli nesatur.
 
-Owner sadaÄ¼as izvÄ“les pamatojums (J8): amendment Â§9 "AutoritatÄ«vais statuss" ir tieÅ¡i tÄ sadaÄ¼a, kas pÄrvalda, kas paliek autoritatÄ«vs lÄ«dz freeze lÄ“mumam; freeze precondition ir tÄs paÅ¡as sadaÄ¼as priekÅ¡mets. Amendment Â§11 "Go-live prieknosacijumi" pÄrvalda ICT-DORA moduÄ¼a **operacionÄlo** aktivizÄciju, nevis dokumentu freeze, tÄdÄ“Ä¼ nav derÄ«gs owner. FormulÄ“jums "gala amendment acceptance kontrole" tiek izÅ†emts pilnÄ«bÄ â€” repo tÄdas sadaÄ¼as nav.
+Owner sadaÄ¼as izvÄ“les pamatojums (J8): amendment Â§9 "AutoritatÄ«vais statuss" ir tieÅ¡i tÄ sadaÄ¼a, kas pÄrvalda, kas paliek autoritatÄ«vs lÄ«dz freeze lÄ“mumam; freeze precondition ir tÄs paÅ¡as sadaÄ¼as priekÅ¡mets. Amendment Â§11 "Go-live priekÅ¡nosacÄ«jumi" pÄrvalda ICT-DORA moduÄ¼a **operacionÄlo** aktivizÄciju, nevis dokumentu freeze, tÄdÄ“Ä¼ nav derÄ«gs owner. FormulÄ“jums "gala amendment acceptance kontrole" tiek izÅ†emts pilnÄ«bÄ â€” repo tÄdas sadaÄ¼as nav.
 
 ## 3. R2 â€” neversÄ“ta avota identitÄte
 
-**PozÄ«cija: PIEÅ…EMTÑ.** IzvÄ“lÄ“tais risinÄjums: recenzenta variants (b). NemainÄ«ts kopÅ¡ v2.
+**PozÄ«cija: PIEÅ…EMTS.** IzvÄ“lÄ“tais risinÄjums: recenzenta variants (b). NemainÄ«ts kopÅ¡ v2.
 
 [PRIEKÅ LIKUMS] `TRACEABILITY_RECORD_v1 v0.6 Â§11` saglabÄ pietiekamas identitÄtes kombinÄcijas modeli:
 
@@ -179,81 +179,484 @@ Mapping (pÄrbaudÄ«ts pret faktiskajÄm owner shÄ“mÄm commitÄ `1783c50`):
 | DATA CLASS EVENT | `DCE-` | EVENT ID | `TRACEABILITY_RECORD_v1 v0.6 Â§13` |
 | TRACE RECORD | `TR-` | TRACE RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 Â§44` |
 
-Owner nodalÄ«jum `MODULE TRIGGER SET` \š[™ZH
-ŒK
-N‚‚˜^’Q’QSĞÒSPHÕÓ‘TˆSÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒH0©Ì‚”‘q(’TÕHÓÕ‘T“SÑHÕÓ‘Tˆ‘TURT‘SQS•×ÓPU’VÑÓÕ‘T“SÑWİŒBˆ
-[YZÈ	‘H0©ÌÌ[™ZÜñ Kš[™HSÑSH’QÑÑTˆÑU
-B˜‚±h1*È\ˆšY[±*Ùñ Hš[™Kİ\˜ZHXšHİÛ™\ˆ]1hq-Ú\˜\Ëˆ1 \±$Ú± [HNš[™1 [HQ]ZØHÚ1$ÛX\ÈİÛ™\ˆ[ˆ\H™q(Ú\İ˜HİÛ™\ˆ˜]ˆ™][± K1 Y1$ñ/]Ù]šqhq-ØHÛÛÛ›˜H™]YZÈ˜Y1*İK‚‚ˆÈÈÈKŒËˆ0©ÌÌ[™ZÜØH\[[± Z[\Â‚–Ô’QRñhRÕST×HT“RS“ÓÑÖWĞS‘ÑS•ST×İŒHŒ0©ÌÌX[ZH
-ŠœY]šY[›ÊŠˆšY[Hš[™N‚‚ŸÛÛ›ÛYšY[İÛš[™ÈØİ[Y[™YÚ\İHŸKK_KK_KK_ŸQ’QSSQHT“RS“ÓÑÖWĞS‘ÑS•ST×İŒXPÑHĞ’‘PÕTH8¡¤ˆQ’QSPTS‘È
-0©ÌÌŒJH‚‘\Ûñhq \È0©ÌÌš[™\È™]YZÈXZ[±*İ\Ëˆ\Ûñhq \ÈÛÛÛ›˜\È™]YZÈXZ[±*İ\Ë‚‚ˆÈÈÈKˆ‘TURT‘SQS•ÓÓTÓ‘S•8 %^±$ÛHšZÜñ$İB‚–Ô’QRñhRÕST×H^±$Û1$İÈ™XÙ[™[H˜\šX[È
-ŠŠJJŠˆX\[™Èš[™H\ˆÓÓTÓ‘S•Qˆ]ZÜÈ™]YZÈ1 \œØ]ZİË‚‚”[X]Ú[\Î‚‹HˆŒˆ0©ÌÈ˜Zİ\ÚØZ\È]ZİH›ÚÜÎˆÓÓTÓ‘S•QÓÓTÓ‘S•TĞÔ’TSÓ˜ÓÓTÓ‘S•ÕUTØU’QSÑHQØ‘T’Q’PĞUSÓˆU‘SÂ‹H]ZÜÈ‘TURT‘SQS•ÓÓTÓ‘S•Q™\È™YZÜÚ\İ1$ÎÂ‹Hˆ0©ÌÍHY]ÈÛÛZØÚZ˜\È›ÜØ]Zİ[]H‘TURT‘SQS•ÓÓTÓ‘S•Ø™H]ZØH›ÜØ]Zİ[]NÂ‹H\HÛÛ›ÛH˜]H\ˆYZ1 [š\ÚØH\ˆÓTX™YšZÜİH
-	‘H0©ÌÈˆ0©ÍHY[q$ÜœÈÓTL˜
-NÂ‹H1 \œØ]ZñhX[˜H±jİH]Ù]šqhq-ØH\š]Zİ1jÜ˜\È[KØ\È˜]ˆ™]šY]ÈÌMˆY]İ1 Z˜H\İ\š[± ]Z± H[1 H
-[Y[™Y[0©ÌM
-K‚‚’È˜ZİH›Ü˜ZY1*Ú[\È[YZÈÜ1$Úñ Kˆ\ˆİÛ™\‹ÛX\[™È›Ü›][1$Ú[XH™XÚ^±$Ú[\Ë™H˜][˜HÙ[X[ZØK‚‚ˆÈÈ‹ˆH8 %]Ûq \˜HÚ1$ÛX\È[ˆ˜[Y1 XÚZ˜\È[\[Y[][Û‚‚ŠŠ”Ş±*ØÚZ˜NˆQqaQSUËŠŠ‚‚”1$ØÈÛÛœÙ[œØH[ˆ]Ù]šqhq-ØH[\[Y[][Ûˆ\›İ˜[šY[˜H]Ûq \˜H[\[Y[][ÛˆÛÛ[Z]›Ø™qo± H± X±jİ‚‚ŒKˆÚ1$ÛX\ÈX›Ú[ZY[NÂŒ‹ˆÜ›ÜÜËYšY[[˜\šX[Y[NÂŒËˆYZ1 [š\ÚÚH1 \˜˜]Y1 [ZY[H˜[Y1 XÚZ˜\È›İZZİ[ZY[NÂˆ™YØ]1*İ˜ZšY[H[ˆ™\È1*ÛYqa˜H\İY[NÂKˆØ[YK\XÚØYÙH\[™[˜ŞHÚİ[Y[HÛÛœÙZİ™[˜Ù\ÈX›Ú[ZY[NÂ‹ˆ™]šY]Ë[Y[™Y[›ØYX\[ˆİ\œ™[\İ]Hİ]\ØH]˜][š[± Z[X[H]š[İñhZH˜Zİ\ÚØZ˜ZH[\[Y[][Û‹‚‚’[\[Y[][Ûˆ™Y±*ÚÜİ]İ1 ]™\È\İ˜[Y1$Ú˜[q Hİ1 ]›ÚÛ1*Ë‚‚ˆÈÈËˆ[˜Z\È]Ûq \± \ÈÛÜ™ZØÚZHZÙ]\È±$Ü[\Â‚ˆÈÈÈËŒKˆ“È8 %™Y™\™[˜ÙH[ÙH™XÚ^±$Ú[\Â‚“İÛ™\ˆØYq/\Î‚‹HÓÕ‘T“SÑKÕPÑPP’SUWÔ‘PÓÔ‘İŒWİŒ‹›Y0©ÍKŒXÂ‹HÓÕ‘T“SÑKÕT“RS“ÓÑÖWĞS‘ÑS•ST×İŒWİŒ›Y0©Ì‹Œ˜‚‚X± \ÈÜ\± XÚZ˜H\ˆ
-ŠRV”Õ1 1hSJŠ‹™H\[[± Z[\È
-JK‚‚ŠŠ•ˆ0©ÍKŒH8 %Z^œİ1 Z˜[XZ\ÈZÜİÎŠŠ‚‚˜^˜^•PÑH‘PÓÔ‘Q”‘PÓÔ‘‘T”ÒSÓ‚“Ğ’‘PÕTB“Ğ’‘PÕQ˜‚•š\ÚH1#Y]šH]ZÚH\ˆØ›Yñ ]KˆĞ’‘PÕTX^›X[ÈT“RS“ÓÑÖWĞS‘ÑS•ST×İŒXœ™q(Ú\İ±$İHPÑHĞ’‘PÕTXÈĞ’‘PÕQ™YšZÜØ[H± X]š[İ\[K[‚›Øš™Zİ[H± YZÜÚ\İ1$È›Ü± Y1*İZ± HPÑH‘PÓÔ‘Q[ˆ‘PÓÔ‘‘T”ÒSÓ˜‚˜‚ŠŠ•ˆ0©ÍKŒH8 %Z^œİ1 Z±$ÚZÜİÎŠŠ‚‚˜^]Ø]XÙHYZÈÛX± ]HšY[± H›È]šY[H™qo±*ÛZY[K‚‚’S•KT‘PÓÔ‘‘Q‘T‘SÑH
-q$Ü±-Ú\È\ˆZ± Hqhq H[[]]X›H™XÛÜ™™\œÚZ± JN‚“Ğ’‘PÕTB“Ğ’‘PÕQ˜PÑH‘PÓÔ‘Q[ˆ‘PÓÔ‘‘T”ÒSÓ˜YZÈX[İH›ÈÛÛZ[š[™È™XÛÜ™™\œÚZ˜\È[ˆ™]YZÈÛX± ]H]ñ \İK‚‚Ô“ÔÔËT‘PÓÔ‘‘Q‘T‘SÑH
-q$Ü±-Ú\È\ˆÚ]1 H™XÛÜ™˜ZHÚ]1 H™\œÚZ± JN‚•PÑH‘PÓÔ‘Q”‘PÓÔ‘‘T”ÒSÓ‚“Ğ’‘PÕTB“Ğ’‘PÕQ•š\ÚH1#Y]šH]ZÚH\ˆØ›Yñ ]K‚‚X›ÜÈ™qo±*Û[ÜÈĞ’‘PÕTX^›X[ÈT“RS“ÓÑÖWĞS‘ÑS•ST×İŒXKˆ[šİ1 Bœ™q(Ú\İ±$İHPÑHĞ’‘PÕTXÈĞ’‘PÕQ™YšZÜØ[H± X]š[İ\[BŠ‹ˆ[šİÊH[ˆ± X]š[İÌŒKˆ[šİ1 H™q(Ú\İ±$İZ˜[HQ]ZØH›ÜØ]Zİ[X[B›İÛ™\ˆÚ1$Ûq NÈ\™Ù]Øš™Zİ[H± YZÜÚ\İ1$È]YXñ*ÙØZ± H™XÛÜ™™\œÚZ± K‚‚“™\[±*ÙØHÜ›ÜÜË\™XÛÜ™™Y™\™[˜ÙH\ˆS•SQ‚]Ø]XÙH^ˆİ\œ™[]\İ˜ZHÚ]Hİ\İ1*ÙİHq$Ü±-ÚH˜]ˆ\±*ÙØHØYÛX± ]B˜]Ø]XÙH™]šY[± H™qo±*Ûq K‚˜‚”[YZÈ™[XZ[±*İÈˆ0©ÍKŒH›ÜÛ1$Ùİ[XHš[™ÛÜ\ÈZÜİÈ\ˆÛİ™\›˜[˜ÙHÚİ[Y[Hñ HÓÕTÑX‚‚ŠŠ•	‘H0©Ì‹Œˆ8 %Z^œİ1 Z˜[XZ\ÈZÜİÎŠŠˆš[™ÛÜH”\œÚ\İ1$İH˜XÙK[Øš™Xİ™Y™\™[˜ÙH\ˆšY[˜HİZİ\±$İH±$Ü1*Ø˜NˆˆÛÜ1 H\ˆZHÙZÛÚ›ñh[È1#Y]H]ZİH›ÚİH[ˆš[™ÛÜH”™Y™\™[˜ÙH\ˆY\Ü˜]\İHÛÛšÜ±$İZH˜XÙXXš[]H™XÛÜ™™\œÚZ˜ZKˆ‹‹ˆ\™Ù]Øš™Zİ[H± YZÜÚ\İ1$È›Ü± Y1*İZ± H™XÛÜ™™\œÚZ± Kˆ‚‚ŠŠ•	‘H0©Ì‹Œˆ8 %Z^œİ1 Z±$ÚZÜİÎŠŠˆ\È]ÈZÜİËØ\Èˆ0©ÍKŒHZ^œİ1 Z±$ÚZÜİ1 K± \™È± \™1 KˆX˜\ÈØYq/\È1$ØÈ[\[Y[][Ûˆ\ˆZÜİHšqa± HY[\ÚØ\ÎÈ]1hq-Ú\±*Ø˜H\ˆ“UˆRS‚‚”[YZÈ™[XZ[±*İH	‘H0©Ì‹Œˆ›ÜÛ1$Ùİ[XHš[™ÛÜH\ˆÛİ™\›˜[˜ÙHÚİ[Y[Hñ HÓÕTÑX‚‚ˆÈÈÈËŒKŒKˆ“ÈX[ñhX[˜\È±$Ü[\È8 %]\›Z[š\İ\ÚØHÛ\ÚYšZñ XÚZ˜B‚’Û\ÚYšZñ XÚZ˜H™]˜Zİ\ÚÛÈPÑPP’SUWÔ‘PÓÔ‘İŒWİŒ‹›YÛÛ[Z]1 HMÎØÍL
-
-K‚‚ŠŠKˆ0©ÍKŒH˜XÙK[Øš™Xİ™Y™\™[˜Ù\È8 %X[È“È™qo±*Û]NŠŠ‚‚˜^°©ÍH›ÜÛ1$Ùİ[XHš[™ÛÜH8 %Y\Ü˜]\İHÓÕTÑH]Ø]XÙHÛİ™\›˜[˜ÙHÚİ[Y[[B°©ÍËŒˆ›ÜÛ1$Ùİ[XHš[™ÛÜH8 %SPSˆPÒTÒSÓˆ‘SUQPÑHĞ’‘PÕ‘Q‘T‘SÑTÂˆ\ˆ]Ø]XÚH^ˆÛÛšÜ±$İÈSÑSHĞÔ‘QS’S‘È‘PÓÔ‘Q°©ÌÍˆ‘SUQPÑHĞ’‘PÕ‘Q‘T‘SÑTÂ°©ÌÎ‘SUQPÑHĞ’‘PÕ‘Q‘T‘SÑTÂ˜‚ŠŠ‹ˆÚØZYšHV”Ó1$‘ÕÈ›È0©ÍKŒH™qo±*ÛXH8 %]šY[˜ÙK\İÜ™H™Y™\™[˜Ù\ÎŠŠ‚‚˜^°©ÌMÈU’QSÑHÕÔ‘H‘Q‘T‘SÑKU’QSÑHÑUÈ‘U’QUÈQÑS‘TUQU°©ÌŒU’QSÑHÕÔ‘H‘Q‘T‘SÑKU’QSÑHÑUÈ‘U’QUÈQÑS‘TUQU˜‚±hYH]ZÚHY[YšXñ$È1 \±$ÚH]šY[˜ÙHÛX± ]]šK™H˜XÙK[Øš™XİˆÈÚ1$ÛXH™]YZÈXZ[±*İK‚‚ŠŠËˆÚØZYšHV”Ó1$‘ÕÈ›È0©ÍKŒH™qo±*ÛXH8 %1 \±$Ú˜\ÈÚ\İ1$ÛX\È™Y™\™[˜Ù\ÎŠŠ‚‚˜^°©ÍˆÓÕTÑHÖTÕSHÈÒS“‘S‘Q‘T‘SÑKUK–B°©ÍÈPÒTÒSÓˆÓÕTÑK‘Q‘T‘SÑKUB°©ÍÕUU‘Q‘T‘SÑH
-™^[1 ]H\Y˜ZİH]˜qhX[± \ÈšY]JB°©ÍËŒHÓÓ•PÕTH‘Q‘T‘SÑTÈ
-ÛÛ›Û1$İH™q(Ú\İ˜H±$Ü1*Ø˜K™H˜XÙK[Øš™Xİ
-B˜‚ŠŠ‘ˆ˜\™HQ]ZÚH8 %[YZÈ˜\™HQ]ZÚNŠŠ‚‚˜^°©ÍˆPÕ“Ñ’SH’S‘S‘ÈQËSÑSHĞÔ‘QS’S‘È‘PÓÔ‘QÂ°©ÍËŒHTÒÈQ‘SUQSÑSHQÕTT”ÑQTÈĞHQˆ‘PÓTÔÒQ’PĞUSÓˆ‘U’QUÈPÒTÒSÓˆQ°©ÍËŒˆTÒÈQ’QÑÑTˆ‘QÒTÕ–HQ’QÑÑTˆ‘QÒTÕ–H‘T”ÒSÓ‹ˆ‘SUQPÕ’S‘S‘ÈQËĞÔ‘QS’S‘ÈPÒTÒSÓˆQ°©ÌLÈÓÕTÑHQ°©ÌMHÓÕTÑHQËU’QSÑHQÂ°©ÌMÈÓÕTÑHQ°©ÌŒU’QSÑHQÂ°©ÌŒˆ‘TURT‘SQS•QU’QSÑHQÂ°©ÌÈU’QSÑHQÂ°©ÌÌT‘ÑUĞ’‘PÕQ
-ÈT‘ÑUĞ’‘PÕTB°©ÍSÑSHĞÔ‘QS’S‘ÈÕSSPT–HÈSÑSHĞÔ‘QS’S‘È‘PÓÔ‘Q˜‚±hYH]ZÚHY[YšXñ$ÈØš™ZİH1 HqhXHY\˜ZÜİHY]˜\›ÜÈ\ˆ™XØ]\œÜ1*Ù1*ÙİHQ[ˆ™]YZÈ1 \™ZYİH\ˆ0©ÍKŒHİZİ\±$İ1 [H]Ø]Xñ$ÛH1hXZ± HZÙ]1$ËˆÈÙ[X[ZØH\ˆZİš]˜[[H[˜K\™XÛÜ™™qo±*ÛX[NˆX[İÈPÑH‘PÓÔ‘Q[ˆ‘PÓÔ‘‘T”ÒSÓ˜\È^œšY]›ÈQ™YšZÜØH
-	‘H0©ÌŠH[ˆ]ZØH›ÜØ]Zİ[XH
-0©ÌÌŒJK‚‚ŠŠ‘KˆšY[±*Ùñ H˜\™H8¡¤ˆ™Y™\™[˜ÙHÛÛ™\œÚZ˜H1hXZ± HZÙ]1$ÎŠŠ‚‚˜^°©ÌMÔ’QÒSˆTÒÈQÔ’QÒSˆÕUUQÔ’QÒSˆĞ’‘PÕQˆ8¡¤ˆÔ’QÒSˆTÒÈ‘Q‘T‘SÑKÔ’QÒSˆÕUU‘Q‘T‘SÑKÔ’QÒSˆĞ’‘PÕ‘Q‘T‘SÑBˆš\Ø\Èñ H[˜\ÈÔ“ÔÔËT‘PÓÔ‘™Y™\™[˜Ù\È
-1hq*ÜÈŒÈ0©ÍËK
-B˜‚ŠŠ‘‹ˆ›ÚÛ\ñ$Ú[XH›İZZİ[\È1 \±$ÚšY[H‹‹‹ˆ‘Q‘T‘SÑTÈˆ]ZÚY[NŠŠ‚‚˜^’˜H\œÚ\İ1$İH™Y™\™[˜Ù\È]ZØHq$Ü±-Ú\È\ˆT“RS“ÓÑÖWĞS‘ÑS•ST×İŒHKˆ[šİ1 Bœ™q(Ú\İ±$İÈPÑHĞ’‘PÕTK]ZÜÈ\ˆKŒKˆ[šİH˜XÙK[Øš™Xİ™Y™\™[˜ÙK‚•1 H›ÚÛ\ñ$Ú[XH™qo±*Û\È\ˆS•KT‘PÓÔ‘˜HšY[ˆİÛ™\ˆØYq/HÚØZYšH™\˜\ØBÔ“ÔÔËT‘PÓÔ‘™qo±*Û]K‚‚’˜Hq$Ü±-Ú\È˜]ˆKˆ[šİ1 H™q(Ú\İ±$İÈ˜XÙK[Øš™Xİ
-ÛÛ›Û1$İH™q(Ú\İ˜H±$Ü1*Ø˜K™]šY[˜ÙK\İÜ™K1 \±$Ú˜HÚ\İ1$ÛXK\Y˜ZİH]˜qhX[± \ÈšY]JK]ZÜÈ˜]ˆKŒK‚œ[šİH™Y™\™[˜ÙH[ˆØYÛX± HØ]H\Ûñh[ÈÚ1$Û]K‚˜‚“›İZZİ[\È]YXØ\È^ˆ0©ÍËŒH
-‘SUS•PÕ’S‘S‘È‘Q‘T‘SÑTØPUT’PSTÔÕSTSÓˆ’S‘S‘È‘Q‘T‘SÑTØÕTÔ•S‘ÈÓÕTÑH‘Q‘T‘SÑTØÓÕS•T•RSS‘ÈÓÕTÑH‘Q‘T‘SÑTØSPSˆPÒTÒSÓˆ‘Q‘T‘SÑX
-K0©Î
-ÓÕTÑHÈ‘Q‘T‘SÑXÓTÔÒQ’PĞUSÓˆTÔÑTÔÓQS•‘Q‘T‘SÑTØ
-K0©ÌLÈ
-‘TÓÓUSÓˆ‘Q‘T‘SÑX
-K0©ÌŒˆ
-UHÓTÔÈU‘S•‘Q‘T‘SÑTØÓTÔÒQ’PĞUSÓˆTÒTÈ‘Q‘T‘SÑTØ
-K0©ÌÌ
-ÓÕTÑHÈU’QSÑH‘Q‘T‘SÑTØ‘T’Q’PĞUSÓˆĞÓÔH‘PÓÔ‘‘Q‘T‘SÑTØ
-K0©ÌÍÈ
-TĞĞSUSÓˆ‘Q‘T‘SÑX‘TÔÓ”ÑH‘Q‘T‘SÑX
-K0©Í
-ÓÕTÑHÑU‘Q‘T‘SÑX‘SUQ’S‘S‘ÔØ‘SUQ‘TURT‘SQS•ØQĞSÓTÔÒQ’PĞUSÓˆTÔÑTÔÓQS•‘Q‘T‘SÑTØSÑSHĞÔ‘QS’S‘È‘PÓÔ‘‘Q‘T‘SÑTØÓÓTUS‘TÔÈÓÓ•“Ó‘Q‘T‘SÑXUHÓTÔÈU‘S•‘Q‘T‘SÑTØ‘T’Q’PĞUSÓˆĞÓÔH‘PÓÔ‘‘Q‘T‘SÑTØ
-K‚‚“™ZÛ\ÚYšXñ$İH]ZİH˜]‹ˆ[\[Y[][ÛˆZZñ H^›[Z˜[]H™qo±*ÛXH^±$ñ/H˜]‹‚‚–ÑÒÕSQS•1$•ÈQUÕ1 H1$“UST×H1h1*È[HXZ[˜H™]šY]ÈÌMˆñ ZÛİ±$ÚšH\İ\š[± ]Z± H[YÜ± XÚZ˜\È1$Û][q HšZÜñ$İÈ1#Y]H]ZİHÛX± qhX[˜\È™\™^™[1 XÚZH[˜K\™XÛÜ™™Y™\™[˜Ù\ÈØY1*Ú[q KˆY]İ1 Z˜HØ[HÛÛœÙ[œØ[H± X]YXØ\È\±*È^ˆ1h[È[Kˆ1$ØÈÛÛœÙ[œØH›Ü›Ú± [H™\YXÚYqhX[\È]Ù]šqhq-ÜÈ[\[Y[][Ûˆ\›İ˜[‚‚ˆÈÈÈËŒ‹ˆH8 %\ÜÚYÛ›Y[]]Üš]H˜\Ú\Â‚“İÛ™\ˆØYq/\Î‚‹HPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌÍ˜8 %SPSˆPÒTÒSÓˆÚ1$ÛXNÂ‹HPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌÎ8 %PÕSÓˆÕÓ‘TˆÈ‘TÓÓUSÓˆUUÔ’UH˜\Ú\È™Y™\™[˜Ù\Ë‚‚˜SPSˆPÒTÒSÓˆ‘PÓÔ‘Y]šY[›ÈİZİ\±$İHTÔÒQÓ“QS•UUÔ’UHTÒTÈÓÕTÑH‘Q‘T‘SÑXˆ˜HSPSˆPÒTÒSÓˆØ[È\ˆXİ[ÛˆİÛ™\ˆ˜ZH™\ÛÛ][Ûˆ]]Üš]H\ÜÚYÛ›Y[[X]K1hq*ÈY\Ü˜]\İ1 HÓÕTÑX]Ø]XÙH\ˆØ›Yñ ]K‚‚ˆÈÈÈËŒËˆˆ8 %™XØ]\œÜ1*Ù1*ÙÜÈUˆQ‚“İÛ™\ˆ˜Z[N‚‹HÓÕ‘T“SÑKÓSÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒK›Y0©Í˜Â‹HÓÕ‘T“SÑKÓÕUÓÕTÒS‘×ÑPWÓSÑSWÕ’QÑÑT—ÔÑUİŒŒK›Y‚‚•š\Ø\ÈÙ[X[\Úñ \ÈU‹SÕUÓÕTÒS‘ËLX±$Ü1*Ø˜\È1hXZ›ÜÈ]›ÜÈ˜Z[ÜÈZ^œİ1 Zˆ\ˆU‹LXˆ˜][œÈšYÙÙ\‹\Ù]Øš™ZİÈ™]YZÈ˜Y1*İË‚‚‘˜Zİ\ÚØZ\Èİ1 ]›ÚÛ\ÈÛÛ[Z]1 HMÎØÍLˆU‹SÕUÓÕTÒS‘ËLXØ\İÜ[\ÈÈ™Z^™\ÈZİ1*İ˜Z›ÜÈ˜YÜÈ
-SÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒK›Y8 %NÈÕUÓÕTÒS‘×ÑPWÓSÑSWÕ’QÑÑT—ÔÑUİŒŒK›Y8 %ŠH[ˆ™Z^™\È™]šY]ÈÈ™\ÜÛœÙH\Y˜ZİÜËİ\ˆ\È\ˆq(Ú]1*ÛXH±$Üİ\š\ÚØH]Ø]XÙH[ˆ™]YZÈXZ[±*İË‚‚ˆÈÈÈËˆ8 %İÛ™\‹YØİ[Y[Q[˜\šX[Â‚’Y]šY\İ1hq*ÜÈŒÈ0©ÍKŒH0©Ì‹ŒHZ^œİ1 Z±$ÚZÜİK0©ÍKŒˆ˜][›È	‘H0©ÌÌŒH\Zñh\ØYq/H\ˆNHš[™HX\[™È[ˆ0©ÍKŒÈšY[H˜][H0©ÌÌ[™ZÜØHš[™Kˆ‘TURT‘SQS•ÓÓTÓ‘S•š[™H\ˆÓÓTÓ‘S•QÈˆ0©ÌÈ]ZÜÈ™]YZÈ1 \œØ]ZİËˆUHÓTÔÈU‘S•š[™H\ˆU‘S•QÈˆ0©ÌLÈ]ZÜÈ™]YZÈ1 \œØ]ZİËˆÈ˜ZİH›Ü˜ZY1*Ú[\È[YZÈ™[XZ[±*İË‚‚ˆÈÈÈËKˆ8 %’SÔˆTÒÈÕUU™Y™\™[˜Ù\Â‚“İÛ™\ˆØYq/N‚‹HPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌM‚‚ŠŠZ^œİ1 ZŠŠˆ˜\™HÜšYÚ[ˆQ]Zİ\ÈÔ’QÒSˆTÒÈQÔ’QÒSˆÕUUQÔ’QÒSˆĞ’‘PÕQÚ˜HY[q$Ü›Ú˜[\×X\‚‹HÔ’QÒSˆTÒÈ‘Q‘T‘SÑXÂ‹HÔ’QÒSˆÕUU‘Q‘T‘SÑXÂ‹HÔ’QÒSˆĞ’‘PÕ‘Q‘T‘SÑHÚ˜HY[q$Ü›Ú˜[\×XÂ‚š\Ø\Èñ H[˜\ÈÔ“ÔÔËT‘PÓÔ‘™Y™\™[˜Ù\È^ˆÛÛšÜ±$İH^˜Ù[ÛY\È™XÛÜ™™\œÚZKˆÓÕTÑHTNˆ’SÔˆTÒÈÕUU[ˆS’T’UQ‘T’Q’PĞUSÓˆU‘S[YZÈ™[XZ[±*İK‚‚ˆÈÈÈË‹ˆLKÔŒÈ8 %SPSˆPÒTÒSÓˆ]YXñ*ØH]]Üš]1 ]B‚“İÛ™\ˆØYq/NˆPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌÍ˜ˆY]šY\İ1hq*ÜÈŒÈ0©ÍZ^œİ1 Z±$ÚZÜİK‚‚ˆÈÈÈËËˆL‹ÔŒˆ8 %™]™\œñ$İH]›İHY[]1 ]B‚“İÛ™\ˆØYq/\ÎˆPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌLXÈ\Ú[˜\šX[H[YZÈˆ0©ÎX[ˆ	‘H0©Ì‹ŒØˆ\[\ÈZ^œİ1 ZˆY\šYZñhq$Ú± \È™]šY]Ë\™\ÜÛœÙHZØÙ\HÜš]1$ÜšZHñ H›İZZİÈ1hq*ÜÈŒÈ0©ÌË‚‚ˆÈÈÈËˆŒH8 %œ™Y^™H\[™[˜ŞB‚“İÛ™\ˆQĞSĞÓTÔÒQ’PĞUSÓ—ĞTÑSS‘WĞSQS‘QS•İŒŒ‹›Y8 %˜][˜H\Zñh\ØYq/H0©ÎKŒHœ™Y^™HšYZñh[›ÜØXñ*Ú[ZX
-1hq*ÜÈŒÈ0©ÌˆZÜİÊK‚‚•šY[±*ÙØZ\ÈİÛ™\‹ˆ]Ø]XÙH^ˆ™Ø[H[Y[™Y[XØÙ\[˜ÙHÛÛ›ÛHˆ^±a™[]Kˆ[Y[™Y[0©ÌLH‘ÛË[]™HšYZñh[›ÜØXñ*Ú[ZHˆ™]YZÈXZ[±*İË‚‚ˆÈÈÈËKˆH8 %˜[Y][ÛˆÜXÚYšXØ][Û‚‚•š\Ø\ÈY\šYZñhHZ[±$İ1 \ÈÚ1$ÛX\ÈÛÜ™ZØÚZ˜\Ë˜[Y1 XÚZ˜\È›İZZİ[ZH[ˆ\İHYZÈY]šY\İHšY[± H]Ûq \± H[\[Y[][ÛˆÛÛ[Z]1 K‚‚ˆÈÈÈËŒLˆ™]šY]È[ˆİ]\ØHÛÛœÙZİ™[˜ÙB‚•Z± Hqhq H[\[Y[][ÛˆšY[±*Ø± H]˜][š[˜H™]šY]ÈÌMˆ[YÜ± XÚZ˜\ÈY\˜ZÜİK[Y[™Y[İ]\İK›ØYX\[ˆ“Ò‘PÕĞÕT”‘S•ÔÕUK›YZØZH]š[İñhZH˜Zİ\ÚØZ˜ZH[\[Y[][Û‹ˆœ›Ş™[ˆ˜\Ù[[™Hİ]\İH™[XZ[˜H™^ˆ]Ù]šqhq-ØHœ™Y^™H1$Û][XK‚‚ˆÈÈˆ\[™[˜ŞHØ\B‚˜^”’SPT–HĞÕSQS••PÑPP’SUWÔ‘PÓÔ‘İŒHŒ‚‚‘”“Ö‘SˆS”UÂ‹H“Ñ‘TÔÒSÓSÔĞÓÔWİŒKŒÂ‹HPÑPP’SUWÔ‘PÓÔ‘İŒHŒB‹HT“RS“ÓÑÖWĞS‘ÑS•ST×İŒHŒŒÂ‹H‘T’Q’PĞUSÓ—Ô“ÕĞÓÓİŒHŒB‚‘Q•S”UÂ‹H“Ñ‘TÔÒSÓSÔĞÓÔWİŒK‹HT“RS“ÓÑÖWĞS‘ÑS•ST×İŒHŒ‹H‘TURT‘SQS•×ÓPU’VÑÓÕ‘T“SÑWİŒHŒŒÂ‹HÔTUSÓ—ÕÓÔ’Ñ“ÕÔ×İŒHŒŒ‚‹HQĞSÔ‘TÑPTÒÓQUÑİŒHŒŒ‚‹HSÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒHŒŒB‹HÕUÓÕTÒS‘×ÑPWÓSÑSWÕ’QÑÑT—ÔÑUİŒŒB‚”ĞSQKTPÒĞQÑHTS‘SÒQTÂ‹H“Ñ‘TÔÒSÓSÔĞÓÔWİŒK‹HT“RS“ÓÑÖWĞS‘ÑS•ST×İŒHŒ‹H‘TURT‘SQS•×ÓPU’VÑÓÕ‘T“SÑWİŒHŒŒÂ‹HSÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒHŒŒB‹HÕUÓÕTÒS‘×ÑPWÓSÑSWÕ’QÑÑT—ÔÑUİŒŒB‹HQĞSĞÓTÔÒQ’PĞUSÓ—ĞTÑSS‘WĞSQS‘QS•İŒŒ‚‚‘ĞÕSQS•È“ĞÒÑQ–HTÈÓÔ’Â‹H\šY\Úñ \ÈÛ\ÚYšZñ XÚZ˜\È[Y[™Y[ZÙ]\ÈØ[H]Y]Â‹HÈŒKÈˆŒˆÈ	‘HŒœ™Y^™H1$Û][\Â‚”SÕÈSTSQS•USÓˆÓÓ”ÑTUQSÑTÂ‹H™Y™\™[˜Ù\È˜[Y]Ü˜[H± X]1hq-Ú\ˆ[˜K\™XÛÜ™[ˆÜ›ÜÜË\™XÛÜ™™qo±*Û\Â‹H\H8¡¤ˆQšY[X\[™È± X±jİYZ1 [š\ÚÚH˜[Y1$Ú˜[X[H™]İÛ™\ˆÚ1$Ûq [B‹H™\È1*ÛYqa˜H\İÈ™Y±*ÚÜİYq/]]Ù[X[\ÚİHUˆQZİ1*İ˜Z›ÜÈ˜YÜÂ‹Hœ™Y^™H\[™[˜ŞH\ˆ[Y[™Y[›ØÙ\ØH™XÛÛ™][Û‹™H[[YHİ\Ü[œÚ[Ûˆİ]B˜‚ˆÈÈKˆ™YØ]1*İšYH[ˆYZ1 [š\ÚÚYH\İB‚ˆÈÈÈKŒKˆ™XÛÜ™ÈØÚ[XH1*ÛYqa˜H\İB‚•˜[Y1$ÈšY[HÛÛšÜ±$İH™XÛÜ™[œİ[˜ÚK‚‚˜^“ŒNˆ[˜K\™XÛÜ™™Y™\™[˜ÙHZ\ÜÚ[™ÈĞ’‘PÕTHOˆS•SQ“Œˆ[˜K\™XÛÜ™Ğ’‘PÕQ™Yš^İ\HZ\ÛX]ÚOˆS•SQ“ŒÎˆÜ›ÜÜË\™XÛÜ™™Y™\™[˜ÙHZ\ÜÚ[™ÈPÑH‘PÓÔ‘QOˆS•SQ“ˆÜ›ÜÜË\™XÛÜ™™Y™\™[˜ÙHZ\ÜÚ[™È‘PÓÔ‘‘T”ÒSÓˆOˆS•SQ“NˆÜ›ÜÜË\™XÛÜ™\™Ù]XœÙ[[ˆ[›™Y™XÛÜ™™\œÚ[ÛˆOˆS•SQ“ˆSPSˆPÒTÒSÓˆÛÛ\]Xš[]HšY]ÈÛÛ™›XİÈÚ]]]Üš]]]™Bˆ‘SUQPÑHĞ’‘PÕ‘Q‘T‘SÑTÈOˆS•SQ“ÎˆSPSˆPÒTÒSÓˆ\ÙY\È\ÜÚYÛ›Y[˜\Ú\ÈÚ]İ]ˆTÔÒQÓ“QS•UUÔ’UHTÒTÈÓÕTÑH‘Q‘T‘SÑHOˆS•SQ“ˆ[œİ[˜ÙHÙˆH™YÚ\İ\™YPÑHĞ’‘PÕTHXÚÜÈHQšY[˜[YY[‚ˆ]ÈİÛ™\ˆØÚ[XKÜˆ]ÈQ˜[YH™Yš^Ù\È›İX]Ú0©ÌˆOˆS•SQ“Nˆ’SÔˆTÒÈÕUUÜšYÚ[ˆ™Y™\™[˜ÙHXÚÜÈ[›™YÜšYÚ[ˆ™XÛÜ™™\œÚ[Û‚ˆOˆS•SQ“ŒLˆÓÓ•S•TÒ™\Ù[Ú]İ]ÓÓ•S•TÒSÓÔ’UHOˆS•SQ“ŒLNˆ[™\œÚ[Û™YÛİ\˜ÙHY[]H[œİY™šXÚY[OˆS”‘TÓÓ‘QTÔÕQH™\]Z\™Y˜‚“^›XZqa˜H
-ÊNˆ™q(Ú\İ˜H[±*Ùİ[XHq/H
-››È^Xİ0©ÌÌQ’QSSQHX\[™ÈŠH\ˆ^±a™[]H›È™XÛÜ™[]™[\İY[Kˆ™]šY[˜H™XÛÜ™[œİ[˜ÙH™]˜\ˆ±jİS•SQ1 Y1$ñ/ØH	‘H0©ÌÌŒH±jÚÜİš[™\Ëˆ[±*Ùİ[XHÛÛ›ÛH1 \šY]İH^ˆ“UË‚‚ˆÈÈÈKŒ‹ˆ™\ÈÈ™YÚ\İH1*ÛYqa˜HYZ1 [š\Úñ H1 \˜˜]YB‚•˜[Y1$È™\Èİ1 ]›ÚÛK™H™XÛÜ™[œİ[˜ÚK‚‚˜^”“UNˆ[HÙ[X[XÈU‹OSQO‹O•SP‘TˆY[YšY\ˆ™[XZ[œÈ[ˆH“UH’SHÑUˆOˆRS”“Uˆˆ0©ÍKŒH[™	‘H0©Ì‹Œˆ™Y™\™[˜ÙK[[ÙHYš[š][ÛœÈY™™\ˆOˆRS”“UÎˆ[H0©ÌHPÑHĞ’‘PÕTHXÚÜÈ^XİHÛ™H0©ÌÌŒHX\[™È›İËˆÔˆH0©ÌÌŒHQ’QSSQHÙ\È›İ^\İ[ˆH˜[YYˆQ’QSĞÒSPHÕÓ‘TˆÙXİ[Û‚ˆOˆRS˜‚”“UH±$Ü[\È
-ŠH8 %™Xñ*Ş˜H˜Z[HÛÜKØ\È˜]ˆ\qhZ[± [XH™^ˆ]Ù]šqhq-ØH1$Û][XN‚‚˜^”“UH’SHÑU‚‘ÓÕ‘T“SÑKÔ“Ñ‘TÔÒSÓSÔĞÓÔWİŒK›Y‘ÓÕ‘T“SÑKÕPÑPP’SUWÔ‘PÓÔ‘İŒWİŒ‹›Y‘ÓÕ‘T“SÑKÕT“RS“ÓÑÖWĞS‘ÑS•ST×İŒWİŒ›Y‘ÓÕ‘T“SÑKÔ‘TURT‘SQS•×ÓPU’VÑÓÕ‘T“SÑWİŒK›Y‘ÓÕ‘T“SÑKÓÔTUSÓ—ÕÓÔ’Ñ“ÕÔ×İŒK›Y‘ÓÕ‘T“SÑKÓQĞSÔ‘TÑPTÒÓQUÑİŒK›Y‘ÓÕ‘T“SÑKÓSÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒK›Y‘ÓÕ‘T“SÑKÓÕUÓÕTÒS‘×ÑPWÓSÑSWÕ’QÑÑT—ÔÑUİŒŒK›Y‘ÓÕ‘T“SÑKÓQĞSĞÓTÔÒQ’PĞUSÓ—ĞTÑSS‘WĞSQS‘QS•İŒŒ‹›Y‚”“UHVÓTÒSÓˆ•SN‚•š\ÚH1 \±$ÚšYH™\È˜Z[KÜİ\œ™Xšİ\±hH˜Z[Ëİ\˜H›ÜØ]Zİ[\ÈØ]\‚—Ô‘U’QUËÔ‘TÔÓ”ÑKĞUQU˜ZHÕTÒËˆ±$Üİ\š\Úñ \È]Ø]XÙ\È™]šY]È[‚œ™\ÜÛœÙH\Y˜ZİÜÈ\ˆq(Ú]1*ÛX\È[ˆ™\˜YHRS‚˜‚ˆÈÈÈKŒËˆœ™Y^™H›ØÙ\ØH™XÛÛ™][Û‚‚•˜[Y1$È[Y[™Y[›ØÙ\ØH\˜±*ØK™H™XÛÜ™[œİ[˜ÚH[ˆ™H™\ÈØ]\K‚‚˜^‘”Nˆ][\YˆŒˆœ™Y^™HÚ]İ]Ø[YK\XÚØYÙHÈŒK[™	‘HŒœ™Y^™BˆOˆ”‘QV‘H‘PÓÓ‘USÓˆ“ÕQU˜‚˜”X˜]ˆ™XÛÜ™[]™[˜[Y]ÜœË™Z^›X[ÈØ[›ÛšXØ[“ĞÒØ[ˆ˜]ˆ™\È1*ÛYqa˜H\İËˆ1 HİÛ™\ˆ\ˆ[Y[™Y[0©ÎKŒK‚‚•±*ÜÈ1*ÛYqašH\ˆ›Ù[1*İNˆKŒKˆH™XÛÜ™[œİ[˜ÙNÈKŒ‹ˆH™\ÈÈ™q(Ú\İ˜H[±*Ùİ[\ÎÈKŒËˆHœ™Y^™H›ØÙ\ÜË‚‚ˆÈÈLˆŒx $ÒHİ]\ÚB‚ˆÈÈÈŒH8 %X\[™Èq$Ü±-ØHšY]H[ˆİZİ1jÜ˜BŠŠ”QqaQSU4KŠŠˆš\Ú[± Z[\Îˆ1hq*ÜÈŒÈ0©ÍKŒˆ˜][± H	‘H0©ÌÌŒH\Zñh\ØYq/H\ˆ1#Y]± [HÛÛÛ›± [HPÑHĞ’‘PÕTHQ‘Q’VQ’QSSQHQ’QSĞÒSPHÕÓ‘T˜[ˆ0©ÍKŒÈšY[˜H˜][˜H0©ÌÌ[™ZÜØHš[™Kˆ[\›˜]1*İ˜H˜ZH1*Ù±$Ü1*ÙİHˆ^±a™[]Kˆ\˜[1$ÛÈØ[›ÛšXØ[™q(Ú\İœÈ™]YZÈ˜Y1*İÎˆ0©ÌÌŒH\ˆ]˜\Ú[± ]È[™ZÜÜËÛÛ™›ZİHØY1*Ú[q H]]Üš]]1*İ˜H\ˆİÛ™\ˆÚ1$ÛXKˆSÑSH’QÑÑTˆÑUš[™ZHÚ1$ÛX\ÈİÛ™\ˆ
-SÑSWÕ’QÑÑT—Ô‘QÒTÕ–WİŒH0©Ì˜
-H[ˆ™q(Ú\İ˜HÛİ™\›˜[˜ÙHİÛ™\ˆ
-‘TURT‘SQS•×ÓPU’VÑÓÕ‘T“SÑWİŒX	‘H0©ÌÌ
-H\ˆÚØZYšH›Ù[1*İKˆ1 \˜˜]Y1*İÈ™]	‘HŒ0©ÌÌ˜Zİ\ÚÛÈÛÛÛ›HİZİ1jÜK‚‚ˆÈÈÈŒˆ8 %‘TURT‘SQS•ÓÓTÓ‘S•Q]ZÜÂŠŠ”QqaQSUËŠŠˆX\[™Èš[™H\ˆÓÓTÓ‘S•QİÛ™\ˆPÑPP’SUWÔ‘PÓÔ‘İŒHŒˆ0©ÌØˆ1 \œØ]ZñhX[˜H™]YZÈ™ZZİNÈX]\šq [ÈY[Y\ÛÈ˜]ˆÛÛœİ]1$İË[ˆ1 \œØ]Zİ[\È±jİH]Ù]šqhq-ØH\š]Zİ1jÜ˜\È[H1 \œ\È[Y[™Y[0©ÌM\İ\š[± ]1 H±$Ü[XKˆ1 \˜˜]Y1*İÈ™]ˆŒˆ0©ÌÈ˜Zİ\ÚÛÈ]ZİH›ÚİK‚‚ˆÈÈÈŒÈ8 %0©Ì‹ŒH[˜\šX[BŠŠ”QqaQSU4KŠŠˆ1h1*ÜÈŒÈ0©ÍKŒHZ^œİ1 Z±$ÚZÜİÈØ]\ˆš\İ\È1#Y]\È˜\ñ*İÜÈ[[Y[\ÎˆØ›Yñ ]H\[H]š[İñh]HQ]ZİHØ]˜[H]İ1 ]±*ÙØ[HY\˜ZÜİ[NÈSÑSHQ\ˆSÑX™YšZÜİNÈSÑSHQÈ^Û›Û^HSÑSX›Ù[1*Ú[]H\ˆ™XZ^œİ1 Z˜[q*Ø˜\ÈZZİ[]NÈX\[™ÈØ\ØZ\İ\È›İZZİ[]H^ˆ0©ÌÌŒKˆSÑSXY[q$ÜœÈ™]YZÈ1 \šY]İËˆÙ[X[\Úñ H™YÜ™\ÚZ˜H™]qh\™Z^±$Ú›È0©Ì‹ŒH\ˆ›İ±$ÜœİK‚‚ˆÈÈÈ8 %“È™Y™\™[˜Ù\È±$Ü[\ÂŠŠ”QqaQSU4KŠŠˆ1h1*ÜÈŒÈ0©ÍËŒKŒHZ^œİ1 ZˆŒˆØ\˜ZÜİH\ˆ[HÛ\ÚYšZñ XÚZH™]˜Zİ\ÚÛÈˆŒˆH8 %0©ÍKŒHX[İ1 ZšH
-0©ÍK0©ÍËŒ‹0©ÌÍ‹0©ÌÎ
-NÈˆ8 %]šY[˜ÙK\İÜ™H™Y™\™[˜Ù\È^œÛ1$Ùİ\È
-0©ÌMË0©ÌŒ
-NÈÈ8 %1 \±$Ú˜\ÈÚ\İ1$ÛX\È™Y™\™[˜Ù\È^œÛ1$Ùİ\È
-0©Í‹0©ÍË0©ÍÕUU‘Q‘T‘SÑX0©ÍËŒHÓÓ•PÕTH‘Q‘T‘SÑTØ
-NÈ8 %˜\™HQ]ZÚH^œÚØZ]1*İH[ˆ]İ1 ]H˜\™NÈH8 %šY[±*Ùñ HÛÛ™\œÚZ˜H\ˆ0©ÌM
-
-NÈˆ8 %›ÚÛ\ñ$Ú[XH›İZZİ[\È1$ØÈ™Y™\™[˜Ù\Èq$Ü±-ØH\Kˆ™ZÛ\ÚYšXñ$İH]ZİH˜]‹‚‚ˆÈÈÈH8 %Z^œİ1 qhX[˜H˜ZH\[[± qhX[˜BŠŠ”QqaQSUËŠŠˆX± [HØYq/1 [HÜ\± XÚZ˜H\ˆ
-ŠRV”Õ1 1hSJŠ‹ˆ1h1*ÜÈŒÈ0©ÍËŒHÚ]1$È™Xñ*ŞHZ^œİ1 Z˜[[ÈZÜİHˆ0©ÍKŒH[ˆ	‘H0©Ì‹Œˆ[ˆÛšYYˆ™Xñ*ŞHZ^œİ1 Z±$ÚZÜİKˆZZİ[\È•š\ÚH1#Y]šH]ZÚH\ˆØ›Yñ ]Hˆqh\™Z^±$Ú± H›Ü›q HYZÈ±$ÜİÈ[ˆ1 \˜Ùq/\È^ˆÜ›ÜÜË\™XÛÜ™™qo±*ÛXH›ÚİKˆYqhXH™][˜H\ˆ[˜K\™XÛÜ™™qo±*Û]H™\[YZË‚‚ˆÈÈÈˆ8 %“UH±$Ü[\ÂŠŠ”QqaQSU4KŠŠˆ1h1*ÜÈŒÈ0©ÎKŒˆYš[±$È“UH’SHÑU\ˆ]šqašY[HÛÛšÜ±$İY[H˜Z[Y[H[ˆÚØZYHVÓTÒSÓˆ•SKˆ±$Üİ\š\ÚÚYH™]šY]ÈÈ™\ÜÛœÙHÈ]Y]\Y˜ZİH™\˜Y1*ÜÈ˜[ÙH˜Z[\™Kˆ1 \˜˜]Y1*İÈ™]˜Zİ\ÚÛÈU‹SÕUÓÕTÒS‘ËLXØ\İÜ[q*ØHÛÛ[Z]1 HMÎØÍL‚‚ˆÈÈÈÈ8 %1*ÛY[š\ÂŠŠ”QqaQSU4KŠŠˆ1h1*ÜÈŒÈ0©ÎH›Ù[H±*ÜÈ1*ÛYqa\Ëˆ[YZÈZØZH™XÛÜ™Z[œİ[˜ÙH\İÈ
-±jÚÜİİÛ™\ˆÚ1$ÛX\ÈQ]ZØH[œİ[˜ñ$È˜ZH™YšZÜØH™X]š[İ1*Ø˜JKˆ™q(Ú\İ˜H[±*Ùİ[XHq/H\šY[›İH\ˆ“UËØ\È\[\È1 \˜˜]YK˜ZH0©ÌÌŒH›Ü± Y1*İZ\ÈQ’QSSQH˜Zİ\ÚÚHZÜÚ\İ1$È›Ü± Y1*İZ± HİÛ™\ˆØYq/1 Kˆ“UÈX›1$ñhX[± \È\ˆ›İ±$ÜœİK‚‚ˆÈÈÈ8 %œ™Y^™H™XÛÛ™][ÛˆİÛ™\‚ŠŠ”QqaQSUËŠŠˆšY[˜HÛÛšÜ±$İHİÛ™\ˆØYq/Nˆ˜][˜HQĞSĞÓTÔÒQ’PĞUSÓ—ĞTÑSS‘WĞSQS‘QS•İŒŒˆ0©ÎKŒH‘œ™Y^™HšYZñh[›ÜØXñ*Ú[ZH˜ˆ›Ü›][1$Ú[\È™Ø[H[Y[™Y[XØÙ\[˜ÙHÛÛ›ÛHˆ^±a™[]Ëˆ[Y[™Y[0©ÌLH˜]ˆ^±$Û1$İË›È\È1 \˜[HPÕQÔH[Ùq/HÜ\˜XÚ[Û± [ÈÛË[]™K™HÚİ[Y[Hœ™Y^™Kˆ1 \˜˜]Y1*İÈ™][Y[™Y[0©ÎH[ˆ0©ÌLH˜Zİ\ÚØZšY[H›ÜØ]Zİ[ZY[H[ˆØ]\K‚‚ˆÈÈÈH8 %UHÓTÔÈU‘S•QŠŠ““ÔRQ1*•ÈTˆ1 UQ1 UHSPUÒ•SUKŠŠ‚‚”[X]Ú[\Î‚ŒKˆX\[™È\ˆ˜Zİ\ÚÚHÛÜ™ZİËˆˆŒˆ0©ÌLÈ]ZØH›ÜØ]Zİ[\È\ˆU‘S•QÈUHÓTÔÈU‘S•8¡¤ˆU‘S•Q]š[İİÛ™\ˆÚ1$ÛXZK‚Œ‹ˆYZ1 [š\ÚØHqhZY[YšXñ$Ú˜[q*Ø˜H˜]H\ˆ›Ù›ñhZ[± ]H\ˆQ™YšZÜØHÛÛ›ÛNˆ	‘H0©Ìˆ›ÜØZØHÑKX[ˆ0©ÌÌŒHš[™HØ\ØZ\İH\K™YšZÜİK]ZØH›ÜØ]Zİ[]H[ˆİÛ™\ˆØYq/KˆŒˆ[ˆ\İH\H™X]š[İ1*ØH›ñ-Ù\ˆ™^ˆ]ZØH1 \œØ]ZñhX[˜\Ë‚ŒËˆÙ[X[\ÚØH˜ZHYZ1 [š\ÚØH›Ø›1$ÛXH˜]ˆY\± Y1*İKˆ™XÙ[™[È›Ü± YHY\Ü1$Ú˜[]H± ZÛİ™\ÈØY\œÛZH\ˆÚ]Y[H]™[Øš™ZİY[NÈ1h[ÙY[ˆ™\ÈÚ]H]™[\H˜]‹[ˆ	‘H0©ÌHÈ™\™q(Ú\İ±$Ë‚ˆ1 \œØ]ZñhX[˜H±jİH\š]Zİ1jÜ˜\È[H1 \œ\È™]šY]ÈÌMˆY]İ1 Z˜H\İ\š[± ]1 H±$Ü[XH
-[Y[™Y[0©ÌM
-K[ˆ1hq*È]š[H\š]Zİ1jÜ˜\ÈÚ1$Û]H™[XZ[˜H
-T0©ÍËŒÊK‚‚‘šZÜñ$İÈñ H\š[± ]H^±$ÛNˆUHÓTÔÈU‘S•š[™H0©ÌÌŒH[YZÈU‘S•Qˆ˜H± ZÛİ±$ÈYZÈ™q(Ú\İ±$İÈİœÈ]™[\H˜XÙHØš™Xİ]ZØH1 \œØ]ZñhX[˜H^ˆUHÓTÔÈU‘S•QYZÈ^œÚØ]1*İHñ H]Ù]šqhq-ØH\š]Zİ1jÜ˜\È[H\ˆØ]H™]šY]ÈÚZÛK‚‚ˆÈÈLKˆŒx $ÑŒLˆİ]\ÚH
-1 \›™\İH›ÈŒ‹ZİX[^±$İJB‚˜^‘ŒNˆQqaQSUÈ8 %ŒÈ0©ÍËŒHÈ0©ÍËŒKŒH
-H›İ±$ÜœİJB‘ŒˆQqaQSUÈ8 %ŒÈ0©ÌˆÈ0©ÍËÈ0©ÎKŒÈ”B‘ŒÎˆQqaQSUÈ8 %ŒÈ0©ÍKŒHÈ0©ÍKŒˆ
-ŒKŒÈ›İ±$ÜœİJB‘ˆQqaQSUÈ8 %ŒÈ0©ÍKŒˆ
-Œˆ›İ±$ÜœİÎÈ1#Y]H[[Y[HØ\ØZ\İH™q(Ú\İ±$İJB‘NˆQqaQSUÈ8 %ŒÈ0©ÌÈÈ0©ÍËÂ‘ˆQqaQSUÈ8 %È[ˆ›Ù[1*İB‘Îˆq.ñ$’’HQqaQSUÈ8 %ŒÈ0©ÍËŒKŒHZñ/]Zˆ“È[HY]İ1 Z˜HÛÛœÙ[œØ[NÂˆ\[H\˜[1$ÛÈ\›İ˜[ÜÛ\È™]YZÈ˜Y1*İÂ‘ˆQqaQSUÈ8 %ŒÈ0©ÎH±*ÜÈ1*ÛYqašH›Ù[1*İH
-È›İ±$ÜœİÊB‘NˆQqaQSUÈ8 %ŒÈ0©Î\[™[˜ŞHØ\B‘ŒLˆQqaQSUÈ8 %ŒÈ0©ÎKŒˆ“UH’SHÑU
-ˆ›İ±$ÜœİÊB‘ŒLNˆQqaQSUÈ8 %İÛ™\ˆ˜Z[KÜØYq/\È™XÚ^±$İH
-›İ±$ÜœİÊB‘ŒLˆQqaQSUÈ8 %›ØÙ\ØHİ]\ÚH]š[İT0©ÍËŒÂ˜‚ˆÈÈL‹ˆ›ØÙ\ØH™^[1 ]Â‚˜^’ŒNˆQqaQSUÂ’ŒˆQqaQSUÂ’ŒÎˆQqaQSUÂ’ˆQqaQSUÂ’NˆQqaQSUÂ’ˆQqaQSUÂ’ÎˆQqaQSUÂ’ˆQqaQSUÂ’Nˆ“ÔRQ1*•ÈTˆ1 UQ1 UHSPUÒ•SUB‚”ŒNˆQqaQSUÂ”ŒˆQqaQSUÈ
-˜\šX[ÈŠB”ŒÎˆQqaQSUÂ”ˆQqaQSUÂ”NˆQqaQSUÂ“ÈÈHÈˆÈÈLHÈL‚ˆĞQÓP± HTˆŒÈ‘PÒV±$’•SRQSB“HÈÈ“ÔRQ1*’•SRNˆSQRÈÔ1$’ñ “ˆ“Õ±$””ÕÂ‚’STSQS•USÓˆUˆ‘RRÕBT’URÕ1j”TÈQ•NˆUˆPRS±*•B‘”“Ö‘SˆTÑSS‘NˆUˆPRS±*•Â•TÒËHÈSÑHÈTÔËHS”ÕSÑNˆUˆV•‘RQÕB”ÕS‘SÓ‘HÓÓ•RS“QS•RSÎˆSQRÈ‘TÂ“QUÕ1 HÓÓ”ÑS”ÔÎˆUˆTÓQS± Â‘”‘QV‘NˆUˆTÕT’S± Â“± ĞSPRTÈ“ĞQPTÒÕSQS•ÎˆUˆV”ñ ÕÂ˜‚ˆÈÈLËˆXØÙ\[˜ÙHÜš]1$ÜšZHqh\1 \˜˜]YB‚˜^ŒKˆØ]˜[HŒx $ÒHšZÜñ$İÈ›ØÙ\ØHİ]\ÜÈ8 %V”S1*•È
-0©ÌL0©ÌLŠBŒ‹ˆŒx $ÒH™X]İ1 Zˆ[\[Y[][ÛˆZZñ H^›[Z˜[]BˆÚ1$ÛX\È^±$ÛH8 %V”S1*•È
-0©ÍKŒK0©ÍKŒ‹ˆ0©ÍKŒË0©ÍK0©ÍËŒK0©ÍËŒKŒJBŒËˆ\H8¡¤ˆQšY[X\[™È1 \˜˜]Y1*İÈ™]ˆ˜Zİ\ÚØZ± [HİÛ™\ˆÚ1$Ûq [H8 %V”S1*•È
-0©ÍKŒ‹± ^™HMÎØÍL
-Bˆ“È™Y™\™[˜Ù\È±$Ü[\È]\›Z[š\İ\ÚÜÈ™]ˆ˜Zİ\ÚÛÈˆŒˆ8 %V”S1*•È
-0©ÍËŒKŒHx $ÑŠBKˆ™XÛÜ™[]™[™\Ë[]™[[ˆœ™Y^™K\›ØÙ\ÜÂˆ˜[Y1 XÚZ˜\È˜]ˆØZ˜]Zİ\È8 %V”S1*•È
-0©ÎKŒK0©ÎKŒ‹0©ÎKŒÊB‹ˆœ›Ş™[ˆ˜\Ù[[™H˜]ˆXZ[±*İÈ8 %V”S1*•ÂËˆ\š]Zİ1jÜ˜\È˜YH˜]ˆXZ[±*İH8 %V”S1*•Âˆ[\[Y[][Ûˆ[ˆœ™Y^™H˜]ˆ\ÛY[± ]Bˆ\ˆ]]Üš^±$İY[H8 %V”S1*•È
-0©ÌLŠB˜‚ˆÈÈMˆ± ZØ[XZ\È›ØÙ\ØHÛÛ\Â‚”1$ØÈ1hq*ÜÈŒÈ™]šY]Ë\™\ÜÛœÙHÛÛ[Z]H± \ØYØ]]›È]Ù]šqhq-ÜÈ™X]Ø\±*Ùñ \È™XÙ[šZ˜\È^™][\È\ˆÛÛšÜ±$İH1 \˜˜]Y1 [[ÈÛÛ[Z]ÒKˆ™XÙ[™[È1 \˜˜]YHŒÈ™]Œx $ÒH[ˆ˜Zİ\ÚØZ± [HİÛ™\ˆÚ1$Ûq [K‚‚”™XÙ[™[[H1*ÜqhZH± X\İ\š[˜N‚ŒKˆ˜ZHŒx $Òš\Ú[± Z[ZH\ˆ]\›Z[š\İ\ÚÚHšY[˜[H]Ûq \˜[H[\[Y[][ÛˆÛÛ[Z][NÂŒ‹ˆ˜ZHH›Ü˜ZY1*Ú[XH[X]Ú[\È\ˆ1 \˜˜]Y1 [\È™]ˆŒˆ0©ÌLÈ[ˆ	‘H0©ÌÂŒËˆ˜ZH0©ÌÌŒH™\˜YH\˜[1$ÛHØ[›ÛšXØ[™q(Ú\İNÂˆ˜ZH0©ÍËŒKŒHÛ\ÚYšZñ XÚZ˜H\ˆ[±*ÙØH™]˜Zİ\ÚÛÈˆŒˆØ]\NÂKˆ˜ZH0©ÎKŒHÈ0©ÎKŒˆÈ0©ÎKŒÈ›Ù[1*Ú[\È\ˆÛÛœÙZİ™[È\ˆT0©ÍË[ˆš[˜Ú\K‚‚˜^ÓÓSRUUUÔ’V‘QˆQTÈ8 %ZØZH1hZ\È™]šY]Ë\™\ÜÛœÙH\Y˜ZİÂ’STSQS•USÓˆUUÔ’V‘Qˆ“Â‘”‘QV‘HUUÔ’V‘Qˆ“Â’ÓÓ”ÑS”ÔÎˆS‘S‘È8 %ŒÈ‘PUĞT±*‘ĞH1 UQB˜
+Owner nodalÄ«jums `MODULE TRIGGER SET` rindai (J1.4):
+
+```text
+ID FIELD SCHEMA OWNER:        MODULE_TRIGGER_REGISTRY_v1 Â§2
+REÄ¢ISTRA GOVERNANCE OWNER:    REQUIREMENTS_MATRIX_GOVERNANCE_v1
+                              (paliek T&E Â§30 indeksÄ, rinda MODULE TRIGGER SET)
+```
+
+Å Ä« ir vienÄ«gÄ rinda, kurai abi owner atÅ¡Ä·iras. PÄrÄ“jÄm 18 rindÄm ID lauka shÄ“mas owner un tipa reÄ£istra owner nav pretrunÄ, tÄdÄ“Ä¼ atseviÅ¡Ä·a kolonna netiek radÄ«ta.
+
+### 5.3. Â§30 indeksa papildinÄjums
+
+[PRIEKÅ LIKUMS] `TERMINOLOGY_AND_ENUMS_v1 v0.4 Â§30` tabulai **pievieno** vienu rindu:
+
+| Controlled field | Owning document | Registry |
+|---|---|---|
+| ID FIELD NAME | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE â†’ ID FIELD MAPPING (Â§30.1) |
+
+EsoÅ¡Äs Â§30 rindas netiek mainÄ«tas. EsoÅ¡Äs kolonnas netiek mainÄ«tas.
+
+### 5.4. REQUIREMENT COMPONENT â€” izvÄ“le fiksÄ“ta
+
+[PRIEKÅ LIKUMS] IzvÄ“lÄ“ts recenzenta variants **(a)**: mapping rinda ir `COMPONENT ID`. Lauks netiek pÄrsaukts.
+
+Pamatojums:
+- TR v0.6 Â§27 faktiskais lauku bloks: `COMPONENT ID`, `COMPONENT DESCRIPTION`, `COMPONENT STATUS`, `EVIDENCE IDS`, `VERIFICATION LEVEL`;
+- lauks `REQUIREMENT COMPONENT ID` repo neeksistÄ“;
+- TR Â§35 lieto kolekcijas nosaukumu `REQUIREMENT COMPONENTS`, ne lauka nosaukumu;
+- tipa kontrole jau ir mehÄniska ar `CMP-` prefiksu (T&E Â§26; TR Â§5 piemÄ“rs `CMP-0082`);
+- pÄrsaukÅ¡ana bÅ«tu atseviÅ¡Ä·a arhitektÅ«ras delta, kas nav Review #16 lietotÄja apstiprinÄtajÄ deltÄ (amendment Â§14).
+
+H3 fakta noraidÄ«jums paliek spÄ“kÄ. R4 ir owner/mapping formulÄ“juma precizÄ“jums, ne jauna semantika.
+
+## 6. R5 â€” atomÄra shÄ“mas un validÄcijas implementation
+
+**PozÄ«cija: PIEÅ…EMTS.**
+
+PÄ“c konsensa un atseviÅ¡Ä·a implementation approval viena atomÄra implementation commit robeÅ¾Ä jÄbÅ«t:
+
+1. shÄ“mas labojumiem;
+2. cross-field invariantiem;
+3. mehÄniski pÄrbaudÄmiem validÄcijas noteikumiem;
+4. negatÄ«vajiem un repo lÄ«meÅ†a testiem;
+5. same-package dependency dokumentu konsekvences labojumiem;
+6. review, amendment, roadmap un current-state statusa atjauninÄjumam atbilstoÅ¡i faktiskajai implementation.
+
+Implementation nedrÄ«kst atstÄt repo pusvalidÄ“jamÄ stÄvoklÄ«.
+
+## 7. Pilnais atomÄrÄs korekciju paketes tvÄ“rums
+
+### 7.1. BL3 â€” reference mode precizÄ“jums
+
+Owner sadaÄ¼as:
+- `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md Â§5.1`;
+- `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md Â§26.2`.
+
+AbÄs operÄcija ir **AIZSTÄ€Å ANA**, ne papildinÄjums (J5).
+
+**TR Â§5.1 â€” aizstÄjamais teksts:**
+
+```text
+```text
+TRACE RECORD ID
+RECORD VERSION
+OBJECT TYPE
+OBJECT ID
+```
+
+Visi Äetri lauki ir obligÄti. `OBJECT TYPE` izmanto `TERMINOLOGY_AND_ENUMS_v1`
+reÄ£istrÄ“tu `TRACE OBJECT TYPE`; `OBJECT ID` prefiksam jÄatbilst tipam, un
+objektam jÄeksistÄ“ norÄdÄ«tajÄ `TRACE RECORD ID` un `RECORD VERSION`.
+```
+
+**TR Â§5.1 â€” aizstÄjÄ“jteksts:**
+
+```text
+Atsauce tiek glabÄta vienÄ no diviem reÅ¾Ä«miem.
+
+INTRA-RECORD REFERENCE (mÄ“rÄ·is ir tajÄ paÅ¡Ä immutable record versijÄ):
+OBJECT TYPE
+OBJECT ID
+`TRACE RECORD ID` un `RECORD VERSION` tiek mantoti no containing record
+versijas un netiek glabÄti atkÄrtoti.
+
+CROSS-RECORD REFERENCE (mÄ“rÄ·is ir citÄ record vai citÄ versijÄ):
+TRACE RECORD ID
+RECORD VERSION
+OBJECT TYPE
+OBJECT ID
+Visi Äetri lauki ir obligÄti.
+
+Abos reÅ¾Ä«mos `OBJECT TYPE` izmanto `TERMINOLOGY_AND_ENUMS_v1` 25. punktÄ
+reÄ£istrÄ“tu `TRACE OBJECT TYPE`; `OBJECT ID` prefiksam jÄatbilst tipam
+(26. punkts) un jÄatbilst 30.1. punktÄ reÄ£istrÄ“tajam ID lauka nosaukumam
+owner shÄ“mÄ; target objektam jÄeksistÄ“ attiecÄ«gajÄ record versijÄ.
+
+NepilnÄ«ga cross-record reference ir INVALID.
+Atsauce uz `current`, `latest` vai citu kustÄ«gu mÄ“rÄ·i nav derÄ«ga saglabÄta
+atsauce nevienÄ reÅ¾Ä«mÄ.
+```
+
+Paliek nemainÄ«ts TR Â§5.1 noslÄ“guma rindkopas teksts par governance dokumentu kÄ `SOURCE`.
+
+**T&E Â§26.2 â€” aizstÄjamais teksts:** rindkopa "PersistÄ“ta trace-object reference ir viena strukturÄ“ta vÄ“rtÄ«ba:" kopÄ ar tai sekojoÅ¡o Äetru lauku bloku un rindkopu "Reference ir piesprausta konkrÄ“tai Traceability Record versijai. ... target objektam jÄeksistÄ“ norÄdÄ«tajÄ record versijÄ."
+
+**T&E Â§26.2 â€” aizstÄjÄ“jteksts:** tas pats teksts, kas TR Â§5.1 aizstÄjÄ“jtekstÄ, vÄrds vÄrdÄ. Abas sadaÄ¼as pÄ“c implementation ir teksta ziÅ†Ä identiskas; atÅ¡Ä·irÄ«ba ir RMT2 FAIL.
+
+Paliek nemainÄ«ta T&E Â§26.2 noslÄ“guma rindkopa par governance dokumentu kÄ `SOURCE`.
+
+### 7.1.1. BL3 mantoÅ¡anas tvÄ“rums â€” deterministiska klasifikÄcija
+
+KlasifikÄcija pret faktisko `TRACEABILITY_RECORD_v1_v0.6.md` commitÄ `1783c50` (J4).
+
+**A. Â§5.1 trace-object references â€” manto BL3 reÅ¾Ä«mu:**
+
+```text
+Â§5   noslÄ“guma rindkopa â€” piesprausta SOURCE atsauce governance dokumentam
+Â§7.2 noslÄ“guma rindkopa â€” HUMAN DECISION RELATED TRACE OBJECT REFERENCES
+                          ar atsauci uz konkrÄ“to MODULE SCREENING RECORD ID
+Â§36  RELATED TRACE OBJECT REFERENCES
+Â§38  RELATED TRACE OBJECT REFERENCES
+```
+
+**B. Skaidri IZSLÄ’GTS no Â§5.1 reÅ¾Ä«ma â€” evidence-store references:**
+
+```text
+Â§17  EVIDENCE STORE REFERENCE, EVIDENCE SET / REVIEW ID, GENERATED AT
+Â§20  EVIDENCE STORE REFERENCE, EVIDENCE SET / REVIEW ID, GENERATED AT
+```
+
+Å ie lauki identificÄ“ ÄrÄ“ju evidence glabÄtuvi, ne trace-object. To shÄ“ma netiek mainÄ«ta.
+
+**C. Skaidri IZSLÄ’GTS no Â§5.1 reÅ¾Ä«ma â€” ÄrÄ“jas sistÄ“mas references:**
+
+```text
+Â§42  SOURCE SYSTEM / CHANNEL, REFERENCE, DATE, BY
+Â§43  DECISION SOURCE, REFERENCE, DATE
+Â§40  OUTPUT REFERENCE          (rezultÄta artefakta atraÅ¡anÄs vieta)
+Â§7.1 CONTRACT TYPE REFERENCES  (kontrolÄ“ta reÄ£istra vÄ“rtÄ«ba, ne trace-object)
+```
+
+**D. Bare ID lauki â€” paliek bare ID lauki:**
+
+```text
+Â§6   FACT PROFILE FINDING IDS, MODULE SCREENING RECORD IDS
+Â§7.1 TASK ID, RELATED MODULE ID, SUPERSEDES LCA ID,
+     RECLASSIFICATION REVIEW DECISION ID
+Â§7.2 TASK ID, TRIGGER REGISTRY ID, TRIGGER REGISTRY VERSION,
+     RELATED FACT FINDING IDS, SCREENING DECISION ID
+Â§13  SOURCE ID
+Â§15  SOURCE IDS, EVIDENCE IDS
+Â§17  SOURCE ID
+Â§20  EVIDENCE IDS
+Â§22  REQUIREMENT ID, EVIDENCE IDS
+Â§27  EVIDENCE IDS
+Â§30  TARGET OBJECT ID + TARGET OBJECT TYPE
+Â§40  MODULE SCREENING SUMMARY / MODULE SCREENING RECORD ID
+```
+
+Å ie lauki identificÄ“ objektu tÄ paÅ¡a ieraksta ietvaros ar necaurspÄ«dÄ«gu ID un netiek pÄrveidoti par Â§5.1 strukturÄ“tÄm atsaucÄ“m Å¡ajÄ paketÄ“. To semantika ir ekvivalenta intra-record reÅ¾Ä«mam: mantots `TRACE RECORD ID` un `RECORD VERSION`, tips izriet no ID prefiksa (T&E Â§26) un lauka nosaukuma (Â§30.1).
+
+**E. VienÄ«gÄ bare â†’ reference konversija Å¡ajÄ paketÄ“:**
+
+```text
+Â§14  ORIGIN TASK ID, ORIGIN OUTPUT ID, ORIGIN OBJECT ID
+     â†’ ORIGIN TASK REFERENCE, ORIGIN OUTPUT REFERENCE, ORIGIN OBJECT REFERENCE
+     visas kÄ pilnas CROSS-RECORD references (Å¡Ä«s v3 Â§7.5, H4)
+```
+
+**F. NoklusÄ“juma noteikums pÄrÄ“jiem "... REFERENCES" laukiem:**
+
+```text
+Ja persistÄ“ta references lauka mÄ“rÄ·is ir TERMINOLOGY_AND_ENUMS_v1 25. punktÄ
+reÄ£istrÄ“ts TRACE OBJECT TYPE, lauks ir 5.1. punkta trace-object reference.
+TÄ noklusÄ“juma reÅ¾Ä«ms ir INTRA-RECORD, ja vien owner sadaÄ¼a skaidri neprasa
+CROSS-RECORD reÅ¾Ä«mu.
+
+Ja mÄ“rÄ·is nav 25. punktÄ reÄ£istrÄ“ts trace-object (kontrolÄ“ta reÄ£istra vÄ“rtÄ«ba,
+evidence-store, ÄrÄ“ja sistÄ“ma, artefakta atraÅ¡anÄs vieta), lauks nav 5.1.
+punkta reference un saglabÄ savu esoÅ¡o shÄ“mu.
+```
+
+Noteikums attiecas uz: Â§7.1 (`RELEVANT FACT FINDING REFERENCES`, `MATERIAL ASSUMPTION FINDING REFERENCES`, `SUPPORTING SOURCE REFERENCES`, `COUNTERVAILING SOURCE REFERENCES`, `HUMAN DECISION REFERENCE`), Â§8 (`SOURCE / REFERENCE`, `CLASSIFICATION ASSESSMENT REFERENCES`), Â§13 (`RESOLUTION REFERENCE`), Â§22 (`DATA CLASS EVENT REFERENCES`, `CLASSIFICATION BASIS REFERENCES`), Â§30 (`SOURCE / EVIDENCE REFERENCES`, `VERIFICATION SCOPE RECORD REFERENCES`), Â§37 (`ESCALATION REFERENCE`, `RESPONSE REFERENCE`), Â§40 (`SOURCE SET REFERENCE`, `RELATED FINDINGS`, `RELATED REQUIREMENTS`, `LEGAL CLASSIFICATION ASSESSMENT REFERENCES`, `MODULE SCREENING RECORD REFERENCES`, `COMPLETENESS CONTROL REFERENCE`, `DATA CLASS EVENT REFERENCES`, `VERIFICATION SCOPE RECORD REFERENCES`).
+
+NeklasificÄ“tu lauku nav. Implementation laikÄ izlemjamu reÅ¾Ä«ma izvÄ“Ä¼u nav.
+
+[DOKUMENTÄ’TS LIETOTÄ€JA LÄ’MUMS] Å Ä« delta maina Review #16 sÄkotnÄ“ji apstiprinÄtajÄ integrÄcijas lÄ“mumÄ fiksÄ“to Äetru lauku glabÄÅ¡anas reprezentÄciju intra-record references gadÄ«jumÄ. LietotÄja gala konsensam jÄattiecas arÄ« uz Å¡o delta. PÄ“c konsensa joprojÄm nepiecieÅ¡ams atseviÅ¡Ä·s implementation approval.
+
+### 7.2. H1 â€” assignment authority basis
+
+Owner sadaÄ¼as:
+- `TRACEABILITY_RECORD_v1 v0.6 Â§36` â€” HUMAN DECISION shÄ“ma;
+- `TRACEABILITY_RECORD_v1 v0.6 Â§38` â€” ACTION OWNER / RESOLUTION AUTHORITY basis references.
+
+`HUMAN DECISION RECORD` pievieno strukturÄ“tu `ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE`. Ja HUMAN DECISION kalpo par action owner vai resolution authority assignment pamatu, Å¡Ä« piespraustÄ `SOURCE` atsauce ir obligÄta.
+
+### 7.3. H2 â€” necaurspÄ«dÄ«gs MTR ID
+
+Owner faili:
+- `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md Â§6`;
+- `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+
+Visas semantiskÄs `MTR-OUTSOURCING-001` vÄ“rtÄ«bas Å¡ajos divos failos aizstÄj ar `MTR-0001`. Jauns trigger-set objekts netiek radÄ«ts.
+
+Faktiskais stÄvoklis commitÄ `1783c50`: `MTR-OUTSOURCING-001` sastopams 3 reizes aktÄ«vajos draftos (`MODULE_TRIGGER_REGISTRY_v1.md` â€” 1; `OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md` â€” 2) un 4 reizes review / response artefaktos, kur tas ir leÄ£itÄ«ma vÄ“sturiska atsauce un netiek mainÄ«ts.
+
+### 7.4. R4 â€” owner-document ID invariants
+
+Ieviest Å¡Ä«s v3 Â§5.1 Â§26.1 aizstÄjÄ“jtekstu, Â§5.2 jauno T&E Â§30.1 apakÅ¡sadaÄ¼u ar 19 rindu mapping un Â§5.3 vienu jaunu Â§30 indeksa rindu. `REQUIREMENT COMPONENT` rinda ir `COMPONENT ID`; TR Â§27 lauks netiek pÄrsaukts. `DATA CLASS EVENT` rinda ir `EVENT ID`; TR Â§13 lauks netiek pÄrsaukts. H3 fakta noraidÄ«jums paliek nemainÄ«ts.
+
+### 7.5. H4 â€” PRIOR TASK OUTPUT references
+
+Owner sadaÄ¼a:
+- `TRACEABILITY_RECORD_v1 v0.6 Â§14`.
+
+**AizstÄj** bare origin ID laukus `ORIGIN TASK ID`, `ORIGIN OUTPUT ID`, `ORIGIN OBJECT ID [ja piemÄ“rojams]` ar:
+- `ORIGIN TASK REFERENCE`;
+- `ORIGIN OUTPUT REFERENCE`;
+- `ORIGIN OBJECT REFERENCE [ja piemÄ“rojams]`;
+
+visas kÄ pilnas CROSS-RECORD references uz konkrÄ“tu izcelsmes record versiju. `SOURCE TYPE: PRIOR TASK OUTPUT` un `INHERITED VERIFICATION LEVEL` paliek nemainÄ«ti.
+
+### 7.6. M1/R3 â€” HUMAN DECISION attiecÄ«bu autoritÄte
+
+Owner sadaÄ¼a: `TRACEABILITY_RECORD_v1 v0.6 Â§36`. Ieviest Å¡Ä«s v3 Â§4 aizstÄjÄ“jtekstu.
+
+### 7.7. M2/R2 â€” neversÄ“ta avota identitÄte
+
+Owner sadaÄ¼as: `TRACEABILITY_RECORD_v1 v0.6 Â§11`; hash invarianti paliek `TR Â§9` un `T&E Â§26.3`. Papildus aizstÄj iepriekÅ¡Ä“jÄs review-response akcepta kritÄ“riju 8, kÄ noteikts Å¡Ä«s v3 Â§3.
+
+### 7.8. R1 â€” freeze dependency
+
+Owner: `LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md` â€” jauna apakÅ¡sadaÄ¼a `Â§9.1 Freeze priekÅ¡nosacÄ«jumi` (Å¡Ä«s v3 Â§2 teksts).
+
+VienÄ«gais owner. Atsauce uz "gala amendment acceptance kontroli" izÅ†emta. Amendment Â§11 "Go-live priekÅ¡nosacÄ«jumi" netiek mainÄ«ts.
+
+### 7.9. R5 â€” validation specification
+
+Visas iepriekÅ¡ minÄ“tÄs shÄ“mas korekcijas, validÄcijas noteikumi un testi tiek ieviesti vienÄ atomÄrÄ implementation commitÄ.
+
+### 7.10. Review un statusa konsekvence
+
+TajÄ paÅ¡Ä implementation vienÄ«bÄ atjaunina Review #16 integrÄcijas ierakstu, amendment statusu, roadmap un `PROJECT_CURRENT_STATE.md` tikai atbilstoÅ¡i faktiskajai implementation. Frozen baseline statusu nemaina bez atseviÅ¡Ä·a freeze lÄ“muma.
+
+## 8. Dependency karte
+
+```text
+PRIMARY DOCUMENT
+TRACEABILITY_RECORD_v1 v0.6
+
+FROZEN INPUTS
+- PROFESSIONAL_SCOPE_v1.3
+- TRACEABILITY_RECORD_v1 v0.5
+- TERMINOLOGY_AND_ENUMS_v1 v0.3
+- VERIFICATION_PROTOCOL_v1 v0.5
+
+DRAFT INPUTS
+- PROFESSIONAL_SCOPE_v1.4
+- TERMINOLOGY_AND_ENUMS_v1 v0.4
+- REQUIREMENTS_MATRIX_GOVERNANCE_v1 v0.3
+- OPERATION_WORKFLOWS_v1 v0.2
+- LEGAL_RESEARCH_METHOD_v1 v0.2
+- MODULE_TRIGGER_REGISTRY_v1 v0.1
+- OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1
+
+SAME-PACKAGE DEPENDENCIES
+- PROFESSIONAL_SCOPE_v1.4
+- TERMINOLOGY_AND_ENUMS_v1 v0.4
+- REQUIREMENTS_MATRIX_GOVERNANCE_v1 v0.3
+- MODULE_TRIGGER_REGISTRY_v1 v0.1
+- OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1
+- LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2
+
+DOCUMENTS BLOCKED BY THIS WORK
+- juridiskÄs klasifikÄcijas amendment paketes gala audits
+- PS v1.4 / TR v0.6 / T&E v0.4 freeze lÄ“mums
+
+PILOT / IMPLEMENTATION CONSEQUENCES
+- references validatoram jÄatÅ¡Ä·ir intra-record un cross-record reÅ¾Ä«ms
+- type â†’ ID field mapping jÄbÅ«t mehÄniski validÄ“jamam pret owner shÄ“mÄm
+- repo lÄ«meÅ†a tests nedrÄ«kst pieÄ¼aut semantisku MTR ID aktÄ«vajos draftos
+- freeze dependency ir amendment procesa precondition, ne runtime suspension state
+```
+
+## 9. NegatÄ«vie un mehÄniskie testi
+
+### 9.1. Record / schema lÄ«meÅ†a testi
+
+ValidÄ“ vienu konkrÄ“tu record instanci.
+
+```text
+N1:  intra-record reference missing OBJECT TYPE -> INVALID
+N2:  intra-record OBJECT ID prefix/type mismatch -> INVALID
+N3:  cross-record reference missing TRACE RECORD ID -> INVALID
+N4:  cross-record reference missing RECORD VERSION -> INVALID
+N5:  cross-record target absent in pinned record version -> INVALID
+N6:  HUMAN DECISION compatibility view conflicts with authoritative
+     RELATED TRACE OBJECT REFERENCES -> INVALID
+N7:  HUMAN DECISION used as assignment basis without
+     ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE -> INVALID
+N8:  instance of a registered TRACE OBJECT TYPE lacks the ID field named in
+     its owner schema, or its ID value prefix does not match Â§26 -> INVALID
+N9:  PRIOR TASK OUTPUT origin reference lacks pinned origin record version
+     -> INVALID
+N10: CONTENT HASH present without CONTENT HASH ALGORITHM -> INVALID
+N11: unversioned source identity insufficient -> UNRESOLVED ISSUE required
+```
+
+N8 izmaiÅ†a (J7): reÄ£istra pilnÄ«guma daÄ¼a ("no exact Â§30 ID FIELD NAME mapping") ir izÅ†emta no record-level testiem. Neviena record instance nevar bÅ«t `INVALID` tÄdÄ“Ä¼, ka T&E Â§30.1 trÅ«kst rindas. PilnÄ«guma kontrole pÄrvietota uz RMT3.
+
+### 9.2. Repo / registry lÄ«meÅ†a mehÄniskÄ pÄrbaude
+
+ValidÄ“ repo stÄvokli, ne record instanci.
+
+```text
+RMT1: any semantic MTR-<THEME>-<NUMBER> identifier remains in the RMT1 FILE SET
+      -> FAIL
+RMT2: TR Â§5.1 and T&E Â§26.2 reference-mode definitions differ -> FAIL
+RMT3: any Â§25 TRACE OBJECT TYPE lacks exactly one Â§30.1 mapping row,
+      OR a Â§30.1 ID FIELD NAME does not exist in the named
+      ID FIELD SCHEMA OWNER section
+      -> FAIL
+```
+
+RMT1 tvÄ“rums (J6) â€” precÄ«za failu kopa, kas nav paplaÅ¡inÄma bez atseviÅ¡Ä·a lÄ“muma:
+
+```text
+RMT1 FILE SET:
+GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md
+GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md
+GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md
+GOVERNANCE/REQUIREMENTS_MATRIX_GOVERNANCE_v1.md
+GOVERNANCE/OPERATION_WORKFLOWS_v1.md
+GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md
+GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md
+GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md
+GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md
+
+RMT1 EXCLUSION RULE:
+Visi pÄrÄ“jie repo faili, tostarp jebkurÅ¡ fails, kura nosaukums satur
+_REVIEW, _RESPONSE, _AUDIT vai _TASK. VÄ“sturiskÄs atsauces review un
+response artefaktos ir leÄ£itÄ«mas un nerada FAIL.
+```
+
+### 9.3. Freeze procesa precondition
+
+ValidÄ“ amendment procesa darbÄ«bu, ne record instanci un ne repo saturu.
+
+```text
+FP1: attempted TR v0.6 freeze without same-package PS v1.4 and T&E v0.4 freeze
+     -> FREEZE PRECONDITION NOT MET
+```
+
+`FP1` nav record-level validators, neizmanto canonical `BLOCK` un nav repo lÄ«meÅ†a tests. TÄ owner ir amendment Â§9.1.
+
+TrÄ«s lÄ«meÅ†i ir nodalÄ«ti: 9.1. = record instance; 9.2. = repo / reÄ£istra pilnÄ«gums; 9.3. = freeze process.
+
+## 10. J1â€“J9 statusi
+
+### J1 â€” mapping mÄ“rÄ·a vieta un struktÅ«ra
+**PIEÅ…EMTS.** RisinÄjums: Å¡Ä«s v3 Â§5.2 jaunÄ T&E Â§30.1 apakÅ¡sadaÄ¼a ar ÄetrÄm kolonnÄm `TRACE OBJECT TYPE | ID PREFIX | ID FIELD NAME | ID FIELD SCHEMA OWNER` un Â§5.3 viena jauna Â§30 indeksa rinda. AlternatÄ«va "vai lÄ«dzvÄ“rtÄ«gu" izÅ†emta. ParalÄ“ls canonical reÄ£istrs netiek radÄ«ts: Â§30.1 ir atvasinÄts indekss, konflikta gadÄ«jumÄ autoritatÄ«va ir owner shÄ“ma. `MODULE TRIGGER SET` rindai shÄ“mas owner (`MODULE_TRIGGER_REGISTRY_v1 Â§2`) un reÄ£istra governance owner (`REQUIREMENTS_MATRIX_GOVERNANCE_v1`, T&E Â§30) ir skaidri nodalÄ«ti. PÄrbaudÄ«ts pret T&E v0.4 Â§30 faktisko kolonnu struktÅ«ru.
+
+### J2 â€” REQUIREMENT COMPONENT ID lauks
+**PIEÅ…EMTS.** Mapping rinda ir `COMPONENT ID`, owner `TRACEABILITY_RECORD_v1 v0.6 Â§27`. PÄrsaukÅ¡ana netiek veikta; materiÄls iemesls nav konstatÄ“ts, un pÄrsaukums bÅ«tu atseviÅ¡Ä·a arhitektÅ«ras delta Ärpus amendment Â§14 apstiprinÄtÄ tvÄ“ruma. PÄrbaudÄ«ts pret TR v0.6 Â§27 faktisko lauku bloku.
+
+### J3 â€” Â§26.1 invarianti
+**PIEÅ…EMTS.** Å Ä«s v3 Â§5.1 aizstÄjÄ“jteksts satur visus Äetrus prasÄ«tos elementus: obligÄtu tipam atbilstoÅ¡u ID lauku katram patstÄvÄ«gam ierakstam; `MODULE ID` ar `MOD-` prefiksu; `MODULE ID` / taxonomy `MODULE` nodalÄ«jumu ar neaizstÄjamÄ«bas teikumu; mapping sasaistes noteikumu uz Â§30.1. `MODULE` piemÄ“rs netiek pÄrvietots. SemantiskÄ regresija pret paÅ¡reizÄ“jo Â§26.1 ir novÄ“rsta.
+
+### J4 â€” BL3 references tvÄ“rums
+**PIEÅ…EMTS.** Å Ä«s v3 Â§7.1.1 aizstÄj v2 sarakstu ar pilnu klasifikÄciju pret faktisko TR v0.6: A â€” Â§5.1 mantotÄji (Â§5, Â§7.2, Â§36, Â§38); B â€” evidence-store references izslÄ“gtas (Â§17, Â§20); C â€” ÄrÄ“jas sistÄ“mas references izslÄ“gtas (Â§42, Â§43, Â§40 `OUTPUT REFERENCE`, Â§7.1 `CONTRACT TYPE REFERENCES`); D â€” bare ID lauki uzskaitÄ«ti un atstÄti bare; E â€” vienÄ«gÄ konversija ir Â§14 (H4); F â€” noklusÄ“juma noteikums pÄ“c references mÄ“rÄ·a tipa. NeklasificÄ“tu lauku nav.
+
+### J5 â€” aizstÄÅ¡ana vai papildinÄÅ¡ana
+**PIEÅ…EMTS.** AbÄm sadaÄ¼Äm operÄcija ir **AIZSTÄ€Å ANA**. Å Ä«s v3 Â§7.1 citÄ“ precÄ«zu aizstÄjamo tekstu TR Â§5.1 un T&E Â§26.2 un sniedz precÄ«zu aizstÄjÄ“jtekstu. Teikums "Visi Äetri lauki ir obligÄti" paÅ¡reizÄ“jÄ formÄ tiek dzÄ“sts un pÄrceÄ¼as uz cross-record reÅ¾Ä«ma bloku. TieÅ¡a pretruna ar intra-record reÅ¾Ä«mu nepaliek.
+
+### J6 â€” RMT1 tvÄ“rums
+**PIEÅ…EMTS.** Å Ä«s v3 Â§9.2 definÄ“ RMT1 FILE SET ar deviÅ†iem konkrÄ“tiem failiem un skaidru EXCLUSION RULE. VÄ“sturiskie review / response / audit artefakti neradÄ«s false failure. PÄrbaudÄ«ts pret faktisko `MTR-OUTSOURCING-001` sastopamÄ«bu commitÄ `1783c50`.
+
+### J7 â€” N8 lÄ«menis
+**PIEÅ…EMTS.** Å Ä«s v3 Â§9 nodala trÄ«s lÄ«meÅ†us. N8 paliek tikai record-instance tests (trÅ«kst owner shÄ“mas ID lauka instancÄ“ vai prefiksa neatbilstÄ«ba). ReÄ£istra pilnÄ«guma daÄ¼a apvienota ar RMT3, kas papildus pÄrbauda, vai Â§30.1 norÄdÄ«tais ID FIELD NAME faktiski eksistÄ“ norÄdÄ«tajÄ owner sadaÄ¼Ä. RMT3 dublÄ“Å¡anÄs ar N8 novÄ“rsta.
+
+### J8 â€” freeze precondition owner
+**PIEÅ…EMTS.** Viena konkrÄ“ta owner sadaÄ¼a: jauna `LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2 Â§9.1 "Freeze priekÅ¡nosacÄ«jumi"`. FormulÄ“jums "gala amendment acceptance kontrole" izÅ†emts. Amendment Â§11 nav izvÄ“lÄ“ts, jo tas pÄrvalda ICT-DORA moduÄ¼a operacionÄlo go-live, ne dokumentu freeze. PÄrbaudÄ«ts pret amendment Â§9 un Â§11 faktiskajiem nosaukumiem un saturu.
+
+### J9 â€” DATA CLASS EVENT ID
+**NORAIDÄªTS AR PÄ€RBAUDÄ€MU PAMATOJUMU.**
+
+Pamatojums:
+1. Mapping ir faktiski korekts. TR v0.6 Â§13 lauka nosaukums ir `EVENT ID`; `DATA CLASS EVENT â†’ EVENT ID` atbilst owner shÄ“mai.
+2. MehÄniska paÅ¡identificÄ“jamÄ«ba jau ir nodroÅ¡inÄta ar ID prefiksa kontroli: T&E Â§26 nosaka `DCE-`, un Â§30.1 rinda sasaista tipu, prefiksu, lauka nosaukumu un owner sadaÄ¼u. N2 un N8 testi tipa neatbilstÄ«bu noÄ·er bez lauka pÄrsaukÅ¡anas.
+3. Semantiska vai mehÄniska problÄ“ma nav pierÄdÄ«ta. Recenzents norÄda iespÄ“jamu nÄkotnes sadursmi ar citiem event objektiem; Å¡odien repo cita event tipa nav, un T&E Â§25 to nereÄ£istrÄ“.
+4. PÄrsaukÅ¡ana bÅ«tu arhitektÅ«ras delta Ärpus Review #16 lietotÄja apstiprinÄtÄ tvÄ“ruma (amendment Â§14), un Å¡Ä« atbilde arhitektÅ«ras shÄ“mu nemaina (PEP Â§7.3).
+
+FiksÄ“ts kÄ apzinÄta izvÄ“le: `DATA CLASS EVENT` rinda Â§30.1 paliek `EVENT ID`. Ja nÄkotnÄ“ tiek reÄ£istrÄ“ts otrs event tipa trace object, lauka pÄrsaukÅ¡ana uz `DATA CLASS EVENT ID` tiek izskatÄ«ta kÄ atseviÅ¡Ä·a arhitektÅ«ras delta ar savu review ciklu.
+
+## 11. F1â€“F12 statusi (pÄrnesti no v2, aktualizÄ“ti)
+
+```text
+F1:  PIEÅ…EMTS â€” v3 Â§7.1 / Â§7.1.1 (J4, J5 novÄ“rsti)
+F2:  PIEÅ…EMTS â€” v3 Â§2 / Â§7.8 / Â§9.3 FP1
+F3:  PIEÅ…EMTS â€” v3 Â§5.1 / Â§5.2 (J1, J3 novÄ“rsti)
+F4:  PIEÅ…EMTS â€” v3 Â§5.2 (J2 novÄ“rsts; Äetru elementu sasaiste reÄ£istrÄ“ta)
+F5:  PIEÅ…EMTS â€” v3 Â§3 / Â§7.7
+F6:  PIEÅ…EMTS â€” H3 un R4 nodalÄ«ti
+F7:  DAÄ»Ä’JI PIEÅ…EMTS â€” v3 Â§7.1.1 pakÄ¼auj BL3 delta lietotÄja konsensam;
+     papildu paralÄ“ls approval posms netiek radÄ«ts
+F8:  PIEÅ…EMTS â€” v3 Â§9 trÄ«s lÄ«meÅ†i nodalÄ«ti (J7 novÄ“rsts)
+F9:  PIEÅ…EMTS â€” v3 Â§8 dependency karte
+F10: PIEÅ…EMTS â€” v3 Â§9.2 RMT1 FILE SET (J6 novÄ“rsts)
+F11: PIEÅ…EMTS â€” owner faili/sadaÄ¼as precizÄ“ti (J8 novÄ“rsts)
+F12: PIEÅ…EMTS â€” procesa statusi atbilst PEP Â§7.3
+```
+
+## 12. Procesa rezultÄts
+
+```text
+J1:                         PIEÅ…EMTS
+J2:                         PIEÅ…EMTS
+J3:                         PIEÅ…EMTS
+J4:                         PIEÅ…EMTS
+J5:                         PIEÅ…EMTS
+J6:                         PIEÅ…EMTS
+J7:                         PIEÅ…EMTS
+J8:                         PIEÅ…EMTS
+J9:                         NORAIDÄªTS AR PÄ€RBAUDÄ€MU PAMATOJUMU
+
+R1:                         PIEÅ…EMTS
+R2:                         PIEÅ…EMTS (variants b)
+R3:                         PIEÅ…EMTS
+R4:                         PIEÅ…EMTS
+R5:                         PIEÅ…EMTS
+BL3 / H1 / H2 / H4 / M1 / M2:
+                            SAGLABÄ€TI AR v3 PRECIZÄ’JUMIEM
+BL1 / H3 NORAIDÄªJUMI:       PALIEK SPÄ’KÄ€
+BL2:                        NOVÄ’RSTS
+
+IMPLEMENTATION:             NAV VEIKTA
+ARHITEKTÅªRAS DRAFTI:        NAV MAINÄªTI
+FROZEN BASELINE:            NAV MAINÄªTS
+TASK- / MOD- / ISS- INSTANCE: NAV IZVEIDOTA
+STANDALONE CONTAINMENT FAILS: PALIEK REPO
+LIETOTÄ€JA KONSENSS:         NAV PASLUDINÄ€TS
+FREEZE:                     NAV APSTIPRINÄ€TS
+NÄ€KAMAIS ROADMAP DOKUMENTS: NAV UZSÄ€KTS
+```
+
+## 13. Acceptance kritÄ“riju paÅ¡pÄrbaude
+
+```text
+1. Katram J1â€“J9 fiksÄ“ts procesa statuss             â€” IZPILDÄªTS (Â§10, Â§12)
+2. J1â€“J5 neatstÄj implementation laikÄ izlemjamu
+   shÄ“mas izvÄ“li                                    â€” IZPILDÄªTS (Â§5.1, Â§5.2,
+                                                      Â§5.3, Â§5.4, Â§7.1, Â§7.1.1)
+3. Type â†’ ID field mapping pÄrbaudÄ«ts pret
+   faktiskajÄm owner shÄ“mÄm                         â€” IZPILDÄªTS (Â§5.2, bÄze 1783c50)
+4. BL3 references tvÄ“rums deterministisks pret
+   faktisko TR v0.6                                 â€” IZPILDÄªTS (Â§7.1.1 Aâ€“F)
+5. Record-level, repo-level un freeze-process
+   validÄcijas nav sajauktas                        â€” IZPILDÄªTS (Â§9.1, Â§9.2, Â§9.3)
+6. Frozen baseline nav mainÄ«ts                      â€” IZPILDÄªTS
+7. ArhitektÅ«ras drafti nav mainÄ«ti                  â€” IZPILDÄªTS
+8. Implementation un freeze nav pasludinÄti
+   par autorizÄ“tiem                                 â€” IZPILDÄªTS (Â§12)
+```
+
+## 14. NÄkamais procesa solis
+
+PÄ“c Å¡Ä«s v3 review-response commita jÄsagatavo atseviÅ¡Ä·s neatkarÄ«gÄs recenzijas uzdevums ar konkrÄ“tu pÄrbaudÄmo commit SHA. Recenzents pÄrbauda v3 pret J1â€“J9 un faktiskajÄm owner shÄ“mÄm.
+
+Recenzentam Ä«paÅ¡i jÄapstiprina:
+1. vai J1â€“J8 risinÄjumi ir deterministiski vienam atomÄram implementation commitam;
+2. vai J9 noraidÄ«juma pamatojums ir pÄrbaudÄms pret TR v0.6 Â§13 un T&E Â§26;
+3. vai Â§30.1 nerada paralÄ“lu canonical reÄ£istru;
+4. vai Â§7.1.1 klasifikÄcija ir pilnÄ«ga pret faktisko TR v0.6 saturu;
+5. vai Â§9.1 / Â§9.2 / Â§9.3 nodalÄ«jums ir konsekvents ar PEP Â§7.8 un F8 principu.
+
+```text
+COMMIT AUTHORIZED: YES â€” tikai Å¡is review-response artefakts
+IMPLEMENTATION AUTHORIZED: NO
+FREEZE AUTHORIZED: NO
+KONSENSS: PENDING â€” v3 NEATKARÄªGA PÄ€RBAUDE
+```
