@@ -21,6 +21,7 @@ Iesaldēšanas datums: 2026-09-18.
 - `PROJECT_EXECUTION_PROTOCOL.md` — obligātā projekta izpildes kārtība: roadmap kontrole, review, lietotāja konsenss, implementation, audits un atsevišķs freeze lēmums. Tas nav 14. arhitektūras pamatdokuments.
 - `NEW_CHAT_START_TASK.md` — atkārtojamais jaunā čata konteksta atjaunošanas uzdevums.
 - `PROJECT_CURRENT_STATE.md` — vienīgais dinamiskais starpčatu handoff ar pēdējo darba punktu, atvērtajiem blokatoriem un vienu precīzu nākamo uzdevumu; tas nav arhitektūras authority.
+- `TOOLS/validate_project_continuity.ps1` — fail-closed pārbaude, kas pirms handoff validē obligātos state laukus, atsauču failus, autorizācijas, Git stāvokli un frozen failu delta deklarāciju.
 
 
 ## Legora mērķa arhitektūra

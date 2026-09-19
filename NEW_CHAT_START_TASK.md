@@ -28,6 +28,7 @@ Izpildi turpmāko secību pilnībā.
 3. Ja lokālais `main` atpaliek, atjaunini to drošā veidā pirms konteksta secinājumiem.
 4. Nepārraksti vai neatmet esošas necommitētas izmaiņas.
 5. Pirms konteksta atjaunošanas neko nerediģē un necommito.
+6. Repo saknē izpildi `powershell -NoProfile -ExecutionPolicy Bypass -File .\TOOLS\validate_project_continuity.ps1 -Mode Handoff`. Darbu drīkst sākt tikai ar rezultātu `CONTINUITY VALIDATION: PASS`; `FAIL` gadījumā vispirms novērs norādīto information gap vai repo stāvokļa neatbilstību.
 
 ### B. Izlasi obligātos kontroles dokumentus šādā secībā
 
@@ -67,6 +68,7 @@ Pirms darba sniedz tieši šo bloku:
 
 ```text
 CONTEXT RESTORED: YES / NO
+CONTINUITY VALIDATION: PASS / FAIL
 CURRENT HEAD:
 ORIGIN/MAIN:
 WORKTREE:
@@ -93,11 +95,12 @@ FREEZE AUTHORIZED: YES / NO
 
 `CONTEXT RESTORED: YES` drīkst norādīt tikai tad, ja:
 
-1. repo un state fails ir savstarpēji salīdzināti;
-2. nav neizskaidrotu commit vai statusu atšķirību;
-3. ir izlasīti nākamajam uzdevumam nepieciešamie faili;
-4. ir identificēts viens konkrēts nākamais uzdevums;
-5. ir skaidri nodalīts, kas ir apstiprināts, commitēts, frozen un tikai piedāvāts.
+1. continuity validators ir atgriezis `CONTINUITY VALIDATION: PASS`;
+2. repo un state fails ir savstarpēji salīdzināti;
+3. nav neizskaidrotu commit vai statusu atšķirību;
+4. ir izlasīti nākamajam uzdevumam nepieciešamie faili;
+5. ir identificēts viens konkrēts nākamais uzdevums;
+6. ir skaidri nodalīts, kas ir apstiprināts, commitēts, frozen un tikai piedāvāts.
 
 Ja kāds nosacījums nav izpildīts, norādi `CONTEXT RESTORED: NO`, izskaidro gap un vispirms novērs to. Neuzsāc arhitektūras vai implementation darbu ar neatjaunotu kontekstu.
 
@@ -121,7 +124,8 @@ Ja sarunas laikā mainās projekta stāvoklis, pirms noslēguma:
 4. atjaunini `REQUIRED READING FOR NEXT TASK` līdz minimālajai pilnajai kopai;
 5. iekļauj state failu tajā pašā commitā, kas rada jauno stāvokli, vai atsevišķā tūlītējā continuity commitā;
 6. pārbaudi, ka roadmap un artefaktu statusi nav pretrunā ar state failu;
-7. noslēdz sesiju ar `PROJECT_EXECUTION_PROTOCOL.md` obligāto beigu bloku.
+7. pirms `REQUIRED — READY` izpildi continuity validatoru `Handoff` režīmā;
+8. noslēdz sesiju ar `PROJECT_EXECUTION_PROTOCOL.md` obligāto beigu bloku.
 
 Ja projekta stāvoklis nav mainījies, state failu nepārraksta tikai datuma vai formulējuma dēļ.
 

@@ -212,6 +212,7 @@ Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, 
 6. current `HEAD` sakrīt ar `origin/main`;
 7. darba koks ir tīrs;
 8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem.
+9. `TOOLS/validate_project_continuity.ps1 -Mode Handoff` ir atgriezis `CONTINUITY VALIDATION: PASS`.
 
 Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada aizpildītu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus.
 
@@ -374,6 +375,7 @@ Atļauti pakārtoti procesa artefakti, ja tie ir skaidri marķēti, piemēram:
 8. Pēc commita pārbauda `HEAD`, `origin/main` un darba koka stāvokli.
 9. Push uz `main` nenozīmē freeze.
 10. Commitam, kas maina projekta faktisko posmu, jāatjaunina arī `PROJECT_CURRENT_STATE.md`; review atbildes, implementation un freeze rezultātu nedrīkst atstāt tikai čata vēsturē.
+11. Pirms statusa `NEW CHAT TRIGGER: REQUIRED — READY` obligāti izpilda `TOOLS/validate_project_continuity.ps1 -Mode Handoff`; jebkurš `FAIL` nozīmē `REQUIRED — NOT READY`, līdz neatbilstība ir novērsta.
 
 ## 11. Roadmap dependency kontrole
 

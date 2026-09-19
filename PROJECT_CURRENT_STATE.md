@@ -20,6 +20,14 @@
 
 Ja šis fails atpaliek no current `main`, jaunais čats vispirms rekonstruē starplaika izmaiņas saskaņā ar `NEW_CHAT_START_TASK.md`.
 
+Continuity kontrole:
+
+```text
+CONTINUITY VALIDATOR: TOOLS/validate_project_continuity.ps1
+CONTINUITY VALIDATION REQUIRED FOR READY: YES
+FROZEN FILES CHANGED SINCE PREVIOUS STATE: NO
+```
+
 ## 2. Current roadmap position
 
 ```text
@@ -61,6 +69,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 5. Recenzents pārbaudīja atbildi pret integrēto stāvokli, pieņēma BL1 un H3 noraidījumu, apstiprināja BL2 novēršanu un pievienoja R1–R5.
 6. `NEW_CHAT_START_TASK.md`, šis continuity fails un otrās kārtas review ieraksts ir ieviesti commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 7. Obligātais `NEW CHAT REQUIRED` trigeris, readiness gate un automātiskā copy-paste ziņojuma veidne ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
+8. Fail-closed continuity validators un tā obligātā handoff pārbaude ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 
 ## 5. User-approved decisions in force
 
@@ -107,9 +116,9 @@ nemainīt. Pēc tam nodot atbildi neatkarīgai recenzenta pārbaudei.
 Autorizācija:
 
 ```text
-REVIEW RESPONSE COMMIT: YES
-ARCHITECTURE IMPLEMENTATION: NO — gaida konsensu un lietotāja approval
-FREEZE: NO
+COMMIT AUTHORIZED: YES — tikai review response commitam
+IMPLEMENTATION AUTHORIZED: NO — gaida konsensu un lietotāja approval
+FREEZE AUTHORIZED: NO
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
 ```
@@ -157,7 +166,9 @@ atsevišķs Review #16 review-response posms ar citu galveno rezultātu.
 
 READINESS:
 READY tikai tad, ja šā faila jaunākais commits ir current HEAD,
-current HEAD = origin/main un darba koks ir tīrs.
+current HEAD = origin/main, darba koks ir tīrs un
+`TOOLS/validate_project_continuity.ps1 -Mode Handoff` rezultāts ir
+`CONTINUITY VALIDATION: PASS`.
 
 NEXT CHAT EXACT TASK:
 izpildīt 7. sadaļā norādīto formālo R1–R5 atbildes uzdevumu.
