@@ -111,16 +111,17 @@ Lietotāja apstiprinātā projekta atbilde:
 ## 7. Exact next task
 
 ```text
-Sagatavot neatkarīgās recenzijas uzdevumu, kas ir piesprausts R1–R5
-response v2 commitam, un pēc tam nodot šo v2 neatkarīgam recenzentam.
-Recenzentam jāpārbauda, vai v2 pilnībā novērš F1–F12 un ir gatava
-lietotāja gala konsensam. Arhitektūras implementation neveikt.
+Nodot neatkarīgam recenzentam pilno repo uzdevumu
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_REVIEW_TASK.md`.
+Recenzentam jāpārbauda response v2 commits `12b4ff32e15644737edf546644722b5b442341db` un jāatgriež
+viens pilns read-only recenzijas drafts. Projekta izpildes asistents pats
+šo neatkarīgo recenziju neveic un arhitektūras implementation neveic.
 ```
 
 Autorizācija:
 
 ```text
-COMMIT AUTHORIZED: YES — review task / continuity process artefakti
+COMMIT AUTHORIZED: NO — nākamais solis ir neatkarīga v2 recenzija
 IMPLEMENTATION AUTHORIZED: NO — gaida v2 recenziju un lietotāja gala konsensu
 FREEZE AUTHORIZED: NO
 ISS- INSTANCE: NO
@@ -144,12 +145,13 @@ Obligāti izlasīt pilnā apjomā:
 11. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`;
 12. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE_REVIEW.md`;
 13. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`;
-14. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
-15. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
-16. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
-17. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
-18. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
-19. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+14. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_REVIEW_TASK.md`;
+15. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
+16. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
+17. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
+18. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
+19. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
+20. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -180,7 +182,8 @@ Ja faktiski izmanto lokālu klonu, alternatīvi der
 `CONTINUITY VALIDATION: PASS` pie `HEAD = origin/main` un tīra darba koka.
 
 CURRENT CHAT EXACT TASK:
-izsniegt 7. sadaļā norādīto pilno neatkarīgās R1–R5 recenzijas uzdevumu.
+izsniegt pilno neatkarīgās response v2 recenzijas uzdevumu
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_REVIEW_TASK.md`.
 
 NEXT TRIGGER EVALUATION:
 tikai pēc recenzijas rezultāta saņemšanas un pašreizējā uzdevuma
