@@ -37,18 +37,16 @@ CURRENT ROADMAP DOCUMENT:
 TRACEABILITY_RECORD_v1 v0.6 juridiskās klasifikācijas amendment paketē
 
 CURRENT VERSION / STATUS:
-Neatkarīgā R1–R5 response v2 recenzija ir saņemta un fiksēta repo ar
-verdiktu CHANGES REQUIRED. Recenzents identificēja J1 BLOCKING; J2–J4 HIGH;
-J5–J8 MEDIUM; J9 LOW. Projekta izpildes asistenta sākotnējā neatkarīgā
-pārbaude apstiprina J1–J8 kodolu; J9 pārsaukšanas priekšlikums nav pieņemams
-bez atsevišķa pamatojuma, jo pašreizējais owner lauks EVENT ID ir faktiski
-konsekvents ar shēmu.
+Formālā Review #16 R1–R5 response v3 ir fiksēta commitā
+`314aefee27d79e8790f54ffc9454f44b7404f436`. J1–J8 ir pieņemti ar
+deterministisku piedāvāto delta; J9 ir noraidīts ar pārbaudāmu pamatojumu.
+Arhitektūras drafti un frozen baseline nav mainīti. Neatkarīgās v3 recenzijas
+uzdevums ir sagatavots repo.
 
 CURRENT OBJECTIVE:
-Sagatavot formālu projekta atbildi v3 uz J1–J9 ar precīzu finding statusu un
-deterministisku delta, nemainot arhitektūras draftus. Pēc tam response v3
-jānodod neatkarīgai pārbaudei; tikai pēc ACCEPT un lietotāja gala konsensa
-var prasīt atsevišķu implementation approval.
+Saņemt neatkarīga recenzenta ACCEPT par response v3 pret commit
+`314aefee27d79e8790f54ffc9454f44b7404f436`. Tikai pēc neatkarīgas pārbaudes
+un lietotāja gala konsensa drīkst prasīt atsevišķu implementation approval.
 
 NEXT BLOCKED DOCUMENT:
 Juridiskās klasifikācijas amendment paketes gala audits un saistītais
@@ -84,6 +82,8 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 13. Pilno recenzenta uzdevumu izsniedz vienā kopējamā blokā ar vienu kopēšanas pogu; pēc konsensa lietotājam obligāti sniedz īsu pieņemtā dokumenta būtības un galveno lēmumu kopsavilkumu.
 14. Neatkarīgā response v2 recenzija ar verdiktu CHANGES REQUIRED ir fiksēta `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_RESPONSE_REVIEW.md`.
 15. Projekta sarunu robeža ir mainīta uz principu `ONE CHAT = ONE PRIMARY ROADMAP DOCUMENT / ONE DOCUMENT LIFECYCLE`; `EXACT NEXT TASK` vairs nav automātisks jaunā čata trigeris.
+16. Formālā R1–R5 response v3 ir fiksēta commitā `314aefee27d79e8790f54ffc9454f44b7404f436`.
+17. Neatkarīgās response v3 recenzijas uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_REVIEW_TASK.md`.
 
 ## 5. User-approved decisions in force
 
@@ -104,38 +104,35 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 
 ## 6. Review #16 current open findings
 
-Neatkarīgā R1–R5 response v2 recenzija: `CHANGES REQUIRED`.
+Response v3 projekta pozīcija:
+- J1–J8 — PIEŅEMTI ar precīzu piedāvāto delta;
+- J9 — NORAIDĪTS AR PĀRBAUDĀMU PAMATOJUMU;
+- F1–F12 statuss pārnests un aktualizēts v3;
+- R1–R5 arhitektūras virziens saglabāts;
+- implementation nav veikta;
+- frozen baseline nav mainīts;
+- lietotāja gala konsenss nav pasludināts.
 
-Recenzenta findings:
-- J1 — BLOCKING: T&E §30 mapping struktūra nav deterministiski noteikta;
-- J2 — HIGH: REQUIREMENT COMPONENT mapping neatbilst faktiskajam `COMPONENT ID`;
-- J3 — HIGH: piedāvātais T&E §26.1 aizstājējteksts dzēstu esošus invariantus;
-- J4 — HIGH: BL3 references mantošanas tvērums nav korekts pret faktisko TR v0.6;
-- J5 — MEDIUM: nav noteikts aizstāšanas / papildināšanas režīms TR §5.1 un T&E §26.2;
-- J6 — MEDIUM: RMT1 failu tvērums nav mehāniski definēts;
-- J7 — MEDIUM: N8 sajauc record-level un repo-level validāciju;
-- J8 — MEDIUM: R1 freeze precondition owner sadaļa nav precīzi noteikta;
-- J9 — LOW: EVENT ID nosaukuma pašidentificējamības piezīme.
-
-Projekta gala pozīcija par J1–J9 vēl nav fiksēta review-response artefaktā.
-Implementation nav autorizēta; konsenss nav sasniegts.
+Atvērtais procesa jautājums: neatkarīgajam recenzentam jāpārbauda response v3 pret
+J1–J9 un faktiskajām owner shēmām.
 
 ## 7. Exact next task
 
 ```text
-Izpildīt pilno repo uzdevumu
-`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`
-un sagatavot `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`
-v3 kā formālu projekta atbildi uz J1–J9.
+Nodot neatkarīgam recenzentam pilno repo uzdevumu
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_REVIEW_TASK.md`.
 
-Šajā solī arhitektūras draftus, frozen baseline un faktiskas instances nemaina.
+Recenzentam jāpārbauda response v3 commits
+`314aefee27d79e8790f54ffc9454f44b7404f436` un jāatgriež viens pilns read-only
+recenzijas drafts. Projekta izpildes asistents pats šo neatkarīgo recenziju
+neveic un arhitektūras implementation neveic.
 ```
 
 Autorizācija:
 
 ```text
-COMMIT AUTHORIZED: YES — review-response v3 un continuity procesa artefaktiem
-IMPLEMENTATION AUTHORIZED: NO — gaida response v3 review un lietotāja gala konsensu
+COMMIT AUTHORIZED: NO — nākamais solis ir neatkarīga v3 recenzija
+IMPLEMENTATION AUTHORIZED: NO — gaida v3 recenziju un lietotāja gala konsensu
 FREEZE AUTHORIZED: NO
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
@@ -161,12 +158,13 @@ Obligāti izlasīt pilnā apjomā:
 14. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_REVIEW_TASK.md`;
 15. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_RESPONSE_REVIEW.md`;
 16. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`;
-17. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
-18. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
-19. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
-20. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
-21. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
-22. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+17. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_REVIEW_TASK.md`;
+18. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
+19. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
+20. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
+21. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
+22. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
+23. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -187,18 +185,18 @@ NEW CHAT TRIGGER: NOT REQUIRED
 BASIS:
 primārais roadmap dokuments nav mainījies — darbs turpinās pie
 TRACEABILITY_RECORD_v1 v0.6 juridiskās klasifikācijas amendment paketes.
-Response v3 ir nākamais tā paša dokumenta dzīves cikla EXACT NEXT TASK.
 
 CURRENT CHAT EXACT TASK:
-izpildīt `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`
-un sagatavot formālu response v3; arhitektūras implementation neveikt.
+nodot neatkarīgajam recenzentam
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_REVIEW_TASK.md`
+un gaidīt vienu pilnu read-only v3 recenzijas draftu.
 
 CONTINUATION RULE:
-pēc response v3 fiksēšanas, ja primārais roadmap dokuments nemainās un
-continuity paliek droša, nākamais review / response / implementation /
-audit solis turpinās tajā pašā projekta izpildes sarunā.
+pēc neatkarīgās v3 recenzijas rezultāta saņemšanas tas pats dokumenta dzīves
+cikls turpinās šajā projekta izpildes sarunā.
 
 INDEPENDENT REVIEW:
-fresh context tiek prasīts recenzentam pret fiksētu commit SHA; tas pats par
-sevi neprasa jaunu projekta izpildes asistenta sarunu.
+fresh context ir obligāts recenzentam pret response v3 commit
+`314aefee27d79e8790f54ffc9454f44b7404f436`; projekta izpildes asistents
+pats šo recenziju neveic.
 ```
