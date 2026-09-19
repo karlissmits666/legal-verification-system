@@ -113,7 +113,8 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 41. Lietotājs 2026-09-19 apstiprināja `APPROVE WS1-A REMEDIATION TASK PREPARATION`. Remediācijas specifikācija ir sagatavota `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md` commitā `959ee319d9367f232ea66f835874ffba8a2401d7`.
 42. Lietotājs 2026-09-19 deva `APPROVE WS1-A REMEDIATION IMPLEMENTATION`. Remediācijas implementation pakete ir commitēta `24ca278266aac2857f3f62d66d7ef3acda89b9a7`. Frozen owner faili nav mainīti. F-14 saglabāts kā explicit owner-decision boundary, jo frozen owner nenosaka pilnu immutable RECORD VERSION gramatiku.
 43. GitHub run `35452902463` apstiprināja repository continuity un Review #16 invariantus, bet WS1 validators neizpildījās PowerShell parser kļūdas dēļ. Validatora un catalog buildera PowerShell sintakse ir tehniski pārformatēta commitā `f87ea8e2ff26d6ea7d1e22841dde41bdbb4ebf05`, nemainot frozen semantiku.
-44. GitHub run `35453116250` izgāja continuity un Review #16 validāciju un palaida pilnu WS1 integration fixture ciklu; atlikusī kļūda bija owner section parsera nespēja atpazīt frozen dokumenta plain-number heading `13.2. Moduļa autoritāte`. Parsers paplašināts, saglabājot owner atsauci nemainītu.
+44. GitHub run `35453116250` izgāja continuity un Review #16 validāciju un palaida pilnu WS1 integration fixture ciklu; atlikusī kļūda bija owner section parsera nespēja atpazīt frozen dokumenta plain-number heading `13.2. Moduļa autoritāte`. Parsers paplašināts commitā `311c408119b10373e93b8801ad2491707bb8be12`, saglabājot owner atsauci nemainītu.
+45. Nākamajā WS1 validācijas ciklā tika atklāta VP dokumenta atkārtotas `5.` numerācijas kolīzija. `registry.verification_method` pārbaude pārvietota uz precīzu VP `5.1–5.3` heading ekstrakciju un §17 lifecycle mapping pārbaudi, nemainot registry saturu.
 
 ## 5. User-approved decisions in force
 
