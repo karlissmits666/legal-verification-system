@@ -93,11 +93,14 @@ Ja validācija neizdodas, parāda tikai īsu konkrēto blokatoru un nepieciešam
 
 Kad konteksts atjaunots:
 
-1. izpildi tikai `EXACT NEXT TASK`;
-2. nelec uz nākamo major document vai freeze;
-3. neuztver handoff tekstu kā jaunu lietotāja approval;
-4. implementation veic tikai tad, ja state fails un lietotāja norādījums kopā apliecina autorizāciju;
-5. ja nākamais solis prasa trūkstošu lietotāja vai ārēju bankas lēmumu, sagatavo konkrēto lēmuma jautājumu, bet neizdomā atbildi.
+1. izpildi aktuālo `EXACT NEXT TASK`;
+2. pēc tā pabeigšanas, ja primārais roadmap dokuments nemainās un continuity ir droša, drīkst tajā pašā sarunā pāriet uz nākamo dokumenta dzīves cikla `EXACT NEXT TASK`;
+3. nelec uz nākamo major document vai freeze bez procesa nosacījumu izpildes;
+4. neuztver handoff tekstu kā jaunu lietotāja approval;
+5. implementation veic tikai tad, ja state fails un lietotāja norādījums kopā apliecina autorizāciju;
+6. ja nākamais solis prasa trūkstošu lietotāja vai ārēju bankas lēmumu, sagatavo konkrēto lēmuma jautājumu, bet neizdomā atbildi.
+
+`EXACT NEXT TASK` nosaka secīgo darba soli; tas pats par sevi nenosaka sarunas robežu. Sarunas robežu nosaka `PROJECT_EXECUTION_PROTOCOL.md` 6.1. princips `ONE CHAT = ONE PRIMARY ROADMAP DOCUMENT / ONE DOCUMENT LIFECYCLE`.
 
 ## 3. Obligātais continuity noslēgums
 
@@ -118,10 +121,16 @@ Ja projekta stāvoklis nav mainījies, state failu nepārraksta tikai datuma vai
 
 Jaunā čata nepieciešamību izvērtē pēc `PROJECT_EXECUTION_PROTOCOL.md` 6.1. punkta.
 
+Pamatnoteikums: ja primārais roadmap dokuments nemainās, `EXACT NEXT TASK` maiņa pati par sevi **neizraisa** jaunu sarunu. Review, review response, implementation, audits un freeze sagatavošana viena dokumenta dzīves ciklā turpinās tajā pašā projekta izpildes sarunā, ja continuity paliek droša.
+
+Neatkarīgās recenzijas fresh-context prasība attiecas uz recenzenta kontekstu, nevis automātiski uz projekta izpildes asistenta sarunu.
+
+Ja rezultāts ir `NEW CHAT TRIGGER: NOT REQUIRED`, copy-paste ziņojumu neizvada un darbs turpinās tajā pašā sarunā.
+
 Ja rezultāts ir `NEW CHAT TRIGGER: REQUIRED — NOT READY`, asistents:
 
 1. neizdod pārejas ziņojumu kā gatavu;
-2. nosauc trūkstošo informāciju vai neskaidro nākamo uzdevumu;
+2. nosauc trūkstošo informāciju vai neskaidro nākamo dokumentu / uzdevumu;
 3. atjaunina repo artefaktus un `PROJECT_CURRENT_STATE.md`;
 4. atkārto readiness pārbaudi.
 
@@ -138,7 +147,7 @@ kopējamā writing block ar vienu kopēšanas pogu — bez ievada, continuity
 diagnostikas, statusa kopsavilkuma vai trigera — un pats recenziju nesāc.
 ```
 
-Ja `PROJECT_CURRENT_STATE.md` `EXACT NEXT TASK` nav viennozīmīgs, ziņojumu neizdod un trigeris paliek `REQUIRED — NOT READY`.
+Ja `PROJECT_CURRENT_STATE.md` nākamais primārais dokuments vai `EXACT NEXT TASK` nav viennozīmīgs, ziņojumu neizdod un trigeris paliek `REQUIRED — NOT READY`.
 
 ## 5. Aizliegtie saīsinājumi
 
