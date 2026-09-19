@@ -486,15 +486,16 @@ OBJECT ID
 
 Cross-record režīmā visi četri lauki ir obligāti.
 
-OBJECT TYPE izmanto 25. punktā reģistrētu TRACE OBJECT TYPE.
-OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam 26. punktā.
-OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta 30.1. punktā šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
+OBJECT TYPE izmanto T&E §25 reģistrētu TRACE OBJECT TYPE.
+OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam T&E §26.
+OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta T&E §30.1 šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
 Target objektam jāeksistē attiecīgajā record versijā.
 
 Nepilnīga cross-record reference ir INVALID.
 Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
 
-Governance dokuments, ko TASK faktiski izmanto, ir SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+Governance dokuments, ko TASK faktiski izmanto, joprojām tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+
 
 ### 26.3. Satura hash algoritms (`CONTENT HASH ALGORITHM`)
 

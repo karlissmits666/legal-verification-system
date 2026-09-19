@@ -90,7 +90,7 @@ Target objektam jāeksistē attiecīgajā record versijā.
 Nepilnīga cross-record reference ir INVALID.
 Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
 
-Governance dokuments, ko TASK faktiski izmanto, tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+Governance dokuments, ko TASK faktiski izmanto, joprojām tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
 
 
 ## 6. Uzdevuma ieraksts (`TASK RECORD`)

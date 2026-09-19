@@ -32,12 +32,19 @@ foreach($p in $rmt1Files){
 }
 if(-not ($failures | Where-Object { $_ -like 'RMT1*' })) { Pass 'RMT1 opaque MTR identifiers only in active file set.' }
 
-if($tr.Contains('Atsauce tiek glabāta vienā no diviem režīmiem.') -and
-   $te.Contains('Atsauce tiek glabāta vienā no diviem režīmiem.') -and
-   $tr.Contains('Nepilnīga cross-record reference ir INVALID.') -and
-   $te.Contains('Nepilnīga cross-record reference ir INVALID.')) {
-  Pass 'RMT2 intra/cross reference model present in both owners.'
-} else { Fail 'RMT2 reference model missing or inconsistent.' }
+function Extract-Body([string]$content,[string]$heading,[string]$nextHeading){
+  $start=$content.IndexOf($heading)
+  if($start -lt 0){ return $null }
+  $bodyStart=$start + $heading.Length
+  $end=$content.IndexOf($nextHeading,$bodyStart)
+  if($end -lt 0){ return $null }
+  return $content.Substring($bodyStart,$end-$bodyStart).Trim()
+}
+$trRef=Extract-Body $tr '## 5.1. Piesprausta izsekojamības objekta atsauce' ([Environment]::NewLine + '## 6.')
+$teRef=Extract-Body $te '### 26.2. Izsekojamības objekta atsauces shēma' ([Environment]::NewLine + '### 26.3.')
+if($null -ne $trRef -and $trRef -ceq $teRef){
+  Pass 'RMT2 TR §5.1 and T&E §26.2 replacement bodies are byte-identical after heading trim.'
+} else { Fail 'RMT2 TR §5.1 and T&E §26.2 replacement bodies differ.' }
 
 $mapStart=$te.IndexOf('### 30.1. TRACE OBJECT TYPE → ID FIELD MAPPING')
 $mapEnd=$te.IndexOf([Environment]::NewLine + '## 31.',$mapStart)
@@ -79,6 +86,8 @@ if(-not (Prefix-Ok 'SOURCE' 'DEC-1')){ Pass 'N2 prefix/type mismatch rejected.' 
 
 if($tr.Contains('vienīgais autoritatīvais attiecību avots') -and $tr.Contains('HUMAN DECISION RECORD ir INVALID')) { Pass 'N6 compatibility conflict invariant implemented.' } else { Fail 'N6 invariant missing.' }
 if($tr.Contains('referenced HUMAN DECISION obligāti satur ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE')) { Pass 'N7 authority-basis invariant implemented.' } else { Fail 'N7 invariant missing.' }
+
+if($tr.Contains('Target objektam jāeksistē attiecīgajā record versijā.')) { Pass 'N5 target existence invariant implemented.' } else { Fail 'N5 invariant missing.' }
 
 if($tr.Contains('ORIGIN TASK REFERENCE') -and $tr.Contains('ORIGIN OUTPUT REFERENCE') -and $tr.Contains('RECORD VERSION')) { Pass 'N9 PRIOR TASK OUTPUT pinned references implemented.' } else { Fail 'N9 invariant missing.' }
 
