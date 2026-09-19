@@ -102,7 +102,8 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 30. Neatkarīgās response v7 recenzijas uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V7_REVIEW_TASK.md`.
 31. Neatkarīgā response v7 recenzija ar verdiktu ACCEPT ir fiksēta `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V7_RESPONSE_REVIEW.md`.
 32. Lietotāja gala konsenss `ACCEPT v7 consensus` fiksēts 2026-09-19; Review #16 response v7 statuss = CONSENSUS REACHED.
-33. Lietotājs 2026-09-19 deva `APPROVE IMPLEMENTATION v7`; Review #16 response v7 §12 delta ir implementēts vienā atomārā commitā; audits vēl nav pabeigts.
+33. Lietotājs 2026-09-19 deva `APPROVE IMPLEMENTATION v7`; Review #16 response v7 §12 delta ir implementēts atomārajā commitā `95f636edc47ba5106f407a44839fcc16ae4ea9db`; audits vēl nav pabeigts.
+34. Post-implementation auditā konstatētā RMT2 burtiskās identitātes neatbilstība novērsta commitā `94c93b1a29eae5b4d7eaa0d3c4d25d16d76a7787`; validators pastiprināts ar exact-body salīdzinājumu un N5 pārbaudi.
 
 ## 5. User-approved decisions in force
 
@@ -242,5 +243,5 @@ IMPLEMENTATION APPROVAL:
 APPROVED — APPROVE IMPLEMENTATION v7, 2026-09-19.
 
 IMPLEMENTATION:
-IMPLEMENTED / COMMITTED — šajā atomārajā implementation commitā; AUDIT PENDING.
+IMPLEMENTED / COMMITTED — `95f636edc47ba5106f407a44839fcc16ae4ea9db`; audit remediation `94c93b1a29eae5b4d7eaa0d3c4d25d16d76a7787`; AUDIT PENDING.
 ```
