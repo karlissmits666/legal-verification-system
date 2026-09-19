@@ -1,8 +1,9 @@
 PROFESSIONAL_SCOPE_v1.4
 Bankas jurista profesionālais darba tvērums AI atbalstītai juridiskā darba videi
 
-Statuss: MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI
+Statuss: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA) [`APPROVED — BASELINE (FROZEN)`]
 Versija: 1.4
+Iesaldēšanas datums: 2026-09-19
 Bāze: `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 

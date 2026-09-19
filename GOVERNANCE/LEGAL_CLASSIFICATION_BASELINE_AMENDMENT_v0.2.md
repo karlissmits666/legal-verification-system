@@ -2,7 +2,7 @@
 
 Juridiskās klasifikācijas slāņa baseline amendment pakete
 
-**Statuss:** KONSOLIDĒTA — KRITISKAI PĀRBAUDEI; NAV IESALDĒTA  
+**Statuss:** REVIEW #16 CORE FREEZE IZPILDĪTS; PĀRĒJIE PAKETES ARTEFAKTI PALIEK AKTĪVI / DRAFT  
 **Versija:** v0.2  
 **Datums:** 2026-09-18  
 **Review bāze:** Critical architecture review #11, #12, #13 un #14
@@ -234,13 +234,15 @@ MODULE AUTHORITY LABEL = faktiski nosauktā apstiprinošā funkcija
 
 ## 9. Autoritatīvais statuss
 
-Pakete nav frozen.
+Review #16 core freeze ir izpildīts 2026-09-19.
 
-Līdz atsevišķam freeze lēmumam autoritatīvas paliek:
-- `PROFESSIONAL_SCOPE_v1.3`;
-- `TRACEABILITY_RECORD_v1 v0.5`;
-- `TERMINOLOGY_AND_ENUMS_v1 v0.3`;
+Autoritatīvais core baseline:
+- `PROFESSIONAL_SCOPE_v1.4`;
+- `TRACEABILITY_RECORD_v1 v0.6`;
+- `TERMINOLOGY_AND_ENUMS_v1 v0.4`;
 - `VERIFICATION_PROTOCOL_v1 v0.5`.
+
+Šis freeze nepadara par frozen pārējos §3 minētos amendment paketes draftus.
 ### 9.1. Freeze priekšnosacījumi
 
 ```text
@@ -252,6 +254,20 @@ PROFESSIONAL_SCOPE_v1.4 un TERMINOLOGY_AND_ENUMS_v1 v0.4 freeze.
 
 Šī ir amendment procesa precondition.
 Tā nav record-level BLOCK, SUSPENSION STATE vai jauns canonical statuss.
+
+### 9.2. Review #16 freeze izpilde
+
+Lietotāja freeze approval:
+```text
+APPROVE FREEZE REVIEW #16 PACKAGE
+```
+
+Freeze vienība:
+- `PROFESSIONAL_SCOPE_v1.4`;
+- `TRACEABILITY_RECORD_v1 v0.6`;
+- `TERMINOLOGY_AND_ENUMS_v1 v0.4`.
+
+Review #16 core freeze ir procesa milestone; `REQUIREMENTS_MATRIX_GOVERNANCE_v1`, `OPERATION_WORKFLOWS_v1`, `LEGAL_RESEARCH_METHOD_v1`, trigger registry un trigger set drafti ar šo lēmumu netiek iesaldēti.
 
 
 ## 10. Review #13 integrācijas statuss
@@ -302,7 +318,7 @@ Review #14 labojumi draftā:
 ## 13. Nākamais solis
 
 1. mehāniskais audits pēc Review #14 — PABEIGTS;
-2. Review #16 shēmas delta — LIETOTĀJA APSTIPRINĀTS UN INTEGRĒTS DRAFTOS; freeze nav veikts;
+2. Review #16 shēmas delta — IMPLEMENTĒTS, AUDITĒTS UN CORE FREEZE IZPILDĪTS 2026-09-19;
 3. globālā module activation gate arhitektūra — atsevišķs lēmums;
 4. bankas governance jautājums par ICT-DORA resolution authority un action owner nav atrisināts; faktiska `UNRESOLVED ISSUE` instance nav izveidota;
 5. bankas iekšējo outsourcing avotu pievienošana un kalibrācijas pilots;

@@ -15,14 +15,14 @@ Starpčatu continuity nodrošina `NEW_CHAT_START_TASK.md` un `PROJECT_CURRENT_ST
 
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
-| 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **v1.3 IESALDĒTA; v1.4 — KONSOLIDĒTS v0.2 PAKETEI** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.5 IESALDĒTA; v0.6 — REVIEW #16 DELTA IMPLEMENTĒTS, AUDITS PASS, FREEZE APPROVAL PENDING** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
+| 1 | `PROFESSIONAL_SCOPE_v1` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **v1.4 — APSTIPRINĀTS / IESALDĒTS (2026-09-19)** | Nē |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.6 — APSTIPRINĀTS / IESALDĒTS (2026-09-19)** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
 | 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **PABEIGTS — IESALDĒTS (v0.5)** | **Jā — 2. pilots** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **v0.3 — KONSOLIDĒTS v0.2 PAKETEI** | Netieši, caur prasību matricu pilotiem |
 | 6 | `OPERATION_WORKFLOWS_v1` | Detalizētas plūsmas ANALYSE / VERIFY / DRAFT / COMPARE / EXTRACT | **v0.2 — KONSOLIDĒTS v0.2 PAKETEI** | **Jā** |
 | 7 | `LEGAL_RESEARCH_METHOD_v1` | Juridiskās izpētes, avotu prioritātes, alternatīvu interpretāciju un risinājumu analīzes metodoloģija | **v0.1 — ARHITEKTŪRAS APSPRIEŠANĀ** | **Jā** |
-| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.3 IESALDĒTA; v0.4 — KONSOLIDĒTS v0.2 PAKETEI** | Nē |
+| 8 | `TERMINOLOGY_AND_ENUMS_v1` | Kanoniskie termini, uzskaitījumu (enum) vērtības un mašīnlasāmās sasaistes noteikumi | **v0.4 — APSTIPRINĀTS / IESALDĒTS (2026-09-19)** | Nē |
 | 9 | `COMMON_CONTRACT_REVIEW_CHECKLIST_v1` | Universālā līgumu juridiskā pārbaude neatkarīgi no specializētajiem moduļiem | **JĀIZSTRĀDĀ** | **Jā** |
 | 10 | `EBA_REQUIREMENTS_MATRIX_v1` | Apstiprināta ārpakalpojumu/EBA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
 | 11 | `DORA_REQUIREMENTS_MATRIX_v1` | Apstiprināta IKT/DORA līgumisko prasību kopa | **JĀIZSTRĀDĀ** | **Jā** |
@@ -117,9 +117,9 @@ LEGAL TASK
 ## 4. Ieteicamā izstrādes secība
 
 ```text
-1. PROFESSIONAL_SCOPE_v1.3                     PABEIGTS / IESALDĒTS
-2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS (v0.5)
-3. TERMINOLOGY_AND_ENUMS_v1                 PABEIGTS / IESALDĒTS (v0.3)
+1. PROFESSIONAL_SCOPE_v1                       PABEIGTS / IESALDĒTS (v1.4)
+2. TRACEABILITY_RECORD_v1                     PABEIGTS / IESALDĒTS (v0.6)
+3. TERMINOLOGY_AND_ENUMS_v1                 PABEIGTS / IESALDĒTS (v0.4)
 4. VERIFICATION_PROTOCOL_v1                 PABEIGTS / IESALDĒTS (v0.5)
 5. REQUIREMENTS_MATRIX_GOVERNANCE_v1
 6. OPERATION_WORKFLOWS_v1
@@ -216,7 +216,7 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 ## Izsekojamības posms
 
-`TRACEABILITY_RECORD_v1 — Arhitektūra v0.5` ir apstiprināts kā iesaldētā pamatversija.
+`TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` ir apstiprināts kā iesaldētā pamatversija.
 
 - Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`: PASS
 - Bloķējošas pretrunas ar pamatversiju: 0
@@ -228,7 +228,7 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 ## Terminoloģijas posms
 
-`TERMINOLOGY_AND_ENUMS_v1 — v0.3` ir apstiprināts kā iesaldētā pamatversija.
+`TERMINOLOGY_AND_ENUMS_v1 — v0.4` ir apstiprināts kā iesaldētā pamatversija.
 
 - Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` un `TRACEABILITY_RECORD_v1 v0.4`: IZTURĒTS
 - Bloķējošas pretrunas ar pamatversijām: 0

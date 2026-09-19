@@ -3,9 +3,9 @@
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
 **Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
-**Versija:** Arhitektūra v0.5  
-**Iesaldēšanas datums:** 2026-09-18  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
+**Versija:** Arhitektūra v0.6  
+**Iesaldēšanas datums:** 2026-09-19  
+**Bāze:** `PROFESSIONAL_SCOPE_v1.4` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA; iepriekšējā `TRACEABILITY_RECORD_v1 v0.5` saglabāta Git vēsturē
 
 ## 1. Mērķis
 
@@ -32,6 +32,10 @@ Centrālā vienība ir `TASK`.
 ```text
 TASK
 ├── CLASSIFICATION
+├── CONTRACT TYPE                     [ja piemērojams]
+├── LEGAL CLASSIFICATION ASSESSMENTS  [ja piemērojams]
+├── MODULE SCREENING RECORDS          [ja piemērojams]
+├── MODULE TRIGGER SET REFERENCES     [ja piemērojams]
 ├── MODULES
 ├── AI GOVERNANCE
 ├── SOURCES
@@ -53,9 +57,42 @@ TASK
 
 Identifikatori ir necaurspīdīgi un neiekodē savstarpējās attiecības.
 
-Piemēri: `TASK-0042`, `SRC-0184`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `VSR-0011`, `DEC-0014`, `ESC-0009`, `OUT-0031`.
+Piemēri: `TASK-0042`, `SRC-0184`, `MOD-0006`, `FND-0071`, `REQ-0038`, `CMP-0082`, `EVD-0160`, `VER-0027`, `VSR-0011`, `LCA-0012`, `MSR-0007`, `DEC-0014`, `ESC-0009`, `ISS-0010`, `OUT-0031`.
 
 Saistības glabā laukos, nevis ID.
+
+### 5.1. Piesprausta izsekojamības objekta atsauce
+
+Atsauce tiek glabāta vienā no diviem režīmiem.
+
+INTRA-RECORD REFERENCE:
+```text
+OBJECT TYPE
+OBJECT ID
+```
+
+TRACE RECORD ID un RECORD VERSION tiek mantoti no containing immutable record versijas un netiek glabāti atkārtoti.
+
+CROSS-RECORD REFERENCE:
+```text
+TRACE RECORD ID
+RECORD VERSION
+OBJECT TYPE
+OBJECT ID
+```
+
+Cross-record režīmā visi četri lauki ir obligāti.
+
+OBJECT TYPE izmanto T&E §25 reģistrētu TRACE OBJECT TYPE.
+OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam T&E §26.
+OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta T&E §30.1 šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
+Target objektam jāeksistē attiecīgajā record versijā.
+
+Nepilnīga cross-record reference ir INVALID.
+Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
+
+Governance dokuments, ko TASK faktiski izmanto, joprojām tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+
 
 ## 6. Uzdevuma ieraksts (`TASK RECORD`)
 
@@ -67,15 +104,34 @@ CREATED AT
 RESPONSIBLE LAWYER
 OPERATION
 OBJECT
+CONTRACT TYPE                    [ja OBJECT = CONTRACT]
+FACT PROFILE FINDING IDS          [ja piemērojams]
+MODULE SCREENING RECORD IDS       [ja piemērojams]
 ACTIVE MODULES
-AI TOOL
-AI/MODEL VERSION
-AI TOOL USAGE POLICY VERSION
+AI USED
+AI USE DECLARED BY
+AI USE DECLARED AT
+AI TOOL                            [obligāts, ja AI USED = true]
+AI/MODEL VERSION                   [obligāts, ja AI USED = true]
+AI TOOL USAGE POLICY VERSION       [obligāts, ja AI USED = true]
 ```
 
 TASK līmeņa `DECLARED DATA CLASSES` ir visu SOURCE ierakstu datu klašu atvasināta kopa.
 
-Ja platforma neatklāj modeļa versiju:
+`AI USED` ir boolean. `AI USE DECLARED BY` un `AI USE DECLARED AT` dokumentē deklarācijas autoru un laiku.
+
+```text
+IF AI USED = false
+THEN AI TOOL, AI/MODEL VERSION AND AI TOOL USAGE POLICY VERSION MUST BE ABSENT
+
+IF AI USED = true
+THEN AI TOOL, AI/MODEL VERSION AND AI TOOL USAGE POLICY VERSION ARE REQUIRED
+AND THE PERMISSION GATE REMAINS FAIL-CLOSED
+```
+
+AI neizmantošanu nedrīkst aizvietot ar `NOT ESTABLISHED`, `N/A`, `TBD`, tukšu obligāto lauku vai citu ad hoc placeholder. Ja `AI USED = true`, trūkstoša vai neapstiprināta permission autoritāte netiek maskēta ar placeholder un piemēro `BLOCK`.
+
+Ja AI ir izmantots un platforma neatklāj modeļa versiju:
 
 ```text
 MODEL VERSION: NOT EXPOSED BY PLATFORM
@@ -94,19 +150,94 @@ EXTERNAL SOURCE / DOCUMENT SET
 
 Ja klasifikācija nav viennozīmīga: `TASK CLARIFICATION REQUIRED`.
 
+## 7.1. Juridiskās klasifikācijas izvērtējums (`LEGAL CLASSIFICATION ASSESSMENT`)
+
+`LEGAL CLASSIFICATION ASSESSMENT` ir strukturēts profesionālās analīzes objekts, kas dokumentē sistēmas vai jurista argumentētu izvērtējumu par iespējamu juridisku vai regulatīvu klasifikāciju.
+
+Tas nav gala `MODULE STATUS`, nav `LEGAL APPROVED` un pats par sevi neaktivizē prasību kopu.
+
+Minimāli:
+
+```text
+LEGAL CLASSIFICATION ASSESSMENT ID
+TASK ID
+CLASSIFICATION QUESTION
+CLASSIFICATION TARGET
+CONTRACT TYPE REFERENCES           [ja piemērojams]
+RELEVANT FACT FINDING REFERENCES
+MATERIAL ASSUMPTION FINDING REFERENCES [ja piemērojams]
+SUPPORTING SOURCE REFERENCES
+SUPPORTING ARGUMENTS
+COUNTERVAILING SOURCE REFERENCES
+COUNTERARGUMENTS
+UNCERTAINTIES
+MISSING INFORMATION
+QUALITATIVE LIKELIHOOD
+AUTHORITY REQUIRED
+PROPOSED CLASSIFICATION
+CREATED BY
+CREATED AT
+HUMAN DECISION REFERENCE           [ja pieejama]
+RELATED MODULE ID
+CLASSIFICATION BASIS VERSION
+SUPERSEDES LCA ID                   [ja piemērojams]
+RECLASSIFICATION REVIEW DECISION ID [DECISION TYPE = reclassification_materiality; ja piemērojams]
+```
+
+`CREATED BY` drīkst būt AI rīks vai cilvēks. Tas nepadara objektu par cilvēka lēmumu.
+
+Ja klasifikācijai nepieciešams cilvēka gala lēmums, tas tiek glabāts atsevišķā `HUMAN DECISION RECORD` vai attiecīgā moduļa `CONFIRMED BY` laukā.
+
+Kvalitatīvais varbūtības novērtējums ir analīzes metadats, ne gala juridiskais statuss. Tā vērtības nosaka `LEGAL_RESEARCH_METHOD_v1` un reģistrē `TERMINOLOGY_AND_ENUMS_v1`.
+
+## 7.2. Moduļa screening ieraksts (`MODULE SCREENING RECORD`)
+
+`MODULE SCREENING RECORD` dokumentē candidate-module screening pret konkrētu apstiprināta trigger reģistra versiju.
+
+Minimāli:
+
+```text
+MODULE SCREENING RECORD ID
+TASK ID
+SCREENED MODULES
+TRIGGER REGISTRY ID
+TRIGGER REGISTRY VERSION
+TRIGGERS IDENTIFIED               [array; [] = apzināts negatīvs rezultāts]
+TRIGGERS NOT IDENTIFIED WITH SUPPORTING FINDING
+                                  [map: trigger id → FINDING ID; obligāts negatīvi formulētiem triggeriem]
+SCREENED BY
+SCREENED AT
+RELATED FACT FINDING IDS
+SCREENING DECISION ID              [HUMAN DECISION]
+```
+
+Screening apstiprinājums netiek ieviests kā jauns lēmuma tips. Tas ir `HUMAN DECISION`, kura `RELATED TRACE OBJECT REFERENCES` ietver piespraustu atsauci uz konkrēto `MODULE SCREENING RECORD ID`.
+
+`TRIGGERS IDENTIFIED = []` ir derīgs tikai tad, ja visi attiecīgās versijas triggeri ir pārbaudīti. Missing / null lauks nav negatīvs screening rezultāts.
+
+MODULE SCREENING RECORD nav MODULE STATUS un neaizvieto LEGAL CLASSIFICATION ASSESSMENT, ja trigger ir identificēts.
+
 ## 8. Moduļa ieraksts (`MODULE RECORD`)
 
 Katram modulim:
 
 ```text
+MODULE ID
 MODULE
+CONTRACT TYPE, ja izmaiņa maina juridisko kvalifikāciju vai piemērojamību
+LEGAL CLASSIFICATION ASSESSMENT, ja mainās materiāls klasifikācijas secinājums
 MODULE STATUS
 APPLICABILITY AUTHORITY
 PROPOSED BY          [ja piemērojams]
 CONFIRMED BY         [ja piemērojams]
 CONFIRMATION DATE    [ja piemērojams]
 SOURCE / REFERENCE
+CLASSIFICATION ASSESSMENT REFERENCES [ja piemērojams]
 ```
+
+`LEGAL CLASSIFICATION ASSESSMENT, ja mainās materiāls klasifikācijas secinājums` ir nosacījuma/semantikas piezīme, ne atsevišķs persistēts relationship lauks un ne §5.1 reference. Vienīgā persistētā MODULE → LCA saite ir `CLASSIFICATION ASSESSMENT REFERENCES`, kas izmanto §5.1 reference uz konkrētu LCA objektu.
+
+`MODULE ID` ir instances necaurspīdīgais identifikators ar `MOD-` prefiksu. `MODULE` ir atsevišķa canonical taxonomy vērtība. Vienas instances `MODULE ID` tiek saglabāts nemainīgs starp Traceability Record versijām; materiāla jauna instance saņem jaunu ID.
 
 Kanoniskās `MODULE STATUS` vērtības:
 ```text
@@ -139,11 +270,14 @@ FILE NAME                       [ja piemērojams]
 RECEIVED AT                     [ja piemērojams]
 RECEIVED FROM                   [ja piemērojams]
 DOCUMENT MANAGEMENT REFERENCE   [ja pieejama]
+CONTENT HASH ALGORITHM          [obligāts, ja CONTENT HASH ir pieejams]
 CONTENT HASH                    [ja tehniski pieejams]
 LOCATION / REFERENCE
 PERMISSION STATUS
 PERMISSION CHECKED AT
 ```
+
+Ja `CONTENT HASH` ir norādīts, `CONTENT HASH ALGORITHM` ir obligāts un izmanto `TERMINOLOGY_AND_ENUMS_v1` kontrolētu vērtību. Ja `CONTENT HASH` nav norādīts, `CONTENT HASH ALGORITHM` nav norādāms.
 
 ## 10. Avota tips (`SOURCE TYPE`)
 
@@ -173,6 +307,7 @@ FILE NAME
 RECEIVED AT
 RECEIVED FROM
 DOCUMENT MANAGEMENT REFERENCE
+CONTENT HASH ALGORITHM
 CONTENT HASH
 ```
 
@@ -222,15 +357,20 @@ Ja viena TASK materiāls rezultāts kļūst par citas TASK ievaddatu:
 
 ```text
 SOURCE TYPE: PRIOR TASK OUTPUT
-ORIGIN TASK ID
-ORIGIN OUTPUT ID
-ORIGIN OBJECT ID          [ja piemērojams]
+ORIGIN TASK REFERENCE            [full cross-record TRACE OBJECT REFERENCE]
+ORIGIN OUTPUT REFERENCE          [full cross-record TRACE OBJECT REFERENCE]
+ORIGIN OBJECT REFERENCE          [full cross-record TRACE OBJECT REFERENCE; ja piemērojams]
 INHERITED VERIFICATION LEVEL
 ```
 
-Mantotais verification level tiek kopēts no izcelsmes objekta un netiek paaugstināts ar nodošanu citam uzdevumam.
+ORIGIN TASK REFERENCE.OBJECT TYPE = TASK.
+ORIGIN OUTPUT REFERENCE.OBJECT TYPE = OUTPUT.
+Visas trīs references satur izcelsmes TRACE RECORD ID un RECORD VERSION.
 
-To var paaugstināt tikai jauns `VERIFICATION EVENT` attiecībā uz konkrēto apgalvojumu.
+Mantotais verification level tiek iegūts tieši no norādītās izcelsmes versijas un netiek paaugstināts ar nodošanu citam uzdevumam.
+
+To var paaugstināt tikai jauns VERIFICATION EVENT attiecībā uz konkrēto apgalvojumu.
+
 
 ## 15. Atradums (`FINDING`)
 
@@ -357,7 +497,24 @@ REQUIREMENT SOURCE
 EVIDENCE IDS
 ANALYSIS / INTERPRETATION
 DATA CLASS EVENT REFERENCES  [ja piemērojams]
+SCENARIO ONLY                [true / false]
+CLASSIFICATION BASIS REFERENCES [LCA / MODULE DECISION, ja piemērojams]
+CLASSIFICATION BASIS CURRENT [true / false, ja piemērojams]
+SUPERSEDED BY RESULT ID      [ja piemērojams]
 ```
+
+## 22.1. Scenārija un aizstātas klasifikācijas rezultāti
+
+Ja `SCENARIO ONLY = true`:
+- rezultāts ir hipotētisks un nav actual requirement result;
+- to nedrīkst mantot citā TASK kā faktisku rezultātu;
+- vēlākai faktiskai piemērojamībai rada jaunu REQUIREMENT RESULT.
+
+Ja klasifikācija tiek aizstāta materiāla FACT PROFILE maiņas dēļ:
+- vecais rezultāts paliek vēsturē;
+- `CLASSIFICATION BASIS CURRENT = false`;
+- ja radīts jauns rezultāts, norāda `SUPERSEDED BY RESULT ID`;
+- vecais rezultāts nedrīkst tikt attēlots kā aktuālais gala rezultāts.
 
 ## 23. `REQUIREMENT LEVEL` / `GOVERNANCE STATUS` nosacījumu shēma
 
@@ -494,7 +651,7 @@ T3: FND-0042 → HUMAN VERIFIED
 
 ## 32. Prasību verifikācijas izdošanas vārti
 
-Šis vārti attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.3` 16.3. slieksnis prasa `HUMAN VERIFIED`.
+Šis vārti attiecas tikai uz prasībām, kurām frozen `PROFESSIONAL_SCOPE_v1.4` 16.3. slieksnis prasa `HUMAN VERIFIED`.
 
 Tas nav universāls vārti visiem `FINDING`.
 
@@ -523,9 +680,8 @@ Obligāts katram materiālam uzdevumam:
 ```text
 TASK
 CLASSIFICATION
-AI TOOL
+AI GOVERNANCE
 SOURCE-LEVEL DATA CLASSES
-AI TOOL USAGE POLICY VERSION
 MODULES
 SOURCES
 FINDINGS
@@ -537,6 +693,8 @@ HUMAN DECISIONS
 OUTPUTS
 LEGAL STATUS REFERENCE
 ```
+
+`AI GOVERNANCE` ietver `AI USED`, `AI USE DECLARED BY`, `AI USE DECLARED AT` un, tikai ja `AI USED = true`, 6. punktā noteiktos AI rīka, modeļa un politikas laukus.
 
 ## 35. Paplašinātais ieraksts (`EXTENDED RECORD`)
 
@@ -563,9 +721,23 @@ BASIS
 RELATED FINDING
 RELATED REQUIREMENT
 RELATED ISSUE
+RELATED TRACE OBJECT REFERENCES  [ja piemērojams]
+ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE
+  [obligāts, ja HUMAN DECISION tiek izmantots kā action owner vai resolution authority assignment pamats]
 ```
 
-AI nekad nav `DECIDED BY`.
+AI nekad nav DECIDED BY.
+
+RELATED TRACE OBJECT REFERENCES = vienīgais autoritatīvais attiecību avots.
+
+RELATED FINDING, RELATED REQUIREMENT un RELATED ISSUE = compatibility views.
+
+Ja kāds compatibility view ir aizpildīts, RELATED TRACE OBJECT REFERENCES obligāti satur tieši atbilstošu typed reference.
+
+Ja compatibility view konfliktē ar RELATED TRACE OBJECT REFERENCES, HUMAN DECISION RECORD ir INVALID.
+
+ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE ir §5.1 reference ar target SOURCE.
+
 
 ## 37. Eskalācijas ieraksts (`ESCALATION RECORD`)
 
@@ -587,12 +759,34 @@ SUSPENSION STATE drīkst izmantot tikai frozen vērtības.
 ISSUE ID
 DESCRIPTION
 IMPACT
-RELATED OBJECT
+RELATED TRACE OBJECT REFERENCES
 REQUIRED ACTION
-RESPONSIBLE FUNCTION
+ACTION OWNER
+ACTION OWNER BASIS REFERENCE
+RESOLUTION AUTHORITY KNOWN
+RESOLUTION AUTHORITY                  [obligāts, ja RESOLUTION AUTHORITY KNOWN = true]
+RESOLUTION AUTHORITY BASIS REFERENCE  [obligāts, ja RESOLUTION AUTHORITY KNOWN = true]
 ```
 
 Atsevišķs Issue Status netiek ieviests.
+
+RELATED TRACE OBJECT REFERENCES satur vienu vai vairākas §5.1 noteiktās references.
+
+ACTION OWNER ir persona, loma vai organizatoriska funkcija, kas uzņēmusies vai ar autoritatīvu pamatu ir saņēmusi pienākumu izpildīt REQUIRED ACTION. TASK atbildīgais jurists nekļūst par ACTION OWNER automātiski.
+
+ACTION OWNER BASIS REFERENCE un RESOLUTION AUTHORITY BASIS REFERENCE ir §5.1 references ar atļautiem target tipiem:
+
+```text
+SOURCE
+HUMAN DECISION
+```
+
+Ja ACTION OWNER BASIS REFERENCE vai RESOLUTION AUTHORITY BASIS REFERENCE target ir HUMAN DECISION, referenced HUMAN DECISION obligāti satur ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE. Tas ir §36 prasības tiešs turpinājums.
+
+Noklusējuma režīms ir INTRA-RECORD; CROSS-RECORD izmanto tikai tad, ja konkrētais target atrodas citā Trace Record vai versijā.
+
+RESOLUTION AUTHORITY KNOWN ir boolean. Ja tā vērtība ir true, RESOLUTION AUTHORITY un RESOLUTION AUTHORITY BASIS REFERENCE ir obligāti. Ja vērtība ir false, abi authority lauki nav norādāmi un REQUIRED ACTION ietver resolution authority noskaidrošanu. Sistēma nedrīkst izdomāt action owner vai resolution authority, kā arī izmantot UNKNOWN, TBD, N/A vai citu placeholder.
+
 
 ## 39. Neatrisināta jautājuma slēgšana
 
@@ -611,6 +805,13 @@ CREATED AT
 SOURCE SET REFERENCE
 RELATED FINDINGS
 RELATED REQUIREMENTS
+LEGAL CLASSIFICATION ASSESSMENT REFERENCES [ja piemērojams]
+MODULE SCREENING RECORD REFERENCES [ja piemērojams]
+MODULE SCREENING SUMMARY              [obligāts, ja veikts screening]
+  SCREENED MODULES
+  TRIGGER SET ID / VERSION
+  SCREENING RESULT
+  MODULE SCREENING RECORD ID
 COMPLETENESS CONTROL REFERENCE  [ja piemērojams]
 VERIFICATION SUMMARY
 OUTPUT REFERENCE
@@ -698,6 +899,14 @@ LEGAL STATUS REFERENCE
 
 ## 46. Minimālais saturs pa operācijām
 
+Ja uzdevumam piemērojams `LEGAL INTAKE`, zemāk norādītajam operācijas minimumam papildus pievieno:
+```text
+CONTRACT TYPE                         [ja OBJECT = CONTRACT]
+LEGAL CLASSIFICATION ASSESSMENTS      [ja piemērojams]
+MODULE STATUS / AUTHORITY DECISIONS   [ja piemērojams]
+REQUIREMENTS SET SELECTION REFERENCES [ja piemērojams]
+```
+
 ### ANALYSE
 ```text
 SOURCES
@@ -750,7 +959,7 @@ VERIFICATION LEVEL
 
 ## 47. Kanonisko statusu princips
 
-Kanoniskie semantiskie statusi un uzskaitījumu (`enum`) vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.3`.
+Kanoniskie semantiskie statusi un uzskaitījumu (`enum`) vērtības ir tieši tās, ko nosaka `PROFESSIONAL_SCOPE_v1.4`.
 
 Šis dokuments neievieš paralēlas statusu kopas.
 
@@ -765,7 +974,7 @@ Traceability Record nav vieta:
 - pilnai sarakstei;
 - pilnam evidence fragmentam.
 
-Tas satur metadatus, references, secinājumu sasaistes, verifikācijas aktus, verifikācijas tvēruma ierakstus un cilvēka lēmumu saites.
+Tas satur metadatus, references, secinājumu sasaistes, juridiskās klasifikācijas izvērtējumus, verifikācijas aktus, verifikācijas tvēruma ierakstus un cilvēka lēmumu saites.
 
 Evidence fragments dzīvo atsevišķā Evidence Object. Verifikācijas pārbaudītais tvērums, ja piemērojams, dzīvo atsevišķā VERIFICATION SCOPE RECORD.
 
@@ -841,14 +1050,19 @@ TASK
 └── LEGAL STATUS REFERENCE
 ```
 
-## 52. Iesaldēšanas statuss
+## 52. Arhitektūras statuss
 
 Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Iesaldēšanas pamats:
-1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TERMINOLOGY_AND_ENUMS_v1 v0.3` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
-2. bloķējošas pretrunas — 0;
-3. jauni frozen canonical statusi — 0;
-4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
+Iesaldēšanas datums: `2026-09-19`.
 
-Iepriekšējā `Arhitektūra v0.4` paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
+Arhitektūra v0.6 pievieno juridiskās klasifikācijas izsekojamības slāni, saglabājot iepriekšējās pierādījumu, verifikācijas un statusu semantikas robežas.
+
+Review #16:
+- neatkarīgā recenzija: ACCEPT;
+- lietotāja konsenss: REACHED;
+- implementation: IMPLEMENTED / COMMITTED;
+- post-implementation audits: PASS;
+- freeze approval: `APPROVE FREEZE REVIEW #16 PACKAGE`.
+
+Turpmākas izmaiņas šajā pamatversijā drīkst veikt tikai ar dokumentētu amendment / jaunas versijas procesu.

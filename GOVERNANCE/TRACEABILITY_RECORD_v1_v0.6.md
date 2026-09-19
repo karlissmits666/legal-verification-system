@@ -2,9 +2,10 @@
 
 Bankas juridiskā darba izsekojamības ieraksta arhitektūra
 
-**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** Arhitektūra v0.6  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS; `TRACEABILITY_RECORD_v1 v0.5` — IESALDĒTA PAMATVERSIJA
+**Iesaldēšanas datums:** 2026-09-19  
+**Bāze:** `PROFESSIONAL_SCOPE_v1.4` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA; iepriekšējā `TRACEABILITY_RECORD_v1 v0.5` saglabāta Git vēsturē
 
 ## 1. Mērķis
 
@@ -1049,17 +1050,19 @@ TASK
 └── LEGAL STATUS REFERENCE
 ```
 
-## 52. Arhitektūras apspriešanas statuss
+## 52. Arhitektūras statuss
 
-Šis dokuments ir `MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-v0.6 mērķis ir pievienot juridiskās klasifikācijas izsekojamības slāni, nemainot v0.5 frozen pierādījumu, verifikācijas un statusu semantiku.
+Iesaldēšanas datums: `2026-09-19`.
 
-Pirms iesaldēšanas nepieciešams:
-1. konsenss par `PROFESSIONAL_SCOPE_v1.4`;
-2. saderība ar `TERMINOLOGY_AND_ENUMS_v1 v0.4`;
-3. saderība ar `OPERATION_WORKFLOWS_v1` un `LEGAL_RESEARCH_METHOD_v1`;
-4. mehāniskais audits;
-5. lietotāja skaidrs freeze apstiprinājums.
+Arhitektūra v0.6 pievieno juridiskās klasifikācijas izsekojamības slāni, saglabājot iepriekšējās pierādījumu, verifikācijas un statusu semantikas robežas.
 
-Iepriekšējā `Arhitektūra v0.5` paliek iesaldētā autoritatīvā versija līdz v0.6 apstiprināšanai.
+Review #16:
+- neatkarīgā recenzija: ACCEPT;
+- lietotāja konsenss: REACHED;
+- implementation: IMPLEMENTED / COMMITTED;
+- post-implementation audits: PASS;
+- freeze approval: `APPROVE FREEZE REVIEW #16 PACKAGE`.
+
+Turpmākas izmaiņas šajā pamatversijā drīkst veikt tikai ar dokumentētu amendment / jaunas versijas procesu.

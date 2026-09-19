@@ -3,11 +3,11 @@
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
 **Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
-**Versija:** v0.3  
-**Iesaldēšanas datums:** 2026-09-18  
+**Versija:** v0.4  
+**Iesaldēšanas datums:** 2026-09-19  
 **Bāze:**  
-- `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
-- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.5 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
+- `PROFESSIONAL_SCOPE_v1.4` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
+- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.6 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
 
@@ -28,7 +28,7 @@ Tas definē:
 Šis dokuments nemaina frozen dokumentu juridisko vai arhitektonisko nozīmi.
 
 Konflikta gadījumā augstāka autoritāte ir:
-1. `PROFESSIONAL_SCOPE_v1.3`;
+1. `PROFESSIONAL_SCOPE_v1.4`;
 2. `TRACEABILITY_RECORD_v1`;
 3. šis dokuments.
 
@@ -125,7 +125,7 @@ To drīkst izmantot tikai tad, ja shēma konkrētā stāvoklī skaidri nosaka, k
 
 ## 6. Enum un taxonomy pārvaldības princips
 
-1. Enum, kas izriet no `PROFESSIONAL_SCOPE_v1.3` slēgtā statusu reģistra, ir slēgti. Tos var mainīt tikai ar augstāka līmeņa frozen baseline grozījumu.
+1. Enum, kas izriet no `PROFESSIONAL_SCOPE_v1.4` slēgtā statusu reģistra, ir slēgti. Tos var mainīt tikai ar augstāka līmeņa frozen baseline grozījumu.
 2. Tehniskās taxonomy, piemēram `SOURCE TYPE`, `TRACE OBJECT TYPE` un ID prefiksi, maināmas tikai ar attiecīgās shēmas governance procedūru.
 3. Citam governance dokumentam piederošas vārdnīcas šeit netiek dublētas.
 4. Nevienu enum vai taxonomy nedrīkst paplašināt viena `TASK` ietvaros.
@@ -415,6 +415,9 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | REQUIREMENT COMPONENT | `requirement_component` |
 | VERIFICATION EVENT | `verification_event` |
 | VERIFICATION SCOPE RECORD | `verification_scope_record` |
+| LEGAL CLASSIFICATION ASSESSMENT | `legal_classification_assessment` |
+| MODULE SCREENING RECORD | `module_screening_record` |
+| MODULE TRIGGER SET | `module_trigger_set` |
 | HUMAN DECISION | `human_decision` |
 | ESCALATION | `escalation` |
 | UNRESOLVED ISSUE | `unresolved_issue` |
@@ -438,6 +441,9 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 | REQUIREMENT COMPONENT | `CMP-` |
 | VERIFICATION EVENT | `VER-` |
 | VERIFICATION SCOPE RECORD | `VSR-` |
+| LEGAL CLASSIFICATION ASSESSMENT | `LCA-` |
+| MODULE SCREENING RECORD | `MSR-` |
+| MODULE TRIGGER SET | `MTR-` |
 | HUMAN DECISION | `DEC-` |
 | ESCALATION | `ESC-` |
 | UNRESOLVED ISSUE | `ISS-` |
@@ -448,6 +454,63 @@ Kopu nedrīkst ad hoc paplašināt TASK ietvaros.
 ID ir necaurspīdīgs. No ID nedrīkst secināt parent/child attiecības.
 
 `EVIDENCE ID` papildus jāatbilst `TRACEABILITY_RECORD_v1` noturības invariantam: tas nedrīkst mainīties tikai tādēļ, ka Review vai cits darba artefakts tiek pārģenerēts.
+
+### 26.1. Objekta ID lauka invariants
+
+Katram TRACE OBJECT TYPE patstāvīgam ierakstam ir obligāts tā tipam atbilstošs ID lauks.
+
+MODULE RECORD tādēļ ir obligāts MODULE ID ar MOD- prefiksu; lauks MODULE saglabā atsevišķu canonical taxonomy vērtību. MODULE ID un MODULE nav savstarpēji aizstājami.
+
+Katram 25. punktā reģistrētam TRACE OBJECT TYPE, kuram 26. punktā ir piešķirts ID prefikss, ir tieši viens mehāniski pārbaudāms ID lauka nosaukums tā objekta owner shēmā.
+
+Sasaisti TRACE OBJECT TYPE → ID PREFIX → ID FIELD NAME → ID FIELD SCHEMA OWNER uztur viens kontrolēts mapping 30.1. punktā.
+
+### 26.2. Izsekojamības objekta atsauces shēma
+
+Atsauce tiek glabāta vienā no diviem režīmiem.
+
+INTRA-RECORD REFERENCE:
+```text
+OBJECT TYPE
+OBJECT ID
+```
+
+TRACE RECORD ID un RECORD VERSION tiek mantoti no containing immutable record versijas un netiek glabāti atkārtoti.
+
+CROSS-RECORD REFERENCE:
+```text
+TRACE RECORD ID
+RECORD VERSION
+OBJECT TYPE
+OBJECT ID
+```
+
+Cross-record režīmā visi četri lauki ir obligāti.
+
+OBJECT TYPE izmanto T&E §25 reģistrētu TRACE OBJECT TYPE.
+OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam T&E §26.
+OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta T&E §30.1 šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
+Target objektam jāeksistē attiecīgajā record versijā.
+
+Nepilnīga cross-record reference ir INVALID.
+Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
+
+Governance dokuments, ko TASK faktiski izmanto, joprojām tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+
+
+### 26.3. Satura hash algoritms (`CONTENT HASH ALGORITHM`)
+
+| Canonical | Machine key |
+|---|---|
+| SHA-256 | `sha256` |
+
+```text
+IF CONTENT HASH is present
+THEN CONTENT HASH ALGORITHM is required
+
+IF CONTENT HASH is absent
+THEN CONTENT HASH ALGORITHM must be absent
+```
 
 ## 27. Datu klases (DATA CLASS) reģistra īpašnieks
 
@@ -487,7 +550,55 @@ VERIFICATION METHOD REGISTRY
 
 Šis dokuments nedefinē verifikācijas metodes vai dziļumu.
 
-Līdz `VERIFICATION_PROTOCOL_v1` apstiprināšanai šī vārdnīca nav production-final.
+Verifikācijas metožu vārdnīcu nosaka iesaldētais `VERIFICATION_PROTOCOL_v1 v0.5` un tā turpmākās apstiprinātās versijas.
+
+## 28.1. CONTRACT TYPE reģistrs
+
+`CONTRACT TYPE` tehniskā taxonomy pieder `TERMINOLOGY_AND_ENUMS_v1`.
+
+| Canonical | Machine key | LV apzīmējums |
+|---|---|---|
+| SERVICE AGREEMENT | `service_agreement` | Pakalpojumu līgums |
+| GOODS SUPPLY | `goods_supply` | Preču piegādes / pirkuma līgums |
+| CONSTRUCTION | `construction` | Būvniecības līgums |
+| SOFTWARE LICENCE | `software_licence` | Programmatūras licences līgums |
+| SAAS / CLOUD SERVICE | `saas_cloud_service` | SaaS / mākoņpakalpojuma līgums |
+| IT DEVELOPMENT | `it_development` | IT izstrādes līgums |
+| IT SUPPORT / MAINTENANCE | `it_support_maintenance` | IT atbalsta / uzturēšanas līgums |
+| CONSULTING / PROFESSIONAL SERVICES | `consulting_professional_services` | Konsultāciju / profesionālo pakalpojumu līgums |
+| AUDIT SERVICES | `audit_services` | Audita pakalpojumu līgums |
+| TRAINING SERVICES | `training_services` | Mācību pakalpojumu līgums |
+| FACILITY SERVICES | `facility_services` | Saimnieciskās / facility apkalpošanas līgums |
+| SECURITY SERVICES | `security_services` | Apsardzes / drošības pakalpojumu līgums |
+| MARKETING SERVICES | `marketing_services` | Mārketinga pakalpojumu līgums |
+| FRAMEWORK AGREEMENT | `framework_agreement` | Ietvarlīgums |
+| CONFIDENTIALITY AGREEMENT | `confidentiality_agreement` | Konfidencialitātes līgums |
+| DATA PROCESSING AGREEMENT | `data_processing_agreement` | Datu apstrādes līgums |
+| LEASE | `lease` | Nomas līgums |
+| OTHER | `other` | Cits |
+
+Vienam līgumam drīkst būt vairākas CONTRACT TYPE vērtības. Jaukta līguma baseline contract-type-specific pārbaudes tvērums ir visu piešķirto tipu attiecīgo pārbaudes elementu apvienojums. Tas pats par sevi neaktivizē specializētu regulatīvu MODULE.
+
+## 28.2. QUALITATIVE LIKELIHOOD reģistra īpašnieks
+
+```text
+CONTROLLED FIELD:
+QUALITATIVE LIKELIHOOD
+
+OWNER:
+LEGAL_RESEARCH_METHOD_v1
+
+REGISTRY:
+CLASSIFICATION LIKELIHOOD REGISTRY
+```
+
+Šis lauks ir argumentēta juridiskās klasifikācijas izvērtējuma metadats. Tas:
+- nav statistiska varbūtība;
+- nav `MODULE STATUS`;
+- nav `LEGAL APPROVED`;
+- nevar automātiski piešķirt `APPLICABLE`, `NOT APPLICABLE` vai `UNCLEAR`.
+
+Procentuālas vērtības nav atļautas, kamēr nav atsevišķi validēts un kalibrēts mehānisms.
 
 ## 29. OUTPUT TYPE reģistra īpašnieks
 
@@ -521,30 +632,121 @@ Pēc `OPERATION_WORKFLOWS_v1` izstrādes katra provizoriskā vērtība:
 - kļūst `ACTIVE`; vai
 - kļūst `DEPRECATED`.
 
+## 29.1. MODULE TRIGGER SET dzīves cikls
+
+MODULE TRIGGER SET izmanto jau esošo registry lifecycle:
+
+```text
+ACTIVE
+DEPRECATED
+```
+
+Melnraksta / vēl neapstiprināta trigger set gadījumā lifecycle vērtība nav piemērojama.
+
+Cross-field invariants:
+```text
+IF approved_by = null
+THEN lifecycle MUST BE null
+
+IF approved_by != null
+THEN lifecycle MUST equal exactly one of:
+  active
+  deprecated
+
+SHORT INTAKE requires:
+  lifecycle = active
+  approved_by != null
+  approval_reference != null
+```
+
+Tādējādi `null` nav trešais lifecycle stāvoklis; tā ir lauka nepiemērojamība, ko nosaka `approved_by`.
+
+`NOT ACTIVE` nav canonical lifecycle vērtība.
+
+## 29.2. HUMAN DECISION TYPE reģistrs
+
+`HUMAN DECISION` ir universāls lēmuma objekts, bet katram ierakstam obligāts kontrolēts `DECISION TYPE`.
+
+| Canonical | Machine key | LV apzīmējums |
+|---|---|---|
+| SCREENING CONFIRMATION | `screening_confirmation` | Screening apstiprinājums |
+| MODULE APPLICABILITY | `module_applicability` | Moduļa piemērojamības lēmums |
+| CLASSIFICATION ACCEPTANCE | `classification_acceptance` | Juridiskās klasifikācijas pieņemšana |
+| ASSUMPTION ACCEPTANCE | `assumption_acceptance` | Pieņēmuma pieņemšana |
+| RECLASSIFICATION MATERIALITY | `reclassification_materiality` | Reklasifikācijas materialitātes lēmums |
+| LEGAL POSITION | `legal_position` | Juridiskās pozīcijas lēmums |
+| OTHER | `other` | Cits cilvēka lēmums |
+
+Autoritātes invariants:
+- `screening_confirmation` → jurists;
+- `module_applicability` → tikai attiecīgā MODULE APPLICABILITY AUTHORITY nosauktā funkcija / funkciju kombinācija;
+- `classification_acceptance` → jurists savas kompetences ietvaros;
+- `assumption_acceptance` → lēmumam atbildīgais cilvēks, kas izmanto pieņēmumu;
+- `reclassification_materiality` → atbildīgais jurists vai attiecīgā moduļa governance persona, ja to prasa bankas process;
+- `legal_position` → atbilstoši PROFESSIONAL_SCOPE un ārējam bankas procesam;
+- `other` → jānorāda authority basis.
+
 ## 30. Kontrolēto reģistru indekss
 
 | Controlled field | Owning document | Registry |
 |---|---|---|
-| OPERATION | `PROFESSIONAL_SCOPE_v1.3` | OPERATION |
-| OBJECT | `PROFESSIONAL_SCOPE_v1.3` | OBJECT |
-| MODULE | `PROFESSIONAL_SCOPE_v1.3` | MODULE |
-| REQUIREMENT STATUS | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT STATUS |
-| VERIFICATION LEVEL | `PROFESSIONAL_SCOPE_v1.3` | VERIFICATION LEVEL |
-| REQUIREMENT LEVEL | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT LEVEL |
-| GOVERNANCE STATUS | `PROFESSIONAL_SCOPE_v1.3` | GOVERNANCE STATUS |
-| REQUIREMENT TYPE | `PROFESSIONAL_SCOPE_v1.3` | REQUIREMENT TYPE |
-| MODULE STATUS | `PROFESSIONAL_SCOPE_v1.3` | MODULE STATUS |
-| APPLICABILITY AUTHORITY | `PROFESSIONAL_SCOPE_v1.3` | MODULE AUTHORITY |
-| CIF STATUS | `PROFESSIONAL_SCOPE_v1.3` | CIF STATUS |
-| PERMISSION STATUS | `PROFESSIONAL_SCOPE_v1.3` | PERMISSION STATUS |
-| SUSPENSION STATE | `PROFESSIONAL_SCOPE_v1.3` | SUSPENSION STATES |
+| OPERATION | `PROFESSIONAL_SCOPE_v1.4` | OPERATION |
+| OBJECT | `PROFESSIONAL_SCOPE_v1.4` | OBJECT |
+| MODULE | `PROFESSIONAL_SCOPE_v1.4` | MODULE |
+| REQUIREMENT STATUS | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT STATUS |
+| VERIFICATION LEVEL | `PROFESSIONAL_SCOPE_v1.4` | VERIFICATION LEVEL |
+| REQUIREMENT LEVEL | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT LEVEL |
+| GOVERNANCE STATUS | `PROFESSIONAL_SCOPE_v1.4` | GOVERNANCE STATUS |
+| REQUIREMENT TYPE | `PROFESSIONAL_SCOPE_v1.4` | REQUIREMENT TYPE |
+| MODULE STATUS | `PROFESSIONAL_SCOPE_v1.4` | MODULE STATUS |
+| APPLICABILITY AUTHORITY | `PROFESSIONAL_SCOPE_v1.4` | MODULE AUTHORITY |
+| CIF STATUS | `PROFESSIONAL_SCOPE_v1.4` | CIF STATUS |
+| PERMISSION STATUS | `PROFESSIONAL_SCOPE_v1.4` | PERMISSION STATUS |
+| SUSPENSION STATE | `PROFESSIONAL_SCOPE_v1.4` | SUSPENSION STATES |
 | SOURCE TYPE | `TRACEABILITY_RECORD_v1` + šī dokumenta shēmas governance | SOURCE TYPE |
 | TRACE OBJECT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE |
 | ID PREFIX | `TERMINOLOGY_AND_ENUMS_v1` | ID PREFIX |
+| CONTENT HASH ALGORITHM | `TERMINOLOGY_AND_ENUMS_v1` | CONTENT HASH ALGORITHM |
 | DATA CLASS | `AI_TOOL_USAGE_POLICY_v1` | DATA CLASS REGISTRY |
 | VERIFICATION METHOD | `VERIFICATION_PROTOCOL_v1` | VERIFICATION METHOD REGISTRY |
 | VERIFICATION RESULT | `VERIFICATION_PROTOCOL_v1` | VERIFICATION RESULT REGISTRY |
+| CONTRACT TYPE | `TERMINOLOGY_AND_ENUMS_v1` | CONTRACT TYPE REGISTRY |
+| QUALITATIVE LIKELIHOOD | `LEGAL_RESEARCH_METHOD_v1` | CLASSIFICATION LIKELIHOOD REGISTRY |
+| MODULE TRIGGER REGISTRY | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER REGISTRY |
+| MODULE TRIGGER SET | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER SET REGISTRY |
+| HUMAN DECISION TYPE | `TERMINOLOGY_AND_ENUMS_v1` | HUMAN DECISION TYPE REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
+| TRACE OBJECT TYPE → ID FIELD MAPPING | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE → ID FIELD MAPPING (§30.1) |
+
+### 30.1. TRACE OBJECT TYPE → ID FIELD MAPPING
+
+Šī tabula ir atvasināts kontrolēts indekss 26.1. punkta invarianta mehāniskai pārbaudei. Tā nav lauku definīciju owner un nerada paralēlu canonical reģistru.
+
+Lauka faktiskā definīcija paliek kolonnā ID FIELD SCHEMA OWNER norādītajā dokumentā un sadaļā. Ja mapping un owner shēma atšķiras, autoritatīva ir owner shēma un neatbilstība ir repo līmeņa defekts.
+
+| TRACE OBJECT TYPE | ID PREFIX | ID FIELD NAME | ID FIELD SCHEMA OWNER |
+|---|---|---|---|
+| TASK | `TASK-` | TASK ID | `TRACEABILITY_RECORD_v1 v0.6 §6` |
+| SOURCE | `SRC-` | SOURCE ID | `TRACEABILITY_RECORD_v1 v0.6 §9` |
+| MODULE | `MOD-` | MODULE ID | `TRACEABILITY_RECORD_v1 v0.6 §8` |
+| FINDING | `FND-` | FINDING ID | `TRACEABILITY_RECORD_v1 v0.6 §15` |
+| EVIDENCE | `EVD-` | EVIDENCE ID | `TRACEABILITY_RECORD_v1 v0.6 §17` |
+| REQUIREMENTS SET | `RQS-` | REQUIREMENTS SET ID | `TRACEABILITY_RECORD_v1 v0.6 §21` |
+| REQUIREMENT | `REQ-` | REQUIREMENT ID | `TRACEABILITY_RECORD_v1 v0.6 §22` |
+| REQUIREMENT COMPONENT | `CMP-` | COMPONENT ID | `TRACEABILITY_RECORD_v1 v0.6 §27` |
+| VERIFICATION EVENT | `VER-` | VERIFICATION EVENT ID | `TRACEABILITY_RECORD_v1 v0.6 §30` |
+| VERIFICATION SCOPE RECORD | `VSR-` | VERIFICATION SCOPE RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §20.1` |
+| LEGAL CLASSIFICATION ASSESSMENT | `LCA-` | LEGAL CLASSIFICATION ASSESSMENT ID | `TRACEABILITY_RECORD_v1 v0.6 §7.1` |
+| MODULE SCREENING RECORD | `MSR-` | MODULE SCREENING RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §7.2` |
+| MODULE TRIGGER SET | `MTR-` | TRIGGER SET ID | `MODULE_TRIGGER_REGISTRY_v1 §2` |
+| HUMAN DECISION | `DEC-` | DECISION ID | `TRACEABILITY_RECORD_v1 v0.6 §36` |
+| ESCALATION | `ESC-` | ESCALATION ID | `TRACEABILITY_RECORD_v1 v0.6 §37` |
+| UNRESOLVED ISSUE | `ISS-` | ISSUE ID | `TRACEABILITY_RECORD_v1 v0.6 §38` |
+| OUTPUT | `OUT-` | OUTPUT ID | `TRACEABILITY_RECORD_v1 v0.6 §40` |
+| DATA CLASS EVENT | `DCE-` | EVENT ID | `TRACEABILITY_RECORD_v1 v0.6 §13` |
+| TRACE RECORD | `TR-` | TRACE RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §44` |
+
+`MODULE TRIGGER SET` ID field schema owner ir `MODULE_TRIGGER_REGISTRY_v1 §2`; registry governance owner paliek `REQUIREMENTS_MATRIX_GOVERNANCE_v1` 30. punkta indeksā.
 
 ## 31. Boolean princips
 
@@ -558,6 +760,8 @@ false
 Nelieto `YES/NO`, `Y/N`, `1/0` kā canonical machine value.
 
 UI drīkst rādīt `Jā / Nē`.
+
+Šis princips attiecas arī uz `AI USED` un `RESOLUTION AUTHORITY KNOWN`.
 
 ## 32. Datuma un laika princips
 
@@ -612,7 +816,7 @@ DECISION    → cilvēka lēmums
 
 `VERIFIED` ir rezervēts semantiskās verifikācijas nozīmei.
 
-`HUMAN VERIFIED` nozīmē, ka noticis `PROFESSIONAL_SCOPE_v1.3` 17.3. paredzēts verifikācijas akts.
+`HUMAN VERIFIED` nozīmē, ka noticis `PROFESSIONAL_SCOPE_v1.4` 17.3. paredzēts verifikācijas akts.
 
 Nedrīkst izmantot tādus laukus vai statusus kā:
 `source_verified`, `ai_verified`, `workflow_verified`,
@@ -644,6 +848,18 @@ EXACT QUOTED FRAGMENT
 Brīvs MI kopsavilkums nav pierādījums.
 
 `VERIFICATION SCOPE RECORD` nav `EVIDENCE`. Tas dokumentē cilvēka semantiskās verifikācijas laikā faktiski pārbaudīto avotu tvērumu un uz to neattiecas `EXACT QUOTED FRAGMENT` prasība.
+
+## 37.1. LEGAL CLASSIFICATION ASSESSMENT definīcija
+
+`LEGAL CLASSIFICATION ASSESSMENT` ir strukturēts argumentēts juridiskās vai regulatīvās klasifikācijas izvērtējums.
+
+Tas nav:
+- gala `MODULE STATUS`;
+- `LEGAL APPROVED`;
+- `HUMAN DECISION`;
+- prasības statuss.
+
+Objekts drīkst saturēt sistēmas priekšlikumu un `QUALITATIVE LIKELIHOOD`, bet gala klasifikācija tiek fiksēta tikai atbilstoši `PROFESSIONAL_SCOPE_v1.4` noteiktajai cilvēka vai ārējai autoritātei.
 
 ## 38. FINDING definīcija
 
@@ -741,14 +957,12 @@ Interpretācijas teksts drīkst paskaidrot, kāpēc prasība ir `IZPILDĪTS`.
 
 Tas nosaka vienotu valodu, tehnisko reprezentāciju un reģistru kontraktu.
 
-## 44. Iesaldēšanas statuss
+## 44. Arhitektūras statuss
 
 Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-Iesaldēšanas pamats:
-1. mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`, `TRACEABILITY_RECORD_v1 v0.5` un `VERIFICATION_PROTOCOL_v1 v0.5` — IZTURĒTS;
-2. bloķējošas pretrunas — 0;
-3. jauni frozen canonical statusi — 0;
-4. lietotāja skaidrs freeze apstiprinājums — saņemts 2026-09-18.
+Iesaldēšanas datums: `2026-09-19`.
 
-Iepriekšējā v0.2 versija paliek nemainīga Git vēsturē. Turpmāki grozījumi notiek tikai jaunā versijā.
+v0.4 ir autoritatīvā terminoloģijas un tehniskās reprezentācijas pamatversija, kas ietver Review #16 apstiprināto juridiskās klasifikācijas, reference un TRACE OBJECT TYPE → ID FIELD mapping slāni.
+
+Turpmākas izmaiņas drīkst veikt tikai ar dokumentētu amendment / jaunas versijas procesu.

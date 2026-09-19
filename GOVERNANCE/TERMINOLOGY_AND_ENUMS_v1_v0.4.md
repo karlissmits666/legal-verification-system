@@ -2,11 +2,12 @@
 
 Juridiskās pārbaudes sistēmas terminoloģija, kontrolētās vērtības un tehniskā reprezentācija
 
-**Statuss:** MELNRAKSTS — KONSOLIDĒTS v0.2 PAKETEI  
+**Statuss:** APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)  
 **Versija:** v0.4  
+**Iesaldēšanas datums:** 2026-09-19  
 **Bāze:**  
-- `PROFESSIONAL_SCOPE_v1.4` — MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI  
-- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.6 — MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI
+- `PROFESSIONAL_SCOPE_v1.4` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA  
+- `TRACEABILITY_RECORD_v1` — Arhitektūra v0.6 — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
 
 ## 1. Mērķis
 
@@ -956,16 +957,12 @@ Interpretācijas teksts drīkst paskaidrot, kāpēc prasība ir `IZPILDĪTS`.
 
 Tas nosaka vienotu valodu, tehnisko reprezentāciju un reģistru kontraktu.
 
-## 44. Arhitektūras apspriešanas statuss
+## 44. Arhitektūras statuss
 
-Šis dokuments ir `MELNRAKSTS — ARHITEKTŪRAS APSPRIEŠANAI`.
+Šis dokuments ir `APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA)`.
 
-v0.4 mērķis ir tehniski reģistrēt juridiskās klasifikācijas slāni:
-- `LEGAL CLASSIFICATION ASSESSMENT → legal_classification_assessment`;
-- ID prefiksu `LCA-`;
-- `CONTRACT TYPE` reģistra īpašnieku;
-- `QUALITATIVE LIKELIHOOD` reģistra īpašnieku.
+Iesaldēšanas datums: `2026-09-19`.
 
-Iepriekšējā v0.3 paliek iesaldētā autoritatīvā versija līdz v0.4 apstiprināšanai.
+v0.4 ir autoritatīvā terminoloģijas un tehniskās reprezentācijas pamatversija, kas ietver Review #16 apstiprināto juridiskās klasifikācijas, reference un TRACE OBJECT TYPE → ID FIELD mapping slāni.
 
-Pirms freeze nepieciešams mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.4`, `TRACEABILITY_RECORD_v1 v0.6`, `OPERATION_WORKFLOWS_v1` un `LEGAL_RESEARCH_METHOD_v1`, kā arī lietotāja skaidrs apstiprinājums.
+Turpmākas izmaiņas drīkst veikt tikai ar dokumentētu amendment / jaunas versijas procesu.

@@ -237,9 +237,9 @@ if ($Mode -in @('Handoff', 'GitHub')) {
         }
         else {
             $frozenFiles = @(
-                'GOVERNANCE/PROFESSIONAL_SCOPE_v1.3.md',
-                'GOVERNANCE/TRACEABILITY_RECORD_v1_v0.5.md',
-                'GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.3.md',
+                'GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md',
+                'GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md',
+                'GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md',
                 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md'
             )
             $changedFiles = @(Invoke-Git -Arguments (@('diff', '--name-only', $stateCommits[1], $head, '--') + $frozenFiles))
