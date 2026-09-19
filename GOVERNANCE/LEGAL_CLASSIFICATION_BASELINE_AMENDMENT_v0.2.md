@@ -241,6 +241,18 @@ Līdz atsevišķam freeze lēmumam autoritatīvas paliek:
 - `TRACEABILITY_RECORD_v1 v0.5`;
 - `TERMINOLOGY_AND_ENUMS_v1 v0.3`;
 - `VERIFICATION_PROTOCOL_v1 v0.5`.
+### 9.1. Freeze priekšnosacījumi
+
+```text
+FREEZE PRECONDITION:
+TRACEABILITY_RECORD_v1 v0.6 freeze nav pieļaujams
+pirms vai atsevišķi no
+PROFESSIONAL_SCOPE_v1.4 un TERMINOLOGY_AND_ENUMS_v1 v0.4 freeze.
+```
+
+Šī ir amendment procesa precondition.
+Tā nav record-level BLOCK, SUSPENSION STATE vai jauns canonical statuss.
+
 
 ## 10. Review #13 integrācijas statuss
 

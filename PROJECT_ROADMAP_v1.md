@@ -16,7 +16,7 @@ Starpčatu continuity nodrošina `NEW_CHAT_START_TASK.md` un `PROJECT_CURRENT_ST
 | # | Dokuments | Mērķis | Statuss | Pilots |
 |---|---|---|---|---|
 | 1 | `PROFESSIONAL_SCOPE_v1.3` | Sistēmas profesionālais tvērums, kompetences, invarianti un slēgtie statusi | **v1.3 IESALDĒTA; v1.4 — KONSOLIDĒTS v0.2 PAKETEI** | Nē |
-| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.5 IESALDĒTA; v0.6 — KONSOLIDĒTS v0.2 PAKETEI** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
+| 2 | `TRACEABILITY_RECORD_v1` | Izsekojamības datu modelis katram materiālam juridiskā darba rezultātam | **v0.5 IESALDĒTA; v0.6 — REVIEW #16 DELTA IMPLEMENTĒTS, AUDITS PENDING** | **Jā — 1. pilots: ANALYSE + EXTRACT** |
 | 3 | `AI_TOOL_USAGE_POLICY_v1` | Bankas apstiprināto MI rīku lietošanas gadījumu, datu klašu un atļauju strukturēta politika un sasaistes modelis | **JĀIZSTRĀDĀ** | Nē — nepieciešams bankas governance apstiprinājums |
 | 4 | `VERIFICATION_PROTOCOL_v1` | Precīza `HUMAN VERIFIED`, semantiskās verifikācijas, verifikācijas dziļuma un izdošanas vārtu kārtība | **PABEIGTS — IESALDĒTS (v0.5)** | **Jā — 2. pilots** |
 | 5 | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | Prasību ievade, līmeņu piešķiršana, komponenti, versēšana, pārskatīšana un UNCLASSIFIED pārvaldība | **v0.3 — KONSOLIDĒTS v0.2 PAKETEI** | Netieši, caur prasību matricu pilotiem |
@@ -274,7 +274,7 @@ CONTRACT TYPE
 → OPERATION
 ```
 
-Jaunās versijas nav frozen. Iepriekšējās apstiprinātās pamatversijas paliek autoritatīvas līdz atsevišķam freeze lēmumam.
+Review #16 response v7 saskaņotais delta ir atomāri implementēts amendment paketes draftos. Jaunās versijas joprojām nav frozen. Iepriekšējās apstiprinātās pamatversijas paliek autoritatīvas līdz atsevišķam freeze lēmumam.
 
 
 ### SHORT INTAKE operacionālais priekšnoteikums

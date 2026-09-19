@@ -278,7 +278,7 @@ jāvērtē pret aktuālo EBA para. 28 tekstu un bankas iekšējo metodoloģiju.
 
 ```text
 MODULE: OUTSOURCING-EBA
-TRIGGER SET ID: MTR-OUTSOURCING-001
+TRIGGER SET ID: MTR-0001
 TRIGGER SET VERSION: 0.1-draft
 
 SCREENED MODULES:
@@ -354,7 +354,7 @@ NO  → current basis remains EBA/GL/2019/02.
 ## 14. Statuss
 
 ```text
-TRIGGER SET ID: MTR-OUTSOURCING-001
+TRIGGER SET ID: MTR-0001
 VERSION: 0.1-draft
 LIFECYCLE: null
 APPROVED BY: null

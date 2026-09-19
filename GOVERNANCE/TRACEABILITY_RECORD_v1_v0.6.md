@@ -62,8 +62,17 @@ Saistības glabā laukos, nevis ID.
 
 ### 5.1. Piesprausta izsekojamības objekta atsauce
 
-Katra saglabāta atsauce uz izsekojamības objektu identificē konkrētu objektu konkrētā Traceability Record versijā:
+Atsauce tiek glabāta vienā no diviem režīmiem.
 
+INTRA-RECORD REFERENCE:
+```text
+OBJECT TYPE
+OBJECT ID
+```
+
+TRACE RECORD ID un RECORD VERSION tiek mantoti no containing immutable record versijas un netiek glabāti atkārtoti.
+
+CROSS-RECORD REFERENCE:
 ```text
 TRACE RECORD ID
 RECORD VERSION
@@ -71,9 +80,18 @@ OBJECT TYPE
 OBJECT ID
 ```
 
-Visi četri lauki ir obligāti. `OBJECT TYPE` izmanto `TERMINOLOGY_AND_ENUMS_v1` reģistrētu `TRACE OBJECT TYPE`; `OBJECT ID` prefiksam jāatbilst tipam, un objektam jāeksistē norādītajā `TRACE RECORD ID` un `RECORD VERSION`. Atsauce uz `current`, `latest` vai citu kustīgu mērķi nav derīga saglabāta atsauce.
+Cross-record režīmā visi četri lauki ir obligāti.
 
-Governance dokuments, kas faktiski izmantots TASK, tiek reģistrēts kā `SOURCE` un citos objektos tam atsaucas ar piespraustu `SOURCE` atsauci. Atsevišķa governance artefakta references klase netiek ieviesta.
+OBJECT TYPE izmanto T&E §25 reģistrētu TRACE OBJECT TYPE.
+OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam T&E §26.
+OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta T&E §30.1 šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
+Target objektam jāeksistē attiecīgajā record versijā.
+
+Nepilnīga cross-record reference ir INVALID.
+Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
+
+Governance dokuments, ko TASK faktiski izmanto, tiek reģistrēts kā SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
+
 
 ## 6. Uzdevuma ieraksts (`TASK RECORD`)
 
@@ -216,6 +234,8 @@ SOURCE / REFERENCE
 CLASSIFICATION ASSESSMENT REFERENCES [ja piemērojams]
 ```
 
+`LEGAL CLASSIFICATION ASSESSMENT, ja mainās materiāls klasifikācijas secinājums` ir nosacījuma/semantikas piezīme, ne atsevišķs persistēts relationship lauks un ne §5.1 reference. Vienīgā persistētā MODULE → LCA saite ir `CLASSIFICATION ASSESSMENT REFERENCES`, kas izmanto §5.1 reference uz konkrētu LCA objektu.
+
 `MODULE ID` ir instances necaurspīdīgais identifikators ar `MOD-` prefiksu. `MODULE` ir atsevišķa canonical taxonomy vērtība. Vienas instances `MODULE ID` tiek saglabāts nemainīgs starp Traceability Record versijām; materiāla jauna instance saņem jaunu ID.
 
 Kanoniskās `MODULE STATUS` vērtības:
@@ -336,15 +356,20 @@ Ja viena TASK materiāls rezultāts kļūst par citas TASK ievaddatu:
 
 ```text
 SOURCE TYPE: PRIOR TASK OUTPUT
-ORIGIN TASK ID
-ORIGIN OUTPUT ID
-ORIGIN OBJECT ID          [ja piemērojams]
+ORIGIN TASK REFERENCE            [full cross-record TRACE OBJECT REFERENCE]
+ORIGIN OUTPUT REFERENCE          [full cross-record TRACE OBJECT REFERENCE]
+ORIGIN OBJECT REFERENCE          [full cross-record TRACE OBJECT REFERENCE; ja piemērojams]
 INHERITED VERIFICATION LEVEL
 ```
 
-Mantotais verification level tiek kopēts no izcelsmes objekta un netiek paaugstināts ar nodošanu citam uzdevumam.
+ORIGIN TASK REFERENCE.OBJECT TYPE = TASK.
+ORIGIN OUTPUT REFERENCE.OBJECT TYPE = OUTPUT.
+Visas trīs references satur izcelsmes TRACE RECORD ID un RECORD VERSION.
 
-To var paaugstināt tikai jauns `VERIFICATION EVENT` attiecībā uz konkrēto apgalvojumu.
+Mantotais verification level tiek iegūts tieši no norādītās izcelsmes versijas un netiek paaugstināts ar nodošanu citam uzdevumam.
+
+To var paaugstināt tikai jauns VERIFICATION EVENT attiecībā uz konkrēto apgalvojumu.
+
 
 ## 15. Atradums (`FINDING`)
 
@@ -696,11 +721,22 @@ RELATED FINDING
 RELATED REQUIREMENT
 RELATED ISSUE
 RELATED TRACE OBJECT REFERENCES  [ja piemērojams]
+ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE
+  [obligāts, ja HUMAN DECISION tiek izmantots kā action owner vai resolution authority assignment pamats]
 ```
 
-AI nekad nav `DECIDED BY`.
+AI nekad nav DECIDED BY.
 
-`RELATED TRACE OBJECT REFERENCES` ir viena vai vairākas 5.1. punktā noteiktās piespraustās atsauces. Specifiskie `RELATED FINDING`, `RELATED REQUIREMENT` un `RELATED ISSUE` lauki tiek saglabāti savietojamībai, bet, ja tie ir persistēti kā references, tiem piemēro to pašu piespraušanas invariantu.
+RELATED TRACE OBJECT REFERENCES = vienīgais autoritatīvais attiecību avots.
+
+RELATED FINDING, RELATED REQUIREMENT un RELATED ISSUE = compatibility views.
+
+Ja kāds compatibility view ir aizpildīts, RELATED TRACE OBJECT REFERENCES obligāti satur tieši atbilstošu typed reference.
+
+Ja compatibility view konfliktē ar RELATED TRACE OBJECT REFERENCES, HUMAN DECISION RECORD ir INVALID.
+
+ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE ir §5.1 reference ar target SOURCE.
+
 
 ## 37. Eskalācijas ieraksts (`ESCALATION RECORD`)
 
@@ -733,11 +769,23 @@ RESOLUTION AUTHORITY BASIS REFERENCE  [obligāts, ja RESOLUTION AUTHORITY KNOWN 
 
 Atsevišķs Issue Status netiek ieviests.
 
-`RELATED TRACE OBJECT REFERENCES` satur vienu vai vairākas 5.1. punktā noteiktās piespraustās atsauces.
+RELATED TRACE OBJECT REFERENCES satur vienu vai vairākas §5.1 noteiktās references.
 
-`ACTION OWNER` ir persona, loma vai organizatoriska funkcija, kas uzņēmusies vai ar autoritatīvu pamatu ir saņēmusi pienākumu izpildīt `REQUIRED ACTION`. `ACTION OWNER BASIS REFERENCE` norāda dokumentēto pašuzņemšanos vai autoritatīvo piešķīrumu. TASK atbildīgais jurists nekļūst par ACTION OWNER automātiski.
+ACTION OWNER ir persona, loma vai organizatoriska funkcija, kas uzņēmusies vai ar autoritatīvu pamatu ir saņēmusi pienākumu izpildīt REQUIRED ACTION. TASK atbildīgais jurists nekļūst par ACTION OWNER automātiski.
 
-`RESOLUTION AUTHORITY KNOWN` ir boolean. Ja tā vērtība ir `true`, `RESOLUTION AUTHORITY` un `RESOLUTION AUTHORITY BASIS REFERENCE` ir obligāti. Ja vērtība ir `false`, abi authority lauki nav norādāmi un `REQUIRED ACTION` ietver resolution authority noskaidrošanu. Sistēma nedrīkst izdomāt action owner vai resolution authority, kā arī izmantot `UNKNOWN`, `TBD`, `N/A` vai citu placeholder.
+ACTION OWNER BASIS REFERENCE un RESOLUTION AUTHORITY BASIS REFERENCE ir §5.1 references ar atļautiem target tipiem:
+
+```text
+SOURCE
+HUMAN DECISION
+```
+
+Ja ACTION OWNER BASIS REFERENCE vai RESOLUTION AUTHORITY BASIS REFERENCE target ir HUMAN DECISION, referenced HUMAN DECISION obligāti satur ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE. Tas ir §36 prasības tiešs turpinājums.
+
+Noklusējuma režīms ir INTRA-RECORD; CROSS-RECORD izmanto tikai tad, ja konkrētais target atrodas citā Trace Record vai versijā.
+
+RESOLUTION AUTHORITY KNOWN ir boolean. Ja tā vērtība ir true, RESOLUTION AUTHORITY un RESOLUTION AUTHORITY BASIS REFERENCE ir obligāti. Ja vērtība ir false, abi authority lauki nav norādāmi un REQUIRED ACTION ietver resolution authority noskaidrošanu. Sistēma nedrīkst izdomāt action owner vai resolution authority, kā arī izmantot UNKNOWN, TBD, N/A vai citu placeholder.
+
 
 ## 39. Neatrisināta jautājuma slēgšana
 

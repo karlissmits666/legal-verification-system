@@ -22,3 +22,7 @@ jobs:
       - name: Validate repository continuity
         shell: pwsh
         run: ./TOOLS/validate_project_continuity.ps1 -Mode GitHub -ExpectedCommit "${{ github.sha }}"
+
+      - name: Validate Review 16 v7 implementation invariants
+        shell: pwsh
+        run: ./TOOLS/validate_review16_v7_implementation.ps1

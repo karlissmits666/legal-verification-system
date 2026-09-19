@@ -88,7 +88,7 @@ Trigger pats par sevi nepierāda moduļa piemērojamību.
 
 ```text
 MODULE: OUTSOURCING-EBA
-TRIGGER SET ID: MTR-OUTSOURCING-001
+TRIGGER SET ID: MTR-0001
 VERSION: 0.1-draft
 LIFECYCLE: null
 SOURCE BASIS: EBA/GL/2019/02 + EBA Q&A 2020_5220 + EBA Q&A 2020_5100 + bankas iekšējie avoti vēl jāpievieno

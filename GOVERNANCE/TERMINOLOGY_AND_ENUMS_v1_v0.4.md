@@ -456,12 +456,27 @@ ID ir necaurspīdīgs. No ID nedrīkst secināt parent/child attiecības.
 
 ### 26.1. Objekta ID lauka invariants
 
-Katram `TRACE OBJECT TYPE` patstāvīgam ierakstam ir obligāts tā tipam atbilstošs ID lauks. `MODULE RECORD` tādēļ ir obligāts `MODULE ID` ar `MOD-` prefiksu; lauks `MODULE` saglabā atsevišķu taxonomy vērtību.
+Katram TRACE OBJECT TYPE patstāvīgam ierakstam ir obligāts tā tipam atbilstošs ID lauks.
+
+MODULE RECORD tādēļ ir obligāts MODULE ID ar MOD- prefiksu; lauks MODULE saglabā atsevišķu canonical taxonomy vērtību. MODULE ID un MODULE nav savstarpēji aizstājami.
+
+Katram 25. punktā reģistrētam TRACE OBJECT TYPE, kuram 26. punktā ir piešķirts ID prefikss, ir tieši viens mehāniski pārbaudāms ID lauka nosaukums tā objekta owner shēmā.
+
+Sasaisti TRACE OBJECT TYPE → ID PREFIX → ID FIELD NAME → ID FIELD SCHEMA OWNER uztur viens kontrolēts mapping 30.1. punktā.
 
 ### 26.2. Izsekojamības objekta atsauces shēma
 
-Persistēta trace-object reference ir viena strukturēta vērtība:
+Atsauce tiek glabāta vienā no diviem režīmiem.
 
+INTRA-RECORD REFERENCE:
+```text
+OBJECT TYPE
+OBJECT ID
+```
+
+TRACE RECORD ID un RECORD VERSION tiek mantoti no containing immutable record versijas un netiek glabāti atkārtoti.
+
+CROSS-RECORD REFERENCE:
 ```text
 TRACE RECORD ID
 RECORD VERSION
@@ -469,9 +484,17 @@ OBJECT TYPE
 OBJECT ID
 ```
 
-Reference ir piesprausta konkrētai Traceability Record versijai. `current`, `latest` un citas kustīgas norādes nav pieļaujamas. `OBJECT TYPE` jābūt reģistrētam 25. punktā, `OBJECT ID` prefiksam jāatbilst 26. punktam, un target objektam jāeksistē norādītajā record versijā.
+Cross-record režīmā visi četri lauki ir obligāti.
 
-Governance dokuments, ko TASK faktiski izmanto, ir `SOURCE`; tam neievieš atsevišķu governance-artifact references klasi.
+OBJECT TYPE izmanto 25. punktā reģistrētu TRACE OBJECT TYPE.
+OBJECT ID prefiksam jāatbilst OBJECT TYPE prefiksam 26. punktā.
+OBJECT ID vērtība ir tā vērtība, kas target objekta owner shēmā glabāta 30.1. punktā šim OBJECT TYPE reģistrētajā ID FIELD NAME laukā.
+Target objektam jāeksistē attiecīgajā record versijā.
+
+Nepilnīga cross-record reference ir INVALID.
+Atsauce uz current, latest vai citu kustīgu mērķi nav derīga.
+
+Governance dokuments, ko TASK faktiski izmanto, ir SOURCE; tam neievieš atsevišķu governance-artifact references klasi.
 
 ### 26.3. Satura hash algoritms (`CONTENT HASH ALGORITHM`)
 
@@ -691,6 +714,37 @@ Autoritātes invariants:
 | MODULE TRIGGER SET | `REQUIREMENTS_MATRIX_GOVERNANCE_v1` | MODULE TRIGGER SET REGISTRY |
 | HUMAN DECISION TYPE | `TERMINOLOGY_AND_ENUMS_v1` | HUMAN DECISION TYPE REGISTRY |
 | OUTPUT TYPE | `OPERATION_WORKFLOWS_v1` | OUTPUT TYPE REGISTRY |
+| TRACE OBJECT TYPE → ID FIELD MAPPING | `TERMINOLOGY_AND_ENUMS_v1` | TRACE OBJECT TYPE → ID FIELD MAPPING (§30.1) |
+
+### 30.1. TRACE OBJECT TYPE → ID FIELD MAPPING
+
+Šī tabula ir atvasināts kontrolēts indekss 26.1. punkta invarianta mehāniskai pārbaudei. Tā nav lauku definīciju owner un nerada paralēlu canonical reģistru.
+
+Lauka faktiskā definīcija paliek kolonnā ID FIELD SCHEMA OWNER norādītajā dokumentā un sadaļā. Ja mapping un owner shēma atšķiras, autoritatīva ir owner shēma un neatbilstība ir repo līmeņa defekts.
+
+| TRACE OBJECT TYPE | ID PREFIX | ID FIELD NAME | ID FIELD SCHEMA OWNER |
+|---|---|---|---|
+| TASK | `TASK-` | TASK ID | `TRACEABILITY_RECORD_v1 v0.6 §6` |
+| SOURCE | `SRC-` | SOURCE ID | `TRACEABILITY_RECORD_v1 v0.6 §9` |
+| MODULE | `MOD-` | MODULE ID | `TRACEABILITY_RECORD_v1 v0.6 §8` |
+| FINDING | `FND-` | FINDING ID | `TRACEABILITY_RECORD_v1 v0.6 §15` |
+| EVIDENCE | `EVD-` | EVIDENCE ID | `TRACEABILITY_RECORD_v1 v0.6 §17` |
+| REQUIREMENTS SET | `RQS-` | REQUIREMENTS SET ID | `TRACEABILITY_RECORD_v1 v0.6 §21` |
+| REQUIREMENT | `REQ-` | REQUIREMENT ID | `TRACEABILITY_RECORD_v1 v0.6 §22` |
+| REQUIREMENT COMPONENT | `CMP-` | COMPONENT ID | `TRACEABILITY_RECORD_v1 v0.6 §27` |
+| VERIFICATION EVENT | `VER-` | VERIFICATION EVENT ID | `TRACEABILITY_RECORD_v1 v0.6 §30` |
+| VERIFICATION SCOPE RECORD | `VSR-` | VERIFICATION SCOPE RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §20.1` |
+| LEGAL CLASSIFICATION ASSESSMENT | `LCA-` | LEGAL CLASSIFICATION ASSESSMENT ID | `TRACEABILITY_RECORD_v1 v0.6 §7.1` |
+| MODULE SCREENING RECORD | `MSR-` | MODULE SCREENING RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §7.2` |
+| MODULE TRIGGER SET | `MTR-` | TRIGGER SET ID | `MODULE_TRIGGER_REGISTRY_v1 §2` |
+| HUMAN DECISION | `DEC-` | DECISION ID | `TRACEABILITY_RECORD_v1 v0.6 §36` |
+| ESCALATION | `ESC-` | ESCALATION ID | `TRACEABILITY_RECORD_v1 v0.6 §37` |
+| UNRESOLVED ISSUE | `ISS-` | ISSUE ID | `TRACEABILITY_RECORD_v1 v0.6 §38` |
+| OUTPUT | `OUT-` | OUTPUT ID | `TRACEABILITY_RECORD_v1 v0.6 §40` |
+| DATA CLASS EVENT | `DCE-` | EVENT ID | `TRACEABILITY_RECORD_v1 v0.6 §13` |
+| TRACE RECORD | `TR-` | TRACE RECORD ID | `TRACEABILITY_RECORD_v1 v0.6 §44` |
+
+`MODULE TRIGGER SET` ID field schema owner ir `MODULE_TRIGGER_REGISTRY_v1 §2`; registry governance owner paliek `REQUIREMENTS_MATRIX_GOVERNANCE_v1` 30. punkta indeksā.
 
 ## 31. Boolean princips
 
