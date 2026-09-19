@@ -83,6 +83,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 12. Neatkarīgās R1–R5 recenzijas pilnais uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`.
 13. Pilno recenzenta uzdevumu izsniedz vienā kopējamā blokā ar vienu kopēšanas pogu; pēc konsensa lietotājam obligāti sniedz īsu pieņemtā dokumenta būtības un galveno lēmumu kopsavilkumu.
 14. Neatkarīgā response v2 recenzija ar verdiktu CHANGES REQUIRED ir fiksēta `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_RESPONSE_REVIEW.md`.
+15. Projekta sarunu robeža ir mainīta uz principu `ONE CHAT = ONE PRIMARY ROADMAP DOCUMENT / ONE DOCUMENT LIFECYCLE`; `EXACT NEXT TASK` vairs nav automātisks jaunā čata trigeris.
 
 ## 5. User-approved decisions in force
 
@@ -93,8 +94,10 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - `PROJECT_CONSTITUTION_v1.md` ir aktīvs projekta principu dokuments.
 - Konstitūcija un protokols nav papildu 13 programmas pamatdokumenti.
 - Katram jaunam būtiskam čatam jāatjauno konteksts no repo un šī continuity ieraksta tā, lai nebūtu information gap.
-- Pie procesa posma, primārā dokumenta vai patstāvīga milestone maiņas jāizvērtē obligātais jaunā čata trigeris; gatavu pārejas ziņojumu drīkst izdot tikai pēc readiness gate izpildes.
-- Viens čats izpilda vienu `EXACT NEXT TASK`; iepriekšējā handoff trigeri jaunā čata sākumā uzskata par patērētu un nākamo trigeri nevērtē, kamēr aktuālais uzdevums nav pabeigts.
+- Viena projekta saruna pēc noklusējuma aptver viena primārā roadmap dokumenta / viena dokumenta dzīves ciklu līdz final / freeze gatavībai; review, response, implementation un audits viena dokumenta ietvaros paši par sevi jaunu čatu neprasa.
+- `EXACT NEXT TASK` paliek obligāts secīgās darba kontroles mehānisms, bet tā maiņa pati par sevi nav jaunā čata trigeris.
+- Jauna saruna pēc noklusējuma nepieciešama tikai tad, ja mainās primārais roadmap dokuments, lietotājs to pieprasa, continuity kļūst nedroša/fragmentēta vai konkrētam izolētam procesam ir noteikta fresh-chat prasība.
+- Neatkarīgā recenzija saglabā fresh-context principu recenzentam, bet tas nepārtrauc projekta izpildes asistenta galveno dokumenta dzīves cikla sarunu.
 - Sekmīgas continuity pārbaudes tehnisko telemetriju lietotājam pēc noklusējuma nerāda; sākumā parāda tikai aktuālo posmu, pilno uzdevumu vai uzdevuma faila atsauci un recenzējamo vai maināmo dokumentu.
 - Ja aktuālais solis ir neatkarīgās recenzijas uzdevuma nodošana, lietotājam rāda tikai pilnu uzdevumu vienā kopējamā blokā bez procesa ievada; pēc konsensa īsi apkopo pieņemtā dokumenta būtību un galvenos lēmumus.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
@@ -179,21 +182,23 @@ Nākamais čats nedrīkst:
 ## 10. New chat handoff assessment
 
 ```text
-INBOUND HANDOFF STATUS: READY FOR ONE NEW CHAT
+NEW CHAT TRIGGER: NOT REQUIRED
 
-START RULE:
-pēc sekmīgas klusās continuity pārbaudes šis handoff tiek uzskatīts par
-patērētu. Jaunā čata sākumā NEW CHAT TRIGGER netiek izvadīts.
-
-READINESS:
-READY tikai tad, ja šā faila jaunākais commits ir current HEAD un current
-GitHub main commitam pārbaude Continuity Validation ir sekmīga.
+BASIS:
+primārais roadmap dokuments nav mainījies — darbs turpinās pie
+TRACEABILITY_RECORD_v1 v0.6 juridiskās klasifikācijas amendment paketes.
+Response v3 ir nākamais tā paša dokumenta dzīves cikla EXACT NEXT TASK.
 
 CURRENT CHAT EXACT TASK:
 izpildīt `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`
 un sagatavot formālu response v3; arhitektūras implementation neveikt.
 
-NEXT TRIGGER EVALUATION:
-pēc response v3 fiksēšanas un konkrēta neatkarīgās recenzijas uzdevuma
-sagatavošanas.
+CONTINUATION RULE:
+pēc response v3 fiksēšanas, ja primārais roadmap dokuments nemainās un
+continuity paliek droša, nākamais review / response / implementation /
+audit solis turpinās tajā pašā projekta izpildes sarunā.
+
+INDEPENDENT REVIEW:
+fresh context tiek prasīts recenzentam pret fiksētu commit SHA; tas pats par
+sevi neprasa jaunu projekta izpildes asistenta sarunu.
 ```
