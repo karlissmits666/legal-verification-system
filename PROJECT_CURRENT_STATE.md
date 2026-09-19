@@ -54,6 +54,10 @@ NEXT BLOCKED DOCUMENT:
 Juridiskās klasifikācijas amendment paketes gala audits un saistītais
 PROFESSIONAL_SCOPE_v1.4 / TRACEABILITY_RECORD_v1 v0.6 /
 TERMINOLOGY_AND_ENUMS_v1 v0.4 freeze lēmums.
+
+POST-FREEZE MANDATORY PROGRAM STEP:
+`GOVERNANCE/ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1.md`
+WS1–WS5 pirms nākamā lielā 13 dokumentu roadmap dokumenta dzīves cikla.
 ```
 
 ## 3. Frozen baseline in force
@@ -95,6 +99,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 24. Neatkarīgā response v5 recenzija ar verdiktu CHANGES REQUIRED ir fiksēta `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V5_RESPONSE_REVIEW.md`.
 25. Response v6 ir fiksēta commitā `12a115fb241f8ff05fa204bd27a4eae1bf8cf7d6`.
 26. Neatkarīgās response v6 recenzijas uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V6_REVIEW_TASK.md`.
+27. Lietotājs apstiprināja obligātu post-Review #16 architecture conformance restructuring posmu; plāns fiksēts `GOVERNANCE/ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1.md` un ieplānots `PROJECT_ROADMAP_v1.md`.
 
 ## 5. User-approved decisions in force
 
@@ -112,6 +117,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - Sekmīgas continuity pārbaudes tehnisko telemetriju lietotājam pēc noklusējuma nerāda; sākumā parāda tikai aktuālo posmu, pilno uzdevumu vai uzdevuma faila atsauci un recenzējamo vai maināmo dokumentu.
 - Ja aktuālais solis ir neatkarīgās recenzijas uzdevuma nodošana, lietotājam rāda tikai pilnu uzdevumu vienā kopējamā blokā bez procesa ievada; pēc konsensa īsi apkopo pieņemtā dokumenta būtību un galvenos lēmumus.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
+- Pēc Review #16 saistītās paketes freeze un pirms nākamā lielā roadmap dokumenta obligāti jāizpilda `GOVERNANCE/ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1.md` WS1–WS5; tas nav 14. pamatdokuments.
 
 ## 6. Review #16 current open findings
 
