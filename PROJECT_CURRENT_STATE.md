@@ -108,7 +108,9 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 36. Lietotājs 2026-09-19 deva `APPROVE FREEZE REVIEW #16 PACKAGE`; PS v1.4 / TR v0.6 / T&E v0.4 kļuva par jauno frozen core baseline.
 37. `PROJECT_ROADMAP_v1.md` stale pirms-freeze formulējumi ir saskaņoti ar Review #16 freeze record; vēsturiskais v0.5/v0.3 baseline ir skaidri marķēts kā vēsturisks un nav WS1 semantikas avots. Frozen owner faili nav mainīti.
 38. WS1 pilnais implementation task/dependency map ir fiksēts `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`; tas nodala WS1-A frozen owner projekcijas no WS1-B `BLOCKED_BY_OWNER` artefaktiem.
-39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pēc tehniskās remediācijas current implementation state `bd4288b14b1c655acd1d3d98cff2f37897b74410` GitHub `Continuity Validation` run `35450526875` ir SUCCESS; continuity, Review #16 invarianti un WS1 contract-layer validators visi PASS. Frozen owner un WS1 semantika remediācijās nav mainīta.
+39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pēc tehniskās remediācijas implementation review target `bd4288b14b1c655acd1d3d98cff2f37897b74410` GitHub `Continuity Validation` run `35450526875` bija SUCCESS.
+40. Neatkarīgā WS1-A implementation recenzija pret `bd4288b14b1c655acd1d3d98cff2f37897b74410` deva `CHANGES REQUIRED`: 3 BLOCKING, 8 HIGH, 6 MEDIUM un 4 LOW findings (F-01–F-21). Galvenās problēmas: inertais pinned-reference contract, controlled enum dublēšana bez mehāniskas saites, apejams WS1-B bloķējums, substring tipa owner drift pārbaudes, nepietiekami integration fixtures un nepilna catalog reproducējamība. Frozen baseline recenzijā tika apstiprināts kā faktiski nemainīts.
+41. Lietotājs 2026-09-19 apstiprināja `APPROVE WS1-A REMEDIATION TASK PREPARATION`. Remediācijas specifikācija ir sagatavota `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md` commitā `959ee319d9367f232ea66f835874ffba8a2401d7`. Paša remediācija vēl NAV autorizēta.
 
 ## 5. User-approved decisions in force
 
@@ -146,12 +148,14 @@ Nākamais darbs ir WS1–WS5 architecture conformance restructuring posms.
 ## 7. Exact next task
 
 ```text
-Nodot neatkarīgam recenzentam
-`GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md`
-pret pārbaudāmo implementation state
-`bd4288b14b1c655acd1d3d98cff2f37897b74410`.
+Remediācijas task:
+`GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md`
 
-Pats projekta izpildes asistents recenziju nesāk. WS1-B un WS2–WS5 neieviest.
+Nākamais lietotāja gate:
+APPROVE WS1-A REMEDIATION IMPLEMENTATION
+
+Līdz šim gate pašu F-01–F-21 remediāciju neieviest.
+WS1-B un WS2–WS5 neieviest.
 ```
 
 Autorizācija:
@@ -159,8 +163,9 @@ Autorizācija:
 ```text
 REVIEW #16: FROZEN
 FREEZE AUTHORIZED: YES — IZPILDĪTS
-COMMIT AUTHORIZED: NO — gaida neatkarīgu WS1-A implementation recenziju
-IMPLEMENTATION AUTHORIZED: YES — WS1-A izpildīts; WS1-B / WS2–WS5 NAV autorizēti
+COMMIT AUTHORIZED: NO — task sagatavošanas commits ir pabeigts; nākamais commits prasa implementation gate
+IMPLEMENTATION AUTHORIZED: NO — WS1-A remediācija gaida `APPROVE WS1-A REMEDIATION IMPLEMENTATION`
+WS1-B / WS2–WS5 AUTHORIZED: NO
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
 ```
@@ -186,6 +191,7 @@ Obligāti izlasīt pilnā apjomā:
 15. `GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md`.
 16. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`.
 17. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md`.
+18. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -206,13 +212,13 @@ NEW CHAT TRIGGER: NOT REQUIRED
 BASIS:
 Primārais darba objekts nav mainījies: turpinās
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1 WS1 dzīves cikls.
-WS1-A implementation ir lietotāja autorizēta, ieviesta un GitHub validatoros PASS; nākamais solis ir neatkarīga implementation recenzija ar fresh context.
+WS1-A neatkarīgā implementation recenzija ir pabeigta ar CHANGES REQUIRED. Remediācijas task ir sagatavots un commitēts; remediācijas implementation vēl nav autorizēta.
 
 CURRENT PRIMARY WORK UNIT:
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1
 
 EXACT NEXT TASK:
-Nodot `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md` neatkarīgam recenzentam; pats recenziju nesākt.
+Saņemt lietotāja lēmumu `APPROVE WS1-A REMEDIATION IMPLEMENTATION`; līdz tam neveikt remediācijas schema/registry/catalog/validator izmaiņas.
 
 REPOSITORY ACCESS MODE:
 GITHUB
