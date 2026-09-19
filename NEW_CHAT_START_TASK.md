@@ -125,7 +125,49 @@ Ja sarunas laikā mainās projekta stāvoklis, pirms noslēguma:
 
 Ja projekta stāvoklis nav mainījies, state failu nepārraksta tikai datuma vai formulējuma dēļ.
 
-## 4. Aizliegtie saīsinājumi
+## 4. Jaunā čata trigeris un automātiskais copy-paste ziņojums
+
+Jaunā čata nepieciešamību izvērtē pēc `PROJECT_EXECUTION_PROTOCOL.md` 6.1. punkta.
+
+Ja rezultāts ir `NEW CHAT TRIGGER: REQUIRED — NOT READY`, asistents:
+
+1. neizdod pārejas ziņojumu kā gatavu;
+2. nosauc trūkstošo informāciju vai neskaidro nākamo uzdevumu;
+3. atjaunina repo artefaktus un `PROJECT_CURRENT_STATE.md`;
+4. atkārto readiness pārbaudi.
+
+Ja rezultāts ir `NEW CHAT TRIGGER: REQUIRED — READY`, asistents automātiski izvada lietotājam šādu aizpildītu ziņojumu kopēšanai jaunajā čatā:
+
+```text
+Turpini Juridiskās pārbaudes sistēmas projektu no repo
+https://github.com/karlissmits666/legal-verification-system, branch main.
+
+Sagaidāmais handoff commits: <PILNS CURRENT HEAD SHA>
+
+Pirms jebkura darba obligāti pilnībā izpildi repo failu
+NEW_CHAT_START_TASK.md.
+
+Izmanto PROJECT_CURRENT_STATE.md tikai kā continuity un navigācijas
+ierakstu, pārbaudi to pret current main un Git vēsturi un izlasi tajā
+norādīto REQUIRED READING FOR NEXT TASK.
+
+Pirmajā atbildē sniedz NEW_CHAT_START_TASK.md prasīto
+CONTEXT RESTORED bloku. Ja kontekstu nevar apstiprināt ar
+CONTEXT RESTORED: YES, vispirms novērs information gap un neveic
+arhitektūras vai implementation izmaiņas.
+
+Pēc konteksta atjaunošanas izpildi tikai PROJECT_CURRENT_STATE.md
+norādīto EXACT NEXT TASK un ievēro tajā noteiktās implementation,
+commit un freeze autorizācijas robežas.
+
+Šis ziņojums pats nav jauns approval, implementation vai freeze lēmums.
+Repo aktuālais stāvoklis ir prioritārs pār šā ziņojuma sagaidāmo SHA,
+ja pēc handoff ir veikti jauni dokumentēti commiti.
+```
+
+Pirms ziņojuma izdošanas `<PILNS CURRENT HEAD SHA>` obligāti aizstāj ar faktisko pilno SHA. Ja `PROJECT_CURRENT_STATE.md` `EXACT NEXT TASK` nav viennozīmīgs, ziņojumu neizdod un trigeris paliek `REQUIRED — NOT READY`.
+
+## 5. Aizliegtie saīsinājumi
 
 Jaunais čats nedrīkst:
 
@@ -138,7 +180,7 @@ Jaunais čats nedrīkst:
 - radīt jaunu current-state failu paralēli `PROJECT_CURRENT_STATE.md`;
 - izmantot necommitētu čata secinājumu kā repo governance faktu.
 
-## 5. Veiksmes kritērijs
+## 6. Veiksmes kritērijs
 
 Continuity ir izdevies, ja jaunais čats bez minējumiem var pateikt:
 

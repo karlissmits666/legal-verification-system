@@ -60,6 +60,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 4. `PROJECT_CONSTITUTION_v1.md` ieviests commitā `bd7560587d7740d6cf6dad6833b68d85e47c29a6`.
 5. Recenzents pārbaudīja atbildi pret integrēto stāvokli, pieņēma BL1 un H3 noraidījumu, apstiprināja BL2 novēršanu un pievienoja R1–R5.
 6. `NEW_CHAT_START_TASK.md`, šis continuity fails un otrās kārtas review ieraksts ir ieviesti commitā, ko nosaka kā šī faila jaunāko mainošo commit.
+7. Obligātais `NEW CHAT REQUIRED` trigeris, readiness gate un automātiskā copy-paste ziņojuma veidne ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 
 ## 5. User-approved decisions in force
 
@@ -70,6 +71,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - `PROJECT_CONSTITUTION_v1.md` ir aktīvs projekta principu dokuments.
 - Konstitūcija un protokols nav papildu 13 programmas pamatdokumenti.
 - Katram jaunam būtiskam čatam jāatjauno konteksts no repo un šī continuity ieraksta tā, lai nebūtu information gap.
+- Pie procesa posma, primārā dokumenta vai patstāvīga milestone maiņas jāizvērtē obligātais jaunā čata trigeris; gatavu pārejas ziņojumu drīkst izdot tikai pēc readiness gate izpildes.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
 
 ## 6. Review #16 current open findings
@@ -143,3 +145,20 @@ Nākamais čats nedrīkst:
 - radīt faktisku `TASK-`, `MOD-` vai `ISS-` instanci;
 - dzēst `GOVERNANCE/ICT_DORA_MODULE_AUTHORITY_INPUT_REQUEST_v0.1.md`;
 - pāriet uz nākamo lielo roadmap dokumentu.
+
+## 10. New chat handoff assessment
+
+```text
+NEW CHAT TRIGGER: REQUIRED
+
+TRIGGER BASIS:
+continuity procesa milestone ir pabeigts, bet nākamais uzdevums ir
+atsevišķs Review #16 review-response posms ar citu galveno rezultātu.
+
+READINESS:
+READY tikai tad, ja šā faila jaunākais commits ir current HEAD,
+current HEAD = origin/main un darba koks ir tīrs.
+
+NEXT CHAT EXACT TASK:
+izpildīt 7. sadaļā norādīto formālo R1–R5 atbildes uzdevumu.
+```

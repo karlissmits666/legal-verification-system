@@ -160,6 +160,7 @@ EVIDENCE / REVIEW:
 UNRESOLVED:
 ROADMAP IMPACT:
 NEXT FROZEN / REVIEW STEP:
+NEW CHAT TRIGGER: NOT REQUIRED / REQUIRED — NOT READY / REQUIRED — READY
 ```
 
 Noslēgumam jāpasaka arī:
@@ -174,6 +175,45 @@ Noslēgumam jāpasaka arī:
 Ja sesijas laikā mainījies projekta stāvoklis, pirms noslēguma atjaunina `PROJECT_CURRENT_STATE.md` atbilstoši `NEW_CHAT_START_TASK.md` continuity prasībām. State failā obligāti paliek viens konkrēts `EXACT NEXT TASK` un tā autorizācijas robežas. Ja stāvoklis nav mainījies, failu nepārraksta tikai datuma dēļ.
 
 Statusa ziņojums bez nākamās darbības nav pietiekams.
+
+### 6.1. Obligātais jaunā čata trigeris
+
+Sesijas noslēgumā un pirms pārejas uz jaunu darba posmu obligāti izvērtē, vai jāatver jauns čats.
+
+`NEW CHAT REQUIRED` iestājas, ja izpildās vismaz viens nosacījums:
+
+1. lietotājs skaidri pieprasa jaunu čatu;
+2. mainās primārais roadmap dokuments;
+3. mainās procesa posms starp review uzdevumu, review atbildi, implementation, auditu vai freeze;
+4. pabeigts patstāvīgs milestone un nākamajam uzdevumam ir cita obligātā lasīšanas kopa vai cits galvenais rezultāts;
+5. sākas neatkarīga recenzija, kurai jāpārbauda fiksēts commits bez iepriekšējās izstrādes sarunas ietekmes;
+6. sarunas konteksts ir kompresēts, fragmentēts vai kļuvis tik apjomīgs, ka nākamā uzdevuma lēmumu ķēdi drošāk rekonstruēt no repo;
+7. atklāts, ka būtiska aktuālā informācija dzīvo tikai čatā vai pielikumā un pirms nākamā posma tā jāpārnes repo.
+
+Ja turpinās tas pats precīzi definētais uzdevums, nav mainījies procesa posms un konteksts ir pilnīgs, norāda `NEW CHAT TRIGGER: NOT REQUIRED`.
+
+Trigerim ir trīs iespējamie rezultāti:
+
+```text
+NEW CHAT TRIGGER: NOT REQUIRED
+NEW CHAT TRIGGER: REQUIRED — NOT READY
+NEW CHAT TRIGGER: REQUIRED — READY
+```
+
+Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, jaunu čatu vēl nesāk. Vispirms novērš information gap un norāda `REQUIRED — NOT READY`.
+
+`REQUIRED — READY` drīkst norādīt tikai tad, ja:
+
+1. visi būtiskie lēmumi, review un pierādījumi ir repo;
+2. `PROJECT_CURRENT_STATE.md` ir atjaunināts;
+3. `EXACT NEXT TASK` ir viens, konkrēts un izpildāms;
+4. ir skaidras implementation, commit un freeze autorizācijas robežas;
+5. `REQUIRED READING FOR NEXT TASK` ir pilns;
+6. current `HEAD` sakrīt ar `origin/main`;
+7. darba koks ir tīrs;
+8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem.
+
+Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada aizpildītu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus.
 
 ## 7. Pilnais dokumenta un problēmas dzīves cikls
 
