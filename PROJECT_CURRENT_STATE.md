@@ -119,6 +119,7 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 47. GitHub run `35453301701` atklāja vecā bojātā bloka atlikumu pēc validatora `exit 0`; tas noņemts commitā `d8a97bd997bd4d427e9c37f59bde601fe0092280`.
 48. Run `35453339295` WS1 validatoru nepalaida, jo iepriekšējā commitā state fails faktiski nebija mainījies un continuity pamatoti noraidīja stale state. Šis continuity ieraksts ir saskaņots ar current main; nākamais solis ir atkārtoti validēt current exact state.
 49. GitHub run `35453378762` izgāja continuity un Review #16 validāciju un WS1 validators nonāca līdz pilnai catalog reproducibility pārbaudei. Deterministiska salīdzināšana atrada divus stale dependency ierakstus: `schema.requirement_component` lieku `registry.requirement_status` un `schema.verification_event` trūkstošu `registry.trace_object_types`. Catalog saskaņots ar buildera faktisko output; validatora prasība nav vājināta.
+50. GitHub run `35453513046` pēc dependency saskaņošanas joprojām deva catalog reproducibility FAIL tikai JSON property secības dēļ. Salīdzinājums mainīts uz pilna catalog kanonisku projekciju ar fiksētu visu lauku kārtību; visi catalog metadata lauki joprojām tiek salīdzināti, bet property order vairs nevar radīt false FAIL.
 
 ## 5. User-approved decisions in force
 

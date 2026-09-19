@@ -303,8 +303,61 @@ $tempCatalog=Join-Path ([IO.Path]::GetTempPath()) ('ws1-catalog-'+[guid]::NewGui
 $actualCatalog=Get-Content (Join-Path $RepoRoot 'catalog/schema_catalog.json') -Raw | ConvertFrom-Json
 $regenCatalog=Get-Content $tempCatalog -Raw | ConvertFrom-Json
 Remove-Item $tempCatalog -Force
-if (($actualCatalog | ConvertTo-Json -Depth 30 -Compress) -ne ($regenCatalog | ConvertTo-Json -Depth 30 -Compress)) {
-    Add-Failure 'schema_catalog.json full normalized content is not reproducible'
+function Convert-CatalogToCanonicalJson {
+    param($Catalog)
+
+    $canonicalEntries=@(
+        $Catalog.entries |
+            Sort-Object artifact_id |
+            ForEach-Object {
+                $owners=@(
+                    $_.normative_owners |
+                        ForEach-Object {
+                            [ordered]@{
+                                document=$_.document
+                                version=$_.version
+                                sections=@($_.sections)
+                                role=$_.role
+                            }
+                        }
+                )
+                $missingOwners=@(
+                    $_.missing_owner_dependencies |
+                        ForEach-Object {
+                            [ordered]@{
+                                expected_document=$_.expected_document
+                                expected_owner=$_.expected_owner
+                                status=$_.status
+                            }
+                        }
+                )
+                [ordered]@{
+                    artifact_id=$_.artifact_id
+                    artifact_kind=$_.artifact_kind
+                    artifact_version=$_.artifact_version
+                    projection_status=$_.projection_status
+                    path=$_.path
+                    trace_object_type=$_.trace_object_type
+                    id_field=$_.id_field
+                    normative_owners=$owners
+                    missing_owner_dependencies=$missingOwners
+                    dependencies=@($_.dependencies)
+                }
+            }
+    )
+
+    $canonical=[ordered]@{
+        catalog_version=$Catalog.catalog_version
+        generated_from=$Catalog.generated_from
+        entries=$canonicalEntries
+    }
+    return ($canonical | ConvertTo-Json -Depth 30 -Compress)
+}
+
+$actualNormalized=Convert-CatalogToCanonicalJson $actualCatalog
+$regenNormalized=Convert-CatalogToCanonicalJson $regenCatalog
+if ($actualNormalized -ne $regenNormalized) {
+    Add-Failure 'schema_catalog.json full canonical content is not reproducible'
 }
 $catalogIds=@($actualCatalog.entries | ForEach-Object {$_.artifact_id})
 if (@($catalogIds | Sort-Object -Unique).Count -ne $catalogIds.Count) { Add-Failure 'schema_catalog.json contains duplicate artifact_id' }
