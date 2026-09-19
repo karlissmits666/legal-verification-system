@@ -25,6 +25,8 @@ Continuity kontrole:
 ```text
 CONTINUITY VALIDATOR: TOOLS/validate_project_continuity.ps1
 CONTINUITY VALIDATION REQUIRED FOR READY: YES
+PRIMARY CONTINUITY ENVIRONMENT: GITHUB
+LOCAL WORKTREE REQUIRED: NO
 FROZEN FILES CHANGED SINCE PREVIOUS STATE: NO
 ```
 
@@ -70,6 +72,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 6. `NEW_CHAT_START_TASK.md`, šis continuity fails un otrās kārtas review ieraksts ir ieviesti commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 7. Obligātais `NEW CHAT REQUIRED` trigeris, readiness gate un automātiskā copy-paste ziņojuma veidne ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 8. Fail-closed continuity validators un tā obligātā handoff pārbaude ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
+9. GitHub-native continuity pārbaude ir noteikta par primāro režīmu; lokāls klons vai lokāla worktree nav priekšnoteikums jaunā čata sākšanai. Šo pāreju nosaka kā šī faila jaunāko mainošo commit.
 
 ## 5. User-approved decisions in force
 
@@ -166,9 +169,11 @@ atsevišķs Review #16 review-response posms ar citu galveno rezultātu.
 
 READINESS:
 READY tikai tad, ja šā faila jaunākais commits ir current HEAD,
-current HEAD = origin/main, darba koks ir tīrs un
-`TOOLS/validate_project_continuity.ps1 -Mode Handoff` rezultāts ir
-`CONTINUITY VALIDATION: PASS`.
+current GitHub `main` commitam pārbaude `Continuity Validation` ir sekmīga.
+GitHub režīmā lokāls klons un darba koka pārbaude nav nepieciešama.
+Ja faktiski izmanto lokālu klonu, alternatīvi der
+`TOOLS/validate_project_continuity.ps1 -Mode Handoff` rezultāts
+`CONTINUITY VALIDATION: PASS` pie `HEAD = origin/main` un tīra darba koka.
 
 NEXT CHAT EXACT TASK:
 izpildīt 7. sadaļā norādīto formālo R1–R5 atbildes uzdevumu.

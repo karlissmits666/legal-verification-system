@@ -21,14 +21,14 @@ Izpildi turpmāko secību pilnībā.
 
 1. Strādā repo `https://github.com/karlissmits666/legal-verification-system`, branch `main`.
 2. Nosaki:
-   - current `HEAD` pilno SHA;
-   - `origin/main` SHA;
-   - vai darba koks ir tīrs;
+   - GitHub `main` current commit pilno SHA;
+   - `PROJECT_CURRENT_STATE.md` jaunākā commita SHA;
+   - GitHub Actions pārbaudes `Continuity Validation` rezultātu tieši current `main` commitam;
    - jaunākos relevant commitus.
-3. Ja lokālais `main` atpaliek, atjaunini to drošā veidā pirms konteksta secinājumiem.
-4. Nepārraksti vai neatmet esošas necommitētas izmaiņas.
-5. Pirms konteksta atjaunošanas neko nerediģē un necommito.
-6. Repo saknē izpildi `powershell -NoProfile -ExecutionPolicy Bypass -File .\TOOLS\validate_project_continuity.ps1 -Mode Handoff`. Darbu drīkst sākt tikai ar rezultātu `CONTINUITY VALIDATION: PASS`; `FAIL` gadījumā vispirms novērs norādīto information gap vai repo stāvokļa neatbilstību.
+3. Primārais režīms ir `GITHUB`: ja `Continuity Validation` ir sekmīga tieši current `main` commitam, norādi `CONTINUITY VALIDATION: PASS (GITHUB)`. Lokāls klons un lokāla darba koka pārbaude šajā režīmā nav vajadzīga.
+4. Ja darbs faktiski notiek lokālā klonā, alternatīvi izpildi `powershell -NoProfile -ExecutionPolicy Bypass -File .\TOOLS\validate_project_continuity.ps1 -Mode Handoff`; tikai šajā režīmā obligāti pārbaudi `HEAD = origin/main` un tīru darba koku.
+5. Ja current `main` GitHub pārbaude nav sekmīga vai attiecas uz citu SHA, norādi `CONTINUITY VALIDATION: FAIL`; neizmanto lokāla klona neesamību kā kļūdas pamatu.
+6. Pirms konteksta atjaunošanas neko nerediģē un necommito. Esošas lietotāja izmaiņas nedrīkst pārrakstīt nevienā piekļuves režīmā.
 
 ### B. Izlasi obligātos kontroles dokumentus šādā secībā
 
@@ -68,10 +68,11 @@ Pirms darba sniedz tieši šo bloku:
 
 ```text
 CONTEXT RESTORED: YES / NO
-CONTINUITY VALIDATION: PASS / FAIL
-CURRENT HEAD:
-ORIGIN/MAIN:
-WORKTREE:
+REPOSITORY ACCESS MODE: GITHUB / LOCAL
+CONTINUITY VALIDATION: PASS (GITHUB) / PASS (LOCAL) / FAIL
+CURRENT MAIN COMMIT:
+VALIDATED COMMIT:
+WORKTREE: NOT APPLICABLE (GITHUB) / CLEAN (LOCAL) / DIRTY (LOCAL)
 STATE FILE LAST COMMIT:
 
 CURRENT ROADMAP DOCUMENT:
@@ -95,7 +96,7 @@ FREEZE AUTHORIZED: YES / NO
 
 `CONTEXT RESTORED: YES` drīkst norādīt tikai tad, ja:
 
-1. continuity validators ir atgriezis `CONTINUITY VALIDATION: PASS`;
+1. current `main` commitam ir `CONTINUITY VALIDATION: PASS (GITHUB)` vai lokālā režīmā validators ir atgriezis `PASS (LOCAL)`;
 2. repo un state fails ir savstarpēji salīdzināti;
 3. nav neizskaidrotu commit vai statusu atšķirību;
 4. ir izlasīti nākamajam uzdevumam nepieciešamie faili;
@@ -124,7 +125,7 @@ Ja sarunas laikā mainās projekta stāvoklis, pirms noslēguma:
 4. atjaunini `REQUIRED READING FOR NEXT TASK` līdz minimālajai pilnajai kopai;
 5. iekļauj state failu tajā pašā commitā, kas rada jauno stāvokli, vai atsevišķā tūlītējā continuity commitā;
 6. pārbaudi, ka roadmap un artefaktu statusi nav pretrunā ar state failu;
-7. pirms `REQUIRED — READY` izpildi continuity validatoru `Handoff` režīmā;
+7. pirms `REQUIRED — READY` sagaidi sekmīgu GitHub `Continuity Validation` tieši current `main` commitam; lokālā režīmā alternatīvi izpildi validatoru `Handoff` režīmā;
 8. noslēdz sesiju ar `PROJECT_EXECUTION_PROTOCOL.md` obligāto beigu bloku.
 
 Ja projekta stāvoklis nav mainījies, state failu nepārraksta tikai datuma vai formulējuma dēļ.
@@ -150,6 +151,10 @@ Sagaidāmais handoff commits: <PILNS CURRENT HEAD SHA>
 
 Pirms jebkura darba obligāti pilnībā izpildi repo failu
 NEW_CHAT_START_TASK.md.
+
+Primārais repo piekļuves režīms ir GitHub. Lokāls klons un lokāla
+worktree nav obligāti. Pārbaudi, ka GitHub Actions `Continuity Validation`
+ir sekmīga tieši current `main` commitam.
 
 Izmanto PROJECT_CURRENT_STATE.md tikai kā continuity un navigācijas
 ierakstu, pārbaudi to pret current main un Git vēsturi un izlasi tajā

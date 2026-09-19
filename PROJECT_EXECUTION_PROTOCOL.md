@@ -166,7 +166,7 @@ NEW CHAT TRIGGER: NOT REQUIRED / REQUIRED — NOT READY / REQUIRED — READY
 Noslēgumam jāpasaka arī:
 
 - precīzs commit SHA, ja commits veikts;
-- vai darba koks ir tīrs;
+- izmantotais repo piekļuves režīms; lokālā režīmā — vai darba koks ir tīrs, GitHub režīmā — ka worktree pārbaude nav piemērojama;
 - vai izmaiņas nosūtītas uz `main`;
 - vai frozen faili mainīti;
 - vai freeze ir vai nav atļauts;
@@ -209,10 +209,10 @@ Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, 
 3. `EXACT NEXT TASK` ir viens, konkrēts un izpildāms;
 4. ir skaidras implementation, commit un freeze autorizācijas robežas;
 5. `REQUIRED READING FOR NEXT TASK` ir pilns;
-6. current `HEAD` sakrīt ar `origin/main`;
-7. darba koks ir tīrs;
+6. GitHub režīmā ir identificēts current `main` commits; lokālā režīmā `HEAD` sakrīt ar `origin/main`;
+7. GitHub režīmā worktree nosacījums nav piemērojams; lokālā režīmā darba koks ir tīrs;
 8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem.
-9. `TOOLS/validate_project_continuity.ps1 -Mode Handoff` ir atgriezis `CONTINUITY VALIDATION: PASS`.
+9. current `main` commitam GitHub Actions pārbaude `Continuity Validation` ir sekmīga; lokālā režīmā alternatīvi `TOOLS/validate_project_continuity.ps1 -Mode Handoff` ir atgriezis `CONTINUITY VALIDATION: PASS`.
 
 Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada aizpildītu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus.
 
@@ -367,15 +367,15 @@ Atļauti pakārtoti procesa artefakti, ja tie ir skaidri marķēti, piemēram:
 
 1. Katram būtiskam uzdevumam un review jābūt atrodamam repo kopā ar atsauces failiem.
 2. Review vienmēr norāda pilnu pārbaudīto commit SHA.
-3. Pirms darba pārbauda, vai lokālais `main` atbilst `origin/main` un vai darba koks ir tīrs.
+3. Primārā izpildes vide ir GitHub `main`. Pirms darba pārbauda current `main` SHA un tam piesaistīto `Continuity Validation`; ja izmanto lokālu klonu, papildus pārbauda `HEAD = origin/main` un tīru darba koku.
 4. Esošas lietotāja izmaiņas nedrīkst pārrakstīt vai sajaukt ar jauno uzdevumu.
 5. Frozen failus nemaina bez skaidra amendment un freeze procesa.
 6. Premature vai containment failu nedzēš, kamēr tā derīgais saturs nav migrēts un dzēšana nav apstiprināta.
 7. Commit message apraksta procesa vienību: task, review response, implementation, audit vai freeze.
-8. Pēc commita pārbauda `HEAD`, `origin/main` un darba koka stāvokli.
+8. Pēc commita GitHub režīmā pārbauda current `main` SHA un `Continuity Validation` rezultātu; lokālā režīmā papildus pārbauda `HEAD`, `origin/main` un darba koka stāvokli.
 9. Push uz `main` nenozīmē freeze.
 10. Commitam, kas maina projekta faktisko posmu, jāatjaunina arī `PROJECT_CURRENT_STATE.md`; review atbildes, implementation un freeze rezultātu nedrīkst atstāt tikai čata vēsturē.
-11. Pirms statusa `NEW CHAT TRIGGER: REQUIRED — READY` obligāti izpilda `TOOLS/validate_project_continuity.ps1 -Mode Handoff`; jebkurš `FAIL` nozīmē `REQUIRED — NOT READY`, līdz neatbilstība ir novērsta.
+11. Pirms statusa `NEW CHAT TRIGGER: REQUIRED — READY` obligāti iegūst current `main` commita sekmīgu GitHub `Continuity Validation`; lokālā režīmā der arī `TOOLS/validate_project_continuity.ps1 -Mode Handoff`. Jebkurš `FAIL` nozīmē `REQUIRED — NOT READY`, līdz neatbilstība ir novērsta. Lokāla worktree neesamība GitHub režīmā nav kļūda.
 
 ## 11. Roadmap dependency kontrole
 

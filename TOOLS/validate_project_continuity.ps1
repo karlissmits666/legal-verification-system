@@ -1,8 +1,10 @@
 param(
-    [ValidateSet('Static', 'Handoff')]
+    [ValidateSet('Static', 'Handoff', 'GitHub')]
     [string]$Mode = 'Handoff',
 
-    [string]$RepoPath = (Split-Path -Parent $PSScriptRoot)
+    [string]$RepoPath = (Split-Path -Parent $PSScriptRoot),
+
+    [string]$ExpectedCommit = $env:GITHUB_SHA
 )
 
 $ErrorActionPreference = 'Stop'
@@ -166,38 +168,53 @@ else {
             Add-Failure "REQUIRED READING references a missing file: $relativePath"
         }
     }
-    if ($readingPaths.Count -gt 0 -and -not ($failures | Where-Object { $_ -like 'REQUIRED READING atsaucas*' })) {
+    if ($readingPaths.Count -gt 0 -and -not ($failures | Where-Object { $_ -like 'REQUIRED READING references*' })) {
         Add-Pass "All REQUIRED READING files exist ($($readingPaths.Count))."
     }
 }
 
-if ($Mode -eq 'Handoff') {
+if ($Mode -in @('Handoff', 'GitHub')) {
     try {
-        $branch = (Invoke-Git -Arguments @('branch', '--show-current')) -join ''
-        if ($branch -ne 'main') {
-            Add-Failure "Handoff must run from branch main; current branch: $branch"
-        }
-        else {
-            Add-Pass 'Active branch is main.'
-        }
-
         $headOutput = @(Invoke-Git -Arguments @('rev-parse', 'HEAD'))
-        $originMainOutput = @(Invoke-Git -Arguments @('rev-parse', 'origin/main'))
         $head = $headOutput[0].Trim()
-        $originMain = $originMainOutput[0].Trim()
-        if ($head -ne $originMain) {
-            Add-Failure "HEAD ($head) does not match origin/main ($originMain)."
-        }
-        else {
-            Add-Pass "HEAD matches origin/main: $head"
-        }
 
-        $status = @(Invoke-Git -Arguments @('status', '--porcelain', '--untracked-files=all'))
-        if ($status.Count -ne 0) {
-            Add-Failure 'Working tree is not clean.'
+        if ($Mode -eq 'Handoff') {
+            $branch = (Invoke-Git -Arguments @('branch', '--show-current')) -join ''
+            if ($branch -ne 'main') {
+                Add-Failure "Handoff must run from branch main; current branch: $branch"
+            }
+            else {
+                Add-Pass 'Active branch is main.'
+            }
+
+            $originMainOutput = @(Invoke-Git -Arguments @('rev-parse', 'origin/main'))
+            $originMain = $originMainOutput[0].Trim()
+            if ($head -ne $originMain) {
+                Add-Failure "HEAD ($head) does not match origin/main ($originMain)."
+            }
+            else {
+                Add-Pass "HEAD matches origin/main: $head"
+            }
+
+            $status = @(Invoke-Git -Arguments @('status', '--porcelain', '--untracked-files=all'))
+            if ($status.Count -ne 0) {
+                Add-Failure 'Working tree is not clean.'
+            }
+            else {
+                Add-Pass 'Working tree is clean.'
+            }
         }
         else {
-            Add-Pass 'Working tree is clean.'
+            if ([string]::IsNullOrWhiteSpace($ExpectedCommit)) {
+                Add-Failure 'GitHub mode requires ExpectedCommit or GITHUB_SHA.'
+            }
+            elseif ($head -ne $ExpectedCommit) {
+                Add-Failure "Checked-out HEAD ($head) does not match the GitHub event commit ($ExpectedCommit)."
+            }
+            else {
+                Add-Pass "Checked-out HEAD matches the GitHub event commit: $head"
+            }
+            Add-Pass 'GitHub mode does not require a user-local working tree.'
         }
 
         $stateCommits = @(Invoke-Git -Arguments @('log', '-2', '--format=%H', '--', 'PROJECT_CURRENT_STATE.md'))
