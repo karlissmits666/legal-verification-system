@@ -1,24 +1,5 @@
 {
-  "artifact_ids": [
-    "a",
-    "b"
-  ],
-  "types": [
-    "TASK"
-  ],
-  "mapping": [
-    {
-      "trace_object_type": "TASK"
-    }
-  ],
-  "objects": [
-    {
-      "id": "TASK-1"
-    }
-  ],
-  "references": [
-    {
-      "target_id": "TASK-1"
-    }
-  ]
+  "name": "valid_projection",
+  "mutation": "none",
+  "expected": "PASS"
 }

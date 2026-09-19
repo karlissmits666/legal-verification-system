@@ -1,6 +1,6 @@
 {
-  "catalog_version": "0.1.0",
-  "generated_from": "WS1 artefact metadata + explicit BLOCKED_BY_OWNER dependencies",
+  "catalog_version": "0.2.0",
+  "generated_from": "WS1 artefact metadata + registries/blocked_dependencies.registry.json",
   "entries": [
     {
       "artifact_id": "registry.applicability_authority",
@@ -29,6 +29,28 @@
           "role": "representation_owner"
         }
       ],
+      "dependencies": [],
+      "missing_owner_dependencies": []
+    },
+    {
+      "artifact_id": "registry.blocked_dependencies",
+      "artifact_kind": "control_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/blocked_dependencies.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md",
+          "version": "v0.1",
+          "sections": [
+            "§7"
+          ],
+          "role": "control_owner"
+        }
+      ],
+      "missing_owner_dependencies": [],
       "dependencies": []
     },
     {
@@ -58,7 +80,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.content_hash_algorithm",
@@ -78,7 +101,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.contract_type",
@@ -98,7 +122,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.governance_status",
@@ -127,7 +152,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.human_decision_type",
@@ -155,7 +181,8 @@
           "role": "dependency"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.id_prefixes",
@@ -175,7 +202,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.module",
@@ -203,7 +231,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.module_status",
@@ -232,7 +261,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.object",
@@ -260,7 +290,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.operation",
@@ -288,7 +319,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.permission_status",
@@ -317,7 +349,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.requirement_level",
@@ -346,7 +379,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.requirement_status",
@@ -375,7 +409,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.requirement_type",
@@ -404,7 +439,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.source_type",
@@ -432,7 +468,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.suspension_state",
@@ -460,7 +497,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.trace_object_id_fields",
@@ -480,7 +518,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.trace_object_types",
@@ -500,7 +539,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.verification_level",
@@ -529,7 +569,8 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.verification_method",
@@ -550,7 +591,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "registry.verification_result",
@@ -570,7 +612,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.data_class_event",
@@ -579,15 +622,13 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "DATA CLASS EVENT",
-      "id_field": "EVENT ID",
-      "normative_owners": [
+      "id_field": "event_id",
+      "normative_owners": [],
+      "missing_owner_dependencies": [
         {
-          "document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
-          "version": "unapproved",
-          "sections": [
-            "DATA CLASS REGISTRY"
-          ],
-          "role": "dependency"
+          "expected_document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "expected_owner": "DATA CLASS REGISTRY",
+          "status": "MISSING_OR_UNAPPROVED"
         }
       ],
       "dependencies": [
@@ -612,7 +653,10 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.suspension_state"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.evidence_object",
@@ -632,7 +676,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.finding_record",
@@ -652,7 +697,10 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.verification_level"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.human_decision_record",
@@ -680,7 +728,11 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.human_decision_type",
+        "schema.trace_object_reference"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.legal_classification_assessment",
@@ -689,7 +741,7 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "LEGAL CLASSIFICATION ASSESSMENT",
-      "id_field": "LEGAL CLASSIFICATION ASSESSMENT ID",
+      "id_field": "legal_classification_assessment_id",
       "normative_owners": [
         {
           "document": "GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md",
@@ -700,8 +752,9 @@
           "role": "dependency"
         }
       ],
+      "missing_owner_dependencies": [],
       "dependencies": [
-        "CLASSIFICATION LIKELIHOOD REGISTRY owner approval/freeze"
+        "CLASSIFICATION LIKELIHOOD registry owner approval/freeze"
       ]
     },
     {
@@ -731,7 +784,14 @@
           "role": "dependency"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.applicability_authority",
+        "registry.contract_type",
+        "registry.module",
+        "registry.module_status",
+        "schema.trace_object_reference"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.module_screening_record",
@@ -740,7 +800,7 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "MODULE SCREENING RECORD",
-      "id_field": "MODULE SCREENING RECORD ID",
+      "id_field": "module_screening_record_id",
       "normative_owners": [
         {
           "document": "GOVERNANCE/REQUIREMENTS_MATRIX_GOVERNANCE_v1.md",
@@ -751,6 +811,7 @@
           "role": "dependency"
         }
       ],
+      "missing_owner_dependencies": [],
       "dependencies": [
         "approved module trigger model"
       ]
@@ -762,7 +823,7 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "MODULE TRIGGER SET",
-      "id_field": "TRIGGER SET ID",
+      "id_field": "trigger_set_id",
       "normative_owners": [
         {
           "document": "GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md",
@@ -773,6 +834,7 @@
           "role": "dependency"
         }
       ],
+      "missing_owner_dependencies": [],
       "dependencies": [
         "trigger owners approved"
       ]
@@ -784,7 +846,7 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "OUTPUT",
-      "id_field": "OUTPUT ID",
+      "id_field": "output_id",
       "normative_owners": [
         {
           "document": "GOVERNANCE/OPERATION_WORKFLOWS_v1.md",
@@ -795,6 +857,7 @@
           "role": "dependency"
         }
       ],
+      "missing_owner_dependencies": [],
       "dependencies": [
         "OUTPUT TYPE registry approved/frozen"
       ]
@@ -817,7 +880,11 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.requirement_status",
+        "registry.verification_level"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.requirement_result_record",
@@ -855,7 +922,15 @@
           "role": "dependency"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.governance_status",
+        "registry.requirement_level",
+        "registry.requirement_status",
+        "registry.requirement_type",
+        "registry.verification_level",
+        "schema.trace_object_reference"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.requirements_set_record",
@@ -875,7 +950,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.source_record",
@@ -884,15 +960,13 @@
       "projection_status": "BLOCKED_BY_OWNER",
       "path": null,
       "trace_object_type": "SOURCE",
-      "id_field": "SOURCE ID",
-      "normative_owners": [
+      "id_field": "source_id",
+      "normative_owners": [],
+      "missing_owner_dependencies": [
         {
-          "document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
-          "version": "unapproved",
-          "sections": [
-            "DATA CLASS REGISTRY"
-          ],
-          "role": "dependency"
+          "expected_document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "expected_owner": "DATA CLASS REGISTRY",
+          "status": "MISSING_OR_UNAPPROVED"
         }
       ],
       "dependencies": [
@@ -935,7 +1009,12 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.contract_type",
+        "registry.object",
+        "registry.operation"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.trace_object_reference",
@@ -963,7 +1042,10 @@
           "role": "representation_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.trace_object_types"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.trace_record",
@@ -984,7 +1066,8 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.unresolved_issue_record",
@@ -1004,7 +1087,10 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "schema.trace_object_reference"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.verification_event",
@@ -1032,7 +1118,12 @@
           "role": "semantic_owner"
         }
       ],
-      "dependencies": []
+      "dependencies": [
+        "registry.verification_level",
+        "registry.verification_method",
+        "registry.verification_result"
+      ],
+      "missing_owner_dependencies": []
     },
     {
       "artifact_id": "schema.verification_scope_record",
@@ -1060,7 +1151,8 @@
           "role": "dependency"
         }
       ],
-      "dependencies": []
+      "dependencies": [],
+      "missing_owner_dependencies": []
     }
   ]
 }

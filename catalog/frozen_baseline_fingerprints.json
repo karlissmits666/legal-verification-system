@@ -1,0 +1,23 @@
+{
+  "manifest_version": "0.1.0",
+  "algorithm": "SHA-256",
+  "authority_note": "Integrity projection of the Review #16 frozen baseline. This manifest does not create or change freeze status.",
+  "files": [
+    {
+      "path": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "sha256": "b5c225fc976be791f7f04982261a960c9745ddd0bf0367009edeb91eb42f93a8"
+    },
+    {
+      "path": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "sha256": "9a191bdcbaa778796b5e356f236220863cf9c849715e8ed12b48a21b22feff71"
+    },
+    {
+      "path": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "sha256": "197c7c10c49f717ab1a1912087e0bda1d0aef2e922c248e6bf6471bec76b6116"
+    },
+    {
+      "path": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+      "sha256": "0bca95d0c0acb5ee642ce98c365f49fb48b9a9ba3e8ad8dd14ebc3724be2850f"
+    }
+  ]
+}

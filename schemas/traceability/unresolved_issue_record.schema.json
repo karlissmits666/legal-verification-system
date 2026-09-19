@@ -35,11 +35,10 @@
     "related_trace_object_references": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
+        "$ref": "urn:legal-verification-system:schema.trace_object_reference"
       },
-      "minItems": 1,
-      "uniqueItems": true
+      "uniqueItems": true,
+      "minItems": 1
     },
     "required_action": {
       "type": "string",
@@ -50,8 +49,21 @@
       "minLength": 1
     },
     "action_owner_basis_reference": {
-      "type": "string",
-      "minLength": 1
+      "allOf": [
+        {
+          "$ref": "urn:legal-verification-system:schema.trace_object_reference"
+        },
+        {
+          "properties": {
+            "trace_object_type": {
+              "enum": [
+                "source",
+                "human_decision"
+              ]
+            }
+          }
+        }
+      ]
     },
     "resolution_authority_known": {
       "type": "boolean"
@@ -61,8 +73,21 @@
       "minLength": 1
     },
     "resolution_authority_basis_reference": {
-      "type": "string",
-      "minLength": 1
+      "allOf": [
+        {
+          "$ref": "urn:legal-verification-system:schema.trace_object_reference"
+        },
+        {
+          "properties": {
+            "trace_object_type": {
+              "enum": [
+                "source",
+                "human_decision"
+              ]
+            }
+          }
+        }
+      ]
     }
   },
   "required": [

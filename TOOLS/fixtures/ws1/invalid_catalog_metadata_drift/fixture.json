@@ -1,0 +1,5 @@
+{
+  "name": "invalid_catalog_metadata_drift",
+  "mutation": "catalog_metadata_drift",
+  "expected": "FAIL"
+}

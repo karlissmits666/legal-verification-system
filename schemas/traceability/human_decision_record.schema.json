@@ -88,14 +88,24 @@
     "related_trace_object_references": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
-      }
+        "$ref": "urn:legal-verification-system:schema.trace_object_reference"
+      },
+      "uniqueItems": true
     },
     "assignment_authority_basis_source_reference": {
-      "type": [
-        "string",
-        "null"
+      "allOf": [
+        {
+          "$ref": "urn:legal-verification-system:schema.trace_object_reference"
+        },
+        {
+          "properties": {
+            "trace_object_type": {
+              "enum": [
+                "source"
+              ]
+            }
+          }
+        }
       ]
     }
   },
@@ -107,5 +117,53 @@
     "role",
     "date",
     "basis"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "anyOf": [
+          {
+            "properties": {
+              "related_finding": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "related_finding"
+            ]
+          },
+          {
+            "properties": {
+              "related_requirement": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "related_requirement"
+            ]
+          },
+          {
+            "properties": {
+              "related_issue": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "related_issue"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "required": [
+          "related_trace_object_references"
+        ],
+        "properties": {
+          "related_trace_object_references": {
+            "minItems": 1
+          }
+        }
+      }
+    }
   ]
 }

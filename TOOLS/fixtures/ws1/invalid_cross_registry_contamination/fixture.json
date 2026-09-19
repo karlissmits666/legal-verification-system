@@ -1,0 +1,5 @@
+{
+  "name": "invalid_cross_registry_contamination",
+  "mutation": "cross_registry_contamination",
+  "expected": "FAIL"
+}

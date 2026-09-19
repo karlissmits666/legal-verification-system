@@ -64,10 +64,7 @@
       "pattern": "^REQ\\-[^\\s]+$"
     },
     "related_output": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "pattern": "^OUT\\-[^\\s]+$"
     },
     "data_class_event_references": {
@@ -93,6 +90,7 @@
     "source_ids",
     "evidence_ids",
     "analysis_interpretation",
-    "verification_level"
+    "verification_level",
+    "related_output"
   ]
 }

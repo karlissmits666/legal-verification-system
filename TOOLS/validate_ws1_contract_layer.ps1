@@ -1,141 +1,25 @@
-param(
-  [string]$RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-)
-$ErrorActionPreference = 'Stop'
-$fail = @()
-function Fail([string]$Message) { $script:fail += $Message }
-function Read-Json([string]$Path) { return (Get-Content (Join-Path $RepoRoot $Path) -Raw | ConvertFrom-Json) }
-
-$registryFiles = @(Get-ChildItem (Join-Path $RepoRoot 'registries') -Recurse -Filter '*.json')
-$schemaFiles = @(Get-ChildItem (Join-Path $RepoRoot 'schemas') -Recurse -Filter '*.json')
-$artifactIds = @{}
-foreach ($file in @($registryFiles + $schemaFiles)) {
-  try { $json = Get-Content $file.FullName -Raw | ConvertFrom-Json } catch { Fail ('Invalid JSON: ' + $file.FullName); continue }
-  foreach ($key in @('artifact_id','artifact_version','artifact_kind','projection_status','normative_owners')) {
-    if ($null -eq $json.$key) { Fail ('Missing metadata ' + $key + ' in ' + $file.Name) }
-  }
-  if ($json.projection_status -ne 'ACTIVE_PROJECTION') { Fail ('Non-active executable artefact: ' + $file.Name) }
-  if ($artifactIds.ContainsKey([string]$json.artifact_id)) { Fail ('Duplicate artifact_id: ' + $json.artifact_id) } else { $artifactIds[[string]$json.artifact_id] = $file.FullName }
-}
-
-$types = Read-Json 'registries/traceability/trace_object_types.registry.json'
-$prefixes = Read-Json 'registries/traceability/id_prefixes.registry.json'
-$mapping = Read-Json 'registries/traceability/trace_object_id_fields.registry.json'
-if (@($types.entries).Count -ne 19) { Fail 'TRACE OBJECT TYPE registry must contain 19 entries' }
-if (@($prefixes.entries).Count -ne 19) { Fail 'ID PREFIX registry must contain 19 entries' }
-if (@($mapping.entries).Count -ne 19) { Fail 'ID mapping must contain 19 entries' }
-$typeCanonical = @($types.entries | ForEach-Object { $_.canonical })
-if (@($typeCanonical | Sort-Object -Unique).Count -ne 19) { Fail 'Duplicate TRACE OBJECT TYPE value' }
-foreach ($m in $mapping.entries) {
-  $p = @($prefixes.entries | Where-Object { $_.trace_object_type -eq $m.trace_object_type })
-  if ($p.Count -ne 1 -or $p[0].prefix -ne $m.id_prefix) { Fail ('Mapping/prefix mismatch: ' + $m.trace_object_type) }
-  if ($typeCanonical -notcontains $m.trace_object_type) { Fail ('Mapping type missing from registry: ' + $m.trace_object_type) }
-  $ownerPath = Join-Path $RepoRoot $m.owner_document
-  if (-not (Test-Path $ownerPath)) {
-    Fail ('Mapping owner file missing: ' + $m.owner_document)
-  } else {
-    $ownerText = Get-Content $ownerPath -Raw
-    if ($ownerText -notmatch [regex]::Escape([string]$m.id_field_name)) { Fail ('ID field absent from owner: ' + $m.trace_object_type + ' / ' + $m.id_field_name) }
-  }
-}
-
-$te = Get-Content (Join-Path $RepoRoot 'GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md') -Raw
-$ps = Get-Content (Join-Path $RepoRoot 'GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md') -Raw
-$tr = Get-Content (Join-Path $RepoRoot 'GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md') -Raw
-$vp = Get-Content (Join-Path $RepoRoot 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md') -Raw
-foreach ($e in $types.entries) {
-  if ($te -notmatch [regex]::Escape([string]$e.canonical) -or $te -notmatch [regex]::Escape([string]$e.machine_key)) { Fail ('T&E TRACE OBJECT TYPE drift: ' + $e.canonical) }
-}
-foreach ($e in $prefixes.entries) {
-  if ($te -notmatch [regex]::Escape([string]$e.trace_object_type) -or $te -notmatch [regex]::Escape([string]$e.prefix)) { Fail ('T&E ID PREFIX drift: ' + $e.trace_object_type) }
-}
-
-$semanticRegistryIds = @('registry.operation','registry.object','registry.module','registry.requirement_status','registry.verification_level','registry.requirement_level','registry.governance_status','registry.requirement_type','registry.module_status','registry.applicability_authority','registry.cif_status','registry.permission_status','registry.suspension_state')
-foreach ($file in $registryFiles) {
-  $json = Get-Content $file.FullName -Raw | ConvertFrom-Json
-  foreach ($entry in @($json.entries)) {
-    if ($entry.canonical -and $entry.machine_key) {
-      if ($semanticRegistryIds -contains $json.artifact_id) { $ownerText = $ps + "`n" + $te }
-      elseif ($json.artifact_id -like 'registry.verification_*') { $ownerText = $vp }
-      else { $ownerText = $te + "`n" + $tr }
-      if ($ownerText -notmatch [regex]::Escape([string]$entry.canonical)) { Fail ('Canonical value absent from owner: ' + $json.artifact_id + ' / ' + $entry.canonical) }
-      if ($ownerText -notmatch [regex]::Escape([string]$entry.machine_key)) { Fail ('Machine key absent from owner: ' + $json.artifact_id + ' / ' + $entry.machine_key) }
-    }
-  }
-}
-
-$referenceRaw = Get-Content (Join-Path $RepoRoot 'schemas/traceability/trace_object_reference.schema.json') -Raw
-foreach ($needle in @('trace_record_id','record_version','trace_object_type','trace_object_id','current','latest','oneOf')) {
-  if ($referenceRaw -notmatch [regex]::Escape($needle)) { Fail ('Reference schema missing invariant token: ' + $needle) }
-}
-if ($tr -notmatch 'INTRA-RECORD REFERENCE' -or $tr -notmatch 'CROSS-RECORD REFERENCE') { Fail 'TR §5.1 reference modes missing' }
-if ($te -notmatch 'INTRA-RECORD REFERENCE' -or $te -notmatch 'CROSS-RECORD REFERENCE') { Fail 'T&E §26.2 reference modes missing' }
-
-foreach ($file in $schemaFiles) {
-  $json = Get-Content $file.FullName -Raw | ConvertFrom-Json
-  if ($json.x_trace_object_type) {
-    $m = @($mapping.entries | Where-Object { $_.trace_object_type -eq $json.x_trace_object_type })
-    if ($m.Count -ne 1) {
-      Fail ('Schema type missing mapping: ' + $json.artifact_id)
-    } else {
-      $snake = ([string]$m[0].id_field_name).ToLower().Replace(' ','_')
-      if ($json.x_id_field -ne $snake) { Fail ('Schema id field metadata mismatch: ' + $json.artifact_id + ' expected ' + $snake + ' got ' + $json.x_id_field) }
-      if ($null -eq $json.properties.$snake) { Fail ('Schema missing mapped id property: ' + $json.artifact_id + ' / ' + $snake) }
-    }
-  }
-}
-
-$aliasPairs = @(
-  @('GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md','GOVERNANCE/TRACEABILITY_RECORD_v1.md'),
-  @('GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md','GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1.md')
-)
-foreach ($pair in $aliasPairs) {
-  $a = (Get-FileHash (Join-Path $RepoRoot $pair[0]) -Algorithm SHA256).Hash
-  $b = (Get-FileHash (Join-Path $RepoRoot $pair[1]) -Algorithm SHA256).Hash
-  if ($a -ne $b) { Fail ('Frozen alias drift: ' + $pair[0] + ' != ' + $pair[1]) }
-}
-
-$temp = Join-Path ([IO.Path]::GetTempPath()) ('ws1-catalog-' + [guid]::NewGuid().ToString() + '.json')
-& (Join-Path $RepoRoot 'TOOLS/build_ws1_catalog.ps1') -RepoRoot $RepoRoot -OutputPath $temp | Out-Null
-$actual = Get-Content (Join-Path $RepoRoot 'catalog/schema_catalog.json') -Raw | ConvertFrom-Json
-$regen = Get-Content $temp -Raw | ConvertFrom-Json
-Remove-Item $temp -Force
-$actualIndex = @($actual.entries | ForEach-Object { ([string]$_.artifact_id) + '|' + ([string]$_.projection_status) + '|' + ([string]$_.path) } | Sort-Object)
-$regenIndex = @($regen.entries | ForEach-Object { ([string]$_.artifact_id) + '|' + ([string]$_.projection_status) + '|' + ([string]$_.path) } | Sort-Object)
-if ($actualIndex.Count -ne $regenIndex.Count) {
-  Fail 'schema_catalog.json entry count is not reproducible from builder'
-} else {
-  for ($i = 0; $i -lt $actualIndex.Count; $i++) {
-    if ($actualIndex[$i] -ne $regenIndex[$i]) { Fail ('schema_catalog.json discovery index drift: ' + $actualIndex[$i] + ' != ' + $regenIndex[$i]) }
-  }
-}
-foreach ($blocked in @($actual.entries | Where-Object { $_.projection_status -eq 'BLOCKED_BY_OWNER' })) {
-  if ($null -ne $blocked.path) { Fail ('Blocked dependency has executable path: ' + $blocked.artifact_id) }
-}
-
-$fixtureRoot = Join-Path $RepoRoot 'TOOLS/fixtures/ws1'
-function Test-Fixture([string]$Name,[bool]$Expected) {
-  $f = Get-Content (Join-Path $fixtureRoot ($Name + '/fixture.json')) -Raw | ConvertFrom-Json
-  $ok = $true
-  if (@($f.artifact_ids | Sort-Object -Unique).Count -ne @($f.artifact_ids).Count) { $ok = $false }
-  $mapped = @($f.mapping | ForEach-Object { $_.trace_object_type })
-  foreach ($t in @($f.types)) { if ($mapped -notcontains $t) { $ok = $false } }
-  $targets = @($f.objects | ForEach-Object { $_.id })
-  foreach ($r in @($f.references)) { if ($targets -notcontains $r.target_id) { $ok = $false } }
-  if ($ok -ne $Expected) { Fail ('Fixture unexpected result: ' + $Name) }
-}
-Test-Fixture 'valid_projection' $true
-Test-Fixture 'invalid_duplicate_id' $false
-Test-Fixture 'invalid_missing_mapping' $false
-Test-Fixture 'invalid_unresolved_ref' $false
-
-$frozen = @('GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md','GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md','GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md','GOVERNANCE/VERIFICATION_PROTOCOL_v1.md')
-$changed = @(& git -C $RepoRoot diff --name-only HEAD^ HEAD -- $frozen)
-if ($LASTEXITCODE -ne 0) { Fail 'Unable to check frozen diff' }
-if ($changed.Count -gt 0) { Fail ('Frozen owner changed in WS1 implementation commit: ' + ($changed -join ', ')) }
-
-if ($fail.Count -gt 0) {
-  foreach ($message in $fail) { Write-Error $message }
-  exit 1
-}
-Write-Output 'WS1 CONTRACT LAYER VALIDATION: PASS'
+param([string]$RepoRoot=(Resolve-Path (Join-Path $PSScriptRoot '..')).Path,[switch]$SkipFixtureSuite)
+$ErrorActionPreference='Stop';$fail=@();function F([string]$m){$script:fail+=$m};function J([string]$p){Get-Content (Join-Path $RepoRoot $p)-Raw|ConvertFrom-Json}
+function SN([string]$r){$m=[regex]::Match($r,'§{1,2}(\d+(?:\.\d+)?)');if($m.Success){$m.Groups[1].Value}else{$null}}
+function S([string]$p,[string]$r){if(-not(Test-Path $p)){return $null};$n=SN $r;if(-not$n){return $null};$l=Get-Content $p;$st=-1;$lv=0;for($i=0;$i-lt$l.Count;$i++){if($l[$i]-match'^(#{1,6})\s+(\d+(?:\.\d+)*)(?:\.|\s)'-and$Matches[2]-eq$n){$st=$i;$lv=$Matches[1].Length;break}};if($st-lt0){return $null};$o=@();for($i=$st;$i-lt$l.Count;$i++){if($i-gt$st-and$l[$i]-match'^(#{1,6})\s+'-and$Matches[1].Length-le$lv){break};$o+=$l[$i]};$o-join[Environment]::NewLine}
+function SE([string]$p,[string]$r){$ns=@([regex]::Matches($r,'\d+(?:\.\d+)?')|ForEach-Object{$_.Value});if($ns.Count-eq0){return(Get-Content $p-Raw).Contains($r)};foreach($n in $ns){if(-not(S $p ('§'+$n))){return $false}};return $true}
+function TP([string]$s){$a=@();foreach($ln in @($s-split'\r?\n')){if($ln-notmatch'^\|'){continue};$c=@($ln.Trim('|')-split'\|'|ForEach-Object{$_.Trim().Trim([char]96)});if($c.Count-lt2-or$c[0]-eq'Canonical'-or$c[0]-match'^[- ]+$'){continue};if($c[1]-match'^[a-z0-9_]+$'){$a+=[pscustomobject]@{canonical=$c[0];machine_key=$c[1]}}};@($a)}
+function EQ($a,$b){$x=@($a|ForEach-Object{[string]$_}|Sort-Object-Unique);$y=@($b|ForEach-Object{[string]$_}|Sort-Object-Unique);if($x.Count-ne$y.Count){return $false};for($i=0;$i-lt$x.Count;$i++){if($x[$i]-ne$y[$i]){return $false}};return $true}
+function CP([string]$id,$e,$a){if(-not(EQ @($e|ForEach-Object{$_.canonical+'|'+$_.machine_key}) @($a|ForEach-Object{$_.canonical+'|'+$_.machine_key}))){F($id+' owner/registry drift')}}
+function B{return @{operation='registry.operation';object='registry.object';contract_type='registry.contract_type';module='registry.module';module_status='registry.module_status';applicability_authority='registry.applicability_authority';requirement_level='registry.requirement_level';governance_status='registry.governance_status';requirement_type='registry.requirement_type';requirement_status='registry.requirement_status';verification_level='registry.verification_level';resulting_verification_level='registry.verification_level';decision_type='registry.human_decision_type';suspension_state='registry.suspension_state';verification_methods='registry.verification_method';result='registry.verification_result';source_type='registry.source_type';content_hash_algorithm='registry.content_hash_algorithm';permission_status='registry.permission_status';trace_object_type='registry.trace_object_types'}}
+function EV($p){if($null-ne$p.enum){return @($p.enum|Where-Object{$null-ne$_})};if($p.items-and$null-ne$p.items.enum){return @($p.items.enum|Where-Object{$null-ne$_})};@()}
+$rf=@(Get-ChildItem (Join-Path $RepoRoot 'registries')-Recurse-Filter '*.json');$sf=@(Get-ChildItem (Join-Path $RepoRoot 'schemas')-Recurse-Filter '*.json');$ids=@{}
+foreach($f in @($rf+$sf)){try{$x=Get-Content $f.FullName-Raw|ConvertFrom-Json}catch{F('Invalid JSON '+$f.FullName);continue};foreach($k in @('artifact_id','artifact_version','artifact_kind','projection_status','normative_owners')){if($null-eq$x.$k){F('Missing '+$k+' '+$f.Name)}};if($x.projection_status-ne'ACTIVE_PROJECTION'){F('Non-active executable '+$f.Name)};if($ids.ContainsKey([string]$x.artifact_id)){F('Duplicate artifact_id '+$x.artifact_id)}else{$ids[[string]$x.artifact_id]=$true};foreach($o in @($x.normative_owners)){$p=Join-Path $RepoRoot $o.document;if(-not(Test-Path $p)){F('Owner missing '+$x.artifact_id+' '+$o.document);continue};foreach($q in @($o.sections)){if(-not(SE $p ([string]$q)){F('Owner section missing '+$x.artifact_id+' '+$q)}}}}
+$types=J 'registries/traceability/trace_object_types.registry.json';$prefix=J 'registries/traceability/id_prefixes.registry.json';$map=J 'registries/traceability/trace_object_id_fields.registry.json';$te=Join-Path $RepoRoot 'GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md';CP 'registry.trace_object_types' $types.entries (TP (S $te '§25'))
+$pr=@();foreach($ln in @((S $te '§26')-split'\r?\n')){if($ln-notmatch'^\|'){continue};$c=@($ln.Trim('|')-split'\|'|ForEach-Object{$_.Trim().Trim([char]96)});if($c.Count-ge2-and$c[1]-match'^[A-Z]+-$'){$pr+=($c[0]+'|'+$c[1])}};if(-not(EQ @($prefix.entries|ForEach-Object{$_.trace_object_type+'|'+$_.prefix}) $pr)){F('T&E §26 prefix drift')}
+foreach($m in $map.entries){$p=@($prefix.entries|Where-Object{$_.trace_object_type-eq$m.trace_object_type});if($p.Count-ne1-or$p[0].prefix-ne$m.id_prefix){F('Mapping/prefix '+$m.trace_object_type)};$sec=S (Join-Path $RepoRoot $m.owner_document) $m.owner_section;if(-not$sec-or$sec-notmatch[regex]::Escape([string]$m.id_field_name)){F('Mapped owner ID field '+$m.trace_object_type)}}
+foreach($f in $rf){$x=Get-Content $f.FullName-Raw|ConvertFrom-Json;if(-not$x.entries-or-not$x.controlled_field-or$x.artifact_id-in@('registry.blocked_dependencies','registry.id_prefixes','registry.trace_object_id_fields')){continue};if($x.artifact_id-eq'registry.verification_method'){$v=S (Join-Path $RepoRoot 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md') '§5';$a=@([regex]::Matches($v,'(?m)^\s*5\.[123]\.\s+(HUMAN_[A-Z0-9_]+)\s*$')|ForEach-Object{[pscustomobject]@{canonical=$_.Groups[1].Value;machine_key=$_.Groups[1].Value.ToLower()}});CP $x.artifact_id $x.entries $a;foreach($e in $x.entries){if($e.lifecycle-ne'active'){F('verification_method lifecycle drift')}};continue};if($x.artifact_id-eq'registry.verification_result'){$v=S (Join-Path $RepoRoot 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md') '§12';$a=@();foreach($e in $x.entries){if($v-match(('(?m)^\s*'+[regex]::Escape([string]$e.canonical)+'\s+'+[regex]::Escape([string]$e.machine_key)))){$a+=[pscustomobject]@{canonical=$e.canonical;machine_key=$e.machine_key}}};CP $x.artifact_id $x.entries $a;continue};$o=@($x.normative_owners|Where-Object{$_.role-eq'representation_owner'})|Select-Object-First 1;if(-not$o){$o=@($x.normative_owners|Where-Object{$_.role-eq'semantic_owner'})|Select-Object-First 1};CP $x.artifact_id $x.entries (TP (S (Join-Path $RepoRoot $o.document) ([string]@($o.sections)[0])))}
+$b=B;$rb=@{};foreach($f in $rf){$x=Get-Content $f.FullName-Raw|ConvertFrom-Json;$rb[[string]$x.artifact_id]=$x};$si=@{};$all=@();foreach($f in $sf){$x=Get-Content $f.FullName-Raw|ConvertFrom-Json;$si[[string]$x.'$id']=$x;$all+=$x}
+foreach($f in $sf){$raw=Get-Content $f.FullName-Raw;$x=$raw|ConvertFrom-Json;if($x.x_trace_object_type){$m=@($map.entries|Where-Object{$_.trace_object_type-eq$x.x_trace_object_type});if($m.Count-ne1){F('Schema mapping '+$x.artifact_id)}else{$sn=([string]$m[0].id_field_name).ToLower().Replace(' ','_');$p=$x.properties.$sn;if($x.x_id_field-ne$sn-or$null-eq$p){F('Schema ID field '+$x.artifact_id)}elseif(-not(([string]$p.pattern).Replace('\','').StartsWith('^'+[string]$m[0].id_prefix))){F('Schema prefix '+$x.artifact_id)}}};foreach($p in @($x.properties.PSObject.Properties)){if($b.ContainsKey($p.Name)){if(-not(EQ (EV $p.Value) @($rb[$b[$p.Name]].entries|ForEach-Object{$_.machine_key}))){F('Schema enum drift '+$x.artifact_id+' '+$p.Name)}}};foreach($r in [regex]::Matches($raw,'"\$ref"\s*:\s*"([^"]+)"')){if(-not$si.ContainsKey($r.Groups[1].Value)){F('Unresolved ref '+$x.artifact_id+' '+$r.Groups[1].Value)}}}
+$need=@(@('schema.module_record','classification_assessment_references'),@('schema.requirement_result_record','classification_basis_references'),@('schema.human_decision_record','related_trace_object_references'),@('schema.human_decision_record','assignment_authority_basis_source_reference'),@('schema.unresolved_issue_record','related_trace_object_references'),@('schema.unresolved_issue_record','action_owner_basis_reference'),@('schema.unresolved_issue_record','resolution_authority_basis_reference'));foreach($q in $need){$x=@($all|Where-Object{$_.artifact_id-eq$q[0]})|Select-Object-First 1;if(($x.properties.($q[1])|ConvertTo-Json-Depth 20-Compress)-notmatch[regex]::Escape('urn:legal-verification-system:schema.trace_object_reference')){F('Pinned ref disconnected '+$q[0]+' '+$q[1])}}
+$rs=J 'schemas/traceability/trace_object_reference.schema.json';foreach($e in $types.entries){$p=@($prefix.entries|Where-Object{$_.trace_object_type-eq$e.canonical})|Select-Object-First 1;$ok=$false;foreach($r in $rs.allOf){if($r.if.properties.trace_object_type.const-eq$e.machine_key-and([string]$r.then.properties.trace_object_id.pattern).Replace('\','').StartsWith('^'+[string]$p.prefix)){$ok=$true}};if(-not$ok){F('Reference prefix rule '+$e.machine_key)}}
+$br=J 'registries/blocked_dependencies.registry.json';$bt=@($br.entries|ForEach-Object{$_.trace_object_type});foreach($x in $all){if($x.x_trace_object_type-and$bt-contains$x.x_trace_object_type){F('Blocked executable '+$x.artifact_id)}}
+$mf=J 'catalog/frozen_baseline_fingerprints.json';foreach($z in $mf.files){$p=Join-Path $RepoRoot $z.path;if((Get-FileHash $p-Algorithm SHA256).Hash.ToLower()-ne([string]$z.sha256).ToLower()){F('Frozen fingerprint '+$z.path)}}
+$tmp=Join-Path ([IO.Path]::GetTempPath()) ('w'+[guid]::NewGuid()+'.json');& (Join-Path $RepoRoot 'TOOLS/build_ws1_catalog.ps1')-RepoRoot $RepoRoot-OutputPath $tmp;$a=Get-Content (Join-Path $RepoRoot 'catalog/schema_catalog.json')-Raw|ConvertFrom-Json;$r=Get-Content $tmp-Raw|ConvertFrom-Json;Remove-Item $tmp;if(($a|ConvertTo-Json-Depth 30-Compress)-ne($r|ConvertTo-Json-Depth 30-Compress)){F('Catalog reproduction drift')};$ci=@($a.entries|ForEach-Object{$_.artifact_id});if(@($ci|Sort-Object-Unique).Count-ne$ci.Count){F('Catalog duplicate artifact_id')};foreach($z in @($a.entries|Where-Object{$_.projection_status-eq'BLOCKED_BY_OWNER'})){if($null-ne$z.path){F('Blocked path '+$z.artifact_id)}}
+if(-not$SkipFixtureSuite){foreach($ff in @(Get-ChildItem (Join-Path $RepoRoot 'TOOLS/fixtures/ws1')-Recurse-Filter fixture.json|Sort-Object FullName)){$fx=Get-Content $ff.FullName-Raw|ConvertFrom-Json;$t=Join-Path ([IO.Path]::GetTempPath()) ('fx'+[guid]::NewGuid());New-Item-ItemType Directory-Path $t|Out-Null;Copy-Item (Join-Path $RepoRoot '*') $t-Recurse-Force;switch([string]$fx.mutation){'none'{};'duplicate_artifact_id'{Copy-Item (Join-Path $t 'registries/enums/operation.registry.json') (Join-Path $t 'registries/enums/_dup.json')};'missing_owner_value'{$p=Join-Path $t 'registries/enums/operation.registry.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.entries=@($q.entries|Select-Object-First 4);$q|ConvertTo-Json-Depth 20|Set-Content $p};'cross_registry_contamination'{$p=Join-Path $t 'registries/enums/operation.registry.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.entries[0].canonical='ALLOWED';$q.entries[0].machine_key='allowed';$q|ConvertTo-Json-Depth 20|Set-Content $p};'schema_enum_drift'{$p=Join-Path $t 'schemas/traceability/task_record.schema.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.properties.operation.enum+='approve';$q|ConvertTo-Json-Depth 30|Set-Content $p};'type_prefix_mismatch'{$p=Join-Path $t 'schemas/traceability/task_record.schema.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.properties.task_id.pattern='^MOD-[^ ]+$';$q|ConvertTo-Json-Depth 30|Set-Content $p};'executable_blocked_schema'{$p=Join-Path $t 'schemas/traceability/task_record.schema.json';$d=Join-Path $t 'schemas/traceability/_blocked.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.artifact_id='schema.output_record';$q.'$id'='urn:legal-verification-system:schema.output_record';$q.x_trace_object_type='OUTPUT';$q|ConvertTo-Json-Depth 30|Set-Content $d};'broken_ref'{$p=Join-Path $t 'schemas/traceability/module_record.schema.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.properties.classification_assessment_references.items.allOf[0].'$ref'='urn:legal-verification-system:schema.missing';$q|ConvertTo-Json-Depth 30|Set-Content $p};'catalog_metadata_drift'{$p=Join-Path $t 'catalog/schema_catalog.json';$q=Get-Content $p-Raw|ConvertFrom-Json;$q.entries[0].artifact_version='9.9.9';$q|ConvertTo-Json-Depth 30|Set-Content $p};'frozen_baseline_hash_drift'{Add-Content (Join-Path $t 'GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md') 'fixture'}};& pwsh-NoProfile-File (Join-Path $t 'TOOLS/validate_ws1_contract_layer.ps1')-RepoRoot $t-SkipFixtureSuite *> $null;$ok=$LASTEXITCODE-eq0;if((([string]$fx.expected)-eq'PASS'-and-not$ok)-or(([string]$fx.expected)-eq'FAIL'-and$ok)){F('Fixture '+$fx.name)};Remove-Item $t-Recurse-Force}}
+if($fail.Count-gt0){foreach($m in $fail){Write-Error $m};exit 1};Write-Output 'WS1 CONTRACT LAYER VALIDATION: PASS'

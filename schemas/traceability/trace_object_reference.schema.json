@@ -36,11 +36,9 @@
       "type": "string",
       "minLength": 1,
       "not": {
-        "enum": [
-          "current",
-          "latest"
-        ]
-      }
+        "pattern": "^(?:[Cc][Uu][Rr][Rr][Ee][Nn][Tt]|[Ll][Aa][Tt][Ee][Ss][Tt])$"
+      },
+      "x_owner_decision_boundary": "Frozen TR §5.1 / T&E §26.2 prohibit moving targets but do not define a complete immutable RECORD VERSION grammar."
     },
     "trace_object_type": {
       "type": "string",
@@ -104,6 +102,386 @@
           ]
         }
       ]
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "task"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^TASK\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "source"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^SRC\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "module"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^MOD\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "finding"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^FND\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "evidence"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^EVD\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "requirements_set"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^RQS\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "requirement"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^REQ\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "requirement_component"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^CMP\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "verification_event"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^VER\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "verification_scope_record"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^VSR\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "legal_classification_assessment"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^LCA\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "module_screening_record"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^MSR\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "module_trigger_set"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^MTR\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "human_decision"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^DEC\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "escalation"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^ESC\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "unresolved_issue"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^ISS\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "output"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^OUT\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "data_class_event"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^DCE\\-[^\\s]+$"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "trace_object_type": {
+            "const": "trace_record"
+          }
+        },
+        "required": [
+          "trace_object_type"
+        ]
+      },
+      "then": {
+        "properties": {
+          "trace_object_id": {
+            "type": "string",
+            "pattern": "^TR\\-[^\\s]+$"
+          }
+        }
+      }
     }
   ]
 }

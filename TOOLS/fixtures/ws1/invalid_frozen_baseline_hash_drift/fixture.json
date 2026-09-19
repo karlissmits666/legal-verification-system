@@ -1,0 +1,5 @@
+{
+  "name": "invalid_frozen_baseline_hash_drift",
+  "mutation": "frozen_baseline_hash_drift",
+  "expected": "FAIL"
+}

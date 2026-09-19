@@ -1,0 +1,5 @@
+{
+  "name": "invalid_schema_enum_drift",
+  "mutation": "schema_enum_drift",
+  "expected": "FAIL"
+}

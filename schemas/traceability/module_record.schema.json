@@ -114,8 +114,20 @@
     "classification_assessment_references": {
       "type": "array",
       "items": {
-        "type": "string",
-        "minLength": 1
+        "allOf": [
+          {
+            "$ref": "urn:legal-verification-system:schema.trace_object_reference"
+          },
+          {
+            "properties": {
+              "trace_object_type": {
+                "enum": [
+                  "legal_classification_assessment"
+                ]
+              }
+            }
+          }
+        ]
       },
       "uniqueItems": true
     }

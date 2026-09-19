@@ -1,0 +1,133 @@
+{
+  "artifact_id": "registry.blocked_dependencies",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "control_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md",
+      "version": "v0.1",
+      "sections": [
+        "§7"
+      ],
+      "role": "control_owner"
+    }
+  ],
+  "controlled_field": "WS1 BLOCKED DEPENDENCY",
+  "entries": [
+    {
+      "artifact_id": "schema.legal_classification_assessment",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "LEGAL CLASSIFICATION ASSESSMENT",
+      "id_field": "legal_classification_assessment_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md",
+          "version": "v0.2",
+          "sections": [
+            "§8"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "missing_owner_dependencies": [],
+      "activation_condition": "CLASSIFICATION LIKELIHOOD registry owner approval/freeze"
+    },
+    {
+      "artifact_id": "schema.module_screening_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "MODULE SCREENING RECORD",
+      "id_field": "module_screening_record_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/REQUIREMENTS_MATRIX_GOVERNANCE_v1.md",
+          "version": "v0.3",
+          "sections": [
+            "§5.1"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "missing_owner_dependencies": [],
+      "activation_condition": "approved module trigger model"
+    },
+    {
+      "artifact_id": "schema.module_trigger_set",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "MODULE TRIGGER SET",
+      "id_field": "trigger_set_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md",
+          "version": "v0.1",
+          "sections": [
+            "§2"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "missing_owner_dependencies": [],
+      "activation_condition": "trigger owners approved"
+    },
+    {
+      "artifact_id": "schema.source_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "SOURCE",
+      "id_field": "source_id",
+      "normative_owners": [],
+      "missing_owner_dependencies": [
+        {
+          "expected_document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "expected_owner": "DATA CLASS REGISTRY",
+          "status": "MISSING_OR_UNAPPROVED"
+        }
+      ],
+      "activation_condition": "DATA CLASS registry approved/frozen"
+    },
+    {
+      "artifact_id": "schema.data_class_event",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "DATA CLASS EVENT",
+      "id_field": "event_id",
+      "normative_owners": [],
+      "missing_owner_dependencies": [
+        {
+          "expected_document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "expected_owner": "DATA CLASS REGISTRY",
+          "status": "MISSING_OR_UNAPPROVED"
+        }
+      ],
+      "activation_condition": "DATA CLASS registry approved/frozen"
+    },
+    {
+      "artifact_id": "schema.output_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "trace_object_type": "OUTPUT",
+      "id_field": "output_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/OPERATION_WORKFLOWS_v1.md",
+          "version": "v0.2",
+          "sections": [
+            "OUTPUT TYPE REGISTRY"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "missing_owner_dependencies": [],
+      "activation_condition": "OUTPUT TYPE registry approved/frozen"
+    }
+  ]
+}

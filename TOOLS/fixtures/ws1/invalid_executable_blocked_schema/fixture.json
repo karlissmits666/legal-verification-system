@@ -1,0 +1,5 @@
+{
+  "name": "invalid_executable_blocked_schema",
+  "mutation": "executable_blocked_schema",
+  "expected": "FAIL"
+}
