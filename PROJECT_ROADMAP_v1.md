@@ -3,13 +3,15 @@
 ## Juridiskās pārbaudes sistēma — kopējais projekta uzdevums
 
 **Statuss:** AKTĪVS  
-**Bāze:** `PROFESSIONAL_SCOPE_v1.3` — APSTIPRINĀTS, PAMATVERSIJA IESALDĒTA
+**Aktuālais frozen core baseline:** `PROFESSIONAL_SCOPE_v1.4` + `TRACEABILITY_RECORD_v1 v0.6` + `TERMINOLOGY_AND_ENUMS_v1 v0.4` + `VERIFICATION_PROTOCOL_v1 v0.5`
 
 Šis dokuments nosaka projekta kopējo dokumentu kopu un izstrādes secību. Tā mērķis ir vienā vietā fiksēt, kas vēl jāizveido, kuri dokumenti ir priekšnoteikumi citiem slāņiem un kuriem nepieciešama praktiska pilotēšana pirms freeze.
 
 Projekta stabilos mērķus, autoritātes robežas un neaizskaramos principus nosaka `PROJECT_CONSTITUTION_v1.md`; izpildi regulē `PROJECT_EXECUTION_PROTOCOL.md`. Šis roadmap paliek programmas līmeņa kontroles plakne un aktuālā statusa avots. Konstitūcija un protokols nav 14. vai 15. obligātais arhitektūras pamatdokuments.
 
 Starpčatu continuity nodrošina `NEW_CHAT_START_TASK.md` un `PROJECT_CURRENT_STATE.md`. Tie ir procesa un navigācijas artefakti, ne jauni pamatdokumenti un ne arhitektūras autoritātes avoti.
+
+Šā dokumenta vēsturiskās sadaļas saglabā iepriekšējo baseline izsekojamībai, bet nenosaka aktuālo semantiku. Aktuālo autoritāti nosaka 1. sadaļas statusu tabula, `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_FREEZE.md` un tajā norādītie frozen owner faili.
 
 ## 1. Kopējais dokumentu komplekts
 
@@ -218,10 +220,11 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 `TRACEABILITY_RECORD_v1 — Arhitektūra v0.6` ir apstiprināts kā iesaldētā pamatversija.
 
-- Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3`: PASS
+- Review #16 atomārās implementation paketes audits: PASS
+- Autoritatīvās frozen dependencies: `PROFESSIONAL_SCOPE_v1.4`, `TERMINOLOGY_AND_ENUMS_v1 v0.4` un `VERIFICATION_PROTOCOL_v1 v0.5`
 - Bloķējošas pretrunas ar pamatversiju: 0
 - Jauni kanoniskie statusi: 0
-- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
+- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-19
 - Pilota 1 tvērums: ANALYSE + EXTRACT
 - 1. pilotā obligāts simulēts `DATA CLASS MISMATCH SUSPECTED` testa gadījums
 
@@ -230,17 +233,19 @@ Sistēma nav uzskatāma par ieviestu tikai tādēļ, ka dokumenti ir uzrakstīti
 
 `TERMINOLOGY_AND_ENUMS_v1 — v0.4` ir apstiprināts kā iesaldētā pamatversija.
 
-- Mehāniskais audits pret `PROFESSIONAL_SCOPE_v1.3` un `TRACEABILITY_RECORD_v1 v0.4`: IZTURĒTS
+- Review #16 atomārās implementation paketes audits pret `PROFESSIONAL_SCOPE_v1.4` un `TRACEABILITY_RECORD_v1 v0.6`: PASS
 - Bloķējošas pretrunas ar pamatversijām: 0
 - Jauni frozen canonical statusi: 0
 - LV lietotāja saskarnes apzīmējumu slānis: definēts
 - Ārējo kontrolēto reģistru īpašnieki: definēti
-- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-18
+- Iesaldēšana: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA), 2026-09-19
 
 
-## Verifikācijas protokola posms
+## Verifikācijas protokola posms — vēsturiskais baseline pirms Review #16
 
 Pēc arhitektūras review #8–#10 ir sasniegts konsenss par `VERIFICATION_PROTOCOL_v1 v0.5`.
+
+Šī sadaļa fiksē 2026-09-18 vēsturisko baseline. WS1 un turpmākais darbs no tās nedrīkst iegūt aktuālo TR/T&E versiju semantiku; aktuālo autoritāti nosaka 1. sadaļas statusu tabula, Review #16 freeze record un frozen owner faili.
 
 - `VERIFICATION_PROTOCOL_v1 v0.5`: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA).
 - `TRACEABILITY_RECORD_v1 — Arhitektūra v0.5`: APSTIPRINĀTS — PAMATVERSIJA (IESALDĒTA).
@@ -274,7 +279,7 @@ CONTRACT TYPE
 → OPERATION
 ```
 
-Review #16 response v7 saskaņotais delta ir atomāri implementēts amendment paketes draftos. Jaunās versijas joprojām nav frozen. Iepriekšējās apstiprinātās pamatversijas paliek autoritatīvas līdz atsevišķam freeze lēmumam.
+Review #16 response v7 saskaņotais delta ir atomāri implementēts un auditēts ar rezultātu PASS. Lietotājs 2026-09-19 apstiprināja freeze; `PROFESSIONAL_SCOPE_v1.4`, `TRACEABILITY_RECORD_v1 v0.6` un `TERMINOLOGY_AND_ENUMS_v1 v0.4` ir aktuālais autoritatīvais frozen core baseline. Pārējie šajā sadaļā uzskaitītie amendment paketes dokumenti nav kļuvuši frozen tikai šā lēmuma dēļ.
 
 
 ### SHORT INTAKE operacionālais priekšnoteikums
@@ -291,8 +296,8 @@ Arhitektūras domstarpības pēc review #12: 0.
 - arhitektūras mehāniskais audits pēc Review #14: PASS;
 - ICT-DORA moduļa autoritāte nav dokumentēta;
 - mērķa reprezentācija ir esošais `UNRESOLVED ISSUE` modelis, bet faktiska reģistrācija vēl nav veikta;
-- Review #16 shēmas delta ir lietotāja apstiprināts un integrēts draftos: `MODULE ID`, pinned trace-object references, conditional AI governance lauki un nodalīts action owner / resolution authority modelis;
-- Review #16 integrācija nav freeze un nemaina frozen baseline;
+- Review #16 shēmas delta ir lietotāja apstiprināts, atomāri implementēts, auditēts un frozen core baseline ietvaros autoritatīvs: `MODULE ID`, pinned trace-object references, conditional AI governance lauki un nodalīts action owner / resolution authority modelis;
+- Review #16 freeze neatrisina ārējo ICT-DORA autoritātes avotu; tas nosaka tikai autoritatīvo shēmu, kurā šo vēl nezināmo lēmumu turpmāk reprezentēt;
 - ICT-DORA production aktivizācija nav pieļaujama, kamēr autoritātes avots nav dokumentēts;
 - COMMON CONTRACT REVIEW turpinās.
 

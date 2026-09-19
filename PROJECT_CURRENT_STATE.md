@@ -27,7 +27,7 @@ CONTINUITY VALIDATOR: TOOLS/validate_project_continuity.ps1
 CONTINUITY VALIDATION REQUIRED FOR READY: YES
 PRIMARY CONTINUITY ENVIRONMENT: GITHUB
 LOCAL WORKTREE REQUIRED: NO
-FROZEN FILES CHANGED SINCE PREVIOUS STATE: YES
+FROZEN FILES CHANGED SINCE PREVIOUS STATE: NO
 ```
 
 ## 2. Current roadmap position
@@ -106,6 +106,7 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 34. Post-implementation auditā konstatētā RMT2 burtiskās identitātes neatbilstība novērsta commitā `94c93b1a29eae5b4d7eaa0d3c4d25d16d76a7787`; validators pastiprināts ar exact-body salīdzinājumu un N5 pārbaudi.
 35. Post-implementation audits pret state `32d1655a4a35f6ff515d9ace3bda37f218843c39` = PASS; audit report: `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_V7_IMPLEMENTATION_AUDIT.md`.
 36. Lietotājs 2026-09-19 deva `APPROVE FREEZE REVIEW #16 PACKAGE`; PS v1.4 / TR v0.6 / T&E v0.4 kļuva par jauno frozen core baseline.
+37. `PROJECT_ROADMAP_v1.md` stale pirms-freeze formulējumi ir saskaņoti ar Review #16 freeze record; vēsturiskais v0.5/v0.3 baseline ir skaidri marķēts kā vēsturisks un nav WS1 semantikas avots. Frozen owner faili nav mainīti.
 
 ## 5. User-approved decisions in force
 
