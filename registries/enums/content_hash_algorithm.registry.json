@@ -1,0 +1,23 @@
+{
+  "artifact_id": "registry.content_hash_algorithm",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§26.3"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "CONTENT HASH ALGORITHM",
+  "entries": [
+    {
+      "canonical": "SHA-256",
+      "machine_key": "sha256"
+    }
+  ]
+}

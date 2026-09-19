@@ -1,0 +1,152 @@
+{
+  "artifact_id": "registry.trace_object_id_fields",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "mapping_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§30.1"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "mapping": "TRACE OBJECT TYPE → ID PREFIX → ID FIELD NAME → ID FIELD SCHEMA OWNER",
+  "entries": [
+    {
+      "trace_object_type": "TASK",
+      "id_prefix": "TASK-",
+      "id_field_name": "TASK ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§6"
+    },
+    {
+      "trace_object_type": "SOURCE",
+      "id_prefix": "SRC-",
+      "id_field_name": "SOURCE ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§9"
+    },
+    {
+      "trace_object_type": "MODULE",
+      "id_prefix": "MOD-",
+      "id_field_name": "MODULE ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§8"
+    },
+    {
+      "trace_object_type": "FINDING",
+      "id_prefix": "FND-",
+      "id_field_name": "FINDING ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§15"
+    },
+    {
+      "trace_object_type": "EVIDENCE",
+      "id_prefix": "EVD-",
+      "id_field_name": "EVIDENCE ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§17"
+    },
+    {
+      "trace_object_type": "REQUIREMENTS SET",
+      "id_prefix": "RQS-",
+      "id_field_name": "REQUIREMENTS SET ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§21"
+    },
+    {
+      "trace_object_type": "REQUIREMENT",
+      "id_prefix": "REQ-",
+      "id_field_name": "REQUIREMENT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§22"
+    },
+    {
+      "trace_object_type": "REQUIREMENT COMPONENT",
+      "id_prefix": "CMP-",
+      "id_field_name": "COMPONENT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§27"
+    },
+    {
+      "trace_object_type": "VERIFICATION EVENT",
+      "id_prefix": "VER-",
+      "id_field_name": "VERIFICATION EVENT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§30"
+    },
+    {
+      "trace_object_type": "VERIFICATION SCOPE RECORD",
+      "id_prefix": "VSR-",
+      "id_field_name": "VERIFICATION SCOPE RECORD ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§20.1"
+    },
+    {
+      "trace_object_type": "LEGAL CLASSIFICATION ASSESSMENT",
+      "id_prefix": "LCA-",
+      "id_field_name": "LEGAL CLASSIFICATION ASSESSMENT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§7.1"
+    },
+    {
+      "trace_object_type": "MODULE SCREENING RECORD",
+      "id_prefix": "MSR-",
+      "id_field_name": "MODULE SCREENING RECORD ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§7.2"
+    },
+    {
+      "trace_object_type": "MODULE TRIGGER SET",
+      "id_prefix": "MTR-",
+      "id_field_name": "TRIGGER SET ID",
+      "owner_document": "GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md",
+      "owner_section": "§2"
+    },
+    {
+      "trace_object_type": "HUMAN DECISION",
+      "id_prefix": "DEC-",
+      "id_field_name": "DECISION ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§36"
+    },
+    {
+      "trace_object_type": "ESCALATION",
+      "id_prefix": "ESC-",
+      "id_field_name": "ESCALATION ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§37"
+    },
+    {
+      "trace_object_type": "UNRESOLVED ISSUE",
+      "id_prefix": "ISS-",
+      "id_field_name": "ISSUE ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§38"
+    },
+    {
+      "trace_object_type": "OUTPUT",
+      "id_prefix": "OUT-",
+      "id_field_name": "OUTPUT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§40"
+    },
+    {
+      "trace_object_type": "DATA CLASS EVENT",
+      "id_prefix": "DCE-",
+      "id_field_name": "EVENT ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§13"
+    },
+    {
+      "trace_object_type": "TRACE RECORD",
+      "id_prefix": "TR-",
+      "id_field_name": "TRACE RECORD ID",
+      "owner_document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "owner_section": "§44"
+    }
+  ]
+}

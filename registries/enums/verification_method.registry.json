@@ -1,0 +1,35 @@
+{
+  "artifact_id": "registry.verification_method",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+      "version": "v0.5",
+      "sections": [
+        "§5",
+        "§17"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "VERIFICATION METHOD",
+  "entries": [
+    {
+      "canonical": "HUMAN_EVIDENCE_CONTEXT_REVIEW",
+      "machine_key": "human_evidence_context_review",
+      "lifecycle": "active"
+    },
+    {
+      "canonical": "HUMAN_APPLICABLE_SCOPE_REVIEW",
+      "machine_key": "human_applicable_scope_review",
+      "lifecycle": "active"
+    },
+    {
+      "canonical": "HUMAN_SOURCE_SET_REVIEW",
+      "machine_key": "human_source_set_review",
+      "lifecycle": "active"
+    }
+  ]
+}

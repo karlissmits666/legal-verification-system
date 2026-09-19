@@ -1,0 +1,23 @@
+{
+  "artifact_ids": [
+    "a"
+  ],
+  "types": [
+    "TASK"
+  ],
+  "mapping": [
+    {
+      "trace_object_type": "TASK"
+    }
+  ],
+  "objects": [
+    {
+      "id": "TASK-1"
+    }
+  ],
+  "references": [
+    {
+      "target_id": "TASK-404"
+    }
+  ]
+}

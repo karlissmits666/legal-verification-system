@@ -1,0 +1,109 @@
+{
+  "artifact_id": "registry.contract_type",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§28.1"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "CONTRACT TYPE",
+  "entries": [
+    {
+      "canonical": "SERVICE AGREEMENT",
+      "machine_key": "service_agreement",
+      "lv_label": "Pakalpojumu līgums"
+    },
+    {
+      "canonical": "GOODS SUPPLY",
+      "machine_key": "goods_supply",
+      "lv_label": "Preču piegādes / pirkuma līgums"
+    },
+    {
+      "canonical": "CONSTRUCTION",
+      "machine_key": "construction",
+      "lv_label": "Būvniecības līgums"
+    },
+    {
+      "canonical": "SOFTWARE LICENCE",
+      "machine_key": "software_licence",
+      "lv_label": "Programmatūras licences līgums"
+    },
+    {
+      "canonical": "SAAS / CLOUD SERVICE",
+      "machine_key": "saas_cloud_service",
+      "lv_label": "SaaS / mākoņpakalpojuma līgums"
+    },
+    {
+      "canonical": "IT DEVELOPMENT",
+      "machine_key": "it_development",
+      "lv_label": "IT izstrādes līgums"
+    },
+    {
+      "canonical": "IT SUPPORT / MAINTENANCE",
+      "machine_key": "it_support_maintenance",
+      "lv_label": "IT atbalsta / uzturēšanas līgums"
+    },
+    {
+      "canonical": "CONSULTING / PROFESSIONAL SERVICES",
+      "machine_key": "consulting_professional_services",
+      "lv_label": "Konsultāciju / profesionālo pakalpojumu līgums"
+    },
+    {
+      "canonical": "AUDIT SERVICES",
+      "machine_key": "audit_services",
+      "lv_label": "Audita pakalpojumu līgums"
+    },
+    {
+      "canonical": "TRAINING SERVICES",
+      "machine_key": "training_services",
+      "lv_label": "Mācību pakalpojumu līgums"
+    },
+    {
+      "canonical": "FACILITY SERVICES",
+      "machine_key": "facility_services",
+      "lv_label": "Saimnieciskās / facility apkalpošanas līgums"
+    },
+    {
+      "canonical": "SECURITY SERVICES",
+      "machine_key": "security_services",
+      "lv_label": "Apsardzes / drošības pakalpojumu līgums"
+    },
+    {
+      "canonical": "MARKETING SERVICES",
+      "machine_key": "marketing_services",
+      "lv_label": "Mārketinga pakalpojumu līgums"
+    },
+    {
+      "canonical": "FRAMEWORK AGREEMENT",
+      "machine_key": "framework_agreement",
+      "lv_label": "Ietvarlīgums"
+    },
+    {
+      "canonical": "CONFIDENTIALITY AGREEMENT",
+      "machine_key": "confidentiality_agreement",
+      "lv_label": "Konfidencialitātes līgums"
+    },
+    {
+      "canonical": "DATA PROCESSING AGREEMENT",
+      "machine_key": "data_processing_agreement",
+      "lv_label": "Datu apstrādes līgums"
+    },
+    {
+      "canonical": "LEASE",
+      "machine_key": "lease",
+      "lv_label": "Nomas līgums"
+    },
+    {
+      "canonical": "OTHER",
+      "machine_key": "other",
+      "lv_label": "Cits"
+    }
+  ]
+}

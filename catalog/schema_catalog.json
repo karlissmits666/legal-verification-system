@@ -1,0 +1,1066 @@
+{
+  "catalog_version": "0.1.0",
+  "generated_from": "WS1 artefact metadata + explicit BLOCKED_BY_OWNER dependencies",
+  "entries": [
+    {
+      "artifact_id": "registry.applicability_authority",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/applicability_authority.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§13.2",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§18"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.cif_status",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/cif_status.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§4.3",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§19"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.content_hash_algorithm",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/content_hash_algorithm.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§26.3"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.contract_type",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/contract_type.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§28.1"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.governance_status",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/governance_status.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§18",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§14"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.human_decision_type",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/human_decision_type.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§29.2"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§36"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.id_prefixes",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/traceability/id_prefixes.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§26"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.module",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/module.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§10"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.module_status",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/module_status.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§13.1",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§17"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.object",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/object.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§9"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.operation",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/operation.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§8"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.permission_status",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/permission_status.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§19",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§20"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.requirement_level",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/requirement_level.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§18",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§13"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.requirement_status",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/requirement_status.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§16.1",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§11"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.requirement_type",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/requirement_type.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§16.4",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§16"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.source_type",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/source_type.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§9–10"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§24"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.suspension_state",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/suspension_state.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§21"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.trace_object_id_fields",
+      "artifact_kind": "mapping_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/traceability/trace_object_id_fields.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§30.1"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.trace_object_types",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/traceability/trace_object_types.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§25"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.verification_level",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/verification_level.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§16.3",
+            "§30"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§12"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.verification_method",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/verification_method.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+          "version": "v0.5",
+          "sections": [
+            "§5",
+            "§17"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "registry.verification_result",
+      "artifact_kind": "controlled_registry",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "registries/enums/verification_result.registry.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+          "version": "v0.5",
+          "sections": [
+            "§12"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.data_class_event",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "DATA CLASS EVENT",
+      "id_field": "EVENT ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "version": "unapproved",
+          "sections": [
+            "DATA CLASS REGISTRY"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "DATA CLASS registry approved/frozen"
+      ]
+    },
+    {
+      "artifact_id": "schema.escalation_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/escalation_record.schema.json",
+      "trace_object_type": "ESCALATION",
+      "id_field": "escalation_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§37"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.evidence_object",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/evidence_object.schema.json",
+      "trace_object_type": "EVIDENCE",
+      "id_field": "evidence_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§17–20"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.finding_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/finding_record.schema.json",
+      "trace_object_type": "FINDING",
+      "id_field": "finding_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§15–16"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.human_decision_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/human_decision_record.schema.json",
+      "trace_object_type": "HUMAN DECISION",
+      "id_field": "decision_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§36"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§29.2"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.legal_classification_assessment",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "LEGAL CLASSIFICATION ASSESSMENT",
+      "id_field": "LEGAL CLASSIFICATION ASSESSMENT ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md",
+          "version": "v0.2",
+          "sections": [
+            "§8"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "CLASSIFICATION LIKELIHOOD REGISTRY owner approval/freeze"
+      ]
+    },
+    {
+      "artifact_id": "schema.module_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/module_record.schema.json",
+      "trace_object_type": "MODULE",
+      "id_field": "module_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§8"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§13",
+            "§30"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.module_screening_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "MODULE SCREENING RECORD",
+      "id_field": "MODULE SCREENING RECORD ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/REQUIREMENTS_MATRIX_GOVERNANCE_v1.md",
+          "version": "v0.3",
+          "sections": [
+            "§5.1"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "approved module trigger model"
+      ]
+    },
+    {
+      "artifact_id": "schema.module_trigger_set",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "MODULE TRIGGER SET",
+      "id_field": "TRIGGER SET ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md",
+          "version": "v0.1",
+          "sections": [
+            "§2"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "trigger owners approved"
+      ]
+    },
+    {
+      "artifact_id": "schema.output_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "OUTPUT",
+      "id_field": "OUTPUT ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/OPERATION_WORKFLOWS_v1.md",
+          "version": "v0.2",
+          "sections": [
+            "OUTPUT TYPE REGISTRY"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "OUTPUT TYPE registry approved/frozen"
+      ]
+    },
+    {
+      "artifact_id": "schema.requirement_component",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/requirement_component.schema.json",
+      "trace_object_type": "REQUIREMENT COMPONENT",
+      "id_field": "component_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§27–29"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.requirement_result_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/requirement_result_record.schema.json",
+      "trace_object_type": "REQUIREMENT",
+      "id_field": "requirement_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§22–29"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§§16",
+            "18",
+            "30"
+          ],
+          "role": "dependency"
+        },
+        {
+          "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+          "version": "v0.5",
+          "sections": [
+            "§§6–15"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.requirements_set_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/requirements_set_record.schema.json",
+      "trace_object_type": "REQUIREMENTS SET",
+      "id_field": "requirements_set_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§21"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.source_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "BLOCKED_BY_OWNER",
+      "path": null,
+      "trace_object_type": "SOURCE",
+      "id_field": "SOURCE ID",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/AI_TOOL_USAGE_POLICY_v1.md",
+          "version": "unapproved",
+          "sections": [
+            "DATA CLASS REGISTRY"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": [
+        "DATA CLASS registry approved/frozen"
+      ]
+    },
+    {
+      "artifact_id": "schema.task_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/task_record.schema.json",
+      "trace_object_type": "TASK",
+      "id_field": "task_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§6–7"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+          "version": "1.4",
+          "sections": [
+            "§12",
+            "§30"
+          ],
+          "role": "dependency"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§§8–10",
+            "§28.1"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.trace_object_reference",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/trace_object_reference.schema.json",
+      "trace_object_type": null,
+      "id_field": null,
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§5.1"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+          "version": "v0.4",
+          "sections": [
+            "§26.2"
+          ],
+          "role": "representation_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.trace_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/trace_record.schema.json",
+      "trace_object_type": "TRACE RECORD",
+      "id_field": "trace_record_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§34–35",
+            "§§44–46"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.unresolved_issue_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/unresolved_issue_record.schema.json",
+      "trace_object_type": "UNRESOLVED ISSUE",
+      "id_field": "issue_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§38–39"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.verification_event",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/verification_event.schema.json",
+      "trace_object_type": "VERIFICATION EVENT",
+      "id_field": "verification_event_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§§30–33"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+          "version": "v0.5",
+          "sections": [
+            "§§5–14"
+          ],
+          "role": "semantic_owner"
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "artifact_id": "schema.verification_scope_record",
+      "artifact_kind": "json_schema",
+      "artifact_version": "0.1.0",
+      "projection_status": "ACTIVE_PROJECTION",
+      "path": "schemas/traceability/verification_scope_record.schema.json",
+      "trace_object_type": "VERIFICATION SCOPE RECORD",
+      "id_field": "verification_scope_record_id",
+      "normative_owners": [
+        {
+          "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+          "version": "v0.6",
+          "sections": [
+            "§20.1"
+          ],
+          "role": "semantic_owner"
+        },
+        {
+          "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+          "version": "v0.5",
+          "sections": [
+            "§9.2"
+          ],
+          "role": "dependency"
+        }
+      ],
+      "dependencies": []
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.unresolved_issue_record",
+  "artifact_id": "schema.unresolved_issue_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§38–39"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "UNRESOLVED ISSUE",
+  "x_id_field": "issue_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "issue_id": {
+      "type": "string",
+      "pattern": "^ISS\\-[^\\s]+$"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "impact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_trace_object_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "required_action": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_owner": {
+      "type": "string",
+      "minLength": 1
+    },
+    "action_owner_basis_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resolution_authority_known": {
+      "type": "boolean"
+    },
+    "resolution_authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resolution_authority_basis_reference": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "issue_id",
+    "description",
+    "impact",
+    "related_trace_object_references",
+    "required_action",
+    "action_owner",
+    "action_owner_basis_reference",
+    "resolution_authority_known"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "resolution_authority_known": {
+            "const": true
+          }
+        },
+        "required": [
+          "resolution_authority_known"
+        ]
+      },
+      "then": {
+        "required": [
+          "resolution_authority",
+          "resolution_authority_basis_reference"
+        ]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "resolution_authority"
+              ]
+            },
+            {
+              "required": [
+                "resolution_authority_basis_reference"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

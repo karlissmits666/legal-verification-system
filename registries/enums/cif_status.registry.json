@@ -1,0 +1,43 @@
+{
+  "artifact_id": "registry.cif_status",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§4.3",
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§19"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "CIF STATUS",
+  "entries": [
+    {
+      "canonical": "CRITICAL / IMPORTANT",
+      "machine_key": "critical_important",
+      "lv_label": "Kritiska / svarīga funkcija"
+    },
+    {
+      "canonical": "NOT CRITICAL / IMPORTANT",
+      "machine_key": "not_critical_important",
+      "lv_label": "Nav kritiska / svarīga funkcija"
+    },
+    {
+      "canonical": "NOT YET DETERMINED",
+      "machine_key": "not_yet_determined",
+      "lv_label": "Vēl nav noteikts"
+    }
+  ]
+}

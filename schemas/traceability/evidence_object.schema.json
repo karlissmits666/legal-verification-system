@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.evidence_object",
+  "artifact_id": "schema.evidence_object",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§17–20"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "EVIDENCE",
+  "x_id_field": "evidence_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EVD\\-[^\\s]+$"
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC\\-[^\\s]+$"
+    },
+    "location": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exact_quoted_fragment": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_finding_requirement_component": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_store_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_set_review_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "evidence_id",
+    "source_id",
+    "location",
+    "exact_quoted_fragment",
+    "related_finding_requirement_component",
+    "evidence_store_reference",
+    "evidence_set_review_id",
+    "generated_at"
+  ]
+}

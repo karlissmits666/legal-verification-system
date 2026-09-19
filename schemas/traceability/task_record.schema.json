@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.task_record",
+  "artifact_id": "schema.task_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§6–7"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§12",
+        "§30"
+      ],
+      "role": "dependency"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§§8–10",
+        "§28.1"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "x_trace_object_type": "TASK",
+  "x_id_field": "task_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK\\-[^\\s]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responsible_lawyer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "analyse",
+        "verify",
+        "draft",
+        "compare",
+        "extract"
+      ]
+    },
+    "object": {
+      "type": "string",
+      "enum": [
+        "question",
+        "contract",
+        "clause",
+        "internal_policy",
+        "external_source",
+        "document_set"
+      ]
+    },
+    "contract_type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "service_agreement",
+          "goods_supply",
+          "construction",
+          "software_licence",
+          "saas_cloud_service",
+          "it_development",
+          "it_support_maintenance",
+          "consulting_professional_services",
+          "audit_services",
+          "training_services",
+          "facility_services",
+          "security_services",
+          "marketing_services",
+          "framework_agreement",
+          "confidentiality_agreement",
+          "data_processing_agreement",
+          "lease",
+          "other"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "fact_profile_finding_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^FND\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "module_screening_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MSR\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "active_modules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "procurement",
+          "outsourcing_eba",
+          "ict_dora",
+          "data_protection",
+          "infosec",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "ai_used": {
+      "type": "boolean"
+    },
+    "ai_use_declared_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ai_use_declared_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ai_tool": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ai_model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ai_tool_usage_policy_version": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "task_id",
+    "created_at",
+    "responsible_lawyer",
+    "operation",
+    "object",
+    "active_modules",
+    "ai_used",
+    "ai_use_declared_by",
+    "ai_use_declared_at"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "object": {
+            "const": "contract"
+          }
+        },
+        "required": [
+          "object"
+        ]
+      },
+      "then": {
+        "required": [
+          "contract_type"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "ai_used": {
+            "const": true
+          }
+        },
+        "required": [
+          "ai_used"
+        ]
+      },
+      "then": {
+        "required": [
+          "ai_tool",
+          "ai_model_version",
+          "ai_tool_usage_policy_version"
+        ]
+      },
+      "else": {
+        "not": {
+          "anyOf": [
+            {
+              "required": [
+                "ai_tool"
+              ]
+            },
+            {
+              "required": [
+                "ai_model_version"
+              ]
+            },
+            {
+              "required": [
+                "ai_tool_usage_policy_version"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

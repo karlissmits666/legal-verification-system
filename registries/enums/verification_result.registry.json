@@ -1,0 +1,34 @@
+{
+  "artifact_id": "registry.verification_result",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+      "version": "v0.5",
+      "sections": [
+        "§12"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "VERIFICATION RESULT",
+  "entries": [
+    {
+      "canonical": "CONFIRMED",
+      "machine_key": "confirmed",
+      "lv_label": "Secinājums apstiprināts"
+    },
+    {
+      "canonical": "NOT CONFIRMED",
+      "machine_key": "not_confirmed",
+      "lv_label": "Secinājums nav apstiprināts"
+    },
+    {
+      "canonical": "UNABLE TO CONFIRM",
+      "machine_key": "unable_to_confirm",
+      "lv_label": "Nav iespējams apstiprināt"
+    }
+  ]
+}

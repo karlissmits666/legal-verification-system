@@ -1,0 +1,48 @@
+{
+  "artifact_id": "registry.applicability_authority",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§13.2",
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§18"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "APPLICABILITY AUTHORITY",
+  "entries": [
+    {
+      "canonical": "SYSTEM PROPOSAL ONLY",
+      "machine_key": "system_proposal_only",
+      "lv_label": "Tikai sistēmas priekšlikums"
+    },
+    {
+      "canonical": "HUMAN CONFIRMATION REQUIRED",
+      "machine_key": "human_confirmation_required",
+      "lv_label": "Nepieciešams cilvēka apstiprinājums"
+    },
+    {
+      "canonical": "EXTERNAL INPUT ONLY",
+      "machine_key": "external_input_only",
+      "lv_label": "Tikai ārējs ievaddats"
+    },
+    {
+      "canonical": "RULE-BASED DETERMINATION",
+      "machine_key": "rule_based_determination",
+      "lv_label": "Noteikumos balstīta noteikšana"
+    }
+  ]
+}

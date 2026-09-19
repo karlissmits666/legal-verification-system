@@ -1,0 +1,43 @@
+{
+  "artifact_id": "registry.requirement_level",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§18",
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§13"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "REQUIREMENT LEVEL",
+  "entries": [
+    {
+      "canonical": "MANDATORY EXTERNAL",
+      "machine_key": "mandatory_external",
+      "lv_label": "Obligāta ārēja prasība"
+    },
+    {
+      "canonical": "MANDATORY INTERNAL",
+      "machine_key": "mandatory_internal",
+      "lv_label": "Obligāta iekšēja prasība"
+    },
+    {
+      "canonical": "NEGOTIABLE",
+      "machine_key": "negotiable",
+      "lv_label": "Apspriežama prasība"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.requirements_set_record",
+  "artifact_id": "schema.requirements_set_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§21"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "REQUIREMENTS SET",
+  "x_id_field": "requirements_set_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "requirements_set_id": {
+      "type": "string",
+      "pattern": "^RQS\\-[^\\s]+$"
+    },
+    "requirements_set_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "approved_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "last_review_date": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": [
+    "requirements_set_id",
+    "requirements_set_version",
+    "effective_date",
+    "approved_by",
+    "last_review_date"
+  ]
+}

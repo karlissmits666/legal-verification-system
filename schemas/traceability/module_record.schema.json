@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.module_record",
+  "artifact_id": "schema.module_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§8"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§13",
+        "§30"
+      ],
+      "role": "dependency"
+    }
+  ],
+  "x_trace_object_type": "MODULE",
+  "x_id_field": "module_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "module_id": {
+      "type": "string",
+      "pattern": "^MOD\\-[^\\s]+$"
+    },
+    "module": {
+      "type": "string",
+      "enum": [
+        "procurement",
+        "outsourcing_eba",
+        "ict_dora",
+        "data_protection",
+        "infosec",
+        "other"
+      ]
+    },
+    "contract_type": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "service_agreement",
+          "goods_supply",
+          "construction",
+          "software_licence",
+          "saas_cloud_service",
+          "it_development",
+          "it_support_maintenance",
+          "consulting_professional_services",
+          "audit_services",
+          "training_services",
+          "facility_services",
+          "security_services",
+          "marketing_services",
+          "framework_agreement",
+          "confidentiality_agreement",
+          "data_processing_agreement",
+          "lease",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "module_status": {
+      "type": "string",
+      "enum": [
+        "applicable",
+        "not_applicable",
+        "unclear"
+      ]
+    },
+    "applicability_authority": {
+      "type": "string",
+      "enum": [
+        "system_proposal_only",
+        "human_confirmation_required",
+        "external_input_only",
+        "rule_based_determination"
+      ]
+    },
+    "proposed_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confirmed_by": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confirmation_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "source_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification_assessment_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "module_id",
+    "module",
+    "module_status",
+    "applicability_authority",
+    "source_reference"
+  ]
+}

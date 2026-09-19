@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.verification_event",
+  "artifact_id": "schema.verification_event",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§30–33"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+      "version": "v0.5",
+      "sections": [
+        "§§5–14"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "VERIFICATION EVENT",
+  "x_id_field": "verification_event_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "verification_event_id": {
+      "type": "string",
+      "pattern": "^VER\\-[^\\s]+$"
+    },
+    "target_object_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_object_type": {
+      "type": "string",
+      "enum": [
+        "task",
+        "source",
+        "module",
+        "finding",
+        "evidence",
+        "requirements_set",
+        "requirement",
+        "requirement_component",
+        "verification_event",
+        "verification_scope_record",
+        "legal_classification_assessment",
+        "module_screening_record",
+        "module_trigger_set",
+        "human_decision",
+        "escalation",
+        "unresolved_issue",
+        "output",
+        "data_class_event",
+        "trace_record"
+      ]
+    },
+    "verification_methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "human_evidence_context_review",
+          "human_applicable_scope_review",
+          "human_source_set_review"
+        ]
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "verification_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verified_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "confirmed",
+        "not_confirmed",
+        "unable_to_confirm"
+      ]
+    },
+    "resulting_verification_level": {
+      "type": "string",
+      "enum": [
+        "evidence_bound_ai_proposed",
+        "human_verified"
+      ]
+    },
+    "source_evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "verification_scope_record_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^VSR\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "verification_event_id",
+    "target_object_id",
+    "target_object_type",
+    "verification_methods",
+    "verification_scope",
+    "verified_by",
+    "verified_at",
+    "result",
+    "resulting_verification_level",
+    "source_evidence_references"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "result": {
+            "not": {
+              "const": "confirmed"
+            }
+          }
+        },
+        "required": [
+          "result"
+        ]
+      },
+      "then": {
+        "properties": {
+          "resulting_verification_level": {
+            "const": "evidence_bound_ai_proposed"
+          }
+        }
+      }
+    }
+  ]
+}

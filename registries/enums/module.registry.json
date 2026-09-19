@@ -1,0 +1,57 @@
+{
+  "artifact_id": "registry.module",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§10"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "MODULE",
+  "entries": [
+    {
+      "canonical": "PROCUREMENT",
+      "machine_key": "procurement",
+      "lv_label": "Iepirkumi"
+    },
+    {
+      "canonical": "OUTSOURCING-EBA",
+      "machine_key": "outsourcing_eba",
+      "lv_label": "Ārpakalpojumi / EBA"
+    },
+    {
+      "canonical": "ICT-DORA",
+      "machine_key": "ict_dora",
+      "lv_label": "IKT / DORA"
+    },
+    {
+      "canonical": "DATA-PROTECTION",
+      "machine_key": "data_protection",
+      "lv_label": "Datu aizsardzība"
+    },
+    {
+      "canonical": "INFOSEC",
+      "machine_key": "infosec",
+      "lv_label": "Informācijas drošība"
+    },
+    {
+      "canonical": "OTHER",
+      "machine_key": "other",
+      "lv_label": "Cits"
+    }
+  ]
+}

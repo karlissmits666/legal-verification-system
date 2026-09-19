@@ -1,0 +1,62 @@
+{
+  "artifact_id": "registry.human_decision_type",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§29.2"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§36"
+      ],
+      "role": "dependency"
+    }
+  ],
+  "controlled_field": "HUMAN DECISION TYPE",
+  "entries": [
+    {
+      "canonical": "SCREENING CONFIRMATION",
+      "machine_key": "screening_confirmation",
+      "lv_label": "Screening apstiprinājums"
+    },
+    {
+      "canonical": "MODULE APPLICABILITY",
+      "machine_key": "module_applicability",
+      "lv_label": "Moduļa piemērojamības lēmums"
+    },
+    {
+      "canonical": "CLASSIFICATION ACCEPTANCE",
+      "machine_key": "classification_acceptance",
+      "lv_label": "Juridiskās klasifikācijas pieņemšana"
+    },
+    {
+      "canonical": "ASSUMPTION ACCEPTANCE",
+      "machine_key": "assumption_acceptance",
+      "lv_label": "Pieņēmuma pieņemšana"
+    },
+    {
+      "canonical": "RECLASSIFICATION MATERIALITY",
+      "machine_key": "reclassification_materiality",
+      "lv_label": "Reklasifikācijas materialitātes lēmums"
+    },
+    {
+      "canonical": "LEGAL POSITION",
+      "machine_key": "legal_position",
+      "lv_label": "Juridiskās pozīcijas lēmums"
+    },
+    {
+      "canonical": "OTHER",
+      "machine_key": "other",
+      "lv_label": "Cits cilvēka lēmums"
+    }
+  ]
+}

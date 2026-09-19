@@ -1,0 +1,38 @@
+{
+  "artifact_id": "registry.requirement_type",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§16.4",
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§16"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "REQUIREMENT TYPE",
+  "entries": [
+    {
+      "canonical": "POSITIVE",
+      "machine_key": "positive",
+      "lv_label": "Pozitīva prasība"
+    },
+    {
+      "canonical": "NEGATIVE",
+      "machine_key": "negative",
+      "lv_label": "Negatīva prasība"
+    }
+  ]
+}

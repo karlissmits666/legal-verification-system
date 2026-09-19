@@ -1,0 +1,52 @@
+{
+  "artifact_id": "registry.operation",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§8"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "OPERATION",
+  "entries": [
+    {
+      "canonical": "ANALYSE",
+      "machine_key": "analyse",
+      "lv_label": "Analīze"
+    },
+    {
+      "canonical": "VERIFY",
+      "machine_key": "verify",
+      "lv_label": "Pārbaude"
+    },
+    {
+      "canonical": "DRAFT",
+      "machine_key": "draft",
+      "lv_label": "Teksta izstrāde"
+    },
+    {
+      "canonical": "COMPARE",
+      "machine_key": "compare",
+      "lv_label": "Salīdzināšana"
+    },
+    {
+      "canonical": "EXTRACT",
+      "machine_key": "extract",
+      "lv_label": "Informācijas izguve"
+    }
+  ]
+}

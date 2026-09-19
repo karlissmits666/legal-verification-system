@@ -1,0 +1,38 @@
+{
+  "artifact_id": "registry.verification_level",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§16.3",
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§12"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "VERIFICATION LEVEL",
+  "entries": [
+    {
+      "canonical": "EVIDENCE BOUND — AI PROPOSED",
+      "machine_key": "evidence_bound_ai_proposed",
+      "lv_label": "Pierādījumam piesaistīts — MI priekšlikums"
+    },
+    {
+      "canonical": "HUMAN VERIFIED",
+      "machine_key": "human_verified",
+      "lv_label": "Cilvēka verificēts"
+    }
+  ]
+}

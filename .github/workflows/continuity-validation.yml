@@ -26,3 +26,7 @@ jobs:
       - name: Validate Review 16 v7 implementation invariants
         shell: pwsh
         run: ./TOOLS/validate_review16_v7_implementation.ps1
+
+      - name: Validate WS1 machine-readable contract layer
+        shell: pwsh
+        run: ./TOOLS/validate_ws1_contract_layer.ps1

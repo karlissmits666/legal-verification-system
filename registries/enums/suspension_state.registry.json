@@ -1,0 +1,57 @@
+{
+  "artifact_id": "registry.suspension_state",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§21"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "SUSPENSION STATE",
+  "entries": [
+    {
+      "canonical": "TASK CLARIFICATION REQUIRED",
+      "machine_key": "task_clarification_required",
+      "lv_label": "Nepieciešama uzdevuma precizēšana"
+    },
+    {
+      "canonical": "HUMAN INPUT REQUIRED",
+      "machine_key": "human_input_required",
+      "lv_label": "Nepieciešams cilvēka ievaddats"
+    },
+    {
+      "canonical": "HUMAN CONFIRMATION REQUIRED",
+      "machine_key": "human_confirmation_required",
+      "lv_label": "Nepieciešams cilvēka apstiprinājums"
+    },
+    {
+      "canonical": "HUMAN VERIFICATION REQUIRED",
+      "machine_key": "human_verification_required",
+      "lv_label": "Nepieciešama cilvēka verifikācija"
+    },
+    {
+      "canonical": "ESCALATION REQUIRED",
+      "machine_key": "escalation_required",
+      "lv_label": "Nepieciešama eskalācija"
+    },
+    {
+      "canonical": "BLOCK",
+      "machine_key": "block",
+      "lv_label": "Bloķēts"
+    }
+  ]
+}

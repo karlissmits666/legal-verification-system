@@ -1,0 +1,87 @@
+{
+  "artifact_id": "registry.source_type",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§9–10"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§24"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "SOURCE TYPE",
+  "entries": [
+    {
+      "canonical": "INTERNAL POLICY",
+      "machine_key": "internal_policy",
+      "lv_label": "Iekšējā politika"
+    },
+    {
+      "canonical": "INTERNAL PROCEDURE",
+      "machine_key": "internal_procedure",
+      "lv_label": "Iekšējā procedūra"
+    },
+    {
+      "canonical": "CONTRACT",
+      "machine_key": "contract",
+      "lv_label": "Līgums"
+    },
+    {
+      "canonical": "CONTRACT ANNEX",
+      "machine_key": "contract_annex",
+      "lv_label": "Līguma pielikums"
+    },
+    {
+      "canonical": "CHECKLIST",
+      "machine_key": "checklist",
+      "lv_label": "Pārbaudes saraksts"
+    },
+    {
+      "canonical": "TEMPLATE",
+      "machine_key": "template",
+      "lv_label": "Veidne"
+    },
+    {
+      "canonical": "EXTERNAL LEGAL SOURCE",
+      "machine_key": "external_legal_source",
+      "lv_label": "Ārējais tiesību avots"
+    },
+    {
+      "canonical": "REGULATORY GUIDANCE",
+      "machine_key": "regulatory_guidance",
+      "lv_label": "Regulatīvās vadlīnijas"
+    },
+    {
+      "canonical": "CASE LAW",
+      "machine_key": "case_law",
+      "lv_label": "Tiesu prakse"
+    },
+    {
+      "canonical": "CORRESPONDENCE",
+      "machine_key": "correspondence",
+      "lv_label": "Sarakste"
+    },
+    {
+      "canonical": "PRIOR TASK OUTPUT",
+      "machine_key": "prior_task_output",
+      "lv_label": "Iepriekšēja uzdevuma rezultāts"
+    },
+    {
+      "canonical": "OTHER",
+      "machine_key": "other",
+      "lv_label": "Cits"
+    }
+  ]
+}

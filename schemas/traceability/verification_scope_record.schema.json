@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.verification_scope_record",
+  "artifact_id": "schema.verification_scope_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§20.1"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/VERIFICATION_PROTOCOL_v1.md",
+      "version": "v0.5",
+      "sections": [
+        "§9.2"
+      ],
+      "role": "dependency"
+    }
+  ],
+  "x_trace_object_type": "VERIFICATION SCOPE RECORD",
+  "x_id_field": "verification_scope_record_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "verification_scope_record_id": {
+      "type": "string",
+      "pattern": "^VSR\\-[^\\s]+$"
+    },
+    "source_set_reference": {
+      "type": "string",
+      "minLength": 1
+    },
+    "included_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^SRC\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "excluded_unavailable_sources": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "scope_basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewed_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_finding_requirement_component": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "verification_scope_record_id",
+    "source_set_reference",
+    "included_sources",
+    "excluded_unavailable_sources",
+    "scope_basis",
+    "reviewed_at",
+    "reviewed_by",
+    "related_finding_requirement_component"
+  ]
+}

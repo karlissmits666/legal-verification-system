@@ -1,0 +1,95 @@
+{
+  "artifact_id": "registry.trace_object_types",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§25"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "TRACE OBJECT TYPE",
+  "entries": [
+    {
+      "canonical": "TASK",
+      "machine_key": "task"
+    },
+    {
+      "canonical": "SOURCE",
+      "machine_key": "source"
+    },
+    {
+      "canonical": "MODULE",
+      "machine_key": "module"
+    },
+    {
+      "canonical": "FINDING",
+      "machine_key": "finding"
+    },
+    {
+      "canonical": "EVIDENCE",
+      "machine_key": "evidence"
+    },
+    {
+      "canonical": "REQUIREMENTS SET",
+      "machine_key": "requirements_set"
+    },
+    {
+      "canonical": "REQUIREMENT",
+      "machine_key": "requirement"
+    },
+    {
+      "canonical": "REQUIREMENT COMPONENT",
+      "machine_key": "requirement_component"
+    },
+    {
+      "canonical": "VERIFICATION EVENT",
+      "machine_key": "verification_event"
+    },
+    {
+      "canonical": "VERIFICATION SCOPE RECORD",
+      "machine_key": "verification_scope_record"
+    },
+    {
+      "canonical": "LEGAL CLASSIFICATION ASSESSMENT",
+      "machine_key": "legal_classification_assessment"
+    },
+    {
+      "canonical": "MODULE SCREENING RECORD",
+      "machine_key": "module_screening_record"
+    },
+    {
+      "canonical": "MODULE TRIGGER SET",
+      "machine_key": "module_trigger_set"
+    },
+    {
+      "canonical": "HUMAN DECISION",
+      "machine_key": "human_decision"
+    },
+    {
+      "canonical": "ESCALATION",
+      "machine_key": "escalation"
+    },
+    {
+      "canonical": "UNRESOLVED ISSUE",
+      "machine_key": "unresolved_issue"
+    },
+    {
+      "canonical": "OUTPUT",
+      "machine_key": "output"
+    },
+    {
+      "canonical": "DATA CLASS EVENT",
+      "machine_key": "data_class_event"
+    },
+    {
+      "canonical": "TRACE RECORD",
+      "machine_key": "trace_record"
+    }
+  ]
+}

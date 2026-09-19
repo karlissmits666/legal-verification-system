@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.trace_record",
+  "artifact_id": "schema.trace_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§34–35",
+        "§§44–46"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "TRACE RECORD",
+  "x_id_field": "trace_record_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "trace_record_id": {
+      "type": "string",
+      "pattern": "^TR\\-[^\\s]+$"
+    },
+    "record_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "previous_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK\\-[^\\s]+$"
+    },
+    "module_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MOD\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^SRC\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "finding_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^FND\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVD\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "legal_classification_assessment_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^LCA\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "module_screening_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^MSR\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "verification_scope_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^VSR\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "requirements_set_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^RQS\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "requirement_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^REQ\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "verification_event_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^VER\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "human_decision_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^DEC\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "escalation_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ESC\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "unresolved_issue_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^ISS\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "output_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^OUT\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "legal_status_reference": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source_system_or_channel": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reference": {
+              "type": "string",
+              "minLength": 1
+            },
+            "date": {
+              "type": "string",
+              "format": "date"
+            },
+            "by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "source_system_or_channel",
+            "reference",
+            "date",
+            "by"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "trace_record_id",
+    "record_version",
+    "task_id",
+    "module_ids",
+    "source_ids",
+    "finding_ids",
+    "evidence_ids",
+    "verification_scope_record_ids",
+    "human_decision_ids",
+    "escalation_ids",
+    "unresolved_issue_ids",
+    "output_ids",
+    "legal_status_reference"
+  ]
+}

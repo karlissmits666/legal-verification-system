@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.human_decision_record",
+  "artifact_id": "schema.human_decision_record",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§36"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§29.2"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "x_trace_object_type": "HUMAN DECISION",
+  "x_id_field": "decision_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decision_id": {
+      "type": "string",
+      "pattern": "^DEC\\-[^\\s]+$"
+    },
+    "decision_type": {
+      "type": "string",
+      "enum": [
+        "screening_confirmation",
+        "module_applicability",
+        "classification_acceptance",
+        "assumption_acceptance",
+        "reclassification_materiality",
+        "legal_position",
+        "other"
+      ]
+    },
+    "decision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decided_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "date": {
+      "type": "string",
+      "format": "date"
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_finding": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^FND\\-[^\\s]+$"
+    },
+    "related_requirement": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^REQ\\-[^\\s]+$"
+    },
+    "related_issue": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^ISS\\-[^\\s]+$"
+    },
+    "related_trace_object_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assignment_authority_basis_source_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "decision_id",
+    "decision_type",
+    "decision",
+    "decided_by",
+    "role",
+    "date",
+    "basis"
+  ]
+}

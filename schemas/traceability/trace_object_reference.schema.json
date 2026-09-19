@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.trace_object_reference",
+  "artifact_id": "schema.trace_object_reference",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§5.1"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§26.2"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "x_trace_object_type": null,
+  "x_id_field": null,
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "trace_record_id": {
+      "type": "string",
+      "pattern": "^TR\\-[^\\s]+$"
+    },
+    "record_version": {
+      "type": "string",
+      "minLength": 1,
+      "not": {
+        "enum": [
+          "current",
+          "latest"
+        ]
+      }
+    },
+    "trace_object_type": {
+      "type": "string",
+      "enum": [
+        "task",
+        "source",
+        "module",
+        "finding",
+        "evidence",
+        "requirements_set",
+        "requirement",
+        "requirement_component",
+        "verification_event",
+        "verification_scope_record",
+        "legal_classification_assessment",
+        "module_screening_record",
+        "module_trigger_set",
+        "human_decision",
+        "escalation",
+        "unresolved_issue",
+        "output",
+        "data_class_event",
+        "trace_record"
+      ]
+    },
+    "trace_object_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [],
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "required": [
+            "trace_object_type",
+            "trace_object_id"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "trace_record_id"
+                ]
+              },
+              {
+                "required": [
+                  "record_version"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "trace_record_id",
+            "record_version",
+            "trace_object_type",
+            "trace_object_id"
+          ]
+        }
+      ]
+    }
+  ]
+}

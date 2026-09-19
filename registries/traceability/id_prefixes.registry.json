@@ -1,0 +1,95 @@
+{
+  "artifact_id": "registry.id_prefixes",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§26"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "controlled_field": "ID PREFIX",
+  "entries": [
+    {
+      "trace_object_type": "TASK",
+      "prefix": "TASK-"
+    },
+    {
+      "trace_object_type": "SOURCE",
+      "prefix": "SRC-"
+    },
+    {
+      "trace_object_type": "MODULE",
+      "prefix": "MOD-"
+    },
+    {
+      "trace_object_type": "FINDING",
+      "prefix": "FND-"
+    },
+    {
+      "trace_object_type": "EVIDENCE",
+      "prefix": "EVD-"
+    },
+    {
+      "trace_object_type": "REQUIREMENTS SET",
+      "prefix": "RQS-"
+    },
+    {
+      "trace_object_type": "REQUIREMENT",
+      "prefix": "REQ-"
+    },
+    {
+      "trace_object_type": "REQUIREMENT COMPONENT",
+      "prefix": "CMP-"
+    },
+    {
+      "trace_object_type": "VERIFICATION EVENT",
+      "prefix": "VER-"
+    },
+    {
+      "trace_object_type": "VERIFICATION SCOPE RECORD",
+      "prefix": "VSR-"
+    },
+    {
+      "trace_object_type": "LEGAL CLASSIFICATION ASSESSMENT",
+      "prefix": "LCA-"
+    },
+    {
+      "trace_object_type": "MODULE SCREENING RECORD",
+      "prefix": "MSR-"
+    },
+    {
+      "trace_object_type": "MODULE TRIGGER SET",
+      "prefix": "MTR-"
+    },
+    {
+      "trace_object_type": "HUMAN DECISION",
+      "prefix": "DEC-"
+    },
+    {
+      "trace_object_type": "ESCALATION",
+      "prefix": "ESC-"
+    },
+    {
+      "trace_object_type": "UNRESOLVED ISSUE",
+      "prefix": "ISS-"
+    },
+    {
+      "trace_object_type": "OUTPUT",
+      "prefix": "OUT-"
+    },
+    {
+      "trace_object_type": "DATA CLASS EVENT",
+      "prefix": "DCE-"
+    },
+    {
+      "trace_object_type": "TRACE RECORD",
+      "prefix": "TR-"
+    }
+  ]
+}

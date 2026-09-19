@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:legal-verification-system:schema.requirement_component",
+  "artifact_id": "schema.requirement_component",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "json_schema",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md",
+      "version": "v0.6",
+      "sections": [
+        "§§27–29"
+      ],
+      "role": "semantic_owner"
+    }
+  ],
+  "x_trace_object_type": "REQUIREMENT COMPONENT",
+  "x_id_field": "component_id",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "component_id": {
+      "type": "string",
+      "pattern": "^CMP\\-[^\\s]+$"
+    },
+    "component_description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "component_status": {
+      "type": "string",
+      "enum": [
+        "izpildits",
+        "nav_izpildits",
+        "nav_pieradits"
+      ]
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EVD\\-[^\\s]+$"
+      },
+      "uniqueItems": true
+    },
+    "verification_level": {
+      "type": "string",
+      "enum": [
+        "evidence_bound_ai_proposed",
+        "human_verified"
+      ]
+    }
+  },
+  "required": [
+    "component_id",
+    "component_description",
+    "component_status",
+    "evidence_ids",
+    "verification_level"
+  ]
+}

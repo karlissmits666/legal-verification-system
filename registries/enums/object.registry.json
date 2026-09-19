@@ -1,0 +1,57 @@
+{
+  "artifact_id": "registry.object",
+  "artifact_version": "0.1.0",
+  "artifact_kind": "controlled_registry",
+  "projection_status": "ACTIVE_PROJECTION",
+  "normative_owners": [
+    {
+      "document": "GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md",
+      "version": "1.4",
+      "sections": [
+        "§30"
+      ],
+      "role": "semantic_owner"
+    },
+    {
+      "document": "GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md",
+      "version": "v0.4",
+      "sections": [
+        "§9"
+      ],
+      "role": "representation_owner"
+    }
+  ],
+  "controlled_field": "OBJECT",
+  "entries": [
+    {
+      "canonical": "QUESTION",
+      "machine_key": "question",
+      "lv_label": "Jautājums"
+    },
+    {
+      "canonical": "CONTRACT",
+      "machine_key": "contract",
+      "lv_label": "Līgums"
+    },
+    {
+      "canonical": "CLAUSE",
+      "machine_key": "clause",
+      "lv_label": "Klauzula"
+    },
+    {
+      "canonical": "INTERNAL POLICY",
+      "machine_key": "internal_policy",
+      "lv_label": "Iekšējā politika"
+    },
+    {
+      "canonical": "EXTERNAL SOURCE",
+      "machine_key": "external_source",
+      "lv_label": "Ārējais avots"
+    },
+    {
+      "canonical": "DOCUMENT SET",
+      "machine_key": "document_set",
+      "lv_label": "Dokumentu kopa"
+    }
+  ]
+}
