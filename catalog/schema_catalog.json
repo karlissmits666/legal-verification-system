@@ -881,7 +881,6 @@
         }
       ],
       "dependencies": [
-        "registry.requirement_status",
         "registry.verification_level"
       ],
       "missing_owner_dependencies": []
@@ -1119,6 +1118,7 @@
         }
       ],
       "dependencies": [
+        "registry.trace_object_types",
         "registry.verification_level",
         "registry.verification_method",
         "registry.verification_result"
