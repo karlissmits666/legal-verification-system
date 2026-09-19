@@ -4,6 +4,7 @@
 
 **Statuss:** AKTĪVS — LIETOTĀJA NOTEIKTA PROJEKTA IZPILDES KĀRTĪBA  
 **Spēkā no:** 2026-09-19  
+**Augstāka līmeņa principi:** `PROJECT_CONSTITUTION_v1.md`
 **Programmas kontroles plakne:** `PROJECT_ROADMAP_v1.md`  
 **Tvērums:** visi projekta uzdevumi, recenzijas, dokumentu grozījumi, auditi, piloti, ieviešana un freeze lēmumi
 
@@ -19,6 +20,8 @@
 - neaizstāj `PROJECT_ROADMAP_v1.md` kā programmas līmeņa kontroles plakni;
 - nepadara draftu autoritatīvu un pats par sevi nemaina frozen baseline.
 
+Protokols īsteno `PROJECT_CONSTITUTION_v1.md` principus darba procedūrā. Ja abi dokumenti šķiet pretrunīgi, darbu aptur pie pretrunas, nosaka katra dokumenta atbildības robežu un neprasa procesa protokolam klusējot pārrakstīt konstitucionālu principu.
+
 Protokols ir obligāts darba process asistentam un visiem repo sagatavotajiem review / implementation uzdevumiem. Ja lietotājs dod tiešu, konkrētam uzdevumam paredzētu norādījumu, tas ir prioritārs pār šo vispārīgo procesu, bet atkāpe jānosauc darba kopsavilkumā.
 
 ## 2. Autoritātes nošķīrums
@@ -27,6 +30,7 @@ Protokols ir obligāts darba process asistentam un visiem repo sagatavotajiem re
 
 ```text
 LIETOTĀJA TIEŠS NORĀDĪJUMS
+> PROJECT_CONSTITUTION
 > PROJECT_EXECUTION_PROTOCOL
 > PROJECT_ROADMAP
 > KONKRĒTĀ UZDEVUMA / REVIEW INSTRUCTION
@@ -132,7 +136,9 @@ Vienā dokumentā arī nepaliek bezgalīgi: kad tā blocking arhitektūras jaut�
 
 ## 5. Obligātais darba sesijas sākums
 
-Katras būtiskas darba sesijas sākumā pirms satura maiņas jānorāda:
+Katras jaunas būtiskas projekta sarunas sākumā vispirms pārbauda current `main` un izlasa `PROJECT_CONSTITUTION_v1.md`, šo protokolu, `README.md`, `PROJECT_ROADMAP_v1.md` un tikai uzdevumam nepieciešamos frozen, draft, review un audita failus. Vecs sarunas handoff neaizstāj aktuālo repo.
+
+Pirms satura maiņas jānorāda:
 
 ```text
 CURRENT ROADMAP DOCUMENT:
@@ -381,3 +387,4 @@ Protokola grozījums:
 - tiek commitēts atsevišķi no satura implementation;
 - tiek atspoguļots `README.md`, ja mainās projekta pamatdarba kārtība;
 - nedrīkst samazināt 13 dokumentu roadmap redzamību vai lietotāja freeze kontroli.
+- jāpaliek saderīgam ar `PROJECT_CONSTITUTION_v1.md` vai skaidri jāierosina konstitūcijas grozījums.

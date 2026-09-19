@@ -7,7 +7,7 @@
 
 Šis dokuments nosaka projekta kopējo dokumentu kopu un izstrādes secību. Tā mērķis ir vienā vietā fiksēt, kas vēl jāizveido, kuri dokumenti ir priekšnoteikumi citiem slāņiem un kuriem nepieciešama praktiska pilotēšana pirms freeze.
 
-Projekta izpildi regulē `PROJECT_EXECUTION_PROTOCOL.md`. Šis roadmap paliek programmas līmeņa kontroles plakne; protokols nosaka obligāto uzdevuma, review, konsensa, implementation, audita un freeze secību. Protokols nav 14. obligātais arhitektūras pamatdokuments.
+Projekta stabilos mērķus, autoritātes robežas un neaizskaramos principus nosaka `PROJECT_CONSTITUTION_v1.md`; izpildi regulē `PROJECT_EXECUTION_PROTOCOL.md`. Šis roadmap paliek programmas līmeņa kontroles plakne un aktuālā statusa avots. Konstitūcija un protokols nav 14. vai 15. obligātais arhitektūras pamatdokuments.
 
 ## 1. Kopējais dokumentu komplekts
 
