@@ -108,7 +108,7 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 36. Lietotājs 2026-09-19 deva `APPROVE FREEZE REVIEW #16 PACKAGE`; PS v1.4 / TR v0.6 / T&E v0.4 kļuva par jauno frozen core baseline.
 37. `PROJECT_ROADMAP_v1.md` stale pirms-freeze formulējumi ir saskaņoti ar Review #16 freeze record; vēsturiskais v0.5/v0.3 baseline ir skaidri marķēts kā vēsturisks un nav WS1 semantikas avots. Frozen owner faili nav mainīti.
 38. WS1 pilnais implementation task/dependency map ir fiksēts `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`; tas nodala WS1-A frozen owner projekcijas no WS1-B `BLOCKED_BY_OWNER` artefaktiem.
-39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pirmajās GitHub izpildēs esošie continuity/Review #16 soļi bija PASS; WS1 validatora tehniskā validācija atklāja pārāk jutīgu catalog serializācijas salīdzinājumu, kas tiek remediēts ar deterministisku discovery indeksa salīdzinājumu bez frozen owner vai WS1 semantikas maiņas.
+39. Lietotājs 2026-09-19 skaidri apstiprināja WS1-A implementāciju. WS1-A machine-readable registry/schema slānis, generated discovery catalog, drift validators un minimālie validatora fixtures ir ieviesti commitā `bedee92c537c70397be9be52fb2eed5e28dbe152`; pēc tehniskās remediācijas current implementation state `bd4288b14b1c655acd1d3d98cff2f37897b74410` GitHub `Continuity Validation` run `35450526875` ir SUCCESS; continuity, Review #16 invarianti un WS1 contract-layer validators visi PASS. Frozen owner un WS1 semantika remediācijās nav mainīta.
 
 ## 5. User-approved decisions in force
 
@@ -146,12 +146,12 @@ Nākamais darbs ir WS1–WS5 architecture conformance restructuring posms.
 ## 7. Exact next task
 
 ```text
-Pārbaudīt current WS1-A implementation commitu ar GitHub
-`Continuity Validation`, kas tagad izpilda arī
-`TOOLS/validate_ws1_contract_layer.ps1`.
+Nodot neatkarīgam recenzentam
+`GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md`
+pret pārbaudāmo implementation state
+`bd4288b14b1c655acd1d3d98cff2f37897b74410`.
 
-Ja PASS, sagatavot neatkarīgās WS1-A implementation recenzijas uzdevumu pret
-precīzo implementation commit SHA. WS1-B un WS2–WS5 neieviest.
+Pats projekta izpildes asistents recenziju nesāk. WS1-B un WS2–WS5 neieviest.
 ```
 
 Autorizācija:
@@ -159,7 +159,7 @@ Autorizācija:
 ```text
 REVIEW #16: FROZEN
 FREEZE AUTHORIZED: YES — IZPILDĪTS
-COMMIT AUTHORIZED: YES — WS1-A atomārais implementation commits autorizēts un izpildīts
+COMMIT AUTHORIZED: NO — gaida neatkarīgu WS1-A implementation recenziju
 IMPLEMENTATION AUTHORIZED: YES — WS1-A izpildīts; WS1-B / WS2–WS5 NAV autorizēti
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
@@ -185,6 +185,7 @@ Obligāti izlasīt pilnā apjomā:
 14. `GOVERNANCE/OPERATION_WORKFLOWS_v1.md`;
 15. `GOVERNANCE/LEGAL_RESEARCH_METHOD_v1.md`.
 16. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`.
+17. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md`.
 
 ## 9. Known non-actions
 
@@ -205,14 +206,13 @@ NEW CHAT TRIGGER: NOT REQUIRED
 BASIS:
 Primārais darba objekts nav mainījies: turpinās
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1 WS1 dzīves cikls.
-WS1-A implementation ir lietotāja autorizēta un ieviesta; nākamais solis ir
-GitHub validatora PASS un neatkarīgas implementation recenzijas sagatavošana tajā pašā sarunā.
+WS1-A implementation ir lietotāja autorizēta, ieviesta un GitHub validatoros PASS; nākamais solis ir neatkarīga implementation recenzija ar fresh context.
 
 CURRENT PRIMARY WORK UNIT:
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1
 
 EXACT NEXT TASK:
-Pārbaudīt WS1-A implementation validatoru PASS un sagatavot neatkarīgas implementation recenzijas uzdevumu.
+Nodot `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md` neatkarīgam recenzentam; pats recenziju nesākt.
 
 REPOSITORY ACCESS MODE:
 GITHUB
