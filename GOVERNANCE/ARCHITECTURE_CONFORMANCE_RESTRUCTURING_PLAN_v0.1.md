@@ -7,6 +7,7 @@
 **Veids:** starpdokumentu amendment / implementation planning artefakts; NAV 14. pamatdokuments  
 **Triggeris:** Review #16 saistītās paketes freeze  
 **Mērķis:** samazināt cilvēka/AI interpretācijas brīvību starp normative dokumentiem un implementation, pārvēršot kritiskos invariantus machine-readable, traceable un executable kontrolēs.
+**Lietotāja apstiprinājums:** ACCEPT — 2026-09-19; WS1–WS5 struktūra un anti-overengineering princips pieņemti izpildei pēc Review #16 freeze.
 
 ## 1. Pamatprincips
 
