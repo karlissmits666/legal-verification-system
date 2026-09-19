@@ -75,7 +75,7 @@ Iekšēji kontekstu drīkst uzskatīt par atjaunotu tikai tad, ja:
 5. ir identificēts viens konkrēts nākamais uzdevums;
 6. ir skaidri nodalīts, kas ir apstiprināts, commitēts, frozen un tikai piedāvāts.
 
-Ja `EXACT NEXT TASK` ir uzdevuma nodošana neatkarīgam recenzentam un repo ir pilns recenzijas uzdevuma fails, pirmā un vienīgā redzamā atbilde ir šā faila pilns saturs bez ievada, statusa bloka, faila ceļa paskaidrojuma, continuity diagnostikas vai trigera. Pats recenziju nesāc.
+Ja `EXACT NEXT TASK` ir uzdevuma nodošana neatkarīgam recenzentam un repo ir pilns recenzijas uzdevuma fails, pirmā un vienīgā redzamā atbilde ir šā faila pilns saturs vienā kopējamā writing block ar vienu kopēšanas pogu, bez ievada, statusa bloka, faila ceļa paskaidrojuma, continuity diagnostikas vai trigera. Pats recenziju nesāc.
 
 Citos gadījumos pirmā redzamā sākuma atbilde ir:
 
@@ -133,9 +133,9 @@ https://github.com/karlissmits666/legal-verification-system, branch main.
 
 Klusi izpildi NEW_CHAT_START_TASK.md un nolasi PROJECT_CURRENT_STATE.md.
 Ja aktuālais uzdevums paredz nodošanu neatkarīgam recenzentam, pirmajā
-atbildē parādi tikai pilnu repo recenzijas uzdevuma faila saturu — bez
-ievada, continuity diagnostikas, statusa kopsavilkuma vai trigera — un
-pats recenziju nesāc.
+atbildē parādi tikai pilnu repo recenzijas uzdevuma faila saturu vienā
+kopējamā writing block ar vienu kopēšanas pogu — bez ievada, continuity
+diagnostikas, statusa kopsavilkuma vai trigera — un pats recenziju nesāc.
 ```
 
 Ja `PROJECT_CURRENT_STATE.md` `EXACT NEXT TASK` nav viennozīmīgs, ziņojumu neizdod un trigeris paliek `REQUIRED — NOT READY`.

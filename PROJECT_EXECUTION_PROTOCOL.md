@@ -148,7 +148,7 @@ RECENZĒJAMAIS / MAINĀMAIS DOKUMENTS:
 
 Repo piekļuves režīmu, commit un workflow identifikatorus, worktree, push, frozen delta un pilno validācijas bloku sākuma atbildē nerāda, ja vien validācija nav izgāzusies vai lietotājs to tieši nepieprasa.
 
-Ja ir atsevišķs repo uzdevuma fails, pietiek norādīt tā ceļu. Ja uzdevums paredz nodošanu neatkarīgam recenzentam, vienīgais redzamais sākuma rezultāts ir pilns recenzijas uzdevuma faila saturs bez ievada vai procesa informācijas; asistents pats recenziju nesāk. Review vai procesa fails nav primārais roadmap dokuments, bet tas drīkst būt redzamais aktuālā uzdevuma fails.
+Ja ir atsevišķs repo uzdevuma fails, pietiek norādīt tā ceļu. Ja uzdevums paredz nodošanu neatkarīgam recenzentam, vienīgais redzamais sākuma rezultāts ir pilns recenzijas uzdevuma faila saturs vienā kopējamā writing block ar vienu kopēšanas pogu, bez ievada vai procesa informācijas; asistents pats recenziju nesāk. Review vai procesa fails nav primārais roadmap dokuments, bet tas drīkst būt redzamais aktuālā uzdevuma fails.
 
 ## 6. Obligātais darba sesijas noslēgums
 
