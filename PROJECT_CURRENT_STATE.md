@@ -118,6 +118,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - Ja aktuālais solis ir neatkarīgās recenzijas uzdevuma nodošana, lietotājam rāda tikai pilnu uzdevumu vienā kopējamā blokā bez procesa ievada; pēc konsensa īsi apkopo pieņemtā dokumenta būtību un galvenos lēmumus.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
 - Pēc Review #16 saistītās paketes freeze un pirms nākamā lielā roadmap dokumenta obligāti jāizpilda `GOVERNANCE/ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1.md` WS1–WS5; tas nav 14. pamatdokuments.
+- WS1–WS5 restructuring arhitektūra ir lietotāja apstiprināta (ACCEPT, 2026-09-19), ieskaitot anti-overengineering gate un principu pārņemt tikai vajadzīgos ārējo modeļu patternus.
 
 ## 6. Review #16 current open findings
 
