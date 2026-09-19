@@ -9,6 +9,8 @@
 
 Projekta stabilos mērķus, autoritātes robežas un neaizskaramos principus nosaka `PROJECT_CONSTITUTION_v1.md`; izpildi regulē `PROJECT_EXECUTION_PROTOCOL.md`. Šis roadmap paliek programmas līmeņa kontroles plakne un aktuālā statusa avots. Konstitūcija un protokols nav 14. vai 15. obligātais arhitektūras pamatdokuments.
 
+Starpčatu continuity nodrošina `NEW_CHAT_START_TASK.md` un `PROJECT_CURRENT_STATE.md`. Tie ir procesa un navigācijas artefakti, ne jauni pamatdokumenti un ne arhitektūras autoritātes avoti.
+
 ## 1. Kopējais dokumentu komplekts
 
 | # | Dokuments | Mērķis | Statuss | Pilots |

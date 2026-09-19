@@ -393,7 +393,7 @@ Review vēsturi neievieto clean final dokumentā, ja tai ir atsevišķs review v
 
 Katra jauna būtiska projekta saruna sāk darbu no faktiskā repo stāvokļa, nevis tikai no iepriekšējās sarunas handoff.
 
-Obligāto lasīšanas secību, sākuma kopsavilkumu, review procesu, lietotāja konsensu, implementation approval, auditu, freeze un sesijas noslēguma formātu nosaka `PROJECT_EXECUTION_PROTOCOL.md`.
+Obligāto jaunā čata konteksta atjaunošanu nosaka `NEW_CHAT_START_TASK.md`, bet pēdējo dokumentēto darba punktu glabā `PROJECT_CURRENT_STATE.md`. Lasīšanas secību, sākuma kopsavilkumu, review procesu, lietotāja konsensu, implementation approval, auditu, freeze un sesijas noslēguma formātu nosaka `PROJECT_EXECUTION_PROTOCOL.md`.
 
 ```text
 PROJECT CONSTITUTION
@@ -404,6 +404,9 @@ CURRENT MAIN + ROADMAP
 
 EXECUTION PROTOCOL
 = obligātā darba procedūra
+
+PROJECT CURRENT STATE
+= pēdējais dokumentētais darba punkts un viens nākamais uzdevums
 ```
 
 ## 25. Konstitūcijas grozīšana

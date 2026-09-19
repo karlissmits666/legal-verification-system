@@ -136,7 +136,7 @@ Vienā dokumentā arī nepaliek bezgalīgi: kad tā blocking arhitektūras jaut�
 
 ## 5. Obligātais darba sesijas sākums
 
-Katras jaunas būtiskas projekta sarunas sākumā vispirms pārbauda current `main` un izlasa `PROJECT_CONSTITUTION_v1.md`, šo protokolu, `README.md`, `PROJECT_ROADMAP_v1.md` un tikai uzdevumam nepieciešamos frozen, draft, review un audita failus. Vecs sarunas handoff neaizstāj aktuālo repo.
+Katras jaunas būtiskas projekta sarunas sākumā izpilda `NEW_CHAT_START_TASK.md`. Tas prasa pārbaudīt current `main` un izlasīt `PROJECT_CONSTITUTION_v1.md`, šo protokolu, `PROJECT_CURRENT_STATE.md`, `README.md`, `PROJECT_ROADMAP_v1.md` un nākamajam uzdevumam norādītos frozen, draft, review un audita failus. Vecs sarunas handoff neaizstāj aktuālo repo.
 
 Pirms satura maiņas jānorāda:
 
@@ -170,6 +170,8 @@ Noslēgumam jāpasaka arī:
 - vai frozen faili mainīti;
 - vai freeze ir vai nav atļauts;
 - viens konkrēts nākamais solis.
+
+Ja sesijas laikā mainījies projekta stāvoklis, pirms noslēguma atjaunina `PROJECT_CURRENT_STATE.md` atbilstoši `NEW_CHAT_START_TASK.md` continuity prasībām. State failā obligāti paliek viens konkrēts `EXACT NEXT TASK` un tā autorizācijas robežas. Ja stāvoklis nav mainījies, failu nepārraksta tikai datuma dēļ.
 
 Statusa ziņojums bez nākamās darbības nav pietiekams.
 
@@ -331,6 +333,7 @@ Atļauti pakārtoti procesa artefakti, ja tie ir skaidri marķēti, piemēram:
 7. Commit message apraksta procesa vienību: task, review response, implementation, audit vai freeze.
 8. Pēc commita pārbauda `HEAD`, `origin/main` un darba koka stāvokli.
 9. Push uz `main` nenozīmē freeze.
+10. Commitam, kas maina projekta faktisko posmu, jāatjaunina arī `PROJECT_CURRENT_STATE.md`; review atbildes, implementation un freeze rezultātu nedrīkst atstāt tikai čata vēsturē.
 
 ## 11. Roadmap dependency kontrole
 

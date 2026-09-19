@@ -19,6 +19,8 @@ Iesaldēšanas datums: 2026-09-18.
 - `PROJECT_CONSTITUTION_v1.md` — stabilā projekta identitāte, mērķis, autoritātes robežas un neaizskaramie drošības principi. Tas nav current-state manifests vai 14. arhitektūras pamatdokuments.
 - `PROJECT_ROADMAP_v1.md` — kopējais 13 obligāto projekta dokumentu plāns, izstrādes secība un pilotu struktūra.
 - `PROJECT_EXECUTION_PROTOCOL.md` — obligātā projekta izpildes kārtība: roadmap kontrole, review, lietotāja konsenss, implementation, audits un atsevišķs freeze lēmums. Tas nav 14. arhitektūras pamatdokuments.
+- `NEW_CHAT_START_TASK.md` — atkārtojamais jaunā čata konteksta atjaunošanas uzdevums.
+- `PROJECT_CURRENT_STATE.md` — vienīgais dinamiskais starpčatu handoff ar pēdējo darba punktu, atvērtajiem blokatoriem un vienu precīzu nākamo uzdevumu; tas nav arhitektūras authority.
 
 
 ## Legora mērķa arhitektūra
