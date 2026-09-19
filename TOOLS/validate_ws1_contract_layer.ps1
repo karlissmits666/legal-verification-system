@@ -161,7 +161,26 @@ foreach ($file in $registryFiles) {
     if ($json.artifact_id -eq 'registry.verification_method') {
         $vpPath=Join-Path $RepoRoot 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md'
         $vpRaw=Get-Content $vpPath -Raw
-        $ownerPairs=@([regex]::Matches($vpRaw,'(?m)^5\.[123]\.\s+(HUMAN_[A-Z0-9_]+)\s*
+        $ownerPairs=@(
+            [regex]::Matches($vpRaw,'(?m)^5\.[123]\.\s+(HUMAN_[A-Z0-9_]+)\s*$') |
+                ForEach-Object {
+                    [pscustomobject]@{
+                        canonical=$_.Groups[1].Value
+                        machine_key=$_.Groups[1].Value.ToLower()
+                    }
+                }
+        )
+        Compare-Pairs $json.artifact_id $json.entries $ownerPairs
+
+        $lifecycleSection=Get-MarkdownSection $vpPath '§17'
+        foreach ($entry in $json.entries) {
+            $expectedLine='(?m)^\s*'+[regex]::Escape([string]$entry.machine_key)+'\s+→\s+ACTIVE\s*$'
+            if ($lifecycleSection -notmatch $expectedLine -or $entry.lifecycle -ne 'active') {
+                Add-Failure ('verification_method lifecycle drift: '+$entry.canonical)
+            }
+        }
+        continue
+    }
 
     if ($json.artifact_id -eq 'registry.verification_result') {
         $section=Get-MarkdownSection (Join-Path $RepoRoot 'GOVERNANCE/VERIFICATION_PROTOCOL_v1.md') '§12'
