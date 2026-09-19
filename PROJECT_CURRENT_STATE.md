@@ -120,6 +120,7 @@ Iepriekšējās v1.3 / v0.5 / v0.3 pamatversijas paliek Git vēsturē kā ieprie
 48. Run `35453339295` WS1 validatoru nepalaida, jo iepriekšējā commitā state fails faktiski nebija mainījies un continuity pamatoti noraidīja stale state. Šis continuity ieraksts ir saskaņots ar current main; nākamais solis ir atkārtoti validēt current exact state.
 49. GitHub run `35453378762` izgāja continuity un Review #16 validāciju un WS1 validators nonāca līdz pilnai catalog reproducibility pārbaudei. Deterministiska salīdzināšana atrada divus stale dependency ierakstus: `schema.requirement_component` lieku `registry.requirement_status` un `schema.verification_event` trūkstošu `registry.trace_object_types`. Catalog saskaņots ar buildera faktisko output; validatora prasība nav vājināta.
 50. GitHub run `35453513046` pēc dependency saskaņošanas joprojām deva catalog reproducibility FAIL tikai JSON property secības dēļ. Salīdzinājums mainīts uz pilna catalog kanonisku projekciju ar fiksētu visu lauku kārtību; visi catalog metadata lauki joprojām tiek salīdzināti, bet property order vairs nevar radīt false FAIL.
+51. Gala WS1-A remediācijas target `51a5ac215908cf80569f561a1acea9dcc722a3d9` ir GitHub `Continuity Validation` run `35453625771` SUCCESS: repository continuity PASS, Review #16 frozen invariants PASS, WS1 contract layer PASS. Fresh-context neatkarīgās remediācijas recenzijas task sagatavots `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_REVIEW_TASK.md`.
 
 ## 5. User-approved decisions in force
 
@@ -157,10 +158,13 @@ Nākamais darbs ir WS1–WS5 architecture conformance restructuring posms.
 ## 7. Exact next task
 
 ```text
-Remediācijas task:
-`GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md`
+Neatkarīgās remediācijas recenzijas task:
+`GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_REVIEW_TASK.md`
 
-Nākamais solis: pārbaudīt GitHub `Continuity Validation` current state commitam. Ja PASS, sagatavot fresh-context neatkarīgās WS1-A remediācijas recenzijas uzdevumu pret gala remediācijas target state, ko noteiks pēc tehnisko validācijas labojumu pabeigšanas. WS1-B un WS2–WS5 neieviest.
+Recenzijas target:
+`51a5ac215908cf80569f561a1acea9dcc722a3d9`
+
+Nākamais solis: nodot task fresh-context neatkarīgam read-only recenzentam un saņemt ACCEPT / CHANGES REQUIRED / REJECT. Līdz recenzijas rezultātam neveikt jaunas WS1-A semantiskas izmaiņas, neaktivizēt WS1-B un nesākt WS2–WS5.
 ```
 
 Autorizācija:
@@ -168,8 +172,8 @@ Autorizācija:
 ```text
 REVIEW #16: FROZEN
 FREEZE AUTHORIZED: YES — IZPILDĪTS
-COMMIT AUTHORIZED: YES — WS1-A remediācijas implementation autorizēta; tehniska remediācija un review-task sagatavošana atļauta šī gate robežās
-IMPLEMENTATION AUTHORIZED: YES — tikai WS1-A remediācija; WS1-B / WS2–WS5 NAV autorizēti
+COMMIT AUTHORIZED: NO — remediācijas review-task sagatavošana pabeigta; gaida neatkarīgās recenzijas rezultātu
+IMPLEMENTATION AUTHORIZED: NO — WS1-A remediācijas target ir review stadijā; WS1-B / WS2–WS5 NAV autorizēti
 WS1-B / WS2–WS5 AUTHORIZED: NO
 ISS- INSTANCE: NO
 STANDALONE CONTAINMENT FILE DELETION: NO
@@ -197,6 +201,7 @@ Obligāti izlasīt pilnā apjomā:
 16. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_IMPLEMENTATION_TASK_v0.1.md`.
 17. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_IMPLEMENTATION_REVIEW_TASK.md`.
 18. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_TASK_v0.1.md`.
+19. `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_REVIEW_TASK.md`.
 
 ## 9. Known non-actions
 
@@ -217,13 +222,13 @@ NEW CHAT TRIGGER: NOT REQUIRED
 BASIS:
 Primārais darba objekts nav mainījies: turpinās
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1 WS1 dzīves cikls.
-WS1-A neatkarīgā implementation recenzija ir pabeigta ar CHANGES REQUIRED. Remediācijas task un implementation pakete ir commitēti; current exact state gaida GitHub validatoru PASS un pēc tam neatkarīgu remediācijas recenziju.
+WS1-A remediācijas implementation ir pabeigta un exact target `51a5ac215908cf80569f561a1acea9dcc722a3d9` ir validatoru PASS. Fresh-context neatkarīgās remediācijas recenzijas task ir sagatavots; nākamais solis ir tikai read-only recenzija.
 
 CURRENT PRIMARY WORK UNIT:
 ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1
 
 EXACT NEXT TASK:
-Pārbaudīt current main GitHub validāciju; pēc PASS sagatavot fresh-context neatkarīgās WS1-A remediācijas recenzijas uzdevumu pret gala remediācijas target state pēc validatoru PASS.
+Nodot `GOVERNANCE/ARCHITECTURE_CONFORMANCE_WS1_A_REMEDIATION_REVIEW_TASK.md` fresh-context neatkarīgam recenzentam pret target `51a5ac215908cf80569f561a1acea9dcc722a3d9`.
 
 REPOSITORY ACCESS MODE:
 GITHUB
