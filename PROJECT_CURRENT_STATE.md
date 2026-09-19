@@ -120,15 +120,10 @@ Implementation nav autorizēta; konsenss nav sasniegts.
 ## 7. Exact next task
 
 ```text
-Sagatavot `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`
-v3 kā formālu projekta atbildi uz
-`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_RESPONSE_REVIEW.md`.
-
-Katram J1–J9 noteikt PIEŅEMTS / DAĻĒJI PIEŅEMTS / NORAIDĪTS AR PĀRBAUDĀMU
-PAMATOJUMU un pārvērst pieņemtos finding vienā precīzā, deterministiskā delta.
-Īpaši jānoslēdz J1 mapping struktūra, J2 COMPONENT ID izvēle, J3 §26.1 invariantā
-saglabāšana, J4 references tvērums un J5–J8 validācijas/owner precizējumi.
-J9 jāizvērtē kā iespējams ārpus-tvēruma pārsaukšanas priekšlikums.
+Izpildīt pilno repo uzdevumu
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`
+un sagatavot `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`
+v3 kā formālu projekta atbildi uz J1–J9.
 
 Šajā solī arhitektūras draftus, frozen baseline un faktiskas instances nemaina.
 ```
@@ -162,12 +157,13 @@ Obligāti izlasīt pilnā apjomā:
 13. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`;
 14. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_REVIEW_TASK.md`;
 15. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V2_RESPONSE_REVIEW.md`;
-16. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
-17. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
-18. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
-19. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
-20. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
-21. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+16. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`;
+17. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
+18. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
+19. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
+20. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
+21. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
+22. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -194,8 +190,8 @@ READY tikai tad, ja šā faila jaunākais commits ir current HEAD un current
 GitHub main commitam pārbaude Continuity Validation ir sekmīga.
 
 CURRENT CHAT EXACT TASK:
-sagatavot formālu Review #16 R1–R5 response v3 uz neatkarīgās v2 recenzijas
-J1–J9; arhitektūras implementation neveikt.
+izpildīt `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V3_RESPONSE_TASK.md`
+un sagatavot formālu response v3; arhitektūras implementation neveikt.
 
 NEXT TRIGGER EVALUATION:
 pēc response v3 fiksēšanas un konkrēta neatkarīgās recenzijas uzdevuma
