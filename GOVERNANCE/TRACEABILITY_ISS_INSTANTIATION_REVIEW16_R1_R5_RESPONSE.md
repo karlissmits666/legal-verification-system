@@ -1,16 +1,16 @@
-# REVIEW #16 — FORMĀLA ATBILDE UZ R1–R5 — v6
+# REVIEW #16 — FORMĀLA ATBILDE UZ R1–R5 — v7
 
-**Statuss:** REVIEW RESPONSE v6 — PILNA KONSOLIDĒTA POZĪCIJA; KONSENSS PENDING; IMPLEMENTATION NAV APSTIPRINĀTA  
+**Statuss:** REVIEW RESPONSE v7 — PILNA KONSOLIDĒTA POZĪCIJA; KONSENSS PENDING; IMPLEMENTATION NAV APSTIPRINĀTA  
 **Datums:** 2026-09-19  
-**Versija:** v6  
-**Atbildes bāze:** `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V5_RESPONSE_REVIEW.md`  
-**v5 recenzētais commits:** `c74368afae5311d5bc35bf4169dba2988bbb442b`  
+**Versija:** v7  
+**Atbildes bāze:** `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V6_RESPONSE_REVIEW.md`  
+**v6 recenzētais commits:** `12a115fb241f8ff05fa204bd27a4eae1bf8cf7d6`  
 **Implementation:** NAV VEIKTA  
 **Freeze:** NAV APSTIPRINĀTS
 
 ## 1. Dokumenta statuss un pilnīguma invariants
 
-Šis v6 ir viens pašpietiekams Review #16 R1–R5 response artefakts. Viss implementējamais delta ir ietverts šajā dokumentā. Implementatoram nav jāatjauno arhitektūras semantika no git vēstures, v3 vai v4.
+Šis v7 ir viens pašpietiekams Review #16 R1–R5 response artefakts. Viss implementējamais delta ir ietverts šajā dokumentā. Implementatoram nav jāatjauno arhitektūras semantika no git vēstures, v3 vai v4.
 
 Arhitektūras drafti un frozen baseline šajā response solī netiek mainīti.
 
@@ -210,6 +210,7 @@ Governance dokuments, ko TASK faktiski izmanto, joprojām tiek reģistrēts kā 
 4. ja candidate target ir T&E §25 trace-object tips, tas ir §5.1 TREF;
 5. ja target ir external system, evidence store, registry/taxonomy, artefakta atrašanās vieta vai cita ne-trace identitāte, tas ir NREF;
 6. relationship lauks bez šīm galotnēm tiek klasificēts eksplicīti matricā;
+   TR §8 rinda `LEGAL CLASSIFICATION ASSESSMENT, ja mainās materiāls klasifikācijas secinājums` nav relationship lauks — tā ir nosacījuma/semantikas piezīme; persistētā MODULE → LCA saite ir tikai `CLASSIFICATION ASSESSMENT REFERENCES`;
 7. §14 ir vienīgā šajā paketē bare-ID → structured-reference konversija;
 8. matrica nedrīkst pārkāpt 1.–7. noteikumu; tā nav ad-hoc izņēmumu mehānisms.
 
@@ -244,7 +245,6 @@ Objekta paša 19 ID laukus pilnībā nosaka §30.1 un tie tiek klasificēti kā 
 | §7.2 | RELATED FACT FINDING IDS | BARE ID | FINDING |
 | §7.2 | SCREENING DECISION ID | BARE ID | HUMAN DECISION |
 | §7.2 | HUMAN DECISION RELATED TRACE OBJECT REFERENCES uz MSR | TREF-INTRA | MSR |
-| §8 | LEGAL CLASSIFICATION ASSESSMENT | TREF-INTRA | current/material LEGAL CLASSIFICATION ASSESSMENT pointer |
 | §8 | SOURCE / REFERENCE | TREF-INTRA | SOURCE object; default same record |
 | §8 | CLASSIFICATION ASSESSMENT REFERENCES | TREF-INTRA | LCA |
 | §9 | DOCUMENT MANAGEMENT REFERENCE | NREF | external DMS |
@@ -394,7 +394,7 @@ Pēc neatkarīgas ACCEPT, lietotāja gala konsensa un atsevišķa implementation
 6. same-package dependency konsekvences labojumiem;
 7. review/amendment/roadmap/state statusu atjauninājumam atbilstoši faktiskajai implementation.
 
-`ATOMIC IMPLEMENTATION READINESS: PENDING — independent v6 review`.
+`ATOMIC IMPLEMENTATION READINESS: PENDING — independent v7 review`.
 
 ## 13. Validācijas specifikācija
 
@@ -435,9 +435,10 @@ after the Review #16 delta is applied in the same atomic implementation commit,
 every persisted TR v0.6 relationship candidate matching:
 - field token ID or IDS;
 - field token REFERENCE or REFERENCES;
-- RELATED relationship semantics;
-- slash-composite relationship labels in persisted schema
+- RELATED relationship semantics
 MUST have exactly one classification in the approved matrix.
+
+Slash (`/`) simbols pats par sevi nav relationship-candidate pazīme.
 
 RMT4 EXCLUDES:
 - each object's own ID field controlled by §30.1;
@@ -543,20 +544,24 @@ kritēriji 4, 5 un 8 target implementation stāvoklī ir:
    UNRESOLVED ISSUE.
 ```
 
-## 16. M1–M2 / N1–N3 statuss
+## 16. M1–M2 / N1–N3 / P1–P4 statuss
 
 ```text
 M1 PIEŅEMTS — §22 REQUIREMENT ID ir OWN ID pēc §30.1; BARE ID matricas rinda izņemta
-M2 PIEŅEMTS — slash-composite kritērijs no RMT4 izņemts kā nedeterministisks un lieks
-N1 PIEŅEMTS — §8 LEGAL CLASSIFICATION ASSESSMENT = TREF-INTRA
+M2 PIEŅEMTS — RMT4 slash-composite kritērijs faktiski izņemts no §13.2
+N1 PIEŅEMTS AR PRECIZĒJUMU — §8 LEGAL CLASSIFICATION ASSESSMENT ir nosacījuma piezīme, ne relationship lauks
 N2 PIEŅEMTS — §38 HUMAN DECISION basis obligāti manto §36 SOURCE-reference prasību
 N3 PIEŅEMTS — sākotnējie acceptance kritēriji 4/5/8 saskaņoti ar aktuālo delta
+P1 PIEŅEMTS — RMT4 normatīvais teksts saskaņots ar statusa deklarāciju
+P2 PIEŅEMTS — izvēlēts variants (i); vienīgā persistētā MODULE→LCA saite ir CLASSIFICATION ASSESSMENT REFERENCES
+P3 PIEŅEMTS — aktuālā response statusa etiķetes saskaņotas ar v7
+P4 PIEŅEMTS IZPILDES SECĪBĀ — continuity jāatjaunina pēc v7 response un v7 review task commitiem
 ```
 
 ## 17. L1–L8 statuss
 
 ```text
-L1 PIEŅEMTS — v5 ir viens pašpietiekams pilnais delta
+L1 PIEŅEMTS — v7 ir viens pašpietiekams pilnais delta
 L2 PIEŅEMTS — katram matricas logical candidate tieši viena deklarēta kategorija
 L3 PIEŅEMTS — RMT4 ir post-implementation tests; §14 transformācija un component exclusions precizēti
 L4 PIEŅEMTS — §8 SOURCE / REFERENCE = TREF-INTRA uz SOURCE
@@ -569,18 +574,18 @@ L8 PIEŅEMTS — R5 = PIEŅEMTS; readiness atdalīta no finding statusa
 ## 18. Iepriekšējo findings statuss
 
 ```text
-K1 PIEŅEMTS ar v5 precizējumu
-K2 PIEŅEMTS ar v5 pilno matricu
+K1 PIEŅEMTS ar aktuālo konsolidēto precizējumu
+K2 PIEŅEMTS ar aktuālo pilno matricu
 K3 PIEŅEMTS
 K4 PIEŅEMTS
-K5 PIEŅEMTS ar v5 §38 target precizējumu
+K5 PIEŅEMTS ar aktuālo §38 target precizējumu
 K6 PIEŅEMTS
 K7 PIEŅEMTS
 
 J1 PIEŅEMTS
 J2 PIEŅEMTS
 J3 PIEŅEMTS
-J4 PIEŅEMTS ar v5 klasifikācijas matricu + RMT4
+J4 PIEŅEMTS ar aktuālo klasifikācijas matricu + RMT4
 J5 PIEŅEMTS
 J6 PIEŅEMTS
 J7 PIEŅEMTS
@@ -594,7 +599,7 @@ R4 PIEŅEMTS
 R5 PIEŅEMTS
 ```
 
-F1–F12 iepriekšējā review cikla atrisinājumi paliek ietverti iepriekš konsolidētajā delta; neviena no tiem semantika ar v5 netiek atsaukta.
+F1–F12 iepriekšējā review cikla atrisinājumi paliek ietverti šajā konsolidētajā delta; neviena no tiem semantika ar v7 netiek atsaukta.
 
 ## 19. Procesa rezultāts
 
@@ -606,26 +611,26 @@ TASK-/MOD-/ISS- INSTANCE:       NAV IZVEIDOTA
 STANDALONE CONTAINMENT FAILS:   PALIEK REPO
 LIETOTĀJA KONSENSS:             NAV PASLUDINĀTS
 FREEZE:                         NAV APSTIPRINĀTS
-ATOMIC IMPLEMENTATION READINESS: PENDING independent v5 review
+ATOMIC IMPLEMENTATION READINESS: PENDING independent v7 review
 ```
 
 ## 20. Nākamais procesa solis
 
-Pēc v6 review-response commita sagatavot atsevišķu neatkarīgās recenzijas uzdevumu pret konkrēto v6 commit SHA.
+Pēc v7 review-response commita sagatavot atsevišķu neatkarīgās recenzijas uzdevumu pret konkrēto v7 commit SHA.
 
 Recenzentam īpaši jāpārbauda:
-1. vai v6 ir faktiski pašpietiekama;
-2. vai M1 variants (a) ir konsekvents: §22 REQUIREMENT ID = OWN ID un §27 COMPONENT ID = OWN ID;
-3. vai RMT4 bez slash-composite kritērija joprojām pilnībā aptver target relationship candidate kopu;
-4. vai §8 LEGAL CLASSIFICATION ASSESSMENT = TREF-INTRA ir saderīgs ar MODULE RECORD shēmu;
-5. vai §36/§38 authority-basis nosacījumi tagad ir identiski pēc loģikas;
-6. vai sākotnējie acceptance kritēriji 4/5/8 ir saskaņoti ar target delta;
-7. vai nav regresijas 19-rindu mapping, H2/H4, R1–R5 vai dependency kartē;
+1. vai v7 ir faktiski pašpietiekama;
+2. vai RMT4 §13.2 faktiski vairs nesatur slash-composite kritēriju;
+3. vai §8 LEGAL CLASSIFICATION ASSESSMENT ir nepārprotami nosacījuma/semantikas piezīme, ne persistēts relationship lauks;
+4. vai vienīgā persistētā MODULE → LCA saite ir CLASSIFICATION ASSESSMENT REFERENCES;
+5. vai §7 7. punkts joprojām korekti nosaka §14 kā vienīgo bare-ID → structured-reference konversiju;
+6. vai nav palikušu maldinošu v5/v6 aktuālā statusa etiķešu;
+7. vai nav regresijas 19-rindu mapping, H1/H2/H4, R1–R5 vai dependency kartē;
 8. vai nav atlikusi neviena implementation laikā izlemjama arhitektūras izvēle.
 
 ```text
-COMMIT AUTHORIZED: YES — tikai review-response v5 un procesa artefakti
+COMMIT AUTHORIZED: YES — tikai review-response v7 un procesa artefakti
 IMPLEMENTATION AUTHORIZED: NO
 FREEZE AUTHORIZED: NO
-KONSENSS: PENDING — v6 independent review
+KONSENSS: PENDING — v7 independent review
 ```
