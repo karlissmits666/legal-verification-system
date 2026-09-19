@@ -1,16 +1,16 @@
-# REVIEW #16 — FORMĀLA ATBILDE UZ R1–R5 — v5
+# REVIEW #16 — FORMĀLA ATBILDE UZ R1–R5 — v6
 
-**Statuss:** REVIEW RESPONSE v5 — PILNA KONSOLIDĒTA POZĪCIJA; KONSENSS PENDING; IMPLEMENTATION NAV APSTIPRINĀTA  
+**Statuss:** REVIEW RESPONSE v6 — PILNA KONSOLIDĒTA POZĪCIJA; KONSENSS PENDING; IMPLEMENTATION NAV APSTIPRINĀTA  
 **Datums:** 2026-09-19  
-**Versija:** v5  
-**Atbildes bāze:** `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V4_RESPONSE_REVIEW.md`  
-**v4 recenzētais commits:** `926c78678caa50e72e6c7b3d4f1614ed1c8eb6d5`  
+**Versija:** v6  
+**Atbildes bāze:** `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_V5_RESPONSE_REVIEW.md`  
+**v5 recenzētais commits:** `c74368afae5311d5bc35bf4169dba2988bbb442b`  
 **Implementation:** NAV VEIKTA  
 **Freeze:** NAV APSTIPRINĀTS
 
 ## 1. Dokumenta statuss un pilnīguma invariants
 
-Šis v5 ir viens pašpietiekams Review #16 R1–R5 response artefakts. Viss implementējamais delta ir ietverts šajā dokumentā. Implementatoram nav jāatjauno arhitektūras semantika no git vēstures, v3 vai v4.
+Šis v6 ir viens pašpietiekams Review #16 R1–R5 response artefakts. Viss implementējamais delta ir ietverts šajā dokumentā. Implementatoram nav jāatjauno arhitektūras semantika no git vēstures, v3 vai v4.
 
 Arhitektūras drafti un frozen baseline šajā response solī netiek mainīti.
 
@@ -244,6 +244,7 @@ Objekta paša 19 ID laukus pilnībā nosaka §30.1 un tie tiek klasificēti kā 
 | §7.2 | RELATED FACT FINDING IDS | BARE ID | FINDING |
 | §7.2 | SCREENING DECISION ID | BARE ID | HUMAN DECISION |
 | §7.2 | HUMAN DECISION RELATED TRACE OBJECT REFERENCES uz MSR | TREF-INTRA | MSR |
+| §8 | LEGAL CLASSIFICATION ASSESSMENT | TREF-INTRA | current/material LEGAL CLASSIFICATION ASSESSMENT pointer |
 | §8 | SOURCE / REFERENCE | TREF-INTRA | SOURCE object; default same record |
 | §8 | CLASSIFICATION ASSESSMENT REFERENCES | TREF-INTRA | LCA |
 | §9 | DOCUMENT MANAGEMENT REFERENCE | NREF | external DMS |
@@ -269,7 +270,6 @@ Objekta paša 19 ID laukus pilnībā nosaka §30.1 un tie tiek klasificēti kā 
 | §20 | EVIDENCE IDS | BARE ID | EVIDENCE |
 | §20.1 | SOURCE SET REFERENCE | NREF | SOURCE SET nav §25 tips |
 | §20.1 | RELATED FINDING / REQUIREMENT / COMPONENT | VIEW | compatibility view |
-| §22 | REQUIREMENT ID | BARE ID | REQUIREMENT |
 | §22 | EVIDENCE IDS | BARE ID | EVIDENCE |
 | §22 | DATA CLASS EVENT REFERENCES | TREF-INTRA | DATA CLASS EVENT |
 | §22 | CLASSIFICATION BASIS REFERENCES | TREF-INTRA | LCA / HUMAN DECISION / MODULE trace object |
@@ -358,7 +358,7 @@ SOURCE
 HUMAN DECISION
 ```
 
-Ja target ir HUMAN DECISION un lēmums pats balstās ārējā/governance authority basis, šim HUMAN DECISION jābūt sasaistītam ar piemērojamo authority-basis SOURCE reference.
+Ja `ACTION OWNER BASIS REFERENCE` vai `RESOLUTION AUTHORITY BASIS REFERENCE` target ir HUMAN DECISION, referenced HUMAN DECISION obligāti satur `ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE`. Tas ir §36 prasības tiešs turpinājums, ne atsevišķs šaurāks nosacījums.
 
 Noklusējuma režīms ir INTRA-RECORD; CROSS-RECORD izmanto tikai tad, ja konkrētais target atrodas citā Trace Record vai versijā.
 
@@ -394,7 +394,7 @@ Pēc neatkarīgas ACCEPT, lietotāja gala konsensa un atsevišķa implementation
 6. same-package dependency konsekvences labojumiem;
 7. review/amendment/roadmap/state statusu atjauninājumam atbilstoši faktiskajai implementation.
 
-`ATOMIC IMPLEMENTATION READINESS: PENDING — independent v5 review`.
+`ATOMIC IMPLEMENTATION READINESS: PENDING — independent v6 review`.
 
 ## 13. Validācijas specifikācija
 
@@ -522,7 +522,38 @@ PILOT / IMPLEMENTATION CONSEQUENCES
 - freeze dependency ir amendment-process precondition
 ```
 
-## 15. L1–L8 statuss
+## 15. Sākotnējo Review #16 acceptance kritēriju korekcija
+
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_DELTA_REVIEW_RESPONSE.md §6`
+kritēriji 4, 5 un 8 target implementation stāvoklī ir:
+
+```text
+4. Ja assignment / resolution authority pamats tiek glabāts HUMAN DECISION,
+   šim HUMAN DECISION ir obligāta pinned
+   ASSIGNMENT AUTHORITY BASIS SOURCE REFERENCE;
+   tieša SOURCE reference ir derīga atbilstoši §38 target set.
+
+5. RMT1 FILE SET aktīvajos amendment draftos vairs nav semantiskas
+   MTR-<THEME>-<NUMBER> identitātes; vēsturiskie review/response artefakti
+   ir ārpus šī testa tvēruma.
+
+8. Ja VERSION un EFFECTIVE DATE nav norādīti, konkrētās avota redakcijas
+   identitātei jābūt pietiekami dokumentētai ar §11 atļauto identitātes
+   lauku kombināciju; ja identitāte nav pietiekama, nepieciešams
+   UNRESOLVED ISSUE.
+```
+
+## 16. M1–M2 / N1–N3 statuss
+
+```text
+M1 PIEŅEMTS — §22 REQUIREMENT ID ir OWN ID pēc §30.1; BARE ID matricas rinda izņemta
+M2 PIEŅEMTS — slash-composite kritērijs no RMT4 izņemts kā nedeterministisks un lieks
+N1 PIEŅEMTS — §8 LEGAL CLASSIFICATION ASSESSMENT = TREF-INTRA
+N2 PIEŅEMTS — §38 HUMAN DECISION basis obligāti manto §36 SOURCE-reference prasību
+N3 PIEŅEMTS — sākotnējie acceptance kritēriji 4/5/8 saskaņoti ar aktuālo delta
+```
+
+## 17. L1–L8 statuss
 
 ```text
 L1 PIEŅEMTS — v5 ir viens pašpietiekams pilnais delta
@@ -535,7 +566,7 @@ L7 PIEŅEMTS — N1 aptver missing OBJECT TYPE / OBJECT ID abos §5.1 režīmos
 L8 PIEŅEMTS — R5 = PIEŅEMTS; readiness atdalīta no finding statusa
 ```
 
-## 16. Iepriekšējo findings statuss
+## 18. Iepriekšējo findings statuss
 
 ```text
 K1 PIEŅEMTS ar v5 precizējumu
@@ -565,7 +596,7 @@ R5 PIEŅEMTS
 
 F1–F12 iepriekšējā review cikla atrisinājumi paliek ietverti iepriekš konsolidētajā delta; neviena no tiem semantika ar v5 netiek atsaukta.
 
-## 17. Procesa rezultāts
+## 19. Procesa rezultāts
 
 ```text
 IMPLEMENTATION:                 NAV VEIKTA
@@ -578,23 +609,23 @@ FREEZE:                         NAV APSTIPRINĀTS
 ATOMIC IMPLEMENTATION READINESS: PENDING independent v5 review
 ```
 
-## 18. Nākamais procesa solis
+## 20. Nākamais procesa solis
 
-Pēc v5 review-response commita sagatavot atsevišķu neatkarīgās recenzijas uzdevumu pret konkrēto v5 commit SHA.
+Pēc v6 review-response commita sagatavot atsevišķu neatkarīgās recenzijas uzdevumu pret konkrēto v6 commit SHA.
 
 Recenzentam īpaši jāpārbauda:
-1. vai v5 ir faktiski pašpietiekama;
-2. vai pilnā 19-rindu mapping tabula, §26.1, §5.1/§26.2, amendment §9.1, H1/H2/H4, R1–R5 un dependency karte visi ir klāt;
-3. vai katrai relationship matrix rindai ir tieši viena atļauta kategorija;
-4. vai RMT4 ir izpildāms tieši post-implementation un vairs nedod guaranteed FAIL;
-5. vai §8 SOURCE / REFERENCE = TREF-INTRA ir saderīgs ar MODULE RECORD un §5.1;
-6. vai §34/§46 SUMMARY klasifikācija ir korekta;
-7. vai §38 SOURCE/HUMAN DECISION target set saglabā esošo semantiku;
+1. vai v6 ir faktiski pašpietiekama;
+2. vai M1 variants (a) ir konsekvents: §22 REQUIREMENT ID = OWN ID un §27 COMPONENT ID = OWN ID;
+3. vai RMT4 bez slash-composite kritērija joprojām pilnībā aptver target relationship candidate kopu;
+4. vai §8 LEGAL CLASSIFICATION ASSESSMENT = TREF-INTRA ir saderīgs ar MODULE RECORD shēmu;
+5. vai §36/§38 authority-basis nosacījumi tagad ir identiski pēc loģikas;
+6. vai sākotnējie acceptance kritēriji 4/5/8 ir saskaņoti ar target delta;
+7. vai nav regresijas 19-rindu mapping, H2/H4, R1–R5 vai dependency kartē;
 8. vai nav atlikusi neviena implementation laikā izlemjama arhitektūras izvēle.
 
 ```text
 COMMIT AUTHORIZED: YES — tikai review-response v5 un procesa artefakti
 IMPLEMENTATION AUTHORIZED: NO
 FREEZE AUTHORIZED: NO
-KONSENSS: PENDING — v5 independent review
+KONSENSS: PENDING — v6 independent review
 ```
