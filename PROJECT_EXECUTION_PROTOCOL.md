@@ -134,6 +134,8 @@ Vienā dokumentā arī nepaliek bezgalīgi: kad tā blocking arhitektūras jaut�
 
 `PROJECT_ROADMAP_v1.md` ir programmas līmeņa kontroles plakne. Atsevišķie review faili ir tai pakārtoti.
 
+Sarunas robeža tiek piesaistīta primārajam roadmap dokumentam, nevis atsevišķam review vai implementation subtask. Dokumenta dzīves cikla iekšējie subtask tiek secīgi vadīti ar `EXACT NEXT TASK` tajā pašā sarunā.
+
 ## 5. Obligātais darba sesijas sākums
 
 Katras jaunas būtiskas projekta sarunas sākumā izpilda `NEW_CHAT_START_TASK.md`. Tas prasa pārbaudīt current `main` un izlasīt `PROJECT_CONSTITUTION_v1.md`, šo protokolu, `PROJECT_CURRENT_STATE.md`, `README.md`, `PROJECT_ROADMAP_v1.md` un nākamajam uzdevumam norādītos frozen, draft, review un audita failus. Vecs sarunas handoff neaizstāj aktuālo repo.
@@ -178,25 +180,39 @@ Ja sesijas laikā mainījies projekta stāvoklis, pirms noslēguma atjaunina `PR
 
 Statusa ziņojums bez nākamās darbības nav pietiekams.
 
-### 6.1. Obligātais jaunā čata trigeris
+### 6.1. Viena saruna = viens primārais roadmap dokuments
 
-Viens čats apkalpo vienu `EXACT NEXT TASK`. Trigeri nevērtē un neizvada jaunā čata sākumā. Iepriekšējā čata `REQUIRED — READY` ir ienākošā handoff atļauja, kas pēc sekmīgas klusās continuity pārbaudes tiek uzskatīta par patērētu; tā nav pavēle tūlīt sākt vēl vienu čatu.
+Pamatprincips:
 
-Jauno trigeri pirmoreiz vērtē tikai tad, kad pašreizējais `EXACT NEXT TASK` ir pabeigts un ir identificēts cits izpildāms uzdevums. Kamēr pašreizējais uzdevums turpinās, trigeri nerāda. Ja uzdevums ir nodots ārējam neatkarīgam recenzentam un tiek gaidīta atbilde, statuss ir `WAITING FOR EXTERNAL REVIEW`; jaunu čatu neprasa līdz atbildes saņemšanai.
+```text
+ONE CHAT = ONE PRIMARY ROADMAP DOCUMENT / ONE DOCUMENT LIFECYCLE
+```
 
-Pēc pašreizējā uzdevuma pabeigšanas `NEW CHAT REQUIRED` iestājas, ja izpildās vismaz viens nosacījums:
+Viena projekta saruna pēc noklusējuma aptver visu viena primārā roadmap dokumenta vai viena skaidri definēta dokumentu milestone dzīves ciklu no aktuālā drafta līdz konsensam, implementation, auditam un final / freeze gatavībai.
 
-1. lietotājs skaidri pieprasa jaunu čatu;
+`EXACT NEXT TASK` paliek obligāts secīgās darba kontroles mehānisms, bet tā pabeigšana pati par sevi **nav** jaunā čata trigeris. Vienā un tajā pašā sarunā drīkst secīgi izpildīt vairākus `EXACT NEXT TASK`, ja:
+
+1. nemainās primārais roadmap dokuments;
+2. darbs turpina tā paša dokumenta vai tā paša amendment milestone dzīves ciklu;
+3. repo continuity ir skaidra un visi būtiskie lēmumi tiek fiksēti repo;
+4. nav drošības vai konteksta kvalitātes iemesla pārtraukt sarunu.
+
+Tādēļ review uzdevums, review rezultāts, projekta atbilde, atkārtota recenzija, lietotāja konsenss, implementation, audits un freeze sagatavošana drīkst notikt vienā sarunā, kamēr tie attiecas uz to pašu primāro dokumentu.
+
+Neatkarīgā recenzija saglabā fresh-context principu. Ja recenziju veic atsevišķs recenzents vai izolēts aģents, tam jāsaņem fiksēts commits un pilns repo review uzdevums bez iepriekšējās izstrādes sarunas ietekmes. Tas **neprasa** pārtraukt projekta izpildes asistenta galveno sarunu; izpildes asistents pēc recenzijas rezultāta saņemšanas turpina tajā pašā dokumenta dzīves cikla sarunā.
+
+Jaunu projekta sarunu sāk tikai tad, ja izpildās vismaz viens no šiem nosacījumiem:
+
+1. lietotājs skaidri pieprasa jaunu sarunu;
 2. mainās primārais roadmap dokuments;
-3. mainās procesa posms starp review uzdevumu, review atbildi, implementation, auditu vai freeze;
-4. pabeigts patstāvīgs milestone un nākamajam uzdevumam ir cita obligātā lasīšanas kopa vai cits galvenais rezultāts;
-5. sākas neatkarīga recenzija, kurai jāpārbauda fiksēts commits bez iepriekšējās izstrādes sarunas ietekmes;
-6. sarunas konteksts ir kompresēts, fragmentēts vai kļuvis tik apjomīgs, ka nākamā uzdevuma lēmumu ķēdi drošāk rekonstruēt no repo;
-7. atklāts, ka būtiska aktuālā informācija dzīvo tikai čatā vai pielikumā un pirms nākamā posma tā jāpārnes repo.
+3. iepriekšējais primārais dokuments / milestone ir pabeigts un darbs pāriet uz nākamo patstāvīgo dokumentu;
+4. sarunas konteksts ir kompresēts, fragmentēts, pretrunīgs vai kļuvis tik apjomīgs, ka lēmumu ķēdi drošāk rekonstruēt no repo;
+5. atklāts, ka būtiska aktuālā informācija dzīvo tikai čatā vai pielikumā un pirms turpināšanas tā jāpārnes repo;
+6. lietotājs vai projekta kontroles dokuments konkrētam izolētam procesam skaidri nosaka fresh-chat prasību.
 
-Ja turpinās tas pats precīzi definētais uzdevums, uzdevums vēl nav pabeigts vai tiek gaidīts šā paša uzdevuma ārējs review rezultāts, jauna čata trigeri lietotājam neizvada.
+Procesa posma maiņa viena un tā paša primārā dokumenta ietvaros — piemēram, no review uz response, no response uz implementation vai no implementation uz audit — **nav** jaunā čata iemesls.
 
-Trigerim ir trīs iespējamie rezultāti:
+Jauna čata nepieciešamības statuss ir:
 
 ```text
 NEW CHAT TRIGGER: NOT REQUIRED
@@ -204,21 +220,23 @@ NEW CHAT TRIGGER: REQUIRED — NOT READY
 NEW CHAT TRIGGER: REQUIRED — READY
 ```
 
-Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, jaunu čatu vēl nesāk. Vispirms novērš information gap un norāda `REQUIRED — NOT READY`.
+Kamēr turpinās tas pats primārais roadmap dokuments un continuity ir droša, izmanto `NOT REQUIRED`.
+
+Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, izmanto `REQUIRED — NOT READY` un vispirms novērš information gap.
 
 `REQUIRED — READY` drīkst norādīt tikai tad, ja:
 
 1. visi būtiskie lēmumi, review un pierādījumi ir repo;
 2. `PROJECT_CURRENT_STATE.md` ir atjaunināts;
-3. `EXACT NEXT TASK` ir viens, konkrēts un izpildāms;
+3. ir skaidri identificēts nākamais primārais dokuments un viens konkrēts `EXACT NEXT TASK`;
 4. ir skaidras implementation, commit un freeze autorizācijas robežas;
 5. `REQUIRED READING FOR NEXT TASK` ir pilns;
-6. GitHub režīmā ir identificēts current `main` commits; lokālā režīmā `HEAD` sakrīt ar `origin/main`;
+6. GitHub režīmā ir identificēts current `main` commits; lokālā režīmā `HEAD = origin/main`;
 7. GitHub režīmā worktree nosacījums nav piemērojams; lokālā režīmā darba koks ir tīrs;
-8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem.
+8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem;
 9. current `main` commitam GitHub Actions pārbaude `Continuity Validation` ir sekmīga; lokālā režīmā alternatīvi `TOOLS/validate_project_continuity.ps1 -Mode Handoff` ir atgriezis `CONTINUITY VALIDATION: PASS`.
 
-Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada īsu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus vai tehnisko continuity telemetriju.
+Kad statuss ir `REQUIRED — READY`, asistents noslēgumā izvada īsu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ja statuss ir `NOT REQUIRED`, copy-paste ziņojumu neizvada.
 
 ## 7. Pilnais dokumenta un problēmas dzīves cikls
 
