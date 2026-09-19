@@ -141,6 +141,31 @@ LEGAL TASK
 
 `AI_TOOL_USAGE_POLICY_v1` saturs nevar tikt izdomāts sistēmas iekšienē. Tas jābalsta bankas faktiskajos governance lēmumos un apstiprinātajos AI lietošanas noteikumos.
 
+## 4.1. Obligātais post-Review #16 architecture conformance restructuring posms
+
+Pēc Review #16 saistītās paketes freeze un pirms nākamā lielā 13 dokumentu roadmap dokumenta pilna dzīves cikla obligāti izpilda:
+
+`GOVERNANCE/ARCHITECTURE_CONFORMANCE_RESTRUCTURING_PLAN_v0.1.md`
+
+Šis nav 14. pamatdokuments. Tas ir starpdokumentu amendment / implementation plāns, kas ievieš piecus atbalsta workstreamus:
+
+1. Machine-readable Schema & Registry Layer;
+2. Requirement → Source → Schema → Test → Evidence Traceability;
+3. AI Candidate → Canonical State Boundary;
+4. Executable Conformance Suite;
+5. Repository Integrity Manifest & Release Evidence.
+
+Programmas secība šajā punktā:
+
+```text
+REVIEW #16 FREEZE
+→ ARCHITECTURE CONFORMANCE RESTRUCTURING WS1–WS5
+→ AUDIT + USER CONSENSUS
+→ NEXT 13-DOCUMENT ROADMAP UNIT
+```
+
+Restrukturizācijas mērķis ir samazināt manuāla review slodzi un interpretācijas brīvību, nepārņemot ārēju projektu domēna modeļus vai tehnoloģisko stacku un nemainot 13 pamatdokumentu skaitu.
+
 ## 5. Projekta progresa kopsavilkums
 
 **Obligātie pamatdokumenti:** 13  
