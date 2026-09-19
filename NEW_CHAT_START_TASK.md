@@ -75,7 +75,9 @@ Iekšēji kontekstu drīkst uzskatīt par atjaunotu tikai tad, ja:
 5. ir identificēts viens konkrēts nākamais uzdevums;
 6. ir skaidri nodalīts, kas ir apstiprināts, commitēts, frozen un tikai piedāvāts.
 
-Pēc sekmīgas klusās validācijas pirmā un vienīgā redzamā sākuma atbilde ir:
+Ja `EXACT NEXT TASK` ir uzdevuma nodošana neatkarīgam recenzentam un repo ir pilns recenzijas uzdevuma fails, pirmā un vienīgā redzamā atbilde ir šā faila pilns saturs bez ievada, statusa bloka, faila ceļa paskaidrojuma, continuity diagnostikas vai trigera. Pats recenziju nesāc.
+
+Citos gadījumos pirmā redzamā sākuma atbilde ir:
 
 ```text
 AKTUĀLAIS POSMS: <viens īss teikums>
@@ -83,7 +85,7 @@ AKTUĀLAIS UZDEVUMS: <pilns uzdevums vai repo uzdevuma faila ceļš>
 RECENZĒJAMAIS / MAINĀMAIS DOKUMENTS: <repo faila ceļš vai NAV PIEMĒROJAMS>
 ```
 
-Ja repo ir pilns uzdevuma dokuments, parāda tā ceļu un pēc lietotāja vajadzības visu tā saturu; tehnisko continuity diagnostiku nepievieno. Ja nākamais solis ir uzdevuma nodošana neatkarīgam recenzentam, izsniedz pilno recenzijas uzdevumu un pats recenziju nesāk.
+Ja repo ir pilns cita veida uzdevuma dokuments, var parādīt tā ceļu vai pilno saturu; tehnisko continuity diagnostiku nepievieno.
 
 Ja validācija neizdodas, parāda tikai īsu konkrēto blokatoru un nepieciešamo novēršanas darbību. Pilno diagnostikas izdruku rāda tikai pēc lietotāja tieša pieprasījuma. Neuzsāc arhitektūras vai implementation darbu ar neatjaunotu kontekstu.
 
@@ -130,12 +132,10 @@ Turpini Juridiskās pārbaudes sistēmas projektu no repo
 https://github.com/karlissmits666/legal-verification-system, branch main.
 
 Klusi izpildi NEW_CHAT_START_TASK.md un nolasi PROJECT_CURRENT_STATE.md.
-Pirmajā atbildē nerādi continuity tehnisko diagnostiku vai jauna čata
-trigeri. Parādi tikai minimālu aktuālā posma informāciju un pilnu
-PROJECT_CURRENT_STATE.md norādīto uzdevumu vai tā repo faila atsauci.
-
-Ja uzdevums paredz nodošanu neatkarīgam recenzentam, izsniedz pilno
-recenzijas uzdevumu un pats recenziju nesāc.
+Ja aktuālais uzdevums paredz nodošanu neatkarīgam recenzentam, pirmajā
+atbildē parādi tikai pilnu repo recenzijas uzdevuma faila saturu — bez
+ievada, continuity diagnostikas, statusa kopsavilkuma vai trigera — un
+pats recenziju nesāc.
 ```
 
 Ja `PROJECT_CURRENT_STATE.md` `EXACT NEXT TASK` nav viennozīmīgs, ziņojumu neizdod un trigeris paliek `REQUIRED — NOT READY`.

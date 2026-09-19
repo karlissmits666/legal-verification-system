@@ -148,7 +148,7 @@ RECENZĒJAMAIS / MAINĀMAIS DOKUMENTS:
 
 Repo piekļuves režīmu, commit un workflow identifikatorus, worktree, push, frozen delta un pilno validācijas bloku sākuma atbildē nerāda, ja vien validācija nav izgāzusies vai lietotājs to tieši nepieprasa.
 
-Ja ir atsevišķs repo uzdevuma fails, pietiek norādīt tā ceļu. Ja uzdevums paredz nodošanu neatkarīgam recenzentam, izsniedz pilnu recenzijas uzdevumu un pats recenziju nesāk. Review vai procesa fails nav primārais roadmap dokuments, bet tas drīkst būt redzamais aktuālā uzdevuma fails.
+Ja ir atsevišķs repo uzdevuma fails, pietiek norādīt tā ceļu. Ja uzdevums paredz nodošanu neatkarīgam recenzentam, vienīgais redzamais sākuma rezultāts ir pilns recenzijas uzdevuma faila saturs bez ievada vai procesa informācijas; asistents pats recenziju nesāk. Review vai procesa fails nav primārais roadmap dokuments, bet tas drīkst būt redzamais aktuālā uzdevuma fails.
 
 ## 6. Obligātais darba sesijas noslēgums
 
@@ -273,6 +273,17 @@ Konsenss ir sasniegts tikai tad, ja:
 5. lietotājs skaidri pieņem secinājumus.
 
 Ja lietotājs saka “pieņemu secinājumus” vai ekvivalentu formulējumu, tas noslēdz konsensu tikai par skaidri identificēto pēdējo delta. Tas automātiski nav freeze.
+
+Pēc konsensa sasniegšanas lietotājam sniedz īsu kopsavilkumu šādā formā:
+
+```text
+PIEŅEMTAIS DOKUMENTS:
+KO DOKUMENTS NOSAKA:
+GALVENIE PIEŅEMTIE LĒMUMI:
+NĀKAMAIS SOLIS:
+```
+
+Kopsavilkumā īsi izskaidro dokumenta praktisko nozīmi un pieņemtos lēmumus. Tajā neiekļauj continuity diagnostiku, workflow informāciju vai pilnu review vēsturi. Konsensa kopsavilkums pats nav implementation vai freeze approval.
 
 ### 7.5. Implementation approval
 

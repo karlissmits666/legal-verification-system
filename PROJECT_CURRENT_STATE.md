@@ -77,6 +77,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 10. Formālā Review #16 R1–R5 atbilde ir fiksēta repo atsevišķā review-response artefaktā; šajā commitā arhitektūras drafti un frozen faili nav mainīti.
 11. Jaunā čata sākuma izvade ir saīsināta līdz aktuālajam posmam, vienam uzdevumam un dokumenta atsaucei; tehniskā continuity pārbaude notiek klusi, un jauns trigeris tiek vērtēts tikai pēc pašreizējā uzdevuma pabeigšanas.
 12. Neatkarīgās R1–R5 recenzijas pilnais uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`.
+13. Recenzentam izsniedzamais fails ir saīsināts līdz konkrētajam uzdevumam, pārbaudes jautājumiem un rezultāta formai; pēc konsensa lietotājam obligāti sniedz īsu pieņemtā dokumenta un lēmumu kopsavilkumu.
 
 ## 5. User-approved decisions in force
 
@@ -90,6 +91,7 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - Pie procesa posma, primārā dokumenta vai patstāvīga milestone maiņas jāizvērtē obligātais jaunā čata trigeris; gatavu pārejas ziņojumu drīkst izdot tikai pēc readiness gate izpildes.
 - Viens čats izpilda vienu `EXACT NEXT TASK`; iepriekšējā handoff trigeri jaunā čata sākumā uzskata par patērētu un nākamo trigeri nevērtē, kamēr aktuālais uzdevums nav pabeigts.
 - Sekmīgas continuity pārbaudes tehnisko telemetriju lietotājam pēc noklusējuma nerāda; sākumā parāda tikai aktuālo posmu, pilno uzdevumu vai uzdevuma faila atsauci un recenzējamo vai maināmo dokumentu.
+- Ja aktuālais solis ir neatkarīgās recenzijas uzdevuma nodošana, lietotājam rāda tikai pilnu kopējamo uzdevumu bez procesa ievada; pēc konsensa īsi apkopo pieņemto dokumentu un galvenos lēmumus.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
 
 ## 6. Review #16 current open findings
