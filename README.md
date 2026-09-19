@@ -21,6 +21,7 @@ Iesaldēšanas datums: 2026-09-18.
 - `PROJECT_EXECUTION_PROTOCOL.md` — obligātā projekta izpildes kārtība: roadmap kontrole, review, lietotāja konsenss, implementation, audits un atsevišķs freeze lēmums. Tas nav 14. arhitektūras pamatdokuments.
 - `NEW_CHAT_START_TASK.md` — atkārtojamais jaunā čata konteksta atjaunošanas uzdevums.
 - `PROJECT_CURRENT_STATE.md` — vienīgais dinamiskais starpčatu handoff ar pēdējo darba punktu, atvērtajiem blokatoriem un vienu precīzu nākamo uzdevumu; tas nav arhitektūras authority.
+- `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md` — pilnais aktuālais uzdevums neatkarīgai Review #16 R1–R5 atbildes recenzijai.
 - `.github/workflows/continuity-validation.yml` — GitHub `main` primārais continuity pārbaudes vārts; tā sekmīgs rezultāts konkrētam commitam aizstāj lokāla worktree nepieciešamību.
 - `TOOLS/validate_project_continuity.ps1` — fail-closed pārbaude, ko GitHub Actions izpilda `GitHub` režīmā un lokāls klons pēc vajadzības izpilda `Handoff` režīmā; tā validē state laukus, atsauču failus, autorizācijas, commit identitāti un frozen failu delta deklarāciju.
 

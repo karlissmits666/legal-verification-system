@@ -138,39 +138,41 @@ Vienā dokumentā arī nepaliek bezgalīgi: kad tā blocking arhitektūras jaut�
 
 Katras jaunas būtiskas projekta sarunas sākumā izpilda `NEW_CHAT_START_TASK.md`. Tas prasa pārbaudīt current `main` un izlasīt `PROJECT_CONSTITUTION_v1.md`, šo protokolu, `PROJECT_CURRENT_STATE.md`, `README.md`, `PROJECT_ROADMAP_v1.md` un nākamajam uzdevumam norādītos frozen, draft, review un audita failus. Vecs sarunas handoff neaizstāj aktuālo repo.
 
-Pirms satura maiņas jānorāda:
+Continuity pārbaudi veic klusi. Pirms satura maiņas lietotājam norāda tikai:
 
 ```text
-CURRENT ROADMAP DOCUMENT:
-CURRENT VERSION / STATUS:
-CURRENT OBJECTIVE:
-DEPENDENCIES:
-NEXT BLOCKED DOCUMENT:
+AKTUĀLAIS POSMS:
+AKTUĀLAIS UZDEVUMS:
+RECENZĒJAMAIS / MAINĀMAIS DOKUMENTS:
 ```
 
-Ja darbs aptver vairākus dokumentus, norāda vienu primāro dokumentu un visus tieši ietekmētos dokumentus. Review vai procesa fails nav jānosauc par primāro roadmap dokumentu; jānosauc pamatdokuments, kura arhitektūra tiek vērtēta.
+Repo piekļuves režīmu, commit un workflow identifikatorus, worktree, push, frozen delta un pilno validācijas bloku sākuma atbildē nerāda, ja vien validācija nav izgāzusies vai lietotājs to tieši nepieprasa.
+
+Ja ir atsevišķs repo uzdevuma fails, pietiek norādīt tā ceļu. Ja uzdevums paredz nodošanu neatkarīgam recenzentam, izsniedz pilnu recenzijas uzdevumu un pats recenziju nesāk. Review vai procesa fails nav primārais roadmap dokuments, bet tas drīkst būt redzamais aktuālā uzdevuma fails.
 
 ## 6. Obligātais darba sesijas noslēgums
 
 Katras būtiskas sesijas beigās jānorāda:
 
 ```text
+CURRENT TASK STATUS: COMPLETE / IN PROGRESS / WAITING FOR EXTERNAL REVIEW
 COMPLETED:
 EVIDENCE / REVIEW:
 UNRESOLVED:
 ROADMAP IMPACT:
 NEXT FROZEN / REVIEW STEP:
-NEW CHAT TRIGGER: NOT REQUIRED / REQUIRED — NOT READY / REQUIRED — READY
 ```
 
-Noslēgumam jāpasaka arī:
+`NEW CHAT TRIGGER` rindu pievieno tikai tad, ja `CURRENT TASK STATUS: COMPLETE` un ir identificēts cits izpildāms uzdevums. To nepievieno statusam `IN PROGRESS` vai `WAITING FOR EXTERNAL REVIEW`.
+
+Repo pierādījumos saglabā, bet lietotājam pēc noklusējuma neizdrukā tehnisko telemetriju. Noslēgumam pietiek pateikt:
 
 - precīzs commit SHA, ja commits veikts;
-- izmantotais repo piekļuves režīms; lokālā režīmā — vai darba koks ir tīrs, GitHub režīmā — ka worktree pārbaude nav piemērojama;
-- vai izmaiņas nosūtītas uz `main`;
-- vai frozen faili mainīti;
-- vai freeze ir vai nav atļauts;
+- radītais vai pārbaudītais artefakts;
+- būtiskais rezultāts un neatrisinātais jautājums;
 - viens konkrēts nākamais solis.
+
+Piekļuves režīmu, workflow run, worktree, push un failu delta detaļas rāda tikai pēc lietotāja pieprasījuma vai tad, ja tās ir blokators.
 
 Ja sesijas laikā mainījies projekta stāvoklis, pirms noslēguma atjaunina `PROJECT_CURRENT_STATE.md` atbilstoši `NEW_CHAT_START_TASK.md` continuity prasībām. State failā obligāti paliek viens konkrēts `EXACT NEXT TASK` un tā autorizācijas robežas. Ja stāvoklis nav mainījies, failu nepārraksta tikai datuma dēļ.
 
@@ -178,9 +180,11 @@ Statusa ziņojums bez nākamās darbības nav pietiekams.
 
 ### 6.1. Obligātais jaunā čata trigeris
 
-Sesijas noslēgumā un pirms pārejas uz jaunu darba posmu obligāti izvērtē, vai jāatver jauns čats.
+Viens čats apkalpo vienu `EXACT NEXT TASK`. Trigeri nevērtē un neizvada jaunā čata sākumā. Iepriekšējā čata `REQUIRED — READY` ir ienākošā handoff atļauja, kas pēc sekmīgas klusās continuity pārbaudes tiek uzskatīta par patērētu; tā nav pavēle tūlīt sākt vēl vienu čatu.
 
-`NEW CHAT REQUIRED` iestājas, ja izpildās vismaz viens nosacījums:
+Jauno trigeri pirmoreiz vērtē tikai tad, kad pašreizējais `EXACT NEXT TASK` ir pabeigts un ir identificēts cits izpildāms uzdevums. Kamēr pašreizējais uzdevums turpinās, trigeri nerāda. Ja uzdevums ir nodots ārējam neatkarīgam recenzentam un tiek gaidīta atbilde, statuss ir `WAITING FOR EXTERNAL REVIEW`; jaunu čatu neprasa līdz atbildes saņemšanai.
+
+Pēc pašreizējā uzdevuma pabeigšanas `NEW CHAT REQUIRED` iestājas, ja izpildās vismaz viens nosacījums:
 
 1. lietotājs skaidri pieprasa jaunu čatu;
 2. mainās primārais roadmap dokuments;
@@ -190,7 +194,7 @@ Sesijas noslēgumā un pirms pārejas uz jaunu darba posmu obligāti izvērtē, 
 6. sarunas konteksts ir kompresēts, fragmentēts vai kļuvis tik apjomīgs, ka nākamā uzdevuma lēmumu ķēdi drošāk rekonstruēt no repo;
 7. atklāts, ka būtiska aktuālā informācija dzīvo tikai čatā vai pielikumā un pirms nākamā posma tā jāpārnes repo.
 
-Ja turpinās tas pats precīzi definētais uzdevums, nav mainījies procesa posms un konteksts ir pilnīgs, norāda `NEW CHAT TRIGGER: NOT REQUIRED`.
+Ja turpinās tas pats precīzi definētais uzdevums, uzdevums vēl nav pabeigts vai tiek gaidīts šā paša uzdevuma ārējs review rezultāts, jauna čata trigeri lietotājam neizvada.
 
 Trigerim ir trīs iespējamie rezultāti:
 
@@ -214,7 +218,7 @@ Ja trigeris ir iestājies, bet continuity readiness nosacījumi nav izpildīti, 
 8. nav neizskaidrotas pretrunas starp state failu, roadmap un owner artefaktiem.
 9. current `main` commitam GitHub Actions pārbaude `Continuity Validation` ir sekmīga; lokālā režīmā alternatīvi `TOOLS/validate_project_continuity.ps1 -Mode Handoff` ir atgriezis `CONTINUITY VALIDATION: PASS`.
 
-Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada aizpildītu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus.
+Kad statuss ir `REQUIRED — READY`, asistents bez papildu lietotāja pieprasījuma noslēguma atbildē izvada īsu `NEW CHAT COPY MESSAGE` pēc `NEW_CHAT_START_TASK.md` veidnes. Ziņojumā nedrīkst atstāt placeholderus vai tehnisko continuity telemetriju.
 
 ## 7. Pilnais dokumenta un problēmas dzīves cikls
 

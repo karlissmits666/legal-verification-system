@@ -75,6 +75,8 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 8. Fail-closed continuity validators un tā obligātā handoff pārbaude ir ieviesta commitā, ko nosaka kā šī faila jaunāko mainošo commit.
 9. GitHub-native continuity pārbaude ir noteikta par primāro režīmu; lokāls klons vai lokāla worktree nav priekšnoteikums jaunā čata sākšanai.
 10. Formālā Review #16 R1–R5 atbilde ir fiksēta repo atsevišķā review-response artefaktā; šajā commitā arhitektūras drafti un frozen faili nav mainīti.
+11. Jaunā čata sākuma izvade ir saīsināta līdz aktuālajam posmam, vienam uzdevumam un dokumenta atsaucei; tehniskā continuity pārbaude notiek klusi, un jauns trigeris tiek vērtēts tikai pēc pašreizējā uzdevuma pabeigšanas.
+12. Neatkarīgās R1–R5 recenzijas pilnais uzdevums ir fiksēts `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`.
 
 ## 5. User-approved decisions in force
 
@@ -86,6 +88,8 @@ Frozen faili pašreizējā Review #16 darbā nav mainīti.
 - Konstitūcija un protokols nav papildu 13 programmas pamatdokumenti.
 - Katram jaunam būtiskam čatam jāatjauno konteksts no repo un šī continuity ieraksta tā, lai nebūtu information gap.
 - Pie procesa posma, primārā dokumenta vai patstāvīga milestone maiņas jāizvērtē obligātais jaunā čata trigeris; gatavu pārejas ziņojumu drīkst izdot tikai pēc readiness gate izpildes.
+- Viens čats izpilda vienu `EXACT NEXT TASK`; iepriekšējā handoff trigeri jaunā čata sākumā uzskata par patērētu un nākamo trigeri nevērtē, kamēr aktuālais uzdevums nav pabeigts.
+- Sekmīgas continuity pārbaudes tehnisko telemetriju lietotājam pēc noklusējuma nerāda; sākumā parāda tikai aktuālo posmu, pilno uzdevumu vai uzdevuma faila atsauci un recenzējamo vai maināmo dokumentu.
 - Freeze vienmēr prasa atsevišķu, skaidru lietotāja apstiprinājumu.
 
 ## 6. Review #16 current open findings
@@ -112,11 +116,12 @@ R1–R5 un pašreizējā projekta pozīcija:
 ## 7. Exact next task
 
 ```text
-Nodot `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`
-neatkarīgai recenzenta pārbaudei pret Review #16 otrās kārtas review,
-integrēto bāzi un current amendment draftiem. Neveikt arhitektūras
-implementation pirms recenzenta apstiprinājuma, konsensa un atsevišķa
-lietotāja implementation approval.
+Nodot neatkarīgam recenzentam pilno repo uzdevumu
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`.
+Recenzentam jāatgriež viens pilns recenzijas dokumenta drafts par
+`GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`.
+Projekta izpildes asistents pats šo neatkarīgo recenziju neveic un pirms
+recenzenta rezultāta neveic arhitektūras implementation.
 ```
 
 Autorizācija:
@@ -143,13 +148,14 @@ Obligāti izlasīt pilnā apjomā:
 8. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16.md`;
 9. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_DELTA_REVIEW_RESPONSE.md`;
 10. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_DELTA_RESPONSE_REVIEW.md`;
-11. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`;
-12. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
-13. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
-14. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
-15. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
-16. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
-17. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
+11. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_REVIEW_TASK.md`;
+12. `GOVERNANCE/TRACEABILITY_ISS_INSTANTIATION_REVIEW16_R1_R5_RESPONSE.md`;
+13. `GOVERNANCE/TRACEABILITY_RECORD_v1_v0.6.md` relevantās §5.1, §6, §11, §14, §34, §36, §38, §44–45 un statusa sadaļas;
+14. `GOVERNANCE/TERMINOLOGY_AND_ENUMS_v1_v0.4.md` relevantās §25–26.3, kontrolēto reģistru un statusa sadaļas;
+15. `GOVERNANCE/PROFESSIONAL_SCOPE_v1.4.md` AI un traceability sadaļas;
+16. `GOVERNANCE/LEGAL_CLASSIFICATION_BASELINE_AMENDMENT_v0.2.md`;
+17. `GOVERNANCE/MODULE_TRIGGER_REGISTRY_v1.md`;
+18. `GOVERNANCE/OUTSOURCING_EBA_MODULE_TRIGGER_SET_v0.1.md`.
 
 ## 9. Known non-actions
 
@@ -165,11 +171,11 @@ Nākamais čats nedrīkst:
 ## 10. New chat handoff assessment
 
 ```text
-NEW CHAT TRIGGER: REQUIRED
+INBOUND HANDOFF STATUS: READY FOR ONE NEW CHAT
 
-TRIGGER BASIS:
-continuity procesa milestone ir pabeigts, bet nākamais uzdevums ir
-atsevišķs Review #16 review-response posms ar citu galveno rezultātu.
+START RULE:
+pēc sekmīgas klusās continuity pārbaudes šis handoff tiek uzskatīts par
+patērētu. Jaunā čata sākumā `NEW CHAT TRIGGER` netiek izvadīts.
 
 READINESS:
 READY tikai tad, ja šā faila jaunākais commits ir current HEAD,
@@ -179,6 +185,10 @@ Ja faktiski izmanto lokālu klonu, alternatīvi der
 `TOOLS/validate_project_continuity.ps1 -Mode Handoff` rezultāts
 `CONTINUITY VALIDATION: PASS` pie `HEAD = origin/main` un tīra darba koka.
 
-NEXT CHAT EXACT TASK:
-izpildīt 7. sadaļā norādīto neatkarīgās R1–R5 atbildes recenzijas uzdevumu.
+CURRENT CHAT EXACT TASK:
+izsniegt 7. sadaļā norādīto pilno neatkarīgās R1–R5 recenzijas uzdevumu.
+
+NEXT TRIGGER EVALUATION:
+tikai pēc recenzijas rezultāta saņemšanas un pašreizējā uzdevuma
+pabeigšanas; gaidot ārējo recenziju, jauns čats netiek prasīts.
 ```
